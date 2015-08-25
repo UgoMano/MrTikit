@@ -36,13 +36,19 @@ Mr Tikit will also provide many event management features such as promotions, em
 * Support ticket system
 * Scheduled event page posting (# tickets left, event starting soon)
 * Guest list search
+* Custom events(Without Facebook)
+* Event notifications
 
 
 ####Milestones
 
+######Focus
 1. Complete documentation
 2. Build backend REST Api
 3. Create a website with only printable tickets and simple barcode scanning
 4. Create a mobile app for users as well as a simple QR scanner for admins
 5. Create an admin mobile app that allows admins to manage the entire event from their mobile devices
-6. Graduate from Drexel
+
+######Dream Goals
+1. Create a Mr Tikit event type that allows to create events without Facebook
+2. Add a notification system to provide users notifications for upcoming or future events	
