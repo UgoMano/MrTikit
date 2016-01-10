@@ -32,18 +32,18 @@
 			}
 		},
 		{
-			"file": "MrTikit/urls.py",
-			"settings":
-			{
-				"buffer_size": 594,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "MrTikit/settings.py",
 			"settings":
 			{
 				"buffer_size": 3609,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MrTikit/urls.py",
+			"settings":
+			{
+				"buffer_size": 594,
 				"line_ending": "Unix"
 			}
 		},
@@ -88,6 +88,7 @@
 	},
 	"expanded_folders":
 	[
+		"/home/midevilworm/_git/mrtikit",
 		"/home/midevilworm/_git/mrtikit/MrTikit",
 		"/home/midevilworm/_git/mrtikit/MrTikit/mrtikit"
 	],
@@ -157,7 +158,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -173,8 +174,8 @@
 						"selection":
 						[
 							[
-								178,
-								178
+								704,
+								704
 							]
 						],
 						"settings":
@@ -185,11 +186,41 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "MrTikit/settings.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3609,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								859,
+								859
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 867.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "MrTikit/urls.py",
 					"semi_transient": false,
 					"settings":
@@ -219,36 +250,6 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "MrTikit/settings.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 3609,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1329,
-								1329
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
 					"file": "MrTikit/mrtikit/serializers.py",
 					"semi_transient": false,
@@ -273,7 +274,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
