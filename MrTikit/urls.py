@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^', include(router.urls)),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^sign_up/$', views.SignUp.as_view(), name="sign_up"),
 )
