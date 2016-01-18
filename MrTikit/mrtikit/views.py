@@ -16,7 +16,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated, TokenHasScope]
     required_scopes = ['groups']
     queryset = Group.objects.all()
-    serializer_class = GroupSerializer\
+    serializer_class = GroupSerializer
 
 class SignUp(generics.CreateAPIView):
     queryset = User.objects.all()
