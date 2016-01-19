@@ -2,3 +2,4 @@ django
 djangorestframework
 django-oauth-toolkit
 MySQL-python
+django-registration
