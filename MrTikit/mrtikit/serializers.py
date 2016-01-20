@@ -12,7 +12,7 @@ class SignUpSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'email', 'first_name', 'last_name')
+        fields = ('username', 'password', 'email', 'first_name', 'last_name', 'is_active')
         write_only_fields = ('password',)
 
     def create(self, validated_data):
@@ -21,6 +21,8 @@ class SignUpSerializer(serializers.ModelSerializer):
         for attr, value in validated_data.items():
             if attr == 'password':
                 instance.set_password(value)
+            elif attr == 'is_active':
+                setattr(instance, attr, 'true')
             else:
                 setattr(instance, attr, value)
         instance.save()
@@ -72,19 +74,18 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop('userprofile', None)
-        password = validated_data.pop('password', None)
 
         for attr, value in validated_data.items():
             if attr == 'password':
-                setattr(instance, attr, make_password(value))
+                instance.set_password(value)
+                instance.save()
+                update_session_auth_hash(self.context.get('request'), instance)
+            elif attr == 'is_active':
+                setattr(instance, attr, 'true')
             else:
                 setattr(instance, attr, value)
         instance.save()
-
-        if password:
-            instance.set_password(password)
-            instance.save()
-            update_session_auth_hash(self.context.get('request'), instance)
+            
 
         if profile_data:
             if not instance.userprofile:
