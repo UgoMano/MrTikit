@@ -1,3 +1,108 @@
-.test {
-  color: #00ff00;
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+.mainContent {
+  z-index: 1;
+}
+.landing {
+  background: url(../images/landing.png) center no-repeat;
+  background-size: contain;
+  height: 46em;
+  padding-top: 20em;
+  margin-top: 3em;
+}
+.landingText {
+  color: #ffffff;
+  font: 60px / 26px Mission;
+  text-align: center;
+  height: 1em;
+}
+.appstore {
+  background: url(../images/appstore.png) center no-repeat;
+  height: 49px;
+}
+.googleplay {
+  background: url(../images/googleplay.png) center no-repeat;
+  height: 49px;
+}
+.center {
+  text-align: center;
+}
+.roundIconContainer {
+  display: block;
+}
+.callout {
+  height: 7.5em;
+  width: 100%;
+  margin-top: 2em;
+  padding-top: 1.7em;
+  background: url(../images/callout.png) no-repeat center;
+}
+.calloutIcon {
+  color: #fff;
+}
+.calloutHeader {
+  font-weight: bold;
+  font-size: 14pt;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+.calloutText {
+  font-size: 10pt;
+  color: #848484;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.manage {
+  background: url(../images/manage.png) no-repeat center;
+  height: 26em;
+  background-size: contain;
+  background-color: #e3e3e3;
+  margin-top: 5em;
+}
+.tour {
+  background-color: #fff;
+  height: 35em;
+}
+.tourHeader {
+  color: #c23b22;
+  font-size: 18pt;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.tourTitle {
+  color: #c23b22;
+  font-size: 16pt;
+  font-weight: bold;
+  margin-left: 2em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.tourText {
+  color: #848484;
+  margin-left: 3em;
+  padding-right: 15em;
+}
+.tourImage {
+  width: 65em;
+  margin-left: 10em;
+  margin-top: -4em;
+}
+.subscribe {
+  background: url(../images/subscribe.png) no-repeat center;
+  background-size: contain;
+  height: 34.2em;
+}
+.footer {
+  background-color: #e3e3e3;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.footerText {
+  display: inline;
+  color: #848484;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }

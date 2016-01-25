@@ -12,6 +12,9 @@
     <!-- Bootstrap -->
     <link rel='stylesheet' href="lib/bootstrap/dist/css/bootstrap.min.css" />
 
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+
     <!-- This comes from the autoprefixed scss file -->
     <link rel="stylesheet" href="styles/mainStyleFixed.css">
 
@@ -22,7 +25,7 @@
     <!--[if lt IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-      <div class="header">
+    <div class="header">
         <div class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -44,31 +47,43 @@
         </div>
     </div>
 
-    <div ui-view class='mainContent container'></div>
+    <div ui-view class='mainContent container-fluid'></div>
 
     <div class="footer">
         <div class="container">
-            <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 center">
+                    <div class="footerText">Contact</div>
+                    <div class="footerText">Download</div>
+                    <div class="footerText">Press</div>
+                    <div class="footerText">Email</div>
+                    <div class="footerText">Support</div>
+                    <div class="footerText">Privacy Policy</div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <!-- Bower Components -->
-    <script src="lib/angular/angular.min.js"></script>
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/angular-animate/angular-animate.min.js"></script>
-    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
-    <script src="lib/angular-resource/angular-resource.min.js"></script>
-    <script src="lib/angular-route/angular-route.min.js"></script>
-    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="lib/angular-touch/angular-touch.min.js"></script>
-    <script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
-    <!-- End Bower Components -->
+        <!-- Google Fonts -->
+        <link href='http://fonts.gooleapis.com/css?family=
+                mission' rel='stylesheet' type='text/css'>
 
-    <!-- scripts-->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <!-- END scripts -->
+        <!-- Bower Components -->
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="lib/angular-animate/angular-animate.min.js"></script>
+        <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+        <script src="lib/angular-resource/angular-resource.min.js"></script>
+        <script src="lib/angular-route/angular-route.min.js"></script>
+        <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="lib/angular-touch/angular-touch.min.js"></script>
+        <script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
+        <!-- End Bower Components -->
+
+        <!-- scripts-->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- END scripts -->
 </body>
 
 </html>
