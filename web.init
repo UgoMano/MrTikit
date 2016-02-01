@@ -1,0 +1,2 @@
+docker build -t mt-web-image -f web/web.docker .
+docker run --name mt-web -d -i -t -p 80:80 --restart=on-failure:10 wt-web-image /sbin/my_init
