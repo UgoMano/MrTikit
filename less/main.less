@@ -18,10 +18,11 @@
 
 .landing {
     background: url(../images/landing.png) center no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
     height: 46em;
     padding-top: 20em;
     margin-top: 3em;
+    position: relative;
 }
 
 .landingText {
@@ -39,6 +40,23 @@
 .googleplay {
     background: url(../images/googleplay.png) center no-repeat;
     height: 49px;
+}
+.landingButtonContainer {
+    bottom: 0;
+    position: absolute;
+}
+.landingButton {
+    cursor: pointer;
+    text-align: center;
+    font-size: 16pt;
+    background-color: @MT_RED;
+    color: @MT_WHITE;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    width: 94%;
+    margin-left: 6%;
+    //margin-top: 9.9em;
+    border-radius: .4em;
 }
 
 .center {
@@ -79,7 +97,7 @@
 .manage {
     background: url(../images/manage.png) no-repeat center;
     height: 26em;
-    background-size: contain;
+    background-size: 100% 100%;
     background-color: @MT_LGRAY;
     margin-top: 5em;
 }
@@ -187,10 +205,13 @@
 .subscribeInput {
     width: 14em;
     height: 2em;
+    border: 0;
+    padding-left: .5em;
 }
 .subscribeIconContainer {
     background-color: @MT_RED;
     padding: .4em .6em;
+    cursor: pointer;
 }
 .subscribeIcon {
     color: @MT_WHITE;
@@ -207,4 +228,5 @@
     color: @MT_GRAY;
     padding-left: 1.5em;
     padding-right: 1.5em;
+    cursor: pointer;
 }

@@ -9,6 +9,9 @@
  */
 angular.module('mrtikitApp').controller('MainCtrl', function ($scope) {
      console.log('main')
+     $scope.createEvent = function() {
+         console.log('Create Event');
+     }
      $scope.tour = [{'title':'Create event', 
                      'text':'The user hits the Create Event button, then inputs the event information (e.g. name, date, time, location, photo, additional information, etc). Also, the user can specify the ticket type (e.g. General Admission, VIP, etc).'},
                     {'title':'Purchase tickets', 
@@ -36,6 +39,9 @@ angular.module('mrtikitApp').controller('MainCtrl', function ($scope) {
         console.log($scope.tourIndex);
     }
     $scope.learnMore = function() {
-        console.log('Learn More');
+        console.log('Learn More: ' +$scope.tour[$scope.tourIndex].title);
+    }
+    $scope.subscribe = function(email) {
+        console.log('Subscribe: '+email);
     }
 });
