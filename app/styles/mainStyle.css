@@ -5,6 +5,7 @@
 }
 .mainContent {
   z-index: 1;
+  font: 'Helvetica Neue';
 }
 .landing {
   background: url(../images/landing.png) center no-repeat;
@@ -15,7 +16,7 @@
 }
 .landingText {
   color: #ffffff;
-  font: 60px / 26px Mission;
+  font: 60px / 26px 'Cookie';
   text-align: center;
   height: 1em;
 }
@@ -30,7 +31,7 @@
 .center {
   text-align: center;
 }
-.roundIconContainer {
+.calloutContainer {
   display: block;
 }
 .callout {
@@ -44,6 +45,7 @@
   color: #fff;
 }
 .calloutHeader {
+  font-family: 'Raleway';
   font-weight: bold;
   font-size: 14pt;
   padding-top: .5em;
@@ -52,8 +54,8 @@
 .calloutText {
   font-size: 10pt;
   color: #848484;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 4.8em;
+  padding-right: 4.8em;
 }
 .manage {
   background: url(../images/manage.png) no-repeat center;
@@ -62,38 +64,106 @@
   background-color: #e3e3e3;
   margin-top: 5em;
 }
+.manageContainer {
+  padding-left: 15em;
+  padding-right: 10em;
+  padding-top: 5em;
+}
+.manageTitle {
+  font-family: 'Raleway';
+  font-size: 14pt;
+  font-weight: bold;
+  color: #c23b22;
+  margin-bottom: 1em;
+}
+.manageText {
+  font-family: 'Helvetica Neue';
+  color: #848484;
+}
 .tour {
   background-color: #fff;
   height: 35em;
 }
 .tourHeader {
   color: #c23b22;
+  font-family: 'Raleway';
   font-size: 18pt;
   margin-top: 2em;
   margin-bottom: 2em;
 }
 .tourTitle {
   color: #c23b22;
+  font-family: 'Raleway';
   font-size: 16pt;
   font-weight: bold;
   margin-left: 2em;
   margin-bottom: 1em;
   margin-top: 1em;
+  height: 1.5em;
 }
 .tourText {
   color: #848484;
   margin-left: 3em;
   padding-right: 15em;
+  height: 6em;
 }
 .tourImage {
   width: 65em;
   margin-left: 10em;
   margin-top: -4em;
 }
+.tourButton {
+  cursor: pointer;
+  margin-top: 1em;
+  margin-left: 3em;
+  color: #fff;
+  background-color: #c23b22;
+  width: 10em;
+  padding: .5em;
+  text-align: center;
+  border-radius: .4em;
+}
+.tourCount {
+  color: #848484;
+  margin-left: 3em;
+  margin-top: 1em;
+}
+.tourControlContainer {
+  color: #848484;
+  margin-left: 3em;
+  margin-top: .5em;
+}
+.tourControl {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: .4em;
+}
 .subscribe {
   background: url(../images/subscribe.png) no-repeat center;
   background-size: contain;
   height: 34.2em;
+  padding-top: 15em;
+}
+.subscribeText {
+  color: #fff;
+  font-family: 'Raleway';
+  text-align: center;
+  font-size: 22pt;
+  margin-bottom: 1em;
+}
+.subscribeInputContainer {
+  text-align: center;
+}
+.subscribeInput {
+  width: 14em;
+  height: 2em;
+}
+.subscribeIconContainer {
+  background-color: #c23b22;
+  padding: .4em .6em;
+}
+.subscribeIcon {
+  color: #fff;
 }
 .footer {
   background-color: #e3e3e3;
