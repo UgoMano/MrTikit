@@ -13,8 +13,8 @@ ADD git.init /tmp/git.sh
 RUN /tmp/git.sh web-master
 RUN rm /tmp/git.sh
 RUN mkdir -p /etc/init.d/
-ADD frontend/startup.sh /etc/my_init.d/startup.sh
-ADD frontend/mrtikit.conf /etc/apache2/sites-available/mrtikit.conf
+ADD web/startup.sh /etc/my_init.d/startup.sh
+ADD web/mrtikit.conf /etc/apache2/sites-available/mrtikit.conf
 RUN a2dissite 000-default
 RUN a2ensite mrtikit 
 

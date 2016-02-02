@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /opt/MrTikit
+cd /MrTikit
 export GIT_SSH=/root/.ssh/git_wrap.sh
 export EMAIL=joshbauer3@gmail.com
 git fetch origin web-master --depth 1

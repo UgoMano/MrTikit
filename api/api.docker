@@ -2,11 +2,11 @@ FROM phusion/baseimage
 
 MAINTAINER Josh Bauer
 
-RUN DEBIAN_FRONTEND='noninteractive' apt-get update; apt-get install -y git python;
+RUN DEBIAN_FRONTEND='noninteractive' apt-get update; apt-get install -y git python python-pip;
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN pip install virtualenv
+RUN pip install --upgrade pip; pip install --upgrade virtualenv
 
 ADD id_rsa /root/.ssh/git_rsa
 RUN chmod 600 /root/.ssh/git_rsa
@@ -15,6 +15,6 @@ ADD git.init /tmp/git.sh
 RUN /tmp/git.sh api-master
 RUN rm /tmp/git.sh
 RUN mkdir -p /etc/init.d/
-ADD backend/startup.sh /etc/my_init.d/startup.sh
+ADD api/startup.sh /etc/my_init.d/startup.sh
 
 EXPOSE 8000

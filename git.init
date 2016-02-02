@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /root/
+cd /
 export GIT_SSH=/root/.ssh/git_wrap.sh
 git clone git@github.com:steveacalabro/MrTikit.git -b $1 --depth 1
 cd
