@@ -35,6 +35,7 @@ class UserProfileSerializer:
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     username = serializers.CharField(required=False)
     fb_token = serializers.CharField(source='userprofile.fb_token', required=False)
+    is_active = serializers.NullBooleanField(required=False, default=None)
 
     class Meta:
         model = User
@@ -46,9 +47,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "password", 
             "last_login", 
             "is_superuser", 
-            "username", 
+            "is_active",
             "is_staff", 
-            "is_active", 
+            "username", 
             "date_joined",
             "groups",
             "user_permissions",
@@ -81,7 +82,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
                 instance.save()
                 update_session_auth_hash(self.context.get('request'), instance)
             elif attr == 'is_active':
-                setattr(instance, attr, 'true')
+                if value is not None:
+                    setattr(instance, attr, value)
+                   # setattr(instance, attr, True)
             else:
                 setattr(instance, attr, value)
         instance.save()
