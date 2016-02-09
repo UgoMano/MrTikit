@@ -56,7 +56,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "user_permissions",
             "fb_token"
         )
-
+  
     ''' 
     def validate(self, data):
         # Making sure the username always matches the email

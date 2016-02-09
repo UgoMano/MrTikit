@@ -85,11 +85,12 @@
       console.log(response);
       	var data = {
       		grant_type: "convert_token",
-      		client_id: "541547949359653",
-      		client_secret: "811d6caecceef141ece0b86d41e3fc96",
+      		client_id: "lQvKqyOZNxetCcTtZAKoDhZxQokafsmeKhyv0c48",
+      		client_secret: "VKKyTooWWdamUJV3IUlOgq0MQrmOpCQTC9L6OEzilyP8lYhOlON67nl7Tb23TckyRGL5lH8N3auIsdHIqAqFlewqjB0u12Vb1z9Y1G0t1UKYW4iKOBX46BxGUwpGIdgn",
       		backend: "facebook",
       		token: authId,
-      		crossDomain : true
+      		crossDomain : true,
+      		contentType: "application/x-www-form-urlencoded"
       	}
       	$.ajax({
 		  type: "POST",
