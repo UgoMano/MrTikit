@@ -13,7 +13,8 @@ router.register(r'groups', views.GroupViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = patterns('',
     url(r'^', include(router.urls)),
-    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    #url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sign_up/$', views.SignUp.as_view(), name="sign_up"),
+    url(r'^auth/', include('rest_framework_social_oauth2.urls')),
 )

@@ -36,6 +36,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     username = serializers.CharField(required=False)
     fb_token = serializers.CharField(source='userprofile.fb_token', required=False)
     is_active = serializers.NullBooleanField(required=False, default=None)
+    password = serializers.CharField(required=False)
 
     class Meta:
         model = User
