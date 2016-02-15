@@ -3,10 +3,6 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
-/*app.datasource['mysqlDB'].automigrate(['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'], function(err) {
-     console.log(err);
-});*/
-
 app.start = function() {
   // start the web server
   return app.listen(function() {
