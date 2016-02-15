@@ -6,7 +6,6 @@ var app = module.exports = loopback();
 /*app.datasource['mysqlDB'].automigrate(['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'], function(err) {
      console.log(err);
 });*/
-console.log(app.datasources['mysqlDB']);
 
 app.start = function() {
   // start the web server

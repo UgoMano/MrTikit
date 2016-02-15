@@ -6,7 +6,7 @@
   "mysqlDB": {
     "name": "mysqlDB",
     "connector": "mysql",
-    "host": "http://localhost/",
+    "host": "localhost",
     "port": 3306,
     "database": "mrtikit",
     "username": "mrtikit",
