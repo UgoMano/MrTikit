@@ -66,7 +66,7 @@
   padding-top: 2.5px;
   padding-bottom: 2.5px;
 }
-.landingpage .landing {
+.landingpage .landingImage {
   background: url(../images/landing.png) center no-repeat;
   background-size: 100% 100%;
   height: 40em;
@@ -101,8 +101,6 @@
   color: #fff;
   padding-top: .3em;
   padding-bottom: .3em;
-  width: 94%;
-  margin-left: 6%;
   border-radius: .4em .4em 0 0;
 }
 .landingpage .center {
@@ -111,6 +109,7 @@
 .landingpage .calloutContainer {
   display: block;
   padding-top: 3em;
+  padding-bottom: 3em;
 }
 .landingpage .callout {
   height: 7.5em;
@@ -124,12 +123,12 @@
 .landingpage .calloutHeader {
   font-family: 'Raleway';
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 22px;
   padding-top: .5em;
   padding-bottom: .5em;
 }
 .landingpage .calloutText {
-  font-size: 1em;
+  font-size: 16px;
   color: #848484;
   padding-left: 4.5em;
   padding-right: 4.5em;
@@ -148,7 +147,7 @@
 }
 .landingpage .manageTitle {
   font-family: 'Raleway';
-  font-size: 1.5em;
+  font-size: 22px;
   font-weight: bold;
   color: #c23b22;
   margin-bottom: 1em;
@@ -156,7 +155,7 @@
 .landingpage .manageText {
   font-family: 'Helvetica Neue';
   color: #848484;
-  font-size: 1em;
+  font-size: 16px;
 }
 .landingpage .tour {
   background-color: #fff;
@@ -165,15 +164,15 @@
 .landingpage .tourHeader {
   color: #c23b22;
   font-family: 'Raleway';
-  font-size: 18pt;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  font-size: 30px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   height: 3em;
 }
 .landingpage .tourTitle {
   color: #c23b22;
   font-family: 'Raleway';
-  font-size: 16pt;
+  font-size: 22px;
   font-weight: bold;
   margin-left: 2.5em;
   margin-bottom: 1em;
@@ -182,9 +181,10 @@
 }
 .landingpage .tourText {
   color: #848484;
-  margin-left: 3em;
-  padding-right: 15em;
+  margin-left: 3.5em;
+  padding-right: 2em;
   height: 12em;
+  font-size: 16px;
 }
 .landingpage .tourImage {
   width: 65em;
@@ -230,7 +230,7 @@
   color: #fff;
   font-family: 'Raleway';
   text-align: center;
-  font-size: 22pt;
+  font-size: 30px;
   margin-bottom: 1em;
 }
 .landingpage .subscribeInputContainer {
