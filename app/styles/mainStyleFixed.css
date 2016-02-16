@@ -1,7 +1,7 @@
 .header {
   position: absolute;
   top: 0;
-  height: 3em;
+  height: 2em;
   width: 100%;
   z-index: 2;
   background: rgba(255, 255, 255, 0);
@@ -12,65 +12,88 @@
   top: 0;
   background-color: #c23b22;
 }
-.navbar-MT {
+.header.ui-scrollpoint .navbar-MT {
+  background-color: #c23b22;
+  border-radius: 0;
+  font-size: 18px;
+}
+.header.ui-scrollpoint .navbar-brand {
+  color: #fff;
+  font-family: 'Cookie';
+  font-size: 24px;
+}
+.header.ui-scrollpoint .navbar-brand:hover {
+  color: #848484;
+}
+.header.ui-scrollpoint .nav > li > a {
+  color: #fff;
+  font-family: 'Raleway';
+  font-size: 16px;
+  padding-top: 20px;
+}
+.header.ui-scrollpoint .logoContainer {
+  background-color: #fff;
+  opacity: 0;
+  height: 25px;
+  width: 25px;
+}
+.header.ui-scrollpoint .logo {
+  height: 25px;
+  width: 25px;
+  display: none;
+}
+.header .navbar-MT {
   width: 100%;
   background: rgba(255, 255, 255, 0);
 }
-.navbar-MT.ui-scrollpoint {
-  background-color: #c23b22;
-  border-radius: 0;
-}
-.ui-scrollpoint {
-  background-color: #c23b22;
-  border-radius: 0;
-  position: fixed;
-  top: 0;
-}
-.navbar-brand {
+.header .navbar-brand {
   color: #fff;
   font-family: 'Cookie';
+  font-size: 80px;
 }
-.navbar-brand:hover {
-  color: #848484;
+.header .navbar-brand:hover {
+  color: #c23b22;
 }
-.nav > li > a {
+.header .nav > li > a {
   color: #fff;
   font-family: 'Raleway';
+  font-size: 28px;
+  padding-top: 40px;
 }
-.mainContent {
-  z-index: 1;
-  font: 'Helvetica Neue';
-  font-size: 18px;
-  margin-top: 0em;
+.header .logo {
+  height: 75px;
+  width: 75px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
 }
-.landing {
+.landingpage .landing {
   background: url(../images/landing.png) center no-repeat;
   background-size: 100% 100%;
-  height: 46em;
+  height: 40em;
   padding-top: 20em;
   position: relative;
 }
-.landingText {
+.landingpage .landingText {
   color: #ffffff;
   font: 60px / 26px 'Cookie';
   text-align: center;
   height: 1em;
 }
-.appstore {
+.landingpage .appstore {
   background: url(../images/appstore.png) center no-repeat;
   height: 49px;
   cursor: pointer;
 }
-.googleplay {
+.landingpage .googleplay {
   background: url(../images/googleplay.png) center no-repeat;
   height: 49px;
   cursor: pointer;
 }
-.landingButtonContainer {
+.landingpage .landingButtonContainer {
   bottom: 0;
   position: absolute;
 }
-.landingButton {
+.landingpage .landingButton {
   cursor: pointer;
   text-align: center;
   font-size: 16pt;
@@ -82,64 +105,64 @@
   margin-left: 6%;
   border-radius: .4em .4em 0 0;
 }
-.center {
+.landingpage .center {
   text-align: center;
 }
-.calloutContainer {
+.landingpage .calloutContainer {
   display: block;
-  margin-top: 3em;
+  padding-top: 3em;
 }
-.callout {
+.landingpage .callout {
   height: 7.5em;
   width: 100%;
-  margin-top: 2em;
   padding-top: 1.7em;
   background: url(../images/callout.png) no-repeat center;
 }
-.calloutIcon {
+.landingpage .calloutIcon {
   color: #fff;
 }
-.calloutHeader {
+.landingpage .calloutHeader {
   font-family: 'Raleway';
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 1.5em;
   padding-top: .5em;
   padding-bottom: .5em;
 }
-.calloutText {
-  font-size: 10pt;
+.landingpage .calloutText {
+  font-size: 1em;
   color: #848484;
-  padding-left: 4.8em;
-  padding-right: 4.8em;
+  padding-left: 4.5em;
+  padding-right: 4.5em;
 }
-.manage {
+.landingpage .manage {
   background: url(../images/manage.png) no-repeat center;
   height: 26em;
   background-size: 100% 100%;
   background-color: #e3e3e3;
   margin-top: 5em;
 }
-.manageContainer {
-  padding-left: 15em;
-  padding-right: 10em;
-  padding-top: 5em;
+.landingpage .manageContainer {
+  padding-left: 8em;
+  padding-right: 8em;
+  padding-top: 2.5em;
 }
-.manageTitle {
+.landingpage .manageTitle {
   font-family: 'Raleway';
-  font-size: 14pt;
+  font-size: 1.5em;
   font-weight: bold;
   color: #c23b22;
   margin-bottom: 1em;
 }
-.manageText {
+.landingpage .manageText {
   font-family: 'Helvetica Neue';
   color: #848484;
+  font-size: 1em;
 }
-.tour {
+.landingpage .tour {
   background-color: #fff;
-  height: 35em;
+  height: 40em;
 }
-.tourHeader {
+.landingpage .tourHeader {
   color: #c23b22;
   font-family: 'Raleway';
   font-size: 18pt;
@@ -147,7 +170,7 @@
   margin-bottom: 2em;
   height: 3em;
 }
-.tourTitle {
+.landingpage .tourTitle {
   color: #c23b22;
   font-family: 'Raleway';
   font-size: 16pt;
@@ -157,17 +180,17 @@
   margin-top: 1em;
   height: 1.5em;
 }
-.tourText {
+.landingpage .tourText {
   color: #848484;
   margin-left: 3em;
   padding-right: 15em;
   height: 12em;
 }
-.tourImage {
+.landingpage .tourImage {
   width: 65em;
   margin-top: -4em;
 }
-.tourButton {
+.landingpage .tourButton {
   cursor: pointer;
   margin-top: 1em;
   margin-left: 3em;
@@ -178,12 +201,12 @@
   text-align: center;
   border-radius: .4em;
 }
-.tourCount {
+.landingpage .tourCount {
   color: #848484;
   margin-left: 3em;
   margin-top: 1em;
 }
-.tourControlContainer {
+.landingpage .tourControlContainer {
   color: #848484;
   margin-left: 3em;
   margin-top: .5em;
@@ -192,37 +215,43 @@
       -ms-user-select: none;
           user-select: none;
 }
-.tourControl {
+.landingpage .tourControl {
   cursor: pointer;
   display: inline-block;
   margin-right: .4em;
 }
-.subscribe {
+.landingpage .subscribe {
   background: url(../images/subscribe.png) no-repeat center;
-  background-size: contain;
+  background-size: 100% 100%;
   height: 34.2em;
   padding-top: 15em;
 }
-.subscribeText {
+.landingpage .subscribeText {
   color: #fff;
   font-family: 'Raleway';
   text-align: center;
   font-size: 22pt;
   margin-bottom: 1em;
 }
-.subscribeInputContainer {
+.landingpage .subscribeInputContainer {
   padding-left: 4em;
   padding-right: 4em;
 }
-.subscribeInput {
+.landingpage .subscribeInput {
   border: 0;
 }
-.input-group-btn .subscribeButton {
+.landingpage .input-group-btn .subscribeButton {
   background-color: #c23b22;
   border: 0;
 }
-.subscribeIcon {
+.landingpage .subscribeIcon {
   color: #fff;
+}
+.mainContent {
+  z-index: 1;
+  font: 'Helvetica Neue';
+  font-size: 18px;
+  margin-top: -1em;
 }
 .footer {
   background-color: #e3e3e3;
