@@ -16,6 +16,7 @@ angular.module('mrtikitApp', [
     'ngSanitize',
     'ngTouch',
     'ui.router',
+    'ui.scrollpoint',
   ]).config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('app', {

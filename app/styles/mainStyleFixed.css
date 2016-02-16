@@ -1,18 +1,53 @@
 .header {
-  position: fixed;
+  position: absolute;
+  top: 0;
+  height: 3em;
   width: 100%;
   z-index: 2;
+  background: rgba(255, 255, 255, 0);
+  margin-bottom: 0;
+}
+.header.ui-scrollpoint {
+  position: fixed;
+  top: 0;
+  background-color: #c23b22;
+}
+.navbar-MT {
+  width: 100%;
+  background: rgba(255, 255, 255, 0);
+}
+.navbar-MT.ui-scrollpoint {
+  background-color: #c23b22;
+  border-radius: 0;
+}
+.ui-scrollpoint {
+  background-color: #c23b22;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+}
+.navbar-brand {
+  color: #fff;
+  font-family: 'Cookie';
+}
+.navbar-brand:hover {
+  color: #848484;
+}
+.nav > li > a {
+  color: #fff;
+  font-family: 'Raleway';
 }
 .mainContent {
   z-index: 1;
   font: 'Helvetica Neue';
+  font-size: 18px;
+  margin-top: 0em;
 }
 .landing {
   background: url(../images/landing.png) center no-repeat;
   background-size: 100% 100%;
   height: 46em;
   padding-top: 20em;
-  margin-top: 3em;
   position: relative;
 }
 .landingText {
@@ -24,10 +59,12 @@
 .appstore {
   background: url(../images/appstore.png) center no-repeat;
   height: 49px;
+  cursor: pointer;
 }
 .googleplay {
   background: url(../images/googleplay.png) center no-repeat;
   height: 49px;
+  cursor: pointer;
 }
 .landingButtonContainer {
   bottom: 0;
@@ -43,13 +80,14 @@
   padding-bottom: .3em;
   width: 94%;
   margin-left: 6%;
-  border-radius: .4em;
+  border-radius: .4em .4em 0 0;
 }
 .center {
   text-align: center;
 }
 .calloutContainer {
   display: block;
+  margin-top: 3em;
 }
 .callout {
   height: 7.5em;
@@ -107,13 +145,14 @@
   font-size: 18pt;
   margin-top: 2em;
   margin-bottom: 2em;
+  height: 3em;
 }
 .tourTitle {
   color: #c23b22;
   font-family: 'Raleway';
   font-size: 16pt;
   font-weight: bold;
-  margin-left: 2em;
+  margin-left: 2.5em;
   margin-bottom: 1em;
   margin-top: 1em;
   height: 1.5em;
@@ -122,11 +161,10 @@
   color: #848484;
   margin-left: 3em;
   padding-right: 15em;
-  height: 6em;
+  height: 12em;
 }
 .tourImage {
   width: 65em;
-  margin-left: 10em;
   margin-top: -4em;
 }
 .tourButton {
@@ -149,6 +187,10 @@
   color: #848484;
   margin-left: 3em;
   margin-top: .5em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .tourControl {
   cursor: pointer;
@@ -169,18 +211,15 @@
   margin-bottom: 1em;
 }
 .subscribeInputContainer {
-  text-align: center;
+  padding-left: 4em;
+  padding-right: 4em;
 }
 .subscribeInput {
-  width: 14em;
-  height: 2em;
   border: 0;
-  padding-left: .5em;
 }
-.subscribeIconContainer {
+.input-group-btn .subscribeButton {
   background-color: #c23b22;
-  padding: .4em .6em;
-  cursor: pointer;
+  border: 0;
 }
 .subscribeIcon {
   color: #fff;

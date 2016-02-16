@@ -53,8 +53,16 @@
     <div class="col-lg-12 subscribe">
         <div class="row">
             <div class="subscribeText col-lg-12">Subscribe For Updates</div>
-            <div class="col-lg-12 subscribeInputContainer">
-                <input class="subscribeInput" ng-model="email" placeholder='YOUR EMAIL'/><span class="subscribeIconContainer" ng-click="subscribe(email)"><i class="fa fa-check subscribeIcon"></i></span></div>
+            <div class="col-lg-4 col-lg-offset-4 subscribeInputContainer form-group">
+                <div class="input-group">
+                    <input class="subscribeInput form-control" ng-model="email" placeholder='YOUR EMAIL' />
+                    <span class="input-group-btn">
+                    <button class="btn subscribeButton" ng-click="subscribe(email)">
+                        <span class="fui-check"></span>
+                    </button>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
