@@ -20,14 +20,17 @@
             font-family: @MT_FONT_FANCY;
             font-size: 24px;
             &:hover {
-                color: @MT_GRAY;
+                color: @MT_LGRAY;
             }
         }
         .nav >li>a {
             color: @MT_WHITE;
             font-family: @MT_FONT_HEADER;
             font-size: 16px;
-            padding-top: 20px;
+            padding-top: 14px;
+            &:hover {
+                color: @MT_LGRAY;
+            }
         }
         .logoContainer {
             background-color: @MT_WHITE;
@@ -42,14 +45,13 @@
         }
     }
     .navbar-MT {
-        //background-color: @MT_RED;
         width: 100%;
         background: rgba(255, 255, 255, 0);
     }
     .navbar-brand {
         color: @MT_WHITE;
         font-family: @MT_FONT_FANCY;
-        font-size: 80px;
+        font-size: 60px;
         &:hover {
             color: @MT_RED;
         }
@@ -57,13 +59,19 @@
     .nav >li>a {
         color: @MT_WHITE;
         font-family: @MT_FONT_HEADER;
-        font-size: 28px;
+        font-size: 24px;
         padding-top: 40px;
+        &:hover {
+            color:@MT_RED;
+        }
     }
     .logo {
         height: 75px;
         width: 75px;
         padding-top: 2.5px;
         padding-bottom: 2.5px;
+    }
+    .logoContainer {
+        padding-top: 10px;
     }
 }

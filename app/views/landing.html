@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-lg-6 manageContainer">
+                        <div class="col-lg-7 manageContainer">
                             <div class="manageTitle">Managing your small event has never been easier</div>
                             <div class="manageText">Mr Tikit provides a user-friendly tool for event managers to manage all aspects of event ticketing. Some of these features include creating event, editing event information, scanning tickets, generating event reports, processing payment, and so much more. Mr Tikit serves as a 1-stop shop for everything tickets.</div>
                         </div>
@@ -59,7 +59,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-12 center tourHeader">How It Works</div>
-                        <div class="col-lg-5"><img class="tourImage" ng-src="../images/MacBook-Silver.png" /></div>
+                        <div class="col-lg-5"><img class="tourImage" ng-repeat='t in tour' ng-src="{{t.img}}" ng-show="tourIndex==$index"/></div>
                         <div class="col-lg-5 col-lg-offset-2">
                             <div class="tourTitle">{{tour[tourIndex].title}}</div>
                             <div class="tourText">{{tour[tourIndex].text}}</div>
@@ -75,17 +75,19 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-12 subscribe">
-        <div class="row">
-            <div class="subscribeText col-lg-12">Subscribe For Updates</div>
-            <div class="col-lg-4 col-lg-offset-4 subscribeInputContainer form-group">
-                <div class="input-group">
-                    <input class="subscribeInput form-control" ng-model="email" placeholder='YOUR EMAIL' />
-                    <span class="input-group-btn">
+    <div class="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="subscribeText col-lg-12">Subscribe For Updates</div>
+                <div class="col-lg-4 col-lg-offset-4 subscribeInputContainer form-group">
+                    <div class="input-group">
+                        <input class="subscribeInput form-control" ng-model="email" placeholder='YOUR EMAIL' />
+                        <span class="input-group-btn">
                     <button class="btn subscribeButton" ng-click="subscribe(email)">
                         <span class="fui-check"></span>
-                    </button>
-                    </span>
+                        </button>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

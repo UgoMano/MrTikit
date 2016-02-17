@@ -23,13 +23,16 @@
   font-size: 24px;
 }
 .header.ui-scrollpoint .navbar-brand:hover {
-  color: #848484;
+  color: #e3e3e3;
 }
 .header.ui-scrollpoint .nav > li > a {
   color: #fff;
   font-family: 'Raleway';
   font-size: 16px;
-  padding-top: 20px;
+  padding-top: 14px;
+}
+.header.ui-scrollpoint .nav > li > a:hover {
+  color: #e3e3e3;
 }
 .header.ui-scrollpoint .logoContainer {
   background-color: #fff;
@@ -49,7 +52,7 @@
 .header .navbar-brand {
   color: #fff;
   font-family: 'Cookie';
-  font-size: 80px;
+  font-size: 60px;
 }
 .header .navbar-brand:hover {
   color: #c23b22;
@@ -57,14 +60,20 @@
 .header .nav > li > a {
   color: #fff;
   font-family: 'Raleway';
-  font-size: 28px;
+  font-size: 24px;
   padding-top: 40px;
+}
+.header .nav > li > a:hover {
+  color: #c23b22;
 }
 .header .logo {
   height: 75px;
   width: 75px;
   padding-top: 2.5px;
   padding-bottom: 2.5px;
+}
+.header .logoContainer {
+  padding-top: 10px;
 }
 .landingpage .landingImage {
   background: url(../images/landing.png) center no-repeat;
@@ -114,8 +123,9 @@
 .landingpage .callout {
   height: 7.5em;
   width: 100%;
-  padding-top: 1.7em;
+  padding-top: 1.9em;
   background: url(../images/callout.png) no-repeat center;
+  font-size: 14px;
 }
 .landingpage .calloutIcon {
   color: #fff;
@@ -130,20 +140,19 @@
 .landingpage .calloutText {
   font-size: 16px;
   color: #848484;
-  padding-left: 4.5em;
-  padding-right: 4.5em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 .landingpage .manage {
   background: url(../images/manage.png) no-repeat center;
   height: 26em;
   background-size: 100% 100%;
   background-color: #e3e3e3;
-  margin-top: 5em;
 }
 .landingpage .manageContainer {
   padding-left: 8em;
   padding-right: 8em;
-  padding-top: 2.5em;
+  padding-top: 4.5em;
 }
 .landingpage .manageTitle {
   font-family: 'Raleway';
@@ -151,6 +160,7 @@
   font-weight: bold;
   color: #c23b22;
   margin-bottom: 1em;
+  padding-right: 1.5em;
 }
 .landingpage .manageText {
   font-family: 'Helvetica Neue';
@@ -159,7 +169,7 @@
 }
 .landingpage .tour {
   background-color: #fff;
-  height: 40em;
+  height: 35em;
 }
 .landingpage .tourHeader {
   color: #c23b22;
@@ -183,12 +193,13 @@
   color: #848484;
   margin-left: 3.5em;
   padding-right: 2em;
-  height: 12em;
+  height: 10em;
   font-size: 16px;
 }
 .landingpage .tourImage {
-  width: 65em;
-  margin-top: -4em;
+  width: 73em;
+  margin-top: -3em;
+  margin-left: -4em;
 }
 .landingpage .tourButton {
   cursor: pointer;
@@ -220,8 +231,8 @@
 .landingpage .subscribe {
   background: url(../images/subscribe.png) no-repeat center;
   background-size: 100% 100%;
-  height: 34.2em;
-  padding-top: 15em;
+  padding-top: 13em;
+  padding-bottom: 13em;
 }
 .landingpage .subscribeText {
   color: #fff;

@@ -32,42 +32,30 @@
 
     <div ui-view class='mainContent'></div>
 
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 center">
-                    <div class="footerText">Contact</div>
-                    <div class="footerText">Download</div>
-                    <div class="footerText">Press</div>
-                    <div class="footerText">Email</div>
-                    <div class="footerText">Support</div>
-                    <div class="footerText">Privacy Policy</div>
-                </div>
-            </div>
-        </div>
+    <div ng-include="'views/partials/footer.html'" class="footer"></div>
 
-        <!-- Google Fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Raleway|Cookie' rel='stylesheet' type='text/css'>
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway|Cookie' rel='stylesheet' type='text/css'>
 
-        <!-- Bower Components -->
-        <script src="lib/angular/angular.min.js"></script>
-        <script src="lib/jquery/dist/jquery.min.js"></script>
-        <script src="lib/angular-animate/angular-animate.min.js"></script>
-        <script src="lib/angular-cookies/angular-cookies.min.js"></script>
-        <script src="lib/angular-resource/angular-resource.min.js"></script>
-        <script src="lib/angular-route/angular-route.min.js"></script>
-        <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
-        <script src="lib/angular-touch/angular-touch.min.js"></script>
-        <script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
-        <script src="lib/angular-ui-scrollpoint/dist/scrollpoint.min.js"></script>
-        <!-- End Bower Components -->
+    <!-- Bower Components -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/angular-touch/angular-touch.min.js"></script>
+    <script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
+    <script src="lib/angular-ui-scrollpoint/dist/scrollpoint.min.js"></script>
+    <!-- End Bower Components -->
 
-        <!-- scripts-->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/partials/header.js"></script>
-        <!-- END scripts -->
+    <!-- scripts-->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/landing.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/partials/header.js"></script>
+    <!-- END scripts -->
 </body>
 
 </html>
