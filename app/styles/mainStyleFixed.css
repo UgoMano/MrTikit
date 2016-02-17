@@ -75,6 +75,18 @@
 .header .logoContainer {
   padding-top: 10px;
 }
+.footer {
+  background-color: #e3e3e3;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.footerText {
+  display: inline;
+  color: #848484;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  cursor: pointer;
+}
 .landingpage .landingImage {
   background: url(../images/landing.png) center no-repeat;
   background-size: 100% 100%;
@@ -263,16 +275,4 @@
   font: 'Helvetica Neue';
   font-size: 18px;
   margin-top: -1em;
-}
-.footer {
-  background-color: #e3e3e3;
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-.footerText {
-  display: inline;
-  color: #848484;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  cursor: pointer;
 }
