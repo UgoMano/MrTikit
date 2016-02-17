@@ -79,13 +79,17 @@
   background-color: #e3e3e3;
   padding-top: 2em;
   padding-bottom: 2em;
+  position: relative;
+  text-align: center;
 }
 .footerText {
   display: inline;
   color: #848484;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  margin-left: 25px;
+  margin-right: 25px;
   cursor: pointer;
+  font-size: 20px;
+  font-family: 'Helvetica Neue';
 }
 .landingpage .landingImage {
   background: url(../images/landing.png) center no-repeat;
@@ -246,8 +250,8 @@
 .landingpage .subscribe {
   background: url(../images/subscribe.png) no-repeat center;
   background-size: 100% 100%;
-  padding-top: 13em;
-  padding-bottom: 13em;
+  padding-top: 11em;
+  padding-bottom: 11em;
 }
 .landingpage .subscribeText {
   color: #fff;
