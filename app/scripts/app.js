@@ -14,7 +14,7 @@ angular.module('mrtikitApp', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
+    //'ngTouch',
     'ui.router',
     'ngMaterial',
   ]).config(function ($stateProvider, $urlRouterProvider) {
