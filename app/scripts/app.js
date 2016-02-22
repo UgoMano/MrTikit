@@ -16,12 +16,13 @@ angular.module('mrtikitApp', [
     'ngSanitize',
     'ngTouch',
     'ui.router',
+    'ui.scrollpoint',
   ]).config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('app', {
         url: "/",
-        templateUrl: "views/main.html",
-        controller: 'MainCtrl'
+        templateUrl: "views/landing.html",
+        controller: 'LandingCtrl'
     })
 
     .state('about', {

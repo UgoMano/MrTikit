@@ -1,3 +1,27 @@
-.test {
-	color: #00ff00;
+@MT_RED: #c23b22;
+@MT_GRAY: #848484;
+@MT_LGRAY: #e3e3e3;
+@MT_WHITE: #fff;
+@MT_PURPLE: #8565c4;
+@MT_FONT_LOGO: 'Courgette';
+@MT_FONT_HEADER: 'Raleway';
+@MT_FONT_FANCY: 'Cookie';
+@MT_FONT_TEXT: 'Helvetica Neue';
+
+
+@import 'partials/header';
+@import 'partials/footer';
+@import 'views/landing';
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.mainContent {
+    z-index: 1;
+    font: @MT_FONT_TEXT;
+    font-size: 18px;
+    //margin-top: -1em;
+    width: 100%;
 }
