@@ -5,5 +5,5 @@ export EMAIL=joshbauer3@gmail.com
 git fetch origin web-master --depth 1
 git reset --hard origin/web-master
 npm install -g bower
-bower install --allow-root
+bower install --allow-root --force-latest
 service apache2 start
