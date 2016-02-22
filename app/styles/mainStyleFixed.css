@@ -6,6 +6,7 @@
   z-index: 2;
   background: rgba(255, 255, 255, 0);
   margin-bottom: 0;
+  border-top: 5px solid #8565c4;
 }
 .header.ui-scrollpoint {
   position: fixed;
@@ -19,11 +20,7 @@
 }
 .header.ui-scrollpoint .navbar-brand {
   color: #fff;
-  font-family: 'Cookie';
   font-size: 24px;
-}
-.header.ui-scrollpoint .navbar-brand:hover {
-  color: #e3e3e3;
 }
 .header.ui-scrollpoint .nav > li > a {
   color: #fff;
@@ -51,11 +48,8 @@
 }
 .header .navbar-brand {
   color: #fff;
-  font-family: 'Cookie';
+  font-family: 'Courgette';
   font-size: 60px;
-}
-.header .navbar-brand:hover {
-  color: #c23b22;
 }
 .header .nav > li > a {
   color: #fff;
@@ -74,6 +68,7 @@
 }
 .header .logoContainer {
   padding-top: 10px;
+  display: inline;
 }
 .footer {
   background-color: #e3e3e3;
@@ -94,9 +89,15 @@
 .landingpage .landingImage {
   background: url(../images/landing.png) center no-repeat;
   background-size: 100% 100%;
-  height: 40em;
-  padding-top: 20em;
+  height: 100vh;
+  width: 100%;
   position: relative;
+}
+.landingpage .landingImage .landingOverlay {
+  height: 100%;
+  width: 100%;
+  padding-top: 40vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .landingpage .landingText {
   color: #ffffff;
@@ -261,8 +262,8 @@
   margin-bottom: 1em;
 }
 .landingpage .subscribeInputContainer {
-  padding-left: 4em;
-  padding-right: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 .landingpage .subscribeInput {
   border: 0;
@@ -274,9 +275,13 @@
 .landingpage .subscribeIcon {
   color: #fff;
 }
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .mainContent {
   z-index: 1;
   font: 'Helvetica Neue';
   font-size: 18px;
-  margin-top: -1em;
+  width: 100%;
 }

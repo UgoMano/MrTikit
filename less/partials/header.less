@@ -6,6 +6,7 @@
     z-index: 2;
     background: rgba(255, 255, 255, 0);
     margin-bottom: 0;
+    border-top: 5px solid @MT_PURPLE;
     &.ui-scrollpoint {
         position: fixed;
         top: 0;
@@ -17,11 +18,7 @@
         }
         .navbar-brand {
             color: @MT_WHITE;
-            font-family: @MT_FONT_FANCY;
             font-size: 24px;
-            &:hover {
-                color: @MT_LGRAY;
-            }
         }
         .nav >li>a {
             color: @MT_WHITE;
@@ -50,11 +47,8 @@
     }
     .navbar-brand {
         color: @MT_WHITE;
-        font-family: @MT_FONT_FANCY;
+        font-family: @MT_FONT_LOGO;
         font-size: 60px;
-        &:hover {
-            color: @MT_RED;
-        }
     }
     .nav >li>a {
         color: @MT_WHITE;
@@ -73,5 +67,6 @@
     }
     .logoContainer {
         padding-top: 10px;
+        display: inline;
     }
 }
