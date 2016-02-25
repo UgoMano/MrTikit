@@ -1,8 +1,10 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div style="height:100%" layout="row">
+    <md-sidenav class="sidebarContainer md-sidenav-left" flex="15" md-is-locked-open="true">
+        <md-content class="sidebar sidebar-default open" id="sidebar" role="navigation" ng-include="'views/partials/sidebar.html'"></md-content>
+    </md-sidenav>
+    <div layout="column" flex>
+        <md-toolbar class="header" ng-include="'views/partials/header.html'"></md-toolbar>
+        <div flex ui-view class='mainContent'></div>
+    </div>
 </div>
+<!--<div class="footer" ng-include="'views/partials/footer.html'"></div>-->

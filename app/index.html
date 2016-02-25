@@ -11,6 +11,9 @@
 
     <!-- Angular Material -->
     <link rel='stylesheet' href="lib/angular-material/angular-material.min.css" />
+    
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
 
     <!-- This comes from the autoprefixed scss file -->
     <link rel="stylesheet" href="styles/mainStyleFixed.css">
@@ -22,11 +25,11 @@
     <!--[if lt IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-    <div class="header" ng-include="'views/partials/header.html'"></div>
-    <div class="sidebar" ng-include="'views/partials/sidebar.html'"></div>
-    <div ui-view class='mainContent container'></div>
-    
-    <div class="footer" ng-include="'views/partials/footer.html'"></div>
+
+    <div style="height:100%" ui-view></div>
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway|Cookie|Courgette' rel='stylesheet' type='text/css'>
 
     <!-- Bower Components -->
     <script src="lib/angular/angular.min.js"></script>

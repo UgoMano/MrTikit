@@ -1,3 +1,46 @@
-.test {
-  color: #00ff00;
+.sidebarContainer {
+  background-color: #c23b22;
+}
+.sidebarContainer .sideHeader {
+  background-color: darkred;
+  color: #fff;
+  font-family: 'Courgette';
+  text-align: center;
+  font-size: 36px;
+}
+.sidebarContainer .sidebar {
+  background-color: #c23b22;
+  color: #fff;
+}
+md-toolbar.header {
+  background-color: #fff;
+  color: #848484;
+  display: inline;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+md-toolbar.header .headerItem {
+  display: inline;
+  margin-right: 20px;
+  font-size: 15px;
+}
+md-toolbar.header .headerItem .headerItemText {
+  display: inline;
+  margin-right: 10px;
+}
+md-toolbar.header .headerItem .fa {
+  font-size: 25px;
+  line-height: inherit;
+}
+md-toolbar.header .right {
+  float: right;
+}
+md-toolbar {
+  min-height: 50px;
+  height: 50px;
+}
+.mainContent {
+  background-color: #e3e3e3;
 }
