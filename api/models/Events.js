@@ -43,12 +43,14 @@ module.exports = {
 
     start: {
       type: 'datetime',
-      defaultsTo: ''
+      defaultsTo: '',
+      startBeforeEnd: true,
     },
 
     end: {
       type: 'datetime',
-      defaultsTo: ''
+      defaultsTo: '',
+      startBeforeEnd: true,
     },
 
     check_in: {
@@ -60,5 +62,17 @@ module.exports = {
       type: 'string',
       defaultsTo: {}
     },
+  },
+
+  types: {
+    startBeforeEnd: function(start, end) {
+          if ( _.isDate(start) && _.isDate(end))
+            return (start < end);
+          else
+            return false;
+    }
+  }
+
+
 };
 

@@ -46,17 +46,29 @@ module.exports = {
 
     purchase_start: {
       type: 'datetime',
-      defaultsTo: ''
+      purchaseStartBeforeEnd: true,
+      required: true,
     },
 
     purchase_end: {
       type: 'datetime',
-      defaultsTo: ''
+      purchaseStartBeforeEnd: true,
+      required: true,
     },
 
     hidden: {
       type: 'boolean',
       defaultsTo: false
     },
+  },
+
+  types: {
+    purchaseStartBeforeEnd: function(purchase_start, purchase_end) {
+      if (_.isDate(purchase_start) && _.isDate(purchase_end))
+        return (purchase_start < purchase_end);
+      else 
+        return false;
+    }
+  }
 };
 
