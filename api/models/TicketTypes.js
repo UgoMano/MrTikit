@@ -62,7 +62,7 @@ module.exports = {
       type: 'boolean',
       defaultsTo: false
     }
-  }
+  },
 
   types: {
     isValidEvent: function(id) {
