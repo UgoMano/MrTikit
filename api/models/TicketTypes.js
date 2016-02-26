@@ -26,7 +26,7 @@ module.exports = {
 
     price: {
       type: 'float',
-      defaultsTo: ''
+      defaultsTo: 0.0
     },
 
     section: {
@@ -46,14 +46,10 @@ module.exports = {
 
     purchase_start: {
       type: 'datetime',
-      purchaseStartBeforeEnd: true,
-      required: true,
     },
 
     purchase_end: {
       type: 'datetime',
-      purchaseStartBeforeEnd: true,
-      required: true,
     },
 
     hidden: {
