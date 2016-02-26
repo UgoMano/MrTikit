@@ -66,8 +66,8 @@ module.exports = {
   },
 
   types: {
-    isValidUser: function(id) {
-      User.findOne(id).exec(  function(err, user) {
+    isValidUser: function(userId) {
+      User.findOne(id: userId).exec(  function(err, user) {
         if (err)
           return false;
         else

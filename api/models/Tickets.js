@@ -55,8 +55,8 @@ module.exports = {
   },
 
   types: {
-    isValidEvent: function(id) {
-      Events.findOne(id).exec(  function(err, event) {
+    isValidEvent: function(eventId) {
+      Events.findOne(id: eventId).exec(  function(err, event) {
         if (err)
           return false;
         else
@@ -64,8 +64,8 @@ module.exports = {
       });
     },
 
-    isValidUser: function(id) {
-      User.findOne(id).exec(  function(err, user) {
+    isValidUser: function(userId) {
+      User.findOne(id: userId).exec(  function(err, user) {
         if (err)
           return false;
         else
@@ -73,8 +73,8 @@ module.exports = {
       });
     },
 
-    isValidTicketType: function(id) {
-      TicketTypes.findOne(id).exec( function(err, ticketType) {
+    isValidTicketType: function(ticketTypeId) {
+      TicketTypes.findOne(id: ticketTypeId).exec( function(err, ticketType) {
         if (err)
           return false;
         else
