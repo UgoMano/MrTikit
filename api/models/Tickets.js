@@ -16,7 +16,7 @@ module.exports = {
     },
 
     user: {
-      model: 'User'
+      model: 'User',
       required: true,
     },
 
@@ -48,7 +48,7 @@ module.exports = {
     total_scans: {
       type: 'integer',
       defaultsTo: '0'
-    },
+    }
   }
 };
 

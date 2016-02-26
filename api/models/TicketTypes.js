@@ -16,7 +16,7 @@ module.exports = {
     },
 
     name: {
-      type: 'string'
+      type: 'string',
       required: true,
     },
 
@@ -42,7 +42,7 @@ module.exports = {
     time: {
     	type: 'datetime',
     	defaultsTo: ''
-    }
+    },
 
     purchase_start: {
       type: 'datetime',
@@ -59,7 +59,7 @@ module.exports = {
     hidden: {
       type: 'boolean',
       defaultsTo: false
-    },
+    }
   },
 
   types: {

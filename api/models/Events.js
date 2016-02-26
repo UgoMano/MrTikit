@@ -16,7 +16,7 @@ module.exports = {
     },
 
     facebook_id: {
-      type: 'string'
+      type: 'string',
       required: true,
       unique: true
     },
@@ -61,7 +61,7 @@ module.exports = {
     paypal_email: {
       type: 'string',
       defaultsTo: {}
-    },
+    }
   },
 
   types: {
