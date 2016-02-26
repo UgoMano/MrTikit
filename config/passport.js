@@ -58,8 +58,8 @@ const JWT_STRATEGY_CONFIG = {
  * @private
  */
 const SOCIAL_STRATEGY_CONFIG = {
-  clientID: '-',
-  clientSecret: '-',
+  clientID: '541547949359653',
+  clientSecret: '690c6493cdc2d497fdbadf9da628ac8e',
   consumerKey: '-',
   consumerSecret: '-',
   passReqToCallback: true
@@ -110,6 +110,59 @@ const _onJwtStrategyAuth = (req, payload, next) => {
  * @param {Function} next Callback
  * @private
  */
+const _onFacebookAuth = (req, accessToken, refreshToken, profile, next) => {
+  if (!req.user) {
+
+    var calcUsername = profile.name.givenName + profile.id;
+
+    let model = {
+      username: calcUsername,
+      email: (profile.emails[0] && profile.emails[0].value) || '',
+      firstName: (profile.name && profile.name.givenName) || '',
+      lastName: (profile.name && profile.name.familyName) || '',
+      photo: (profile.photos[0] && profile.photos[0].value) || '',
+      facebookId: profile.id
+    };
+    
+    User
+    .findOne({or : [
+    { facebookId: profile.id },
+    { email: profile.emails[0].value }
+    ]})
+    .then(user => {
+      if (!user) {
+        User.create(model).exec(function createCB(err, created) {
+          if(err){
+            console.log("Can't create user from facebook");
+            return next(null, null, sails.config.errors.SERVER_ERROR);
+          }
+
+          return next(null, created, sails.config.errors.CREATED);
+        });
+      } else {
+        //attempt to link
+        if(user.facebookId) {
+          //Return User
+          return next(null, user, {});
+        } else {
+          //Link User
+          User.update({id: user.id},{facebookId: profile.id}).exec(function afterwards(err, updated){
+            if (err) {
+              //failed to link
+              return next(null, null, sails.config.additionals.FAILED_TO_LINK);
+            }
+            return next(null, updated, sails.config.additionals.LINKED_ACCOUNT);
+          });
+        }
+      }
+    })
+    .catch(next);
+  } else {
+    req.user.facebookId = profile.id;
+    req.user.save(next);
+  }
+};
+
 const _onSocialStrategyAuth = (req, accessToken, refreshToken, profile, next) => {
   if (!req.user) {
     let criteria = {};
@@ -163,7 +216,7 @@ module.exports = {
 
 passport.use(new LocalStrategy(_.assign({}, LOCAL_STRATEGY_CONFIG), _onLocalStrategyAuth));
 passport.use(new JwtStrategy(_.assign({}, JWT_STRATEGY_CONFIG), _onJwtStrategyAuth));
-passport.use(new FacebookTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new FacebookTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onFacebookAuth));
 passport.use(new TwitterTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
 passport.use(new VKontakteTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
 passport.use(new FoursquareTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));

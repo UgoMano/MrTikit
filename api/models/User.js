@@ -42,16 +42,23 @@ module.exports = {
       url: true
     },
 
+    facebookId: {
+      type: 'string',
+      defaultsTo: ''
+    },
+
+    /*
     socialProfiles: {
       type: 'object',
       defaultsTo: {}
     },
+    */
 
     toJSON() {
       let obj = this.toObject();
 
       delete obj.password;
-      delete obj.socialProfiles;
+      //delete obj.socialProfiles;
 
       return obj;
     }
