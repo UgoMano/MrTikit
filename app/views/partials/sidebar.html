@@ -1,2 +1,35 @@
-<md-toolbar class="sideHeader">Mr Tikit</md-toolbar>
-<div>test</div>
+<md-toolbar class="sideHeader">
+    <div ng-class="{'collapsed' : collapsed}">MrTikit</div>
+</md-toolbar>
+
+<div class="sidebarSectionTitle">Administration</div>
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+    <i class="fa fa-calendar-o"></i>
+    <div class="sidebarText">My Events</div>
+</div>
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+    <i class="fa fa-calendar-plus-o"></i>
+    <div class="sidebarText">Create Event</div>
+</div>
+
+<div class="sidebarSectionTitle">Event</div>
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+    <i class="fa fa-list-alt"></i>
+    <div class="sidebarText">Overview</div>
+</div>
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+    <i class="fa fa-list"></i>
+    <div class="sidebarText">Manage</div>
+</div>
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+    <i class="fa fa-users"></i>
+    <div class="sidebarText">Attendies</div>
+</div>
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+    <i class="fa fa-area-chart"></i>
+    <div class="sidebarText">Reports</div>
+</div>
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+    <i class="fa fa-cogs"></i>
+    <div class="sidebarText">Utilities</div>
+</div>

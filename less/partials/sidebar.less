@@ -11,4 +11,24 @@
         background-color: @MT_RED;
         color: @MT_WHITE;
     }
+    .sidebarSectionTitle {
+        padding-left: 10px;
+        margin-top: 20px;
+    }
+    .sidebarLink {
+        padding-left: 20px;
+        padding-top: 10px;
+        .sidebarText {
+            font-size: 14px;
+            display: inline;
+        }
+        .fa {
+            font-size: 16px;
+        }
+        &.collapsed {
+            .sidebarText{
+                display: none;
+            }
+            }
+    }
 }

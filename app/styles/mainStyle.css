@@ -12,6 +12,24 @@
   background-color: #c23b22;
   color: #fff;
 }
+.sidebarContainer .sidebarSectionTitle {
+  padding-left: 10px;
+  margin-top: 20px;
+}
+.sidebarContainer .sidebarLink {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.sidebarContainer .sidebarLink .sidebarText {
+  font-size: 14px;
+  display: inline;
+}
+.sidebarContainer .sidebarLink .fa {
+  font-size: 16px;
+}
+.sidebarContainer .sidebarLink.collapsed .sidebarText {
+  display: none;
+}
 md-toolbar.header {
   background-color: #fff;
   color: #848484;
