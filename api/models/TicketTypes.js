@@ -20,7 +20,7 @@ module.exports = {
       required: true,
     },
 
-    max_tickets: {
+    maxTickets: {
       type: 'integer',
     },
 
@@ -31,39 +31,35 @@ module.exports = {
 
     section: {
       type: 'string',
-      defaultsTo: ''
     },
 
-    photo_ticket: {
+    photoTicket: {
       type: 'boolean',
       defaultsTo: false,
     },
 
-    time: {
+    eventTime: {
     	type: 'datetime',
     	defaultsTo: ''
     },
 
-    purchase_start: {
+    purchaseStart: {
       type: 'datetime',
+      before: function () {
+        return this.purchaseEnd;
+      }
     },
 
-    purchase_end: {
+    purchaseSnd: {
       type: 'datetime',
+      after: function () {
+        return this.purchaseEnd
+      }
     },
 
     hidden: {
       type: 'boolean',
       defaultsTo: false
-    }
-  },
-
-  types: {
-    purchaseStartBeforeEnd: function(purchase_start, purchase_end) {
-      if (_.isDate(purchase_start) && _.isDate(purchase_end))
-        return (purchase_start < purchase_end);
-      else 
-        return false;
     }
   }
 };
