@@ -15,9 +15,9 @@ module.exports = {
       required: true,
     },
 
-    facebook_id: {
+    facebookId: {
       type: 'string',
-      required: true,
+      required: false,
       unique: true
     },
 
@@ -28,50 +28,42 @@ module.exports = {
 
     category: {
       type: 'string',
-      defaultsTo: ''
     },
 
     description: {
       type: 'string',
-      defaultsTo: ''
     },
 
     location: {
       type: 'string',
-      defaultsTo: '',
     },
 
-    start: {
+    startDateTime: {
       type: 'datetime',
       defaultsTo: '',
-      startBeforeEnd: true,
+      before: function() {
+        return this.endDateTime
+      }
     },
 
-    end: {
+    endDateTime: {
       type: 'datetime',
       defaultsTo: '',
-      startBeforeEnd: true,
+      after: function() {
+        return this.startDateTime  
+      }
     },
 
-    check_in: {
+    checkIn: {
       type: 'boolean',
-      defaultsTo: {}
+      defaultsTo: false
     },
 
     paypal_email: {
       type: 'string',
-      defaultsTo: {}
     }
   },
 
-  types: {
-    startBeforeEnd: function(start, end) {
-          if ( _.isDate(start) && _.isDate(end))
-            return (start < end);
-          else
-            return false;
-    }
-  }
 
 
 };
