@@ -13,41 +13,73 @@ module.exports = {
     event: {
       model: 'Events',
       required: true,
+      isValidEvent: true,
     },
 
     user: {
-      model: 'User',
+      model: 'User'
       required: true,
+      isValidUser: true,
     },
 
-    ticket_type: {
+    ticketType: {
       model: 'TicketTypes',
       required: true,
+      isValidTicketType: true,
     },
 
-    scan_id: {
+    scanId: {
       type: 'integer',
       defaultsTo: ''
     },
 
-    check_in: {
+    checkIn: {
       type: 'boolean',
       defaultsTo: false
     },
 
-    first_scan_time: {
+    firstScanTime: {
       type: 'datetime',
       defaultsTo: ''
     },
 
-    last_scan_time: {
+    lastScanTime: {
       type: 'datetime',
       defaultsTo: ''
     },
 
-    total_scans: {
+    totalScans: {
       type: 'integer',
       defaultsTo: '0'
+    },
+  },
+
+  types: {
+    isValidEvent: function(id) {
+      Events.findOne(id).exec(  function(err, event) {
+        if (err)
+          return false;
+        else
+          return event;
+      });
+    },
+
+    isValidUser: function(id) {
+      User.findOne(id).exec(  function(err, user) {
+        if (err)
+          return false;
+        else
+          return user;
+      });
+    },
+
+    isValidTicketType: function(id) {
+      TicketTypes.findOne(id).exec( function(err, ticketType) {
+        if (err)
+          return false;
+        else
+          return ticketType;
+      });
     }
   }
 };
