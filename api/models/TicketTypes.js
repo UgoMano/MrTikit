@@ -13,6 +13,7 @@ module.exports = {
     event: {
       model: 'Events',
       required: true,
+      isValidEvent: true,
     },
 
     name: {
@@ -50,7 +51,7 @@ module.exports = {
       }
     },
 
-    purchaseSnd: {
+    purchaseEnd: {
       type: 'datetime',
       after: function () {
         return this.purchaseEnd
@@ -60,6 +61,17 @@ module.exports = {
     hidden: {
       type: 'boolean',
       defaultsTo: false
+    }
+  }
+
+  types: {
+    isValidEvent: function(id) {
+      Events.findOne(id).exec(  function(err, event) {
+        if (err)
+          return false;
+        else
+          return event;
+      });
     }
   }
 };
