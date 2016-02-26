@@ -67,7 +67,7 @@ module.exports = {
      * @type {Object}
      */
     mysql: {
-      adapter: 'sails-mysql',
+      adapter: 'sails-mysql-transactions',
       host: 'localhost',
       port: 3306,
       user: 'mrtikit',
