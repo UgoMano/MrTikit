@@ -24,6 +24,7 @@ module.exports = {
     owner: {
       model: 'User',
       required: true,
+      isValidUser: true
     },
 
     category: {

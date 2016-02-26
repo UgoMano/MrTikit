@@ -17,7 +17,7 @@ module.exports = {
     },
 
     user: {
-      model: 'User'
+      model: 'User',
       required: true,
       isValidUser: true,
     },
