@@ -24,6 +24,21 @@ module.exports = {
       message: 'User with specified id is not found',
       status: 401
     },
+    TICKET_NOT_FOUND: {
+      code: 'E_TICKET_NOT_FOUND',
+      message: 'Ticket with specified id is not found',
+      status: 401
+    },
+    TICKET_TYPE_NOT_FOUND: {
+      code: 'E_TICKET_TYPE_NOT_FOUND',
+      message: 'Ticket type with specified id is not found',
+      status: 401
+    },
+    EVENT_NOT FOUND: {s
+      code: 'E_EVENT_NOT',
+      message: 'Event with specified id is not found',
+      status: 401
+    },
   }
 };
 
