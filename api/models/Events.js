@@ -24,7 +24,11 @@ module.exports = {
     owner: {
       model: 'User',
       required: true,
-      isValidUser: true
+      'true': function (cb)  {
+          User.findOne({id: this.owner}).exec(function(err, user){
+            return cb(!err && user);
+          });
+      }
     },
 
     category: {
