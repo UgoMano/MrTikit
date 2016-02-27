@@ -19,6 +19,11 @@ module.exports = {
       message: 'A user has been found but failed to link facebook account',
       status: 500
     },
+    USER_NOT_FOUND: {
+      code: 'E_USER_NOT_FOUND',
+      message: 'User with specified id is not found',
+      status: 401
+    },
   }
 };
 

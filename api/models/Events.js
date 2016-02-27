@@ -24,11 +24,6 @@ module.exports = {
     owner: {
       model: 'User',
       required: true,
-      'true': function (cb)  {
-          User.findOne({id: this.owner}).exec(function(err, user){
-            return cb(!err && user);
-          });
-      }
     },
 
     category: {
@@ -69,15 +64,12 @@ module.exports = {
     }
   },
 
-  types: {
-    isValidUser: function(userId) {
-      User.findOne(id: userId).exec(  function(err, user) {
-        if (err)
-          return false;
-        else
-          return user;
-      });
-    }
+  beforeValidate(values, next) {
+    var userId = values['owner'];
+    User.findOne(userId, function (err, user) {
+      if (err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
+      return next();
+    });
   }
   
 };
