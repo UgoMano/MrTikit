@@ -34,7 +34,7 @@ module.exports = {
       message: 'Ticket type with specified id is not found',
       status: 401
     },
-    EVENT_NOT FOUND: {s
+    EVENT_NOT_FOUND: {
       code: 'E_EVENT_NOT',
       message: 'Event with specified id is not found',
       status: 401
