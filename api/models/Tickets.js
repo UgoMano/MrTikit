@@ -13,19 +13,16 @@ module.exports = {
     event: {
       model: 'Events',
       required: true,
-      isValidEvent: true,
     },
 
     user: {
       model: 'User',
       required: true,
-      isValidUser: true,
     },
 
     ticketType: {
       model: 'TicketTypes',
       required: true,
-      isValidTicketType: true,
     },
 
     scanId: {
@@ -53,5 +50,25 @@ module.exports = {
       defaultsTo: '0'
     },
   },
+
+  beforeValidate(values, next) {
+   var eventId = values['event'];
+   var userId = values['owner'];
+   var ticketTypeId = value['ticketType']
+   Events.findOne(eventId, function (err, event) {
+     if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
+     return next();
+    });
+
+  User.findOne(userId, function (err, user) {
+      if (err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
+      return next();
+    });
+
+  TicketTypes.findOne(ticketTypeId, function (err, ticketType) {
+      if (err || !ticketType) return next(sails.config.additionals.TICKET_TICKET_TYPE_NOT_FOUND);
+      return next();
+    });
+  }
 };
 

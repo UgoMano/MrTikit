@@ -13,7 +13,6 @@ module.exports = {
     event: {
       model: 'Events',
       required: true,
-      isValidEvent: true,
     },
 
     name: {
@@ -64,15 +63,13 @@ module.exports = {
     }
   },
 
-  types: {
-    isValidEvent: function(id) {
-      Events.findOne(id).exec(  function(err, event) {
-        if (err)
-          return false;
-        else
-          return event;
-      });
-    }
+  beforeValidate(values, next) {
+   var eventId = values['event'];
+   Events.findOne(eventId, function (err, event) {
+     if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
+     return next();
+   });
   }
+  
 };
 
