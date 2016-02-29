@@ -9,7 +9,9 @@
  */
 angular.module('mrtikitApp').controller('LoginCtrl', function ($scope) {
      console.log('login');
+    $scope.user = {};
 	$scope.login = function(){
+		console.log($scope.user);
 		console.log($scope.user.email);
 		console.log($scope.user.password);
 	}
