@@ -1,4 +1,5 @@
 .sidebarContainer {
+  cursor: default;
   background-color: #c23b22;
 }
 .sidebarContainer .sideHeader {
@@ -32,6 +33,7 @@
   margin-top: 20px;
 }
 .sidebarContainer .sidebarLink {
+  cursor: pointer;
   padding-left: 20px;
   padding-top: 10px;
 }
@@ -55,6 +57,7 @@ md-toolbar.header {
   padding-bottom: 10px;
 }
 md-toolbar.header .headerItem {
+  cursor: pointer;
   display: inline;
   margin-right: 20px;
   font-size: 15px;
