@@ -15,4 +15,4 @@ RUN rm /tmp/git.sh
 RUN mkdir -p /etc/init.d/
 ADD api/startup.sh /etc/my_init.d/startup.sh
 
-EXPOSE 8000
+EXPOSE 80

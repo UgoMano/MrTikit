@@ -7,3 +7,4 @@ git reset --hard origin/api-master
 npm install -g bower
 bower install --allow-root --force-latest
 #STEVE ADD API COMMANDS HERE (download libs and startup)
+sails lift --prod
