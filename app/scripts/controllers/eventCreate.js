@@ -4,9 +4,9 @@
  * @ngdoc function
  * @name mrtikitApp.controller:MainCtrl
  * @description
- * # ManageEventCtrl
+ * # EventCreateCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('ManageEventCtrl', function () {
-     console.log('manageEvent')
+angular.module('mrtikitApp').controller('EventCreateCtrl', function () {
+     console.log('eventCreate')
 });

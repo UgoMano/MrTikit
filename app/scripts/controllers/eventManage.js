@@ -4,11 +4,11 @@
  * @ngdoc function
  * @name mrtikitApp.controller:MainCtrl
  * @description
- * # EventReportsCtrl
+ * # EventManageCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventReportsCtrl', function ($scope, $stateParams) {
-    console.log('eventReports');
+angular.module('mrtikitApp').controller('EventManageCtrl', function () {
+    console.log('eventManage');
     $scope.setEvent($stateParams.eventId);
     console.log('eventId: ', $scope.curEventId);
 });

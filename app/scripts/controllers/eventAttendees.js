@@ -7,6 +7,8 @@
  * # EventAttendeesCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventAttendeesCtrl', function () {
-     console.log('eventAttendees')
+angular.module('mrtikitApp').controller('EventAttendeesCtrl', function ($scope, $stateParams) {
+    console.log('eventAttendees');
+    $scope.setEvent($stateParams.eventId);
+    console.log('eventId: ', $scope.curEventId);
 });

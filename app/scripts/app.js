@@ -42,33 +42,33 @@ angular.module('mrtikitApp', [
        templateUrl: "views/myEvents.html",
        controller: 'MyEventsCtrl'
    })
-    .state('app.createEvent', {
-       url: "createEvent",
-       templateUrl: "views/createEvent.html",
-       controller: 'CreateEventCtrl'
+    .state('app.eventCreate', {
+       url: "events/create",
+       templateUrl: "views/eventCreate.html",
+       controller: 'EventCreateCtrl'
    })
     .state('app.eventOverview', {
-       url: "eventOverview",
+       url: "events/:eventId/overview",
        templateUrl: "views/eventOverview.html",
        controller: 'EventOverviewCtrl'
    })
-    .state('app.manageEvent', {
-       url: "manageEvent",
-       templateUrl: "views/manageEvent.html",
-       controller: 'ManageEventCtrl'
+    .state('app.eventManage', {
+       url: "events/:eventID/manage",
+       templateUrl: "views/eventManage.html",
+       controller: 'EventManageCtrl'
    })
     .state('app.eventAttendees', {
-       url: "eventAttendees",
+       url: "events/:eventId/attendees",
        templateUrl: "views/eventAttendees.html",
        controller: 'EventAttendeesCtrl'
    })
     .state('app.eventReports', {
-       url: "eventReports",
+       url: "events/:eventId/reports",
        templateUrl: "views/eventReports.html",
        controller: 'EventReportsCtrl'
    })
     .state('app.eventUtilities', {
-       url: "eventUtilities",
+       url: "events/:eventId/utilities",
        templateUrl: "views/eventUtilities.html",
        controller: 'EventUtilitiesCtrl'
    })
