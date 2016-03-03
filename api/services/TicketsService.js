@@ -6,7 +6,7 @@ module.exports = {
         return Tickets.find({event: eventId, ticketType: ticketTypeId})
             .then(function (tickets) {
                 if (!tickets) throw new Error('Tickets not found');
-                return tickets;
+                return tickets.count;
             });
     },
 
@@ -20,8 +20,8 @@ module.exports = {
 
     getNumTicketsOfTypeByTicketTypeIdEventId: function(ticketTypeId, eventId) {
         return Tickets.count({event: eventId, ticketType: ticketTypeId})
-            .then(function (found) {
-                if (!found) throw new Error('Tickets not found');
+            .exec(function countCB(err, found) {
+                if (err) throw new Error('Tickets not found');
                 return found;
             });
     },
