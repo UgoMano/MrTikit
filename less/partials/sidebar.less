@@ -7,6 +7,10 @@
         text-align: center;
         font-size: 36px;
         line-height: 50px;
+        &:focus {
+            border: 0;
+            outline: 0;
+        }
     }
     .logo {
         height: 50px;
@@ -43,9 +47,13 @@
             font-size: 16px;
         }
         &.collapsed {
-            .sidebarText{
+            .sidebarText {
                 display: none;
             }
-            }
+        }
+        &:focus {
+            border: 0;
+            outline: 0;
+        }
     }
 }

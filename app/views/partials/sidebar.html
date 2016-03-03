@@ -1,35 +1,35 @@
-<md-toolbar class="sideHeader">
+<md-toolbar class="sideHeader" ng-click="go('/')">
     <div><img class="logo" src='images/logo_bowtie.png'/><div class="logoText"  ng-class="{'collapsed' : collapsed}">MrTikit</div></div>
 </md-toolbar>
 
 <div class="sidebarSectionTitle">Administration</div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/myEvents')">
     <i class="fa fa-calendar-o"></i>
     <div class="sidebarText">My Events</div>
 </div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/createEvent')">
     <i class="fa fa-calendar-plus-o"></i>
     <div class="sidebarText">Create Event</div>
 </div>
 
 <div class="sidebarSectionTitle">Event</div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/eventOverview')">
     <i class="fa fa-list-alt"></i>
     <div class="sidebarText">Overview</div>
 </div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/manageEvent')">
     <i class="fa fa-list"></i>
     <div class="sidebarText">Manage</div>
 </div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/eventAttendees')">
     <i class="fa fa-users"></i>
-    <div class="sidebarText">Attendies</div>
+    <div class="sidebarText">Attendees</div>
 </div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/eventReports')">
     <i class="fa fa-area-chart"></i>
     <div class="sidebarText">Reports</div>
 </div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}">
+<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/eventUtilities')">
     <i class="fa fa-cogs"></i>
     <div class="sidebarText">Utilities</div>
 </div>

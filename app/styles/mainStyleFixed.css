@@ -10,6 +10,10 @@
   font-size: 36px;
   line-height: 50px;
 }
+.sidebarContainer .sideHeader:focus {
+  border: 0;
+  outline: 0;
+}
 .sidebarContainer .logo {
   height: 50px;
   width: 50px;
@@ -46,6 +50,10 @@
 }
 .sidebarContainer .sidebarLink.collapsed .sidebarText {
   display: none;
+}
+.sidebarContainer .sidebarLink:focus {
+  border: 0;
+  outline: 0;
 }
 md-toolbar.header {
   background-color: #fff;
