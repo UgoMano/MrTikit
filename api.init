@@ -1,3 +1,3 @@
 #!/bin/sh
 docker build -t mt-api-image -f api/api.docker .
-docker run --name mt-api -d -i -t -p 8000:80 --restart=on-failure:10 mt-api-image /sbin/my_init
+docker run --name mt-api -d -i -t -p 8000:3000 --restart=on-failure:10 mt-api-image /sbin/my_init

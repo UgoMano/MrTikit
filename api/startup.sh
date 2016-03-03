@@ -6,6 +6,8 @@ git fetch origin api-master --depth 1
 git reset --hard origin/api-master
 #npm install -g bower
 #bower install --allow-root --force-latest
+npm install -g npm
 npm install
 #STEVE ADD API COMMANDS HERE (download libs and startup)
-sails lift --prod
+#sails lift --prod
+node_modules/sails/bin/sails.js  lift
