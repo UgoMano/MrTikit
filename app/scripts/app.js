@@ -53,7 +53,7 @@ angular.module('mrtikitApp', [
        controller: 'EventOverviewCtrl'
    })
     .state('app.eventManage', {
-       url: "events/:eventID/manage",
+       url: "events/:eventId/manage",
        templateUrl: "views/eventManage.html",
        controller: 'EventManageCtrl'
    })
