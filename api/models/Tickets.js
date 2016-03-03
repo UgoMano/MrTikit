@@ -5,11 +5,23 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+ var uuid = require('node-uuid');
+
 module.exports = {
 
   schema: true,
 
   attributes: {
+
+    uuid: {
+        type: 'string',
+        primaryKey: true,
+        defaultsTo: function (){ return uuid.v4(); },
+        unique: true,
+        index: true,
+        uuidv4: true
+    },
+    
     event: {
       model: 'Events',
       required: true,
