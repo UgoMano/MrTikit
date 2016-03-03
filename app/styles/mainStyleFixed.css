@@ -78,6 +78,10 @@ md-toolbar.header .headerItem .fa {
   font-size: 25px;
   line-height: inherit;
 }
+md-toolbar.header .headerItem:focus {
+  border: 0;
+  outline: 0;
+}
 md-toolbar.header .right {
   float: right;
 }
