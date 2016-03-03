@@ -1,26 +1,37 @@
  
  <md-content layout-gt-sm="row" layout-padding>
   <form>
-  <div class="group">
+    <div class="group">
 
-    <div>
-      <md-input-container>
-        <label>Email</label>
-        <input ng-model="user.email" type="email">
-      </md-input-container>
-      <md-input-container>
-        <label>Password</label>
-        <input ng-model="user.password" type="password">
-      </md-input-container>
+      <div flex flex-gt="50" layout="column">
+        <md-card>
+        <div>
+          <md-input-container>
+            <label>Email</label>
+            <input ng-model="user.email" type="email">
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+            <label>Password</label>
+            <input ng-model="user.password" type="password">
+          </md-input-container>
+        </div>
+
+
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button class="md-raised" ng-click="login()">Sign In</md-button>
+      </section>
+            </md-card>
+        </div>
     </div>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised" ng-click="login()">Sign In</md-button>
-    </section>
-    </div>
-    </form>
-    <div>
+  </form>
+
+
+
+  <div>
     Forgot password? Click
     <a href="memes.com"> here! </a>
-    </div>
+  </div>
 </md-content>
 
