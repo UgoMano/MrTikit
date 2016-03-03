@@ -7,13 +7,7 @@
  * # MyEventsCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('MyEventsCtrl', function ($scope) {
+angular.module('mrtikitApp').controller('MyEventsCtrl', function ($scope, $backend) {
      console.log('myEvents')
-     $scope.events=[
-         {'eventId':1},
-         {'eventId':2},
-         {'eventId':3},
-         {'eventId':4},
-         {'eventId':5}
-     ];
+     $scope.events= $backend.getEvents();
 });
