@@ -25,4 +25,23 @@ module.exports = {
                 return found;
             });
     },
+
+    scanTicket: function(ticketUuid) {
+        return Tickets.update({uuid: ticketUuid}, {lastScanTime: new Date()})
+        .then(function (ticket) {
+            if(!ticket) throw new Error("Error with updating");
+
+            var newTotal = ticket.totalScans + 1;
+            var newFirstScan = ticket.firstScanTime;
+            if(newTotal == 1)
+                newFirstScan = new Date();
+
+            return Tickets.update({uuid: ticketUuid}, {totalScans: newTotal, firstScanTime: newFirstScan})
+                .then(function (ticket) {
+                    if(!ticket) throw new Error("Second Update Error");
+                    return ticket;
+                });
+
+        });
+    }
 };
