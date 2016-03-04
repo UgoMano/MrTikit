@@ -97,27 +97,46 @@ md-toolbar.header .headerItem:focus {
 md-toolbar.header .right {
   float: right;
 }
-.myEvent {
+.myEventsContainer .myEvent {
   padding-bottom: 20px;
   padding-top: 20px;
 }
-.myEvent md-content {
+.myEventsContainer .myEvent md-content {
   line-height: inherit;
 }
-.myEvent .eventName {
+.myEventsContainer .myEvent .eventName {
   display: inline;
   width: 100px;
   margin-left: 20px;
   height: 48px;
   line-height: 48px;
+  font-weight: bold;
+  color: #848484;
 }
-.myEvent .md-button {
+.myEventsContainer .myEvent .md-button {
   background-color: #c23b22;
   color: #fff;
   float: right;
 }
-.myEvent .md-button:hover {
+.myEventsContainer .myEvent .md-button:hover {
   background-color: darkred;
+}
+.myEventsContainer .myEvent .md-button:first-of-type {
+  margin-right: 20px;
+}
+.eventOverviewContainer md-toolbar {
+  background-color: #c23b22;
+}
+.eventOverviewContainer .eventOverview md-toolbar {
+  text-align: center;
+  font-size: 36px;
+}
+.eventOverviewContainer .eventOverview .eventImage {
+  width: 100%;
+  height: 200px;
+}
+body {
+  background-color: #8565c4;
 }
 md-toolbar {
   min-height: 50px;

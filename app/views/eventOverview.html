@@ -1,4 +1,18 @@
-<md-card>
-    <div>Event {{curEventId}} Overview</div>
-    <div>Name: {{event.name}}</div>
-</md-card>
+<div class="eventOverviewContainer" layout="column">
+    <md-card class="eventOverview">
+        <md-toolbar>Event Overview</md-toolbar>
+        <img class="eventImage" ng-src="{{event.image}}" />
+        <div class="eventInfo">
+            <div>Eventid: {{curEventId}}</div>
+            <div>Name: {{event.name}}</div>
+        </div>
+    </md-card>
+    <div layout="row">
+        <md-card flex layout="column">
+            <md-toolbar>Ticket Types</md-toolbar>
+        </md-card>
+        <md-card flex layout="column">
+            <md-toolbar>Attendees</md-toolbar>
+        </md-card>
+    </div>
+</div>
