@@ -1,1 +1,7 @@
-<button ng-repeat="e in events" ng-click="go('/events/'+e.eventId+'/overview')">{{e.eventId}}: {{e.name}}</button>
+<md-card ng-repeat="e in events" class="myEvent">
+    <md-content>
+        <div class="eventName">{{e.name}}</div>
+        <md-button ng-click="go('/events/'+e.eventId+'/overview')">view</md-button>
+        <md-button ng-click="go('/events/'+e.eventId+'/manage')">edit</md-button>
+    </md-content>
+</md-card>

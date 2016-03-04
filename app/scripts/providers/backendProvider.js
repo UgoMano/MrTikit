@@ -20,15 +20,35 @@ angular.module('mrtikitApp')
             {
                 'eventId': 5,
                 'name': 'Event 5'
+            },
+            {
+                'eventId': 6,
+                'name': 'Event 6'
+            },
+            {
+                'eventId': 7,
+                'name': 'Event 7'
+            },
+            {
+                'eventId': 8,
+                'name': 'Event 8'
+            },
+            {
+                'eventId': 9,
+                'name': 'Event 9'
+            },
+            {
+                'eventId': 10,
+                'name': 'Event 10'
             }];
         var getEvents = function () {
             return events;
         }
         var getEvent = function (eventId) {
-            if (eventId > events.length)
+            if (eventId < 1 || eventId > events.length)
                 return false;
             else
-                return events[eventId];
+                return events[eventId - 1];
         }
         return {
             getEvents: function () {
