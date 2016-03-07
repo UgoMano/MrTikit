@@ -142,7 +142,7 @@ angular.module('mrtikitApp', [
             //This is validation error if you are missing username or password
             console.log(data.error);
             return;
-        }
+        }gi
 
         //Log the server response success/error
         console.log(data);
