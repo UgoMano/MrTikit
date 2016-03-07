@@ -6,6 +6,6 @@
  * @param {Function} cb This function should always be called, so DON'T REMOVE IT
  */
 
-module.exports = {
-  bootstrap: cb => cb()
+module.exports.bootstrap = function(cb) {
+  cb();
 };
