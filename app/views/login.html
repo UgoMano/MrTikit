@@ -1,37 +1,36 @@
- 
- <md-content layout-gt-sm="row" layout-padding>
-  <form>
-    <div class="group">
 
-      <div flex flex-gt="50" layout="column">
-        <md-card>
-        <div>
-          <md-input-container>
-            <label>Email</label>
-            <input ng-model="user.email" type="email">
-          </md-input-container>
-        </div>
-        <div>
-          <md-input-container>
-            <label>Password</label>
-            <input ng-model="user.password" type="password">
-          </md-input-container>
-        </div>
+<div layout="row" class="loginContainer" layout-sm="column" layout-align="center center" layout-wrap>
+   <md-content layout-gt-sm="row" layout-padding>
+   <form>
+      <div class="group">
+         <div flex flex-gt="50" layout="column">
+            <md-card>
+               <md-card-header>
+                  <img src="http://studytreeapp.com/beta/institution/images/login-bg.png"/>
+               </md-card-header>
+               <md-card-content>
+                  <div class="loginInputContainer">
+                     <md-input-container> 
+                        <label>Email</label>
+                        <input ng-model="user.email" type="email">
+                     </md-input-container>
+                     <md-input-container>
+                        <label>Password</label>
+                        <input ng-model="user.password" type="password">
+                     </md-input-container>
+                  </div>
 
-
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button class="md-raised" ng-click="login()">Sign In</md-button>
-      </section>
+                  <section layout="row" layout-sm="column"  layout-wrap>
+                     <md-button class="md-raised" ng-click="login()">Sign In</md-button>
+                  </section>
+                  <div class="forgotPasswordLink" layout="row" layout-sm="column" layout-wrap>
+                     <a href="memes.com">  Forgot Password? </a>
+                  </div>
+                </md-content>
             </md-card>
-        </div>
-    </div>
-  </form>
-
-
-
-  <div>
-    Forgot password? Click
-    <a href="memes.com"> here! </a>
-  </div>
+         </div>
+      </div>
+   </form>
+</div>
 </md-content>
-
+</div>
