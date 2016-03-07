@@ -3,26 +3,41 @@
 
 module.exports = {
 
-    getNumTicketsOfTypeAvailableForEvent: function (ticketTypeId, eventId, res) {
-        return TicketTypes.findOne({id :ticketTypeId})
+    getNumAvailTickets: function(ticketTypeId, eventId) {
+        return TicketTypes.findOne({ id: ticketTypeId })
             .then(function(ticketType) {
-                if(!ticketType) throw new Error('Ticket Type Not Found');
+                if(!ticketType) throw new Error('Ticket Type could not be found');
 
-                var maxTickets = 10;//ticketType.maxTickets;
-                if (!maxTickets)
-                    return maxTickets;
+                var maxTickets = ticketType.maxTickets;
+                if(!maxTickets) throw new Error('Max Tickets for Type Is Null');
 
-                var numTicketsOfType = TicketsService.getNumTicketsOfTypeByTicketTypeIdEventId(ticketTypeId, eventId);
-                numTicketsOfType.then(function() {
-                    if (maxTickets < numTicketsOfType) {
-                        console.log(maxTickets - numTicketsOfType);
-                        return maxTickets - numTicketsOfType;
-                    }
-                    else
-                        return 0;
+                return TicketsService.getNumTicketsByType(ticketTypeId, eventId)
+                    .then(function (numSold) {
+                        if(!numSold) throw new Error('Num Tickets Sold could not be excuted');
+
+                        return TempTicketsService.getNumTempTicketsByType(ticketTypeId, eventId)
+                            .then(function (numTempTickets) {
+                                if(!numTempTickets) throw new Error('Num Temp Tickets could not be excuted');
+
+                                var totalNumTickets = numSold + numTempTickets;
+                                if(maxTickets < totalNumTickets) {
+                                    throw new Error('total tickets in system exceeds max tickets allowed');
+                                }
+                                else {
+                                    return ( maxTickets - totalNumTickets );
+                                } 
+                            });
+                        });
                 });
-            }).catch(function(err){
-                console.log(err);
+    },
+
+    getTicketTypesByEvent: function(eventId) {
+        return TicketTypes.find({ event: eventId })
+            .then(function(ticketTypes) {
+                if(!ticketTypes) throw new Error('TicketTypes for event could not be found');
+
+                return ticketTypes;
             });
     },
+
 };

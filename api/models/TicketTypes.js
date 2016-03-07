@@ -22,6 +22,7 @@ module.exports = {
 
     maxTickets: {
       type: 'integer',
+      defaultsTo: 10,
     },
 
     price: {

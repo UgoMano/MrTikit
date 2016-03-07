@@ -1,27 +1,15 @@
 /**
- * Tickets.js
+ * TempTickets.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
- var uuid = require('node-uuid');
-
 module.exports = {
-
-  schema: true,
+	  schema: true,
 
   attributes: {
 
-    uuid: {
-        type: 'string',
-        primaryKey: true,
-        defaultsTo: function (){ return uuid.v4(); },
-        unique: true,
-        index: true,
-        uuidv4: true
-    },
-    
     event: {
       model: 'Events',
       required: true,
@@ -36,26 +24,7 @@ module.exports = {
       model: 'TicketTypes',
       required: true,
     },
-
-    checkIn: {
-      type: 'boolean',
-      defaultsTo: false
-    },
-
-    firstScanTime: {
-      type: 'datetime',
-      defaultsTo: ''
-    },
-
-    lastScanTime: {
-      type: 'datetime',
-      defaultsTo: ''
-    },
-
-    totalScans: {
-      type: 'integer',
-      defaultsTo: '0'
-    },
+    
   },
 
   beforeValidate(values, next) {
