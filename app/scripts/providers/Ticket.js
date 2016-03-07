@@ -85,5 +85,6 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
         getAll: function (tokenKey) {
             return get(tokenKey);
         }
+        
     };
 })
