@@ -12,4 +12,5 @@ angular.module('mrtikitApp').controller('EventOverviewCtrl', function ($scope, $
     $scope.setEvent($stateParams.eventId);
     console.log('eventId: ',$scope.curEventId);
     $scope.event = $backend.getEvent($scope.curEventId);
+    $scope.attendees = $backend.getAttendees($scope.curEventId);
 });

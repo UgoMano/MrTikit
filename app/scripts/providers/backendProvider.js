@@ -51,14 +51,42 @@ angular.module('mrtikitApp')
                 'name': 'Event 10',
                 'image': 'http://placehold.it/1000x200/8565c4/ffffff?text=Event+10+Image'
             }];
+        var attendees = [{
+            'name': 'Bob Barker'
+        }, {
+            'name': 'Steve Harvey'
+        }, {
+            'name': 'Vana White'
+        }, {
+            'name': 'Drew Carey'
+        }, {
+            'name': 'Alex Trebec'
+        }, {
+            'name': 'Pat Sajak'
+        },{
+            'name': 'Bob Barker'
+        }, {
+            'name': 'Steve Harvey'
+        }, {
+            'name': 'Vana White'
+        }, {
+            'name': 'Drew Carey'
+        }, {
+            'name': 'Alex Trebec'
+        }, {
+            'name': 'Pat Sajak'
+        }];
         var getEvents = function () {
             return events;
-        }
+        };
         var getEvent = function (eventId) {
             if (eventId < 1 || eventId > events.length)
                 return false;
             else
                 return events[eventId - 1];
+        };
+        var getAttendees = function (eventId) {
+            return attendees;
         }
         return {
             getEvents: function () {
@@ -66,6 +94,9 @@ angular.module('mrtikitApp')
             },
             getEvent: function (eventId) {
                 return getEvent(eventId);
+            },
+            getAttendees: function (eventId) {
+                return getAttendees(eventId);
             }
         }
     });
