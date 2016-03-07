@@ -9,4 +9,4 @@ git reset --hard origin/api-dev
 npm install
 #STEVE ADD API COMMANDS HERE (download libs and startup)
 #sails lift --prod
-node_modules/sails/bin/sails.js  lift
+node_modules/sails/bin/sails.js  lift --prod
