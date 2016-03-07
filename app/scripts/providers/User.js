@@ -181,8 +181,8 @@ factory('$User', function ($http, $location, $timeout, $q) {
         signup: function(firstName, lastName, username, email, password) {
             return signup(firstName, lastName, username, email, password);  
         },
-        update: function(firstName, lastName, username, email, password, id) {
-            return update(firstName, lastName, username, email, password, id);  
+        update: function(id, tokenKey, firstName, lastName, username, email, password) {
+            return update(id, tokenKey, firstName, lastName, username, email, password);  
         }
     };
 })

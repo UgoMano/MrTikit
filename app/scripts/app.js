@@ -73,10 +73,10 @@ angular.module('mrtikitApp', [
             controller: 'EventUtilitiesCtrl'
         })
     $urlRouterProvider.otherwise('/');
-}).run(function ($rootScope, $state, $http, $location, $window, $timeout, $User) {
+}).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event) {
     console.log($state);
 
-    /*
+    
     $User.login("test@test.com", "test12").then(function (data) {
 
         if (data.error) {
@@ -86,9 +86,12 @@ angular.module('mrtikitApp', [
         }
 
         //Log the server response success/error
-        console.log(data);
+        //console.log(data);
+        $cookieStore.put('loginKey', data.data.data.token);
+        $rootScope.loginKey = $cookieStore.get("loginKey");
     });
-    */
+    
+    $rootScope.loginKey = $cookieStore.get("loginKey");
 
     /*
     $User.signup("firstName", "lastName", "username", "email@test.com", "password").then(function (data) {
@@ -103,6 +106,61 @@ angular.module('mrtikitApp', [
         console.log(data);
     });
     */
+    
+    /*
+    $Event.getAll($rootScope.loginKey).then(function (data) {
+
+        if (data.error) {
+            //This is validation error if you are missing username or password
+            console.log(data.error);
+            return;
+        }
+
+        //Log the server response success/error
+        console.log(data);
+    });*/
+    
+    
+    /*
+    $Event.get(1, $rootScope.loginKey).then(function (data) {
+
+        if (data.error) {
+            //This is validation error if you are missing username or password
+            console.log(data.error);
+            return;
+        }
+
+        //Log the server response success/error
+        console.log(data);
+    });
+    */
+    
+    /*
+    $Event.create($rootScope.loginKey, "title", 1,  null, null, null, null).then(function (data) {
+
+        if (data.error) {
+            //This is validation error if you are missing username or password
+            console.log(data.error);
+            return;
+        }
+
+        //Log the server response success/error
+        console.log(data);
+    });*/
+    
+    /*
+    $Event.update(2, $rootScope.loginKey, "Test Event 2", 1,  null, null, null, null).then(function (data) {
+
+        if (data.error) {
+            //This is validation error if you are missing username or password
+            console.log(data.error);
+            return;
+        }
+
+        //Log the server response success/error
+        console.log(data);
+    });*
+    
     
 });
 
