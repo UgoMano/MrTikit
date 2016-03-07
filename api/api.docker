@@ -6,6 +6,11 @@ RUN DEBIAN_FRONTEND='noninteractive' apt-get update; apt-get install -y git node
 RUN npm install -g npm
 RUN rm /usr/bin/node
 RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN sudo npm cache clean -f
+RUN sudo npm install -g n
+RUN sudo n stable
+
+RUN sudo ln -sf /usr/local/n/versions/node/5.6.0/bin/node /usr/bin/node 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
