@@ -160,6 +160,24 @@ md-toolbar.header .right {
 .eventOverviewContainer .attendeesCard .attendee .attendeeName {
   width: 100px;
 }
+.eventCreateCard {
+  color: #848484;
+}
+.eventCreateCard label {
+  color: #848484;
+}
+.eventCreateCard md-input-container {
+  display: block;
+}
+.eventCreateCard md-input-container .eventTitle {
+  width: 200px;
+}
+.eventCreateCard md-input-container .eventLocation {
+  width: 200px;
+}
+.eventCreateCard md-input-container .eventTime {
+  width: 200px;
+}
 body {
   background-color: #8565c4;
 }

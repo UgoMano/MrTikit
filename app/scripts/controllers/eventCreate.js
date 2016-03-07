@@ -7,6 +7,10 @@
  * # EventCreateCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventCreateCtrl', function () {
-     console.log('eventCreate')
+angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope) {
+    console.log('eventCreate')
+    $scope.event = {};
+    $scope.$watch('event', function () {
+        console.log($scope.event);
+    },true)
 });
