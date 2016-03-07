@@ -1,101 +1,43 @@
 .sidebarContainer {
-  cursor: default;
-  background-color: #c23b22;
+  background-color: #2F323B;
 }
-.sidebarContainer .sideHeader {
-  background-color: darkred;
-  color: #fff;
-  font-family: 'Courgette';
-  text-align: center;
-  font-size: 36px;
-  line-height: 50px;
+.sidebarContainer .navContainer {
+  padding-left: 15px;
 }
-.sidebarContainer .sideHeader:focus {
-  border: 0;
-  outline: 0;
-}
-.sidebarContainer .logo {
-  height: 50px;
-  width: 50px;
-}
-.sidebarContainer .logoText {
-  display: inline;
-  vertical-align: top;
-  padding-top: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.sidebarContainer .logoText.collapsed {
-  display: none;
-}
-.sidebarContainer .sidebar {
-  background-color: #c23b22;
-  color: #fff;
-}
-.sidebarContainer .sidebarSectionTitle {
-  padding-left: 10px;
-  margin-top: 20px;
+.sidebarContainer h1 {
+  font-size: 16px;
+  margin-bottom: 0px;
 }
 .sidebarContainer .sidebarLink {
   cursor: pointer;
-  padding-left: 20px;
+  padding-left: 15px;
   padding-top: 10px;
 }
-.sidebarContainer .sidebarLink .sidebarText {
-  font-size: 14px;
-  display: inline;
+.header {
+  line-height: 50px;
+  background-color: #22242B;
+  color: #cccccc;
 }
-.sidebarContainer .sidebarLink .fa {
-  font-size: 16px;
-}
-.sidebarContainer .sidebarLink.collapsed .sidebarText {
-  display: none;
-}
-.sidebarContainer .sidebarLink:focus {
-  border: 0;
-  outline: 0;
-}
-.sidebarContainer .curEvent {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  background-color: darkred;
-}
-.sidebarContainer .curEvent div {
-  position: relative;
-  text-align: center;
-}
-md-toolbar.header {
-  background-color: #fff;
-  color: #848484;
-  display: inline;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-md-toolbar.header .headerItem {
+.header .headerItem {
   cursor: pointer;
   display: inline;
   margin-right: 20px;
   font-size: 15px;
 }
-md-toolbar.header .headerItem .headerItemText {
+.header .headerItem .headerItemText {
   display: inline;
   margin-right: 10px;
 }
-md-toolbar.header .headerItem .fa {
-  font-size: 25px;
-  line-height: inherit;
+.header .headerItem .fa {
+  font-size: 20px;
+  line-height: 20px;
 }
-md-toolbar.header .headerItem:focus {
+.header .headerItem:focus {
   border: 0;
   outline: 0;
 }
-md-toolbar.header .right {
-  float: right;
+.header .menubutton {
+  padding-left: 15px;
 }
 .myEventsContainer .myEvent {
   padding-bottom: 20px;

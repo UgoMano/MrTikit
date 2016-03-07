@@ -1,19 +1,24 @@
+<!--
 <md-toolbar class="sideHeader" ng-click="go('/')">
     <div><img class="logo" src='images/logo_bowtie.png' />
         <div class="logoText" ng-class="{'collapsed' : collapsed}">MrTikit</div>
     </div>
 </md-toolbar>
-
-<div class="sidebarSectionTitle">Administration</div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/myEvents')">
-    <i class="fa fa-calendar-o"></i>
-    <div class="sidebarText">My Events</div>
+-->
+<div class='navContainer'>
+    <h1>Administration</h1>
+    <ul>
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/myEvents')">
+            <i class="fa fa-calendar-o"></i>
+            <div class="sidebarText">My Events</div>
+        </li>
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/create')">
+            <i class="fa fa-calendar-plus-o"></i>
+            <div class="sidebarText">Create Event</div>
+        </li>
+    </ul>
 </div>
-<div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/create')">
-    <i class="fa fa-calendar-plus-o"></i>
-    <div class="sidebarText">Create Event</div>
-</div>
-
+<!--
 <div ng-show="curEventId">
     <div class="sidebarSectionTitle">Event</div>
     <div class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/'+curEventId+'/overview')">
@@ -37,6 +42,8 @@
         <div class="sidebarText">Utilities</div>
     </div>
 </div>
+
 <div class="curEvent" ng-show="curEventId">
     <div>Current Event: {{curEventId}}</div>
 </div>
+-->

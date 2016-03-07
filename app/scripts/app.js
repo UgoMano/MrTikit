@@ -76,7 +76,7 @@ angular.module('mrtikitApp', [
 }).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event) {
     console.log($state);
 
-    
+    /*
     $User.login("test@test.com", "test12").then(function (data) {
 
         if (data.error) {
@@ -92,6 +92,7 @@ angular.module('mrtikitApp', [
     });
     
     $rootScope.loginKey = $cookieStore.get("loginKey");
+    */
 
     /*
     $User.signup("firstName", "lastName", "username", "email@test.com", "password").then(function (data) {

@@ -1,10 +1,14 @@
-<div style="height:100%" layout="row">
-    <md-sidenav class="sidebarContainer md-sidenav-left" flex="{{collapsed ? 5 : 15}}" md-is-locked-open="true">
-        <md-content class="sidebar sidebar-default open" id="sidebar" role="navigation" ng-include="'views/partials/sidebar.html'" ng-controller="SidebarCtrl"></md-content>
-    </md-sidenav>
-    <div layout="column" flex>
-        <md-toolbar class="header" ng-include="'views/partials/header.html'"></md-toolbar>
-        <md-content flex ui-view class='mainContent'></md-content>
+<div style='height:50px;'>
+    <div flex layout='row' class="header" ng-include="'views/partials/header.html'"></div>
+</div>
+<div style='height:100%; padding-top:50px; margin-top: -50px;'>
+    <div layout="row" style='height:100%;'>
+        <md-sidenav class="sidebarContainer md-sidenav-left" flex="{{collapsed ? 5 : 15}}" md-is-locked-open="true">
+            <md-content class="sidebar sidebar-default open" id="sidebar" role="navigation" ng-include="'views/partials/sidebar.html'" ng-controller="SidebarCtrl"></md-content>
+        </md-sidenav>
+        <div layout="column" flex>
+            <md-content flex ui-view class='mainContent'></md-content>
+        </div>
     </div>
 </div>
 <!--<div class="footer" ng-include="'views/partials/footer.html'"></div>-->
