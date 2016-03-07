@@ -86,9 +86,12 @@ angular.module('mrtikitApp', [
         }
 
         //Log the server response success/error
-        //console.log(data);
+        console.log(data);
         $cookieStore.put('loginKey', data.data.data.token);
-        $rootScope.loginKey = $cookieStore.get("loginKey");
+        $cookieStore.put('user', data.data.data.user);
+        //$rootScope.loginKey = $cookieStore.get("loginKey");
+        $rootScope.user = $cookieStore.get("user");
+        $rootScope.user.loginKey = $cookieStore.get("loginKey");
     });
     
     $rootScope.loginKey = $cookieStore.get("loginKey");
