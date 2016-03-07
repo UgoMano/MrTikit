@@ -151,8 +151,6 @@ md-toolbar.header .right {
 }
 .eventOverviewContainer .attendeesCard .attendee {
   border-bottom: 1px solid #848484;
-  padding-left: 10px;
-  padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
