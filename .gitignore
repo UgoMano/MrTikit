@@ -1,4 +1,5 @@
 node_modules/*
 app/lib/*
 .tmp/
-.DS_Store
+.DS_STORE
+*/.DS_STORE

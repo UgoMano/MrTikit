@@ -1,26 +1,14 @@
-<div class="navbar navbar-MT" role="navigation">
-    <div class="container">
-        <div class="navbar-header navbar-left">
-
-            <a class="navbar-brand" href="#/">
-                <div class="logoContainer">
-                    <img class="logo" src="images/logo.png">
-                </div>
-                Mr Tikit
-            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-right">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#/">Find Event</a>
-                </li>
-                <li>
-                    <a href="#/about">About</a>
-                </li>
-                <li>
-                    <a href="#/login">Login</a>
-                </li>
-            </ul>
-        </div>
+<div ng-click="toggleCollapse()" class="headerItem menubutton">
+    <i class="fa fa-bars"></i>
+</div>
+<div class="right">
+    <div class="headerItem events" ng-click="go('/myEvents')">
+        <div class="headerItemText">My Events</div><i class="fa fa-calendar-o"></i>
+    </div>
+    <div class="headerItem tickets" ng-click="go('/myTickets')">
+        My Tickets <i class="fa fa-ticket"></i>
+    </div>
+    <div class="headerItem user" ng-click="go('/')">
+        <i class="fa fa-user"></i>
     </div>
 </div>

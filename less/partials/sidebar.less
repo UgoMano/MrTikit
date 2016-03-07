@@ -1,0 +1,71 @@
+.sidebarContainer {
+    cursor: default;
+    .sideHeader {
+        background-color: @MT_DRED;
+        color: @MT_WHITE;
+        font-family: @MT_FONT_LOGO;
+        text-align: center;
+        font-size: 36px;
+        line-height: 50px;
+        &:focus {
+            border: 0;
+            outline: 0;
+        }
+    }
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+    .logoText {
+        display: inline;
+        vertical-align: top;
+        padding-top: 1px;
+        padding-left: 5px;
+        padding-right: 5px;
+        &.collapsed {
+            display: none;
+        }
+    }
+    background-color: @MT_RED;
+    .sidebar {
+        background-color: @MT_RED;
+        color: @MT_WHITE;
+    }
+    .sidebarSectionTitle {
+        padding-left: 10px;
+        margin-top: 20px;
+    }
+    .sidebarLink {
+        cursor: pointer;
+        padding-left: 20px;
+        padding-top: 10px;
+        .sidebarText {
+            font-size: 14px;
+            display: inline;
+        }
+        .fa {
+            font-size: 16px;
+        }
+        &.collapsed {
+            .sidebarText {
+                display: none;
+            }
+        }
+        &:focus {
+            border: 0;
+            outline: 0;
+        }
+    }
+    .curEvent {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        background-color: @MT_DRED;
+        div {
+            position: relative;
+            text-align: center;
+        }
+    }
+}

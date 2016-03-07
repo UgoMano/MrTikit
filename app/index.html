@@ -12,14 +12,11 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
 
-    <!-- Bootstrap -->
-    <link rel='stylesheet' href="lib/bootstrap/dist/css/bootstrap.min.css" />
-
+    <!-- Angular Material -->
+    <link rel='stylesheet' href="lib/angular-material/angular-material.min.css" />
+    
     <!--Font Awesome -->
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
-
-    <!--Flat ui -->
-    <link rel="stylesheet" href="lib/flat-ui/dist/css/flat-ui.min.css">
 
     <!-- This comes from the autoprefixed scss file -->
     <link rel="stylesheet" href="styles/mainStyleFixed.css">
@@ -31,11 +28,8 @@
     <!--[if lt IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-    <div ng-controller="HeaderCtrl" ng-include="'views/partials/header.html'" ui-scrollpoint="25" class="header"></div>
 
-    <div ui-view class='mainContent'></div>
-
-    <div ng-include="'views/partials/footer.html'" class="footer"></div>
+    <div style="height:100%" ui-view></div>
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway|Cookie|Courgette' rel='stylesheet' type='text/css'>
@@ -48,16 +42,27 @@
     <script src="lib/angular-resource/angular-resource.min.js"></script>
     <script src="lib/angular-route/angular-route.min.js"></script>
     <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="lib/angular-touch/angular-touch.min.js"></script>
+    <!--<script src="lib/angular-touch/angular-touch.min.js"></script>-->
     <script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
-    <script src="lib/angular-ui-scrollpoint/dist/scrollpoint.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.min.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
     <!-- End Bower Components -->
 
     <!-- scripts-->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/landing.js"></script>
+    <script src="scripts/providers/backendProvider.js"></script>
+    <script src="scripts/controllers/partials/sidebar.js"></script>
+    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/partials/header.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/myEvents.js"></script>
+    <script src="scripts/controllers/eventCreate.js"></script>
+    <script src="scripts/controllers/eventOverview.js"></script>
+    <script src="scripts/controllers/eventManage.js"></script>
+    <script src="scripts/controllers/eventAttendees.js"></script>
+    <script src="scripts/controllers/eventReports.js"></script>
+    <script src="scripts/controllers/eventUtilities.js"></script>
     <!-- END scripts -->
 </body>
 
