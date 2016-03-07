@@ -159,7 +159,7 @@ angular.module('mrtikitApp', [
 
         //Log the server response success/error
         console.log(data);
-    });*
+    });*/
     
     
 });
