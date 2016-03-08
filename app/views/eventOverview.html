@@ -1,0 +1,28 @@
+<div class="eventOverviewContainer" layout="column">
+    <div layout="row" flex>
+        <md-card class="eventOverview" flex>
+            <md-toolbar>Event Overview</md-toolbar>
+            <img class="eventImage" ng-src="{{event.image}}" />
+            <div class="eventInfo">
+                <div>Eventid: {{curEventId}}</div>
+                <div>Name: {{event.name}}</div>
+            </div>
+        </md-card>
+    </div>
+    <div layout="row" flex>
+        <md-card flex layout="column">
+            <md-toolbar>Ticket Types</md-toolbar>
+        </md-card>
+        <md-card flex layout="column" class="attendeesCard">
+            <md-toolbar>Attendees</md-toolbar>
+            <md-card-content flex>
+                <md-list>
+                    <md-list-item class="attendee" ng-repeat="u in attendees">
+                        <div class="attendeeName">{{u.name}}</div>
+                        <div class="numTickets md-secondary">{{$index}}</div>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
