@@ -2,10 +2,14 @@
     <div layout="row" flex>
         <md-card class="eventOverview" flex>
             <md-toolbar>Event Overview</md-toolbar>
-            <img class="eventImage" ng-src="{{event.image}}" />
+            <img class="eventImage" ng-src="http://placehold.it/1068x200" />
             <div class="eventInfo">
-                <div>Eventid: {{curEventId}}</div>
-                <div>Name: {{event.name}}</div>
+                <div>Eventid: {{event.id}}</div>
+                <div>Name: {{event.title}}</div>
+                <div>Description: {{event.description}}</div>
+                <div>Location: {{event.location}}</div>
+                <div>Start Time: {{event.startDateTime}}</div>
+                <div>End Time : {{event.endDateTime}}</div>
             </div>
         </md-card>
     </div>
