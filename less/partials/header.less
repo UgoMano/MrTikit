@@ -7,6 +7,7 @@
         display: inline;
         margin-right: 20px;
         font-size: 15px;
+        text-align: right;
         .headerItemText {
             display: inline;
             margin-right: 10px;
@@ -19,8 +20,19 @@
             border: 0;
             outline: 0;
         }
+
+        &:first-of-type {
+            text-align: left;
+        }
+
+        &:last-of-type {
+            margin-left: -90px;
+        }
     }
     .menubutton {
         padding-left: 15px;
+    }
+    .logo {
+        height: 50px;
     }
 }

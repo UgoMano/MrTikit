@@ -5,16 +5,26 @@
     </div>
 </md-toolbar>
 -->
+<div class='userContainer'>
+    <div class='image'>
+        <img src='https://graph.facebook.com/10207926613950779/picture?type=large'/>
+    </div>
+    <h1>Steve Calabro</h1>
+</div>
 <div class='navContainer'>
     <h1>Administration</h1>
     <ul>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/myEvents')">
-            <i class="fa fa-calendar-o"></i>
-            <div class="sidebarText">My Events</div>
+            <md-button class='active'>
+                <i class="fa fa-calendar-o"></i>
+                My Events
+            </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/create')">
-            <i class="fa fa-calendar-plus-o"></i>
-            <div class="sidebarText">Create Event</div>
+            <md-button>
+                <i class="fa fa-calendar-plus-o"></i>
+                Create Event
+            </md-button>
         </li>
     </ul>
 </div>

@@ -1,15 +1,78 @@
 .sidebarContainer {
     background-color: #2F323B;
+    font-family: 'Lato', sans-serif; 
+
+    .sidebar {
+        background: none;
+
+        ul {
+            padding: 0;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 0;
+            position: relative;
+            margin: 0;
+            text-align: left;
+            padding-left: 15px;
+            height: 60px;
+            text-transform: none;
+            font-weight: bold;
+            color: white;
+
+            i {
+                -webkit-font-smoothing: antialiased;
+                text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+                margin-right: 10px;
+            }
+
+            &.active {
+                background-color: @MT_RED;
+            }
+        }
+    }
+
     .navContainer {
-        padding-left: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
+
+    .userContainer {
+        margin-top: 15px;
+        margin-bottom: 30px;
+        .image {
+            border: 1px solid #89a;
+            width: 96px;
+            height: 97px;
+            border-radius: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            border-radius: 50px;
+            margin-left: -2px;
+            margin-top: -2px;
+        }
+        h1 {
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+
     h1 {
-        font-size: 16px;
-        margin-bottom: 0px
+        font-size: 15px;
+        margin-bottom: 0px;
+        color: white;
     }
+
     .sidebarLink {
         cursor: pointer;
-        padding-left: 15px;
+        padding-left: 0px;
         padding-top: 10px;
     }
 }
