@@ -93,7 +93,8 @@ angular.module('mrtikitApp', [
         $rootScope.user = $cookieStore.get("user");
         $rootScope.user.loginKey = $cookieStore.get("loginKey");
     });
-    
+    $rootScope.user = $cookieStore.get("user");
+    $rootScope.user.loginKey = $cookieStore.get("loginKey");
     $rootScope.loginKey = $cookieStore.get("loginKey");
 
     /*

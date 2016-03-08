@@ -16,9 +16,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!title || title == "") {
@@ -26,9 +24,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event Title"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!owner || owner == "") {
@@ -36,9 +32,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event owner"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -59,9 +53,9 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
@@ -74,9 +68,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!id || id == "") {
@@ -84,9 +76,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event id"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -107,24 +97,21 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
 
     var getAll = function (tokenKey) {
-        var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
             var error = {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -135,11 +122,10 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 'Authorization': "JWT " + tokenKey
             }
         }
-
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
@@ -152,9 +138,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!id || id == "") {
@@ -162,9 +146,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event id"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -177,7 +159,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
             return error;
         });
