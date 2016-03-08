@@ -111,6 +111,36 @@
 .sidebarContainer.collapsed button span {
   display: none;
 }
+.sidebarContainer.collapsed .sidebar ul.curEvent li {
+  font-size: 0px;
+  position: fixed;
+  left: 0px;
+}
+.sidebarContainer.collapsed .sidebar ul.curEvent button {
+  padding-left: 45px;
+}
+.sidebarContainer .sidebar ul.curEvent {
+  position: fixed;
+  bottom: 51px;
+  height: 51px;
+  margin-bottom: 0px;
+  width: 100%;
+  margin-left: -14px;
+  color: white;
+  border-top: 1px solid #cecece;
+  padding-left: 15px;
+  box-sizing: border-box;
+  padding-right: 15px;
+}
+.sidebarContainer .sidebar ul.curEvent li {
+  width: 100%;
+  line-height: 51px;
+}
+.sidebarContainer .sidebar ul.curEvent button {
+  padding-left: 10px;
+  width: 60px;
+  float: right;
+}
 .header {
   line-height: 50px;
   background-color: #22242B;
