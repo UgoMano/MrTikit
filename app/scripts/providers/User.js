@@ -26,9 +26,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Please enter an email"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         if(!password || password == "") {
@@ -36,9 +34,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Please enter a password"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         var req = {
@@ -56,7 +52,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
         var promise = $http(req).then(function (data) {
             return data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
@@ -69,9 +65,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Please enter a First Name"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         if(!lastName || lastName == "") {
@@ -79,9 +73,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Please enter a Last Name"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         if(!username || username == "") {
@@ -89,9 +81,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Please enter a Username"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         if(!email || email == "") {
@@ -99,9 +89,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Please enter an Email"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         if(!password || password == "") {
@@ -109,9 +97,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Please enter a Password"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         var req = {
@@ -132,7 +118,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
         var promise = $http(req).then(function (data) {
             return data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
@@ -145,9 +131,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
             
-            promise.resolve(error)
-            
-            return promise.promise;
+            return $q.reject(error);
         }
         
         var req = {
@@ -169,7 +153,7 @@ factory('$User', function ($http, $location, $timeout, $q) {
         var promise = $http(req).then(function (data) {
             return data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }

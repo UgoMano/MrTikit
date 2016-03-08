@@ -16,9 +16,7 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!id || id == "") {
@@ -26,9 +24,7 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
                 error: "Please enter a ticket id"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -41,9 +37,9 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
@@ -56,9 +52,7 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -71,9 +65,9 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }

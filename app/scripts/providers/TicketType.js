@@ -28,9 +28,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!event || event == "") {
@@ -38,9 +36,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!name || name == "") {
@@ -48,9 +44,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event name"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -77,7 +71,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
         var promise = $http(req).then(function (data) {
             return data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
@@ -103,9 +97,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!id || id == "") {
@@ -113,9 +105,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event id"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -140,9 +130,9 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
@@ -155,9 +145,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 error: "Not logged in"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         if (!id || id == "") {
@@ -165,9 +153,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 error: "Please enter an event id"
             }
 
-            promise.resolve(error)
-
-            return promise.promise;
+            return $q.reject(error);
         }
 
         var req = {
@@ -180,9 +166,9 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
