@@ -37,6 +37,8 @@
 .sidebarContainer .userContainer {
   margin-top: 15px;
   margin-bottom: 30px;
+  height: 130px;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .userContainer .image {
   border: 1px solid #89a;
@@ -45,6 +47,7 @@
   border-radius: 50px;
   margin-left: auto;
   margin-right: auto;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .userContainer img {
   display: block;
@@ -53,24 +56,60 @@
   border-radius: 50px;
   margin-left: -2px;
   margin-top: -2px;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .userContainer h1 {
   font-size: 18px;
   text-align: center;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer h1 {
   font-size: 15px;
   margin-bottom: 0px;
   color: white;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .sidebarLink {
   cursor: pointer;
   padding-left: 0px;
   padding-top: 10px;
 }
+.sidebarContainer button {
+  transition: all 0.5s ease-in-out;
+}
 .sidebarContainer.collapsed {
   max-width: 5%;
   transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed h1 {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .image {
+  width: 46px;
+  height: 46px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .image img {
+  width: 50px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .userContainer {
+  margin-bottom: 20px;
+  height: 50px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .userContainer h1 {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed button {
+  margin-left: -20px;
+  padding-left: 35px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed button span {
+  display: none;
 }
 .header {
   line-height: 50px;

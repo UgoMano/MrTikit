@@ -1,16 +1,13 @@
 .sidebarContainer {
     background-color: #2F323B;
-    font-family: 'Lato', sans-serif; 
+    font-family: 'Lato', sans-serif;
     transition: all .5s ease-in-out;
-
     .sidebar {
         background: none;
-
         ul {
             padding: 0;
             margin-top: 5px;
         }
-
         button {
             width: 100%;
             padding: 0;
@@ -22,27 +19,25 @@
             text-transform: none;
             font-weight: bold;
             color: white;
-
             i {
                 -webkit-font-smoothing: antialiased;
-                text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
                 margin-right: 10px;
             }
-
             &.active {
                 background-color: @MT_RED;
             }
         }
     }
-
     .navContainer {
         margin-left: 15px;
         margin-right: 15px;
     }
-
     .userContainer {
         margin-top: 15px;
         margin-bottom: 30px;
+        height: 130px;
+        transition: all .5s ease-in-out;
         .image {
             border: 1px solid #89a;
             width: 96px;
@@ -50,6 +45,7 @@
             border-radius: 50px;
             margin-left: auto;
             margin-right: auto;
+            transition: all .5s ease-in-out;
         }
         img {
             display: block;
@@ -58,27 +54,61 @@
             border-radius: 50px;
             margin-left: -2px;
             margin-top: -2px;
+            transition: all .5s ease-in-out;
         }
         h1 {
             font-size: 18px;
             text-align: center;
+            transition: all .5s ease-in-out;
         }
     }
-
     h1 {
         font-size: 15px;
         margin-bottom: 0px;
         color: white;
+        transition: all .5s ease-in-out;
     }
-
     .sidebarLink {
         cursor: pointer;
         padding-left: 0px;
         padding-top: 10px;
     }
-    
+    button {
+        transition: all .5s ease-in-out;
+    }
     &.collapsed {
         max-width: 5%;
         transition: all .5s ease-in-out;
+        h1 {
+            opacity: 0;
+            transition: all .5s ease-in-out;
+        }
+        .image {
+            width: 46px;
+            height: 46px;
+            //margin-bottom: 80px;
+            transition: all .5s ease-in-out;
+            img {
+                width: 50px;
+                transition: all .5s ease-in-out;
+            }
+        }
+        .userContainer {
+            margin-bottom: 20px;
+            height: 50px;
+            transition: all .5s ease-in-out;
+            h1 {
+                opacity: 0;
+                transition: all .5s ease-in-out;
+            }
+        }
+        button {
+            margin-left: -20px;
+            padding-left: 35px;
+            transition: all .5s ease-in-out;
+            span {
+                display: none;
+            }
+        }
     }
 }
