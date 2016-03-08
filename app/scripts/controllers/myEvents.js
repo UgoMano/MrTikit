@@ -7,7 +7,15 @@
  * # MyEventsCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('MyEventsCtrl', function ($scope, $backend) {
-     console.log('myEvents')
-     $scope.events= $backend.getEvents();
+angular.module('mrtikitApp').controller('MyEventsCtrl', function ($scope, $Event, $mdToast) {
+    console.log('myEvents')
+    $scope.eventsPromise =  $Event.getAll($scope.user.loginKey);
+    $scope.eventsPromise.then(function(events) {
+        $mdToast.showSimple('success');
+        console.log(events);
+        $scope.events = events;
+    }, function(error) {
+        $mdToast.showSimple('error');
+        console.log(error);
+    });
 });
