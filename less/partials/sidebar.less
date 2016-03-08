@@ -1,71 +1,146 @@
 .sidebarContainer {
-    cursor: default;
-    .sideHeader {
-        background-color: @MT_DRED;
-        color: @MT_WHITE;
-        font-family: @MT_FONT_LOGO;
-        text-align: center;
-        font-size: 36px;
-        line-height: 50px;
-        &:focus {
-            border: 0;
-            outline: 0;
-        }
-    }
-    .logo {
-        height: 50px;
-        width: 50px;
-    }
-    .logoText {
-        display: inline;
-        vertical-align: top;
-        padding-top: 1px;
-        padding-left: 5px;
-        padding-right: 5px;
-        &.collapsed {
-            display: none;
-        }
-    }
-    background-color: @MT_RED;
+    background-color: #2F323B;
+    font-family: 'Lato', sans-serif;
+    transition: all .5s ease-in-out;
     .sidebar {
-        background-color: @MT_RED;
-        color: @MT_WHITE;
+        background: none;
+        ul {
+            padding: 0;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 0;
+            position: relative;
+            margin: 0;
+            text-align: left;
+            padding-left: 15px;
+            height: 50px;
+            text-transform: none;
+            font-weight: bold;
+            color: white;
+            i {
+                -webkit-font-smoothing: antialiased;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+                margin-right: 10px;
+            }
+            &.active {
+                background-color: @MT_RED;
+            }
+        }
     }
-    .sidebarSectionTitle {
-        padding-left: 10px;
-        margin-top: 20px;
+    .navContainer {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .userContainer {
+        margin-top: 15px;
+        margin-bottom: 30px;
+        height: 130px;
+        transition: all .5s ease-in-out;
+        .image {
+            border: 1px solid #89a;
+            width: 96px;
+            height: 97px;
+            border-radius: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all .5s ease-in-out;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            border-radius: 50px;
+            margin-left: -2px;
+            margin-top: -2px;
+            transition: all .5s ease-in-out;
+        }
+        h1 {
+            font-size: 18px;
+            text-align: center;
+            transition: all .5s ease-in-out;
+        }
+    }
+    h1 {
+        font-size: 15px;
+        margin-bottom: 0px;
+        color: white;
+        transition: all .5s ease-in-out;
     }
     .sidebarLink {
         cursor: pointer;
-        padding-left: 20px;
+        padding-left: 0px;
         padding-top: 10px;
-        .sidebarText {
-            font-size: 14px;
-            display: inline;
+    }
+    button {
+        transition: all .5s ease-in-out;
+    }
+    &.collapsed {
+        max-width: 5%;
+        transition: all .5s ease-in-out;
+        h1 {
+            opacity: 0;
+            transition: all .5s ease-in-out;
         }
-        .fa {
-            font-size: 16px;
+        .image {
+            width: 46px;
+            height: 46px;
+            //margin-bottom: 80px;
+            transition: all .5s ease-in-out;
+            img {
+                width: 50px;
+                transition: all .5s ease-in-out;
+            }
         }
-        &.collapsed {
-            .sidebarText {
+        .userContainer {
+            margin-bottom: 20px;
+            height: 50px;
+            transition: all .5s ease-in-out;
+            h1 {
+                opacity: 0;
+                transition: all .5s ease-in-out;
+            }
+        }
+        button {
+            margin-left: -20px;
+            padding-left: 35px;
+            transition: all .5s ease-in-out;
+            span {
                 display: none;
             }
         }
-        &:focus {
-            border: 0;
-            outline: 0;
+        .sidebar ul.curEvent {
+            li {
+                font-size: 0px;
+                position: fixed;
+                left: 0px;
+            }
+            button {
+                padding-left: 45px;
+            }
         }
     }
-    .curEvent {
+    .sidebar ul.curEvent {
         position: fixed;
-        bottom: 0;
+        bottom: 51px;
+        height: 51px;
+        margin-bottom: 0px;
         width: 100%;
-        padding-bottom: 20px;
-        padding-top: 20px;
-        background-color: @MT_DRED;
-        div {
-            position: relative;
-            text-align: center;
+        margin-left: -14px;
+        color: white;
+        border-top: 1px solid #cecece;
+        padding-left: 15px;
+        box-sizing: border-box;
+        padding-right: 15px;
+        li {
+            width: 100%;
+            line-height: 51px;
+        }
+        button {
+            padding-left: 10px;
+            width: 60px;
+            float: right;
         }
     }
 }

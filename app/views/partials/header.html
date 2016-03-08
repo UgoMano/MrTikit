@@ -1,14 +1,17 @@
-<div ng-click="toggleCollapse()" class="headerItem menubutton">
+<div flex='5' ng-click="toggleCollapse()" class="headerItem menubutton">
     <i class="fa fa-bars"></i>
+    
 </div>
-<div class="right">
-    <div class="headerItem events" ng-click="go('/myEvents')">
-        <div class="headerItemText">My Events</div><i class="fa fa-calendar-o"></i>
-    </div>
-    <div class="headerItem tickets" ng-click="go('/myTickets')">
-        My Tickets <i class="fa fa-ticket"></i>
-    </div>
-    <div class="headerItem user" ng-click="go('/')">
-        <i class="fa fa-user"></i>
-    </div>
+<div flex='60' class="logoContainer">
+    <img class='logo' src='images/logo_bowtie.png' />
+    <div class="title">MrTikit</div>
+</div>
+<div flex class="headerItem events" ng-click="go('/myEvents')">
+    <div class="headerItemText">My Events</div><i class="fa fa-calendar-o"></i>
+</div>
+<div flex class="headerItem tickets" ng-click="go('/myTickets')">
+    My Tickets <i class="fa fa-ticket"></i>
+</div>
+<div flex class="headerItem user" ng-click="go('/')">
+    <i class="fa fa-user"></i>
 </div>

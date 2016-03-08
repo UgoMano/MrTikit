@@ -7,20 +7,32 @@
  * # MainCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope, $interval,$location) {
-    console.log('main')
+angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope, $interval, $location, $mdSidenav, $cookieStore) {
+    //console.log('main')
     $rootScope.curEventId;
-    if ($rootScope.collapsed == null)
-        $rootScope.collapsed = false;
+
+    $rootScope.collapsed = $cookieStore.get("collapsed");
+    if($rootScope.collapsed == null) {
+        $rootScope.collapsed = "";
+        $cookieStore.put('collapsed', $rootScope.collapsed);
+    }
+    
     $rootScope.toggleCollapse = function () {
-        $rootScope.collapsed = !$rootScope.collapsed;
-        console.log("collapsed: ", $rootScope.collapsed);
+        if ($rootScope.collapsed == "collapsed") {
+            $rootScope.collapsed = "";
+            $cookieStore.put('collapsed', $rootScope.collapsed);
+        } else if ($rootScope.collapsed == "") {
+            $rootScope.collapsed = "collapsed";
+            $cookieStore.put('collapsed', $rootScope.collapsed);
+        }
     };
-    $rootScope.go = function(path) {
-        console.log("go: ",path);
+
+    $rootScope.go = function (path) {
+        console.log("go: ", path);
         $location.path(path);
     }
-    $rootScope.setEvent = function(eventId) {
+
+    $rootScope.setEvent = function (eventId) {
         $rootScope.curEventId = eventId;
     }
 });

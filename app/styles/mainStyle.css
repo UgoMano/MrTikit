@@ -1,101 +1,196 @@
 .sidebarContainer {
-  cursor: default;
-  background-color: #c23b22;
-}
-.sidebarContainer .sideHeader {
-  background-color: darkred;
-  color: #fff;
-  font-family: 'Courgette';
-  text-align: center;
-  font-size: 36px;
-  line-height: 50px;
-}
-.sidebarContainer .sideHeader:focus {
-  border: 0;
-  outline: 0;
-}
-.sidebarContainer .logo {
-  height: 50px;
-  width: 50px;
-}
-.sidebarContainer .logoText {
-  display: inline;
-  vertical-align: top;
-  padding-top: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.sidebarContainer .logoText.collapsed {
-  display: none;
+  background-color: #2F323B;
+  font-family: 'Lato', sans-serif;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .sidebar {
-  background-color: #c23b22;
-  color: #fff;
+  background: none;
 }
-.sidebarContainer .sidebarSectionTitle {
-  padding-left: 10px;
-  margin-top: 20px;
+.sidebarContainer .sidebar ul {
+  padding: 0;
+  margin-top: 5px;
+}
+.sidebarContainer .sidebar button {
+  width: 100%;
+  padding: 0;
+  position: relative;
+  margin: 0;
+  text-align: left;
+  padding-left: 15px;
+  height: 50px;
+  text-transform: none;
+  font-weight: bold;
+  color: white;
+}
+.sidebarContainer .sidebar button i {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  margin-right: 10px;
+}
+.sidebarContainer .sidebar button.active {
+  background-color: #c23b22;
+}
+.sidebarContainer .navContainer {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.sidebarContainer .userContainer {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  height: 130px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer .userContainer .image {
+  border: 1px solid #89a;
+  width: 96px;
+  height: 97px;
+  border-radius: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer .userContainer img {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  border-radius: 50px;
+  margin-left: -2px;
+  margin-top: -2px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer .userContainer h1 {
+  font-size: 18px;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer h1 {
+  font-size: 15px;
+  margin-bottom: 0px;
+  color: white;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .sidebarLink {
   cursor: pointer;
-  padding-left: 20px;
+  padding-left: 0px;
   padding-top: 10px;
 }
-.sidebarContainer .sidebarLink .sidebarText {
-  font-size: 14px;
-  display: inline;
+.sidebarContainer button {
+  transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .sidebarLink .fa {
-  font-size: 16px;
+.sidebarContainer.collapsed {
+  max-width: 5%;
+  transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .sidebarLink.collapsed .sidebarText {
+.sidebarContainer.collapsed h1 {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .image {
+  width: 46px;
+  height: 46px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .image img {
+  width: 50px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .userContainer {
+  margin-bottom: 20px;
+  height: 50px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .userContainer h1 {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed button {
+  margin-left: -20px;
+  padding-left: 35px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed button span {
   display: none;
 }
-.sidebarContainer .sidebarLink:focus {
-  border: 0;
-  outline: 0;
-}
-.sidebarContainer .curEvent {
+.sidebarContainer.collapsed .sidebar ul.curEvent li {
+  font-size: 0px;
   position: fixed;
-  bottom: 0;
+  left: 0px;
+}
+.sidebarContainer.collapsed .sidebar ul.curEvent button {
+  padding-left: 45px;
+}
+.sidebarContainer .sidebar ul.curEvent {
+  position: fixed;
+  bottom: 51px;
+  height: 51px;
+  margin-bottom: 0px;
   width: 100%;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  background-color: darkred;
+  margin-left: -14px;
+  color: white;
+  border-top: 1px solid #cecece;
+  padding-left: 15px;
+  box-sizing: border-box;
+  padding-right: 15px;
 }
-.sidebarContainer .curEvent div {
-  position: relative;
-  text-align: center;
+.sidebarContainer .sidebar ul.curEvent li {
+  width: 100%;
+  line-height: 51px;
 }
-md-toolbar.header {
-  background-color: #fff;
-  color: #848484;
-  display: inline;
-  padding-right: 10px;
+.sidebarContainer .sidebar ul.curEvent button {
   padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 60px;
+  float: right;
 }
-md-toolbar.header .headerItem {
+.header {
+  line-height: 50px;
+  background-color: #22242B;
+  color: #cccccc;
+}
+.header .logoContainer {
+  line-height: 50px;
+  height: 50px;
+  margin-left: -50px;
+  margin-right: 50px;
+}
+.header .logoContainer .title {
+  font-family: 'Courgette';
+  display: inline;
+  line-height: 50px;
+  height: 50px;
+  position: absolute;
+  font-size: 30px;
+}
+.header .headerItem {
   cursor: pointer;
   display: inline;
   margin-right: 20px;
   font-size: 15px;
+  text-align: right;
 }
-md-toolbar.header .headerItem .headerItemText {
+.header .headerItem .headerItemText {
   display: inline;
   margin-right: 10px;
 }
-md-toolbar.header .headerItem .fa {
-  font-size: 25px;
-  line-height: inherit;
+.header .headerItem .fa {
+  font-size: 20px;
+  line-height: 20px;
 }
-md-toolbar.header .headerItem:focus {
+.header .headerItem:focus {
   border: 0;
   outline: 0;
 }
-md-toolbar.header .right {
-  float: right;
+.header .headerItem:first-of-type {
+  text-align: left;
+}
+.header .headerItem:last-of-type {
+  margin-left: -90px;
+}
+.header .menubutton {
+  padding-left: 15px;
+}
+.header .logo {
+  height: 50px;
+  margin-right: 5px;
 }
 .myEventsContainer .myEvent {
   padding-bottom: 20px;
@@ -120,7 +215,7 @@ md-toolbar.header .right {
   float: right;
 }
 .myEventsContainer .myEvent .md-button:hover {
-  background-color: darkred;
+  background-color: #9b2f1b;
 }
 .eventOverviewContainer {
   color: #848484;
