@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope, $interval, $location, $mdSidenav, $cookieStore) {
+angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope, $interval, $location, $mdSidenav, $cookieStore, $mdDialog) {
     //console.log('main')
     $rootScope.curEventId;
 
@@ -35,4 +35,8 @@ angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope
     $rootScope.setEvent = function (eventId) {
         $rootScope.curEventId = eventId;
     }
+    
+    $scope.openUserMenu = function($mdOpenMenu, ev) {
+      $mdOpenMenu(ev);
+    };
 });

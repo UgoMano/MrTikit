@@ -192,6 +192,35 @@
   height: 50px;
   margin-right: 5px;
 }
+.loginPage md-input-container {
+  margin-bottom: 5px;
+}
+.loginPage md-input-container md-card-content {
+  padding-top: 20px;
+}
+.loginPage md-input-container.md-input-focused label {
+  color: #c23b22;
+}
+.loginPage md-input-container.md-input-focused input.md-input {
+  border-color: #c23b22;
+}
+.loginPage button.md-raised.md-primary.md-button.md-ink-ripple {
+  background-color: #c23b22;
+}
+.loginPage md-card {
+  margin-top: 12%;
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.loginPage i {
+  color: rgba(0, 0, 0, 0.26);
+  font-size: 24px;
+}
+.loginPage a {
+  font-size: 14px;
+  padding-left: 8px;
+}
 .myEventsContainer .myEvent {
   padding-bottom: 20px;
   padding-top: 20px;

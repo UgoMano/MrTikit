@@ -1,30 +1,33 @@
-.loginContainer
-{
-
-
-	.cardContainer{
-
-	padding-top: 17vh;
-
-
-	md-card-header{padding:0;}
-
-	.loginInputContainer{
-		padding-left:20px;
-		padding-right:20px;
-		md-input-container{display:block;}
-	}
-
-	.forgotPasswordLink{
-		padding-left:6px;
-		padding-top:6px;
-	}
-
-	.md-raised{
-		background-color: @MT_RED;
-		color: @MT_WHITE
-	}
-
-	}
+.loginPage {
+    md-input-container {
+        margin-bottom: 5px;
+        md-card-content {
+            padding-top: 20px;
+        }
+        &.md-input-focused {
+            label {
+                color: @MT_RED
+            }
+            input.md-input {
+                border-color: @MT_RED;
+            }
+        }
+    }
+    button.md-raised.md-primary.md-button.md-ink-ripple {
+        background-color: @MT_RED;
+    }
+    md-card {
+        margin-top: 12%;
+        width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    i {
+        color: rgba(0, 0, 0, 0.26);
+        font-size: 24px;
+    }
+    a {
+        font-size: 14px;
+        padding-left: 8px;
+    }
 }
-
