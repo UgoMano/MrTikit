@@ -72,6 +72,18 @@
   background-color: #22242B;
   color: #cccccc;
 }
+.header .logoContainer {
+  line-height: 50px;
+  height: 50px;
+}
+.header .logoContainer .title {
+  font-family: 'Courgette';
+  display: inline;
+  line-height: 50px;
+  height: 50px;
+  position: absolute;
+  font-size: 30px;
+}
 .header .headerItem {
   cursor: pointer;
   display: inline;
