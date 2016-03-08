@@ -15,10 +15,11 @@ angular.module('mrtikitApp').controller('EventOverviewCtrl', function ($scope, $
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function(event){
         $scope.event = event;
-        $mdToast.showSimple('success');
+        $mdToast.showSimple('Event Load: Success');
+        console.log(JSON.stringify($scope.event,null,'\t'));
     },function(error) {
         console.log(error);
-        $mdToast.showSimple('error');
+        $mdToast.showSimple('Event Load: Error');
     })
     $scope.attendees = $backend.getAttendees($scope.curEventId);
 });
