@@ -14,9 +14,11 @@ angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $Us
         console.log($scope.event);
     }, true)
     $scope.createEvent = function () {
-        var rv = $Event.create($scope.user.loginKey, $scope.event.title,$scope.user.id, $scope.event.paypal_email, $scope.user.paypal, $scope.event.date, $scope.event.date);
+        var rv = $Event.create($scope.user.loginKey, $scope.event.title, $scope.user.id, $scope.event.paypal_email, $scope.user.paypal, $scope.event.date, null);
         rv.then(function (e) {
             console.log(e);
+        },function(error) {
+            consol.log(error);
         });
     };
 
