@@ -161,7 +161,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         var promise = $http(req).then(function (data) {
             return data.data.data;
         }, function (error) {
-            return error;
+            return $q.reject(error);
         });
         return promise;
     }
