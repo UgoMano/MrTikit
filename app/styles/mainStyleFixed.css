@@ -1,6 +1,7 @@
 .sidebarContainer {
   background-color: #2F323B;
   font-family: 'Lato', sans-serif;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .sidebar {
   background: none;
@@ -16,7 +17,7 @@
   margin: 0;
   text-align: left;
   padding-left: 15px;
-  height: 60px;
+  height: 50px;
   text-transform: none;
   font-weight: bold;
   color: white;
@@ -67,6 +68,10 @@
   padding-left: 0px;
   padding-top: 10px;
 }
+.sidebarContainer.collapsed {
+  max-width: 5%;
+  transition: all 0.5s ease-in-out;
+}
 .header {
   line-height: 50px;
   background-color: #22242B;
@@ -75,6 +80,8 @@
 .header .logoContainer {
   line-height: 50px;
   height: 50px;
+  margin-left: -50px;
+  margin-right: 50px;
 }
 .header .logoContainer .title {
   font-family: 'Courgette';
@@ -114,6 +121,7 @@
 }
 .header .logo {
   height: 50px;
+  margin-right: 5px;
 }
 .myEventsContainer .myEvent {
   padding-bottom: 20px;
@@ -138,7 +146,7 @@
   float: right;
 }
 .myEventsContainer .myEvent .md-button:hover {
-  background-color: darkred;
+  background-color: #9b2f1b;
 }
 .eventOverviewContainer {
   color: #848484;

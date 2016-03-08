@@ -1,6 +1,7 @@
 .sidebarContainer {
     background-color: #2F323B;
     font-family: 'Lato', sans-serif; 
+    transition: all .5s ease-in-out;
 
     .sidebar {
         background: none;
@@ -17,7 +18,7 @@
             margin: 0;
             text-align: left;
             padding-left: 15px;
-            height: 60px;
+            height: 50px;
             text-transform: none;
             font-weight: bold;
             color: white;
@@ -74,5 +75,10 @@
         cursor: pointer;
         padding-left: 0px;
         padding-top: 10px;
+    }
+    
+    &.collapsed {
+        max-width: 5%;
+        transition: all .5s ease-in-out;
     }
 }

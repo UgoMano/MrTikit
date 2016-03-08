@@ -3,7 +3,7 @@
 </div>
 <div style='height:100%; padding-top:50px; margin-top: -50px;'>
     <div layout="row" style='height:100%;'>
-        <md-sidenav class="sidebarContainer md-sidenav-left" flex="{{collapsed ? 5 : 15}}" md-is-locked-open="true">
+        <md-sidenav class="sidebarContainer md-sidenav-left {{collapsed}}" flex="20" md-component-id="leftNav" md-is-locked-open="true">
             <md-content class="sidebar sidebar-default open" id="sidebar" role="navigation" ng-include="'views/partials/sidebar.html'" ng-controller="SidebarCtrl"></md-content>
         </md-sidenav>
         <div layout="column" flex>
