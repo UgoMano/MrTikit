@@ -2,7 +2,7 @@
 
 module.exports = {
 
-	getTempTicketsById: function (tempTicketId) {
+	getTempTicketById: function (tempTicketId) {
 		return TempTickets.findOne({ id: tempTicketId })
 			.then(function (tempTicket) {
 				if(!tempTicket) throw new Error('Temp Ticket Could Not Be Found');

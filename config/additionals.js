@@ -39,6 +39,16 @@ module.exports = {
       message: 'Event with specified id is not found',
       status: 401
     },
+    FORBIDDEN: {
+      code: 'E_FORBIDDEN',
+      message: 'Action Forbidden',
+      status: 403
+    },
+    TRANSACTION_TYPE_NOT_FOUND: {
+      code: 'E_EVENT_NOT',
+      message: 'Transaction type with specified id is not found',
+      status: 401
+    },
   }
 };
 

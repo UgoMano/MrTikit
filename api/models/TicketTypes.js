@@ -70,7 +70,7 @@ module.exports = {
      if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
      return next();
    });
-  }
+  },
   
 };
 

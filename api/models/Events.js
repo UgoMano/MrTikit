@@ -10,6 +10,7 @@ module.exports = {
   schema: true,
 
   attributes: {
+
     title: {
       type: 'string',
       required: true,
@@ -56,20 +57,29 @@ module.exports = {
 
     checkIn: {
       type: 'boolean',
-      defaultsTo: false
+      defaultsTo: false,
+      boolean: true
     },
 
-    paypal_email: {
+    paypalEmail: {
       type: 'string',
-    }
+    },
+
+    trans
   },
 
   beforeValidate(values, next) {
     var userId = values['owner'];
+    var checkIn = values['checkIn'];
     User.findOne(userId, function (err, user) {
       if (err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
       return next();
     });
+
+    // if checkIn is null set it to false, checkIn should never be null
+    if (!checkIn) {
+      values['checkIn'] = false;
+      next();
   }
   
 };

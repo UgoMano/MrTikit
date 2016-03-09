@@ -1,5 +1,7 @@
 // TicketsService.js - in api/services
 
+var uuid = require('node-uuid');
+
 module.exports = {
 
     getTicketsByType: function(ticketTypeId, eventId) {
@@ -45,19 +47,28 @@ module.exports = {
             });
     },
 
-    createTicket: function(tempTicketId) {
-        return TempTickets.findOne({ id: tempTicketId })
-            .then(function (tempTicket) {
-                if(!tempTicket) throw new Error('TempTicket Could not be found');
-                return Tickets.create({
-                    event: tempTicket.event,
-                    user: tempTicket.user,
-                    ticketType: tempTicket.ticketType,
-                    }).then(function (ticket) {
-                        if(!ticket) throw new Error('Error Creating Ticket');
-                        return ticket;
-                    });
-            });       
+    generateTicketUuid: function(ticketId, userId) {
+        return Tickets.findOne({ id: ticketId, user: userId })
+            .then(function (ticket) {
+                if(!ticket) throw new Error('Ticket not found');
+                var newUuid = null;
+                var ticketExist = true;
+
+                while(ticketExist) {
+                    newUuid = uuid.v4();
+                    ticketExist = Tickets.find({ uuid: newUuid })
+                        .then(function(ticket) {
+                            if(!ticket)
+                                return false;
+                            else
+                                return true;
+                        });
+                }
+
+                ticket.uuid = newUuid;
+                ticket.save();
+                return ticket;
+            });
     },
     
 };
