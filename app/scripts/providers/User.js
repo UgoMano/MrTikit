@@ -57,6 +57,29 @@ factory('$User', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
+    var facebookLogin = function(accessToken) {
+        var promise = $q.defer();
+        
+        var req = {
+            method: 'POST',
+            url: SERVER_URL + "/v1/auth/social",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            data: {
+                access_token: accessToken,
+                type: "facebook"
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
     var signup = function(firstName, lastName, username, email, password) {
         var promise = $q.defer();
         
@@ -161,6 +184,9 @@ factory('$User', function ($http, $location, $timeout, $q) {
     return {
         login: function(email, password) {
             return login(email, password);  
+        },
+        facebookLogin: function(accessToken) {
+            return facebookLogin(accessToken);  
         },
         signup: function(firstName, lastName, username, email, password) {
             return signup(firstName, lastName, username, email, password);  

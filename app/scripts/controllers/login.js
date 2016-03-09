@@ -29,4 +29,38 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
             });
         }
     }
+
+    $scope.fbLogin = function() {
+        /*FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            console.log(response);
+            var accessToken = response.authResponse.accessToken;
+          } 
+        } ); */
+        
+        FB.login(function(response) {
+            // handle the response
+            if(response.status == "connected") {
+                $User.facebookLogin(response.authResponse.accessToken).then(function (data) {
+                    $cookieStore.put('loginKey', data.data.data.token);
+                    $cookieStore.put('user', data.data.data.user);
+
+                    $rootScope.user = $cookieStore.get("user");
+                    $rootScope.user.loginKey = $cookieStore.get("loginKey");
+
+                    $location.path("/");
+                },
+                function (error) {
+                    if (error.error) {
+                        $mdToast.showSimple(error.error);
+                    } else if (error.status == 401) {
+                        $mdToast.showSimple(error.data.message);
+                    } else {
+                        console.log(error);
+                    }
+                });
+                
+            }
+        }, {scope: 'public_profile,email'});
+    }
 });
