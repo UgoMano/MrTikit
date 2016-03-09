@@ -8,7 +8,7 @@
 angular.module('mrtikitApp').
 factory('$Event', function ($http, $location, $timeout, $q) {
 
-    var create = function (tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn) {
+    var create = function (tokenKey, event) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -19,7 +19,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!title || title == "") {
+        if (!event.title || event.title == "") {
             var error = {
                 error: "Please enter an event Title"
             }
@@ -27,7 +27,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!owner || owner == "") {
+        if (!event.owner || event.owner == "") {
             var error = {
                 error: "Please enter an event owner"
             }
@@ -43,12 +43,13 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 'Authorization': "JWT " + tokenKey
             },
             data: {
-                title: title,
-                owner: owner,
-                paypal_email: paypal_email,
-                startDateTime: startDateTime,
-                endDateTime: endDateTime,
-                checkIn: checkIn
+                title: event.title,
+                owner: event.owner,
+                paypal_email: event.paypal_email,
+                location: event.location,
+                startDateTime: event.startDateTime,
+                endDateTime: event.endDateTime,
+                checkIn: event.checkIn
             }
         }
 
@@ -60,7 +61,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
-    var update = function (id, tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn) {
+    var update = function (tokenKey, event) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -71,7 +72,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!id || id == "") {
+        if (!event.id || event.id == "") {
             var error = {
                 error: "Please enter an event id"
             }
@@ -87,12 +88,13 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 'Authorization': "JWT " + tokenKey
             },
             data: {
-                title: title,
-                owner: owner,
-                paypal_email: paypal_email,
-                startDateTime: startDateTime,
-                endDateTime: endDateTime,
-                checkIn: checkIn
+                title: event.title,
+                owner: event.owner,
+                paypal_email: event.paypal_email,
+                location: event.location,
+                startDateTime: event.startDateTime,
+                endDateTime: event.endDateTime,
+                checkIn: event.checkIn
             }
         }
 
@@ -167,17 +169,17 @@ factory('$Event', function ($http, $location, $timeout, $q) {
     }
 
     return {
-        create: function (tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn) {
-            return create(tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn);
+        create: function (tokenKey, event) {
+            return create(tokenKey, event);
         },
-        update: function (id, tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn) {
-            return update(id, tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn);
+        update: function (tokenKey, event) {
+            return update(tokenKey, event);
         },
         getAll: function (tokenKey) {
             return getAll(tokenKey);
         },
-        get: function (id, tokenKey) {
-            return get(id, tokenKey);
+        get: function (tokenKey, event) {
+            return get(tokenKey, event);
         }
     };
 })

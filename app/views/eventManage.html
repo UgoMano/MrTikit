@@ -1,1 +1,23 @@
-Event {{curEventId}} Manage
+<md-card class="eventManageCard">
+    <md-content layout-padding>
+        <form>
+            <md-input-container>
+                <label>Event Title</label>
+                <input class="eventTitle" ng-model="event.title"></input>
+            </md-input-container>
+            <md-input-container>
+                <label>Event Location</label>
+                <input class="eventLocation" ng-model="event.location" type="text"></input>
+            </md-input-container>
+
+            <md-datepicker md-placeholder="Start Date" ng-model="event.startDateTimeDateTime"></md-datepicker>
+     <md-datepicker md-placeholder="End Date" ng-model="event.endDateTimeDateTime"></md-datepicker>
+
+            <md-input-container>
+                <label>Event Time</label>
+                <input class="eventTime" ng-model="event.time" type="time"></input>
+            </md-input-container>
+            <md-button ng-click="updateEvent()">save</md-button>
+        </form>
+    </md-content>
+</md-card>

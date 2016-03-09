@@ -192,6 +192,27 @@
   height: 50px;
   margin-right: 5px;
 }
+.loginContainer .cardContainer {
+  padding-top: 17vh;
+}
+.loginContainer .cardContainer md-card-header {
+  padding: 0;
+}
+.loginContainer .cardContainer .loginInputContainer {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.loginContainer .cardContainer .loginInputContainer md-input-container {
+  display: block;
+}
+.loginContainer .cardContainer .forgotPasswordLink {
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.loginContainer .cardContainer .md-raised {
+  background-color: #c23b22;
+  color: #fff;
+}
 .myEventsContainer .myEvent {
   padding-bottom: 20px;
   padding-top: 20px;
