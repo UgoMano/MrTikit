@@ -13,9 +13,11 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
             $User.login($scope.email, $scope.password).then(function (data) {
                 $cookieStore.put('loginKey', data.data.data.token);
                 $cookieStore.put('user', data.data.data.user);
+                $cookieStore.put('loginType', "email");
 
                 $rootScope.user = $cookieStore.get("user");
                 $rootScope.user.loginKey = $cookieStore.get("loginKey");
+                $rootScope.user.loginType = $cookieStore.get("loginType");
                 $location.path("/");
             },
             function (error) {
@@ -30,23 +32,18 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
         }
     }
 
-    $scope.fbLogin = function() {
-        /*FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-            console.log(response);
-            var accessToken = response.authResponse.accessToken;
-          } 
-        } ); */
-        
+    $scope.fbLogin = function() {      
         FB.login(function(response) {
             // handle the response
             if(response.status == "connected") {
                 $User.facebookLogin(response.authResponse.accessToken).then(function (data) {
                     $cookieStore.put('loginKey', data.data.data.token);
                     $cookieStore.put('user', data.data.data.user);
+                    $cookieStore.put('loginType', "facebook");
 
                     $rootScope.user = $cookieStore.get("user");
                     $rootScope.user.loginKey = $cookieStore.get("loginKey");
+                    $rootScope.user.loginType = $cookieStore.get("loginType");
 
                     $location.path("/");
                 },

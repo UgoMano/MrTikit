@@ -78,9 +78,10 @@ angular.module('mrtikitApp', [
     if (!$cookieStore.get("user") || !$cookieStore.get("loginKey")) {
         $location.path("/login");
     } else {
-        $location.path("/");
         $rootScope.user = $cookieStore.get("user");
         $rootScope.user.loginKey = $cookieStore.get("loginKey");
+        $rootScope.user.loginType = $cookieStore.get("loginType");
+        $location.path("/");
     }
 
     $rootScope.logout = function () {
