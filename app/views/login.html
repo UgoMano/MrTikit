@@ -9,7 +9,7 @@
                 <md-input-container class="md-block">
                     <label>Email</label>
                     <md-icon><i class="fa fa-user"></i></md-icon>
-                    <input required type="email" name="loginEmail" ng-model="email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" autocomplete='off'/>
+                    <input required type="email" name="loginEmail" ng-model="email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" autocomplete='off' />
                     <div ng-messages="loginForm.loginEmail.$error">
                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                             Your email must be between 10 and 100 characters long and look like an e-mail address.
@@ -28,6 +28,7 @@
                 </md-input-container>
                 <div layout="row" layout-align="center center">
                     <md-button class="md-raised md-primary" ng-click='login()'>Login</md-button>
+                    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
                     <div flex="flex"></div>
                 </div>
             </form>
