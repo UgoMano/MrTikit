@@ -18,6 +18,26 @@ factory('$User', function ($http, $location, $timeout, $q) {
         }
         */
     
+    var ping = function(tokenKey) {
+        var promise = $q.defer();
+        
+        var req = {
+            method: 'POST',
+            url: SERVER_URL + "/v1/ping",
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
     var login = function(email, password) {
         var promise = $q.defer();
         
@@ -46,6 +66,29 @@ factory('$User', function ($http, $location, $timeout, $q) {
             data: {
                 email: email,
                 password: password
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
+    var facebookLogin = function(accessToken) {
+        var promise = $q.defer();
+        
+        var req = {
+            method: 'POST',
+            url: SERVER_URL + "/v1/auth/social",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            data: {
+                access_token: accessToken,
+                type: "facebook"
             }
         }
 
@@ -159,8 +202,14 @@ factory('$User', function ($http, $location, $timeout, $q) {
     }
     
     return {
+        ping: function(tokenKey) {
+            return ping(tokenKey);
+        },
         login: function(email, password) {
             return login(email, password);  
+        },
+        facebookLogin: function(accessToken) {
+            return facebookLogin(accessToken);  
         },
         signup: function(firstName, lastName, username, email, password) {
             return signup(firstName, lastName, username, email, password);  
