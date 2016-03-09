@@ -39,4 +39,11 @@ angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope
     $scope.openUserMenu = function($mdOpenMenu, ev) {
       $mdOpenMenu(ev);
     };
+
+    if (!$cookieStore.get("user") || !$cookieStore.get("loginKey")) {
+        $location.path("/login");
+    } else {
+        $rootScope.user = $cookieStore.get("user");
+        $rootScope.user.loginKey = $cookieStore.get("loginKey");
+    }
 });
