@@ -82,7 +82,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
 
         var req = {
             method: 'PUT',
-            url: SERVER_URL + "/v1/events/" + id,
+            url: SERVER_URL + "/v1/events/" + event.id,
             headers: {
                 'Content-Type': "application/json",
                 'Authorization': "JWT " + tokenKey

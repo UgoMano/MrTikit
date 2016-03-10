@@ -294,6 +294,24 @@
 .eventCreateCard md-input-container .eventTime {
   width: 200px;
 }
+.eventManageCard {
+  color: #848484;
+}
+.eventManageCard label {
+  color: #848484;
+}
+.eventManageCard md-input-container {
+  display: block;
+}
+.eventManageCard md-input-container .eventTitle {
+  width: 200px;
+}
+.eventManageCard md-input-container .eventLocation {
+  width: 200px;
+}
+.eventManageCard md-input-container .eventTime {
+  width: 200px;
+}
 body {
   background-color: #8565c4;
 }
