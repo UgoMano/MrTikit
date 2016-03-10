@@ -7,8 +7,7 @@
  * # EventManageCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Event, $stateParams, $mdToast) {
-    console.log('eventManage');
+angular.module('mrtikitApp').controller('EventEditCtrl', function ($scope, $Event, $stateParams, $mdToast) {
     $scope.setEvent($stateParams.eventId);
     $scope.event = {};
 

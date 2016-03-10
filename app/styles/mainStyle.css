@@ -344,22 +344,22 @@
 .eventCreateCard md-input-container .eventTime {
   width: 200px;
 }
-.eventManageCard {
+.eventEditCard {
   color: #848484;
 }
-.eventManageCard label {
+.eventEditCard label {
   color: #848484;
 }
-.eventManageCard md-input-container {
+.eventEditCard md-input-container {
   display: block;
 }
-.eventManageCard md-input-container .eventTitle {
+.eventEditCard md-input-container .eventTitle {
   width: 200px;
 }
-.eventManageCard md-input-container .eventLocation {
+.eventEditCard md-input-container .eventLocation {
   width: 200px;
 }
-.eventManageCard md-input-container .eventTime {
+.eventEditCard md-input-container .eventTime {
   width: 200px;
 }
 body {

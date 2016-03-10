@@ -2,7 +2,7 @@
     <md-card ng-repeat="e in events" class="myEvent">
         <md-content>
             <div class="eventName">{{e.title}}</div>
-            <md-button ng-click="go('/events/'+e.id+'/manage')">edit</md-button>
+            <md-button ng-click="go('/events/'+e.id+'/edit')">edit</md-button>
             <md-button ng-click="go('/events/'+e.id+'/overview')">view</md-button>
         </md-content>
     </md-card>
