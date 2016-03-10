@@ -11,10 +11,11 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
     console.log('eventManage');
     $scope.setEvent($stateParams.eventId);
     $scope.event = {};
-    
+
     $scope.eventLoad = function (event) {
         $scope.event = event;
-        $scope.event.startDateTime = new Date(event.startDateTime);
+        if ($scope.event.startDateTime)
+            $scope.event.startDateTime = new Date(event.startDateTime);
         if ($scope.event.startDateTime && $scope.event.startDateTime instanceof Date && !isNaN($scope.event.startDateTime.valueOf())) {
             $scope.event.startDate = $scope.event.startDateTime;
             $scope.event.startTime = $scope.event.startDateTime;
@@ -23,7 +24,8 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
             $scope.event.startDate = null;
             $scope.event.startTime = null;
         }
-        $scope.event.endDateTime = new Date(event.endDateTime);
+        if ($scope.event.endDateTime)
+            $scope.event.endDateTime = new Date(event.endDateTime);
         if ($scope.event.endDateTime && $scope.event.endDateTime instanceof Date && !isNaN($scope.event.endDateTime.valueOf())) {
             $scope.event.endDate = $scope.event.endDateTime;
             $scope.event.endTime = $scope.event.endDateTime;
@@ -33,8 +35,8 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
             $scope.event.endTime = null;
         }
     };
-    
-    $scope.onError = function(error, estring) {
+
+    $scope.onError = function (error, estring) {
         if (error.error) {
             $mdToast.showSimple(estring + error.error);
         } else if (error.data && error.data.message) {
@@ -44,7 +46,7 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
             console.log(error);
         }
     };
-    
+
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function (event) {
         $mdToast.showSimple('Event Load: Success');
@@ -52,7 +54,7 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
     }, function (error) {
         $scope.onError(error, 'Event Load Error: ')
     });
-    
+
     $scope.updateEvent = function () {
         if ($scope.event.startDate && $scope.event.startDate instanceof Date && !isNaN($scope.event.startDate.valueOf())) {
             $scope.event.startDateTime = new Date($scope.event.startDate);
@@ -80,5 +82,5 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
             $scope.onError(error, 'Event Update Error: ')
         });
     };
-    
+
 });
