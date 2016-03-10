@@ -6,16 +6,13 @@
  */
 
 module.exports = {
-	/**
-    * CommentController.like()
-    */
-    getUserTickets: function (req, res) {
+/*    getUserTickets: function (req, res) {
     	TicketsService.getTicketsByUserId(req.userId)
     		.then(function (data) {
     			return res.json({
     			data: data,
     		});
     	});
-    }
+    }*/
 };
 

@@ -65,6 +65,12 @@ module.exports = {
       type: 'string',
     },
 
+    published: {
+      type: 'boolean',
+      defaultsTo: false,
+      boolean: true
+    }
+
     trans
   },
 
