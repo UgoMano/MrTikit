@@ -49,7 +49,7 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
 
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function (event) {
-        $mdToast.showSimple('Event Load: Success');
+        //$mdToast.showSimple('Event Load: Success');
         $scope.eventLoad(event);
     }, function (error) {
         $scope.onError(error, 'Event Load Error: ')
@@ -58,19 +58,27 @@ angular.module('mrtikitApp').controller('EventManageCtrl', function ($scope, $Ev
     $scope.updateEvent = function () {
         if ($scope.event.startDate && $scope.event.startDate instanceof Date && !isNaN($scope.event.startDate.valueOf())) {
             $scope.event.startDateTime = new Date($scope.event.startDate);
-            if ($scope.event.startTime) {
-                $scope.event.startDateTime.setHours($scope.event.startTime.getHours());
-                $scope.event.startDateTime.setMinutes($scope.event.startTime.getMinutes());
+            if (!$scope.event.startTime) {
+                $scope.event.startTime = new Date(0);
+                $scope.event.startTime.setHours(0);
+                $scope.event.startTime.setMinutes(0);
             }
+            $scope.event.startDateTime.setHours($scope.event.startTime.getHours());
+            $scope.event.startDateTime.setMinutes($scope.event.startTime.getMinutes());
+
         } else {
             $scope.event.startDateTime = null;
         }
         if ($scope.event.endDate && $scope.event.endDate instanceof Date && !isNaN($scope.event.endDate.valueOf())) {
             $scope.event.endDateTime = new Date($scope.event.endDate);
-            if ($scope.event.endTime) {
+            if (!$scope.event.endTime) {
+                $scope.event.endTime = new Date(0);
+                $scope.event.endTime.setHours(0);
+                $scope.event.endTime.setMinutes(0);
+            }
                 $scope.event.endDateTime.setHours($scope.event.endTime.getHours());
                 $scope.event.endDateTime.setMinutes($scope.event.endTime.getMinutes());
-            }
+            
         } else {
             $scope.event.endDateTime = null;
         }
