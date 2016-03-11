@@ -85,7 +85,7 @@ module.exports = {
     if (!checkIn) {
       values['checkIn'] = false;
       next();
-  }
+    }
 }
   
 };
