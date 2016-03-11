@@ -26,7 +26,7 @@ module.exports = {
 			user: userId,
 			ticketType: ticketTypeId,
 		});
-	}
+	},
 
 	purchaseTicket: function(tempTicketId, transactionTypeId, confirmationNumber) {
 		return TempTickets.findOne({ id: tempTicketId })
