@@ -5,6 +5,7 @@
 }
 .sidebarContainer .sidebar {
   background: none;
+  overflow: hidden;
 }
 .sidebarContainer .sidebar ul {
   padding: 0;
@@ -33,6 +34,7 @@
 .sidebarContainer .navContainer {
   margin-left: 15px;
   margin-right: 15px;
+  transition: all 0.5s ease-in-out;
 }
 .sidebarContainer .userContainer {
   margin-top: 15px;
@@ -104,12 +106,19 @@
   transition: all 0.5s ease-in-out;
 }
 .sidebarContainer.collapsed button {
-  margin-left: -20px;
-  padding-left: 35px;
+  padding-left: 42%;
   transition: all 0.5s ease-in-out;
 }
 .sidebarContainer.collapsed button span {
   display: none;
+}
+.sidebarContainer.collapsed .navContainer {
+  margin-left: -5px;
+  margin-right: -5px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebarContainer.collapsed .sidebar ul.curEvent {
+  margin-left: 5%;
 }
 .sidebarContainer.collapsed .sidebar ul.curEvent li {
   font-size: 0px;
@@ -117,7 +126,8 @@
   left: 0px;
 }
 .sidebarContainer.collapsed .sidebar ul.curEvent button {
-  padding-left: 45px;
+  width: 100%;
+  padding-left: 42%;
 }
 .sidebarContainer .sidebar ul.curEvent {
   position: fixed;

@@ -28,7 +28,7 @@ angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope
     };
 
     $rootScope.go = function (path) {
-        console.log("go: ", path);
+        //console.log("go: ", path);
         $location.path(path);
     }
 
@@ -87,4 +87,34 @@ angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $rootScope
             console.log(error);
         }
     });
+
+    console.log($rootScope.user);
+
+    //If profile picture is empty fill it
+    $scope.profilePicture = function() {
+        if(!$rootScope.user.photo) {
+            return "images/defaultUser.png";
+        }
+        return $rootScope.user.photo
+    }
+
+    $scope.userName = function() {
+        if(!$rootScope.user.firstName || !$rootScope.user.lastName) {
+            return $rootScope.user.email;
+        }
+        return $rootScope.user.firstName + " " + $rootScope.user.lastName;
+    }
+
 });
+/*
+.directive('noProfilePic', function() {
+  return {
+    link: function(scope, element, attrs) {
+      element.bind('error', function() {
+        if (attrs.src != attrs.errSrc) {
+          attrs.$set('src', "");
+        }
+      });
+    }
+  }
+});*/

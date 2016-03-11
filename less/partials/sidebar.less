@@ -4,6 +4,7 @@
     transition: all .5s ease-in-out;
     .sidebar {
         background: none;
+        overflow: hidden;
         ul {
             padding: 0;
             margin-top: 5px;
@@ -32,6 +33,7 @@
     .navContainer {
         margin-left: 15px;
         margin-right: 15px;
+        transition: all .5s ease-in-out;
     }
     .userContainer {
         margin-top: 15px;
@@ -76,6 +78,7 @@
     button {
         transition: all .5s ease-in-out;
     }
+
     &.collapsed {
         max-width: 5%;
         transition: all .5s ease-in-out;
@@ -103,21 +106,27 @@
             }
         }
         button {
-            margin-left: -20px;
-            padding-left: 35px;
+            padding-left: 42%;
             transition: all .5s ease-in-out;
             span {
                 display: none;
             }
         }
+        .navContainer {
+            margin-left: -5px;
+            margin-right: -5px;
+            transition: all .5s ease-in-out;
+        }
         .sidebar ul.curEvent {
+            margin-left: 5%;
             li {
                 font-size: 0px;
                 position: fixed;
                 left: 0px;
             }
             button {
-                padding-left: 45px;
+                width: 100%;
+                padding-left: 42%;
             }
         }
     }
