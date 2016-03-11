@@ -372,6 +372,10 @@
 .dashboard .eventEditCard md-input-container .eventTime {
   width: 200px;
 }
+.dashboard .ticketTypeCreate md-input-container {
+  display: block;
+  width: 250px;
+}
 .dashboard .mainContent {
   background-color: #e3e3e3;
 }
