@@ -53,10 +53,35 @@ angular.module('mrtikitApp', [
 
     .state('app.event', {
         url: "events/:id",
+        abstract: true, //This allows it to be a parent with nested urls
         templateUrl: "views/event.html",
         controller: 'EventCtrl'
     })
-
+    
+    .state('app.event.home', {
+        url: "/",
+        templateUrl: "views/events/home.html",
+        controller: 'EventHomeCtrl'
+    })
+    
+    .state('app.event.about', {
+        url: "/about",
+        templateUrl: "views/events/about.html",
+        controller: 'EventAboutCtrl'
+    })
+    
+    .state('app.event.location', {
+        url: "/location",
+        templateUrl: "views/events/location.html",
+        controller: 'EventLocationCtrl'
+    })
+    
+    .state('app.event.tickets', {
+        url: "/tickets",
+        templateUrl: "views/events/tickets.html",
+        controller: 'EventTicketsCtrl'
+    })
+    
     .state('dashboard', {
         url: "/dashboard",
         abstract: true, //This allows it to be a parent with nested urls
