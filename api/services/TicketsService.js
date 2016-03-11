@@ -4,11 +4,19 @@ var uuid = require('node-uuid');
 
 module.exports = {
 
+    getTicketsByEvent: function(eventId) {
+        return Tickets.find({event: eventId})
+            .then(function (tickets) {
+                if(!tickets) throw new Error('Tickets not found');
+                return tickets;
+            });
+    },
+
     getTicketsByType: function(ticketTypeId, eventId) {
         return Tickets.find({event: eventId, ticketType: ticketTypeId})
             .then(function (tickets) {
                 if (!tickets) throw new Error('Tickets not found');
-                return tickets.count;
+                return tickets;
             });
     },
 

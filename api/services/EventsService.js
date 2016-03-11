@@ -26,7 +26,6 @@ module.exports = {
 			user: userId,
 			ticketType: ticketTypeId,
 		});
-
 	}
 
 	purchaseTicket: function(tempTicketId, transactionTypeId, confirmationNumber) {
