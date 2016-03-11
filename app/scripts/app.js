@@ -138,11 +138,13 @@ angular.module('mrtikitApp', [
 
     //$urlRouterProvider.otherwise('/');
     $urlRouterProvider.otherwise(function ($injector, $location) {
-        /*console.log($injector);
-        console.log($location);*/
+        console.log($injector);
+        console.log($location);
 
         if($location.path().indexOf("dashboard") > -1) {
             $location.path("/dashboard/error");
+        } else if($location.path() == "") {
+            $location.path("/");
         } else {
             $location.path("/error");
         }
