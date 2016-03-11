@@ -18,7 +18,7 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
                 $rootScope.user = $cookieStore.get("user");
                 $rootScope.user.loginKey = $cookieStore.get("loginKey");
                 $rootScope.user.loginType = $cookieStore.get("loginType");
-                $location.path("/");
+                $location.path("/dashboard");
             },
             function (error) {
                 if (error.error) {
@@ -45,7 +45,7 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
                     $rootScope.user.loginKey = $cookieStore.get("loginKey");
                     $rootScope.user.loginType = $cookieStore.get("loginType");
 
-                    $location.path("/");
+                    $location.path("/dashboard");
                 },
                 function (error) {
                     if (error.error) {

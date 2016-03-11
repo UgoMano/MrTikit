@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name mrtikitApp.controller:MainCtrl
+ * @name mrtikitApp.controller:HomeCtrl
  * @description
  * # HomeCtrl
  * Controller of the mrtikitApp
  */
 angular.module('mrtikitApp').controller('HomeCtrl', function () {
-     console.log('home')
+     //console.log('home')
 });

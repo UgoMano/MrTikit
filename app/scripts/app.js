@@ -20,11 +20,11 @@ angular.module('mrtikitApp', [
     'ngMaterial',
   ]).config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('login', {
-            url: "/login",
-            templateUrl: "views/login.html",
-            controller: 'LoginCtrl'
-        })
+    .state('login', {
+        url: "/login",
+        templateUrl: "views/login.html",
+        controller: 'LoginCtrl'
+    })
 
     .state('app', {
         url: "/",
@@ -33,64 +33,122 @@ angular.module('mrtikitApp', [
         controller: 'MainCtrl'
     })
 
-    .state('app.home', {
-            url: "", //This fills out the home page of the main view of the app with the content
-            templateUrl: "views/home.html",
-            controller: 'HomeCtrl'
-        })
-        .state('app.myEvents', {
-            url: "myEvents",
-            templateUrl: "views/myEvents.html",
-            controller: 'MyEventsCtrl'
-        })
-        .state('app.eventCreate', {
-            url: "events/create",
-            templateUrl: "views/eventCreate.html",
-            controller: 'EventCreateCtrl'
-        })
-        .state('app.eventOverview', {
-            url: "events/:eventId/overview",
-            templateUrl: "views/eventOverview.html",
-            controller: 'EventOverviewCtrl'
-        })
-        .state('app.eventEdit', {
-            url: "events/:eventId/edit",
-            templateUrl: "views/eventEdit.html",
-            controller: 'EventEditCtrl'
-        })
-        .state('app.eventAttendees', {
-            url: "events/:eventId/attendees",
-            templateUrl: "views/eventAttendees.html",
-            controller: 'EventAttendeesCtrl'
-        })
-        .state('app.eventReports', {
-            url: "events/:eventId/reports",
-            templateUrl: "views/eventReports.html",
-            controller: 'EventReportsCtrl'
-        })
-        .state('app.eventUtilities', {
-            url: "events/:eventId/utilities",
-            templateUrl: "views/eventUtilities.html",
-            controller: 'EventUtilitiesCtrl'
-        })
-        .state('app.ticketTypeCreate', {
-            url: "events/:eventId/ticketTypes/create",
-            templateUrl: "views/ticketTypeCreate.html",
-            controller: 'TicketTypeCreateCtrl'
-        })
-        .state('app.ticketTypeEdit', {
-            url: "events/:eventId/ticketTypes/:ticketTypeId/edit",
-            templateUrl: "views/ticketTypeEdit.html",
-            controller: 'TicketTypeEditCtrl'
-        })
-        .state('app.ticketTypeManage', {
-            url: "events/:eventId/ticketTypes/manage",
-            templateUrl: "views/ticketTypeManage.html",
-            controller: 'TicketTypeManageCtrl'
-        })
+    .state('app.error', {
+        url: "error",
+        templateUrl: "views/error.html",
+        controller: 'ErrorCtrl'
+    })
 
-    $urlRouterProvider.otherwise('/');
+    .state('app.home', {
+        url: "", //This fills out the home page of the main view of the app with the content
+        templateUrl: "views/home.html",
+        controller: 'HomeCtrl'
+    })
+
+    .state('app.events', {
+        url: "events",
+        templateUrl: "views/events.html",
+        controller: 'EventsCtrl'
+    })
+
+    .state('app.event', {
+        url: "events/:id",
+        templateUrl: "views/event.html",
+        controller: 'EventCtrl'
+    })
+
+    .state('dashboard', {
+        url: "/dashboard",
+        abstract: true, //This allows it to be a parent with nested urls
+        templateUrl: "views/dashboard/main.html",
+        controller: 'DashboardMainCtrl'
+    })
+
+    .state('dashboard.error', {
+        url: "/error", //This fills out the home page of the main view of the app with the content
+        templateUrl: "views/dashboard/error.html",
+        controller: 'DashboardErrorCtrl'
+    })
+    
+    .state('dashboard.home', {
+        url: "", //This fills out the home page of the main view of the app with the content
+        templateUrl: "views/dashboard/home.html",
+        controller: 'DashboardHomeCtrl'
+    })
+    
+    .state('dashboard.myEvents', {
+        url: "/myEvents",
+        templateUrl: "views/dashboard/myEvents.html",
+        controller: 'MyEventsCtrl'
+    })
+    
+    .state('dashboard.eventCreate', {
+        url: "/events/create",
+        templateUrl: "views/dashboard/eventCreate.html",
+        controller: 'EventCreateCtrl'
+    })
+    
+    .state('dashboard.eventOverview', {
+        url: "/events/:eventId/overview",
+        templateUrl: "views/dashboard/eventOverview.html",
+        controller: 'EventOverviewCtrl'
+    })
+    
+    .state('dashboard.eventEdit', {
+        url: "/events/:eventId/edit",
+        templateUrl: "views/dashboard/eventEdit.html",
+        controller: 'EventEditCtrl'
+    })
+    
+    .state('dashboard.eventAttendees', {
+        url: "/events/:eventId/attendees",
+        templateUrl: "views/dashboard/eventAttendees.html",
+        controller: 'EventAttendeesCtrl'
+    })
+    
+    .state('dashboard.eventReports', {
+        url: "/events/:eventId/reports",
+        templateUrl: "views/dashboard/eventReports.html",
+        controller: 'EventReportsCtrl'
+    })
+    
+    .state('dashboard.eventUtilities', {
+        url: "/events/:eventId/utilities",
+        templateUrl: "views/dashboard/eventUtilities.html",
+        controller: 'EventUtilitiesCtrl'
+    })
+    
+    .state('dashboard.ticketTypeCreate', {
+        url: "/events/:eventId/ticketTypes/create",
+        templateUrl: "views/dashboard/ticketTypeCreate.html",
+        controller: 'TicketTypeCreateCtrl'
+    })
+    
+    .state('dashboard.ticketTypeEdit', {
+        url: "/events/:eventId/ticketTypes/:ticketTypeId/edit",
+        templateUrl: "views/dashboard/ticketTypeEdit.html",
+        controller: 'TicketTypeEditCtrl'
+    })
+    
+    .state('dashboard.ticketTypeManage', {
+        url: "/events/:eventId/ticketTypes/manage",
+        templateUrl: "views/dashboard/ticketTypeManage.html",
+        controller: 'TicketTypeManageCtrl'
+    })
+
+    //$urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise(function ($injector, $location) {
+        /*console.log($injector);
+        console.log($location);*/
+
+        if($location.path().indexOf("dashboard") > -1) {
+            $location.path("/dashboard/error");
+        } else {
+            $location.path("/error");
+        }
+    });
 }).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event) {
+    /*
     if (!$cookieStore.get("user") || !$cookieStore.get("loginKey")) {
         $location.path("/login");
     } else {
@@ -98,7 +156,7 @@ angular.module('mrtikitApp', [
         $rootScope.user.loginKey = $cookieStore.get("loginKey");
         $rootScope.user.loginType = $cookieStore.get("loginType");
         //$location.path("/");
-    }
+    }*/
 
     $rootScope.logout = function () {
         $cookieStore.remove('loginKey');

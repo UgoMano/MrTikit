@@ -8,13 +8,20 @@
 @MT_FONT_HEADER: 'Raleway';
 @MT_FONT_FANCY: 'Cookie';
 @MT_FONT_TEXT: 'Helvetica Neue';
-@import 'partials/sidebar';
-@import 'partials/header';
-@import 'views/login';
-@import 'views/myEvents';
-@import 'views/eventOverview';
-@import 'views/eventCreate';
-@import 'views/eventEdit';
+
+@import 'login';
+@import 'error';
+@import 'home';
+@import 'events';
+@import 'event';
+@import 'dashboard/partials/sidebar';
+@import 'dashboard/partials/header';
+@import 'dashboard/error';
+@import 'dashboard/myEvents';
+@import 'dashboard/eventOverview';
+@import 'dashboard/eventCreate';
+@import 'dashboard/eventEdit';
+
 body {
     background-color: @MT_PURPLE;
 }
