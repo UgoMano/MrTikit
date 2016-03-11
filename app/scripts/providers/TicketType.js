@@ -6,21 +6,9 @@
  * @description
  */
 angular.module('mrtikitApp').
-factory('$TicketTypes', function ($http, $location, $timeout, $q) {
+factory('$TicketType', function ($http, $location, $timeout, $q) {
 
-    var create = function (
-            tokenKey,
-            event, 
-            name, 
-            maxTickets,
-            price,
-            section,
-            photoTicket,
-            eventTime,
-            purchaseStart,
-            purchaseEnd,
-            hidden
-    ) {
+    var create = function (tokenKey, ticketType) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -31,7 +19,7 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!event || event == "") {
+        if (!ticketType.eventId || ticketType.eventId == "") {
             var error = {
                 error: "Please enter an event"
             }
@@ -39,9 +27,9 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!name || name == "") {
+        if (!ticketType.name || ticketType.name == "") {
             var error = {
-                error: "Please enter an event name"
+                error: "Please enter an ticket type name"
             }
 
             return $q.reject(error);
@@ -55,16 +43,16 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
                 'Authorization': "JWT " + tokenKey
             },
             data: {
-                event: event,
-                name: name,
-                maxTickets: maxTickets,
-                price: price,
-                section: section,
-                photoTicket: photoTicket,
-                eventTime: eventTime,
-                purchaseStart: purchaseStart,
-                purchaseEnd: purchaseEnd,
-                hidden: hidden
+                event: ticketType.eventId,
+                name: ticketType.name,
+                maxTickets: ticketType.maxTickets,
+                price: ticketType.price,
+                section: ticketType.section,
+                photoTicket: ticketType.photoTicket,
+                eventTime: ticketType.eventTime,
+                purchaseStart: ticketType.purchaseStart,
+                purchaseEnd: ticketType.purchaseEnd,
+                hidden: ticketType.hidden
             }
         }
 
@@ -174,8 +162,8 @@ factory('$TicketTypes', function ($http, $location, $timeout, $q) {
     }
 
     return {
-        create: function (tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn) {
-            return create(tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn);
+        create: function (tokenKey, ticketType) {
+            return create(tokenKey, ticketType);
         },
         update: function (id, tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn) {
             return update(id, tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn);
