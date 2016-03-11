@@ -1,31 +1,37 @@
 @MT_RED: #c23b22;
 @MT_DRED: #9b2f1b;
 @MT_GRAY: #848484;
-@MT_LGRAY: #e3e3e3;
+@MT_LGRAY: #e9eaed;
 @MT_WHITE: #fff;
 @MT_PURPLE: #8565c4;
 @MT_FONT_LOGO: 'Courgette';
 @MT_FONT_HEADER: 'Raleway';
 @MT_FONT_FANCY: 'Cookie';
 @MT_FONT_TEXT: 'Helvetica Neue';
-
+@import 'bootstrap';
 @import 'login';
-@import 'error';
-@import 'home';
-@import 'events';
-@import 'event';
-@import 'dashboard/partials/sidebar';
-@import 'dashboard/partials/header';
-@import 'dashboard/error';
-@import 'dashboard/myEvents';
-@import 'dashboard/eventOverview';
-@import 'dashboard/eventCreate';
-@import 'dashboard/eventEdit';
-
-body {
-    background-color: @MT_PURPLE;
+.app {
+    @import 'partials/header';
+    @import 'partials/footer';
+    @import 'error';
+    @import 'home';
+    @import 'events';
+    @import 'event';
 }
 
+.dashboard {
+    @import 'dashboard/partials/sidebar';
+    @import 'dashboard/partials/header';
+    @import 'dashboard/error';
+    @import 'dashboard/myEvents';
+    @import 'dashboard/eventOverview';
+    @import 'dashboard/eventCreate';
+    @import 'dashboard/eventEdit';
+}
+
+body {
+    background-color: @MT_LGRAY;
+}
 
 .dashboardContainer {}
 
