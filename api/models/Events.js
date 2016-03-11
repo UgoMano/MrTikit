@@ -75,18 +75,12 @@ module.exports = {
 
   beforeValidate(values, next) {
     var userId = values['owner'];
-    var checkIn = values['checkIn'];
+
     User.findOne(userId, function (err, user) {
       if (err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
       return next();
     });
-
-    // if checkIn is null set it to false, checkIn should never be null
-    if (!checkIn) {
-      values['checkIn'] = false;
-      next();
-    }
-}
+  }
   
 };
 
