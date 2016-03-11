@@ -59,7 +59,7 @@ angular.module('mrtikitApp', [
     })
     
     .state('app.event.home', {
-        url: "/",
+        url: "",
         templateUrl: "views/events/home.html",
         controller: 'EventHomeCtrl'
     })

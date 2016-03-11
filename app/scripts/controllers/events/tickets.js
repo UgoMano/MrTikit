@@ -8,5 +8,5 @@
  * Controller of the mrtikitApp
  */
 angular.module('mrtikitApp').controller('EventTicketsCtrl', function ($stateParams) {
-     console.log($stateParams);
+    console.log($stateParams);
 });

@@ -70,6 +70,7 @@
         font-weight: 700;
         div {
             border-right: 1px solid white;
+            cursor: pointer;
             &:last-of-type {
                 border: 0;
             }
@@ -86,6 +87,13 @@
                 border-left: solid 20px transparent;
                 border-right: solid 20px transparent;
             }
+            &:hover {
+                color: @MT_WHITE_HOVER;
+            }
         }
+    }
+    
+    .content .row {
+        background: @MT_WHITE;
     }
 }

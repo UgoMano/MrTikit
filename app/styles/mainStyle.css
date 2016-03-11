@@ -1379,6 +1379,9 @@ hr {
 .app .header .nav a:hover {
   color: #e9eaed;
 }
+.app .content {
+  background-color: #e9eaed;
+}
 .app .footer {
   font-size: 20px;
   color: #848484;
@@ -1386,6 +1389,60 @@ hr {
   text-align: center;
   height: 100px;
   line-height: 100px;
+  background-color: #e9eaed;
+}
+.app .eventPage .homePage {
+  padding: 15px;
+}
+.app .eventPage .homePage h1 {
+  margin-bottom: 0;
+  font-size: 40px;
+}
+.app .eventPage .homePage h5 {
+  margin-top: 0;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 12px;
+}
+.app .eventPage .homePage .location {
+  position: relative;
+  padding-left: 30px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.app .eventPage .homePage .location p {
+  margin-top: 0px;
+  font-size: 14px;
+  margin-left: f;
+  font-weight: normal;
+}
+.app .eventPage .homePage .location:before {
+  content: '\f041';
+  font-size: 26px;
+  font-family: 'FontAwesome';
+  top: 2px;
+  left: 1px;
+  position: absolute;
+}
+.app .eventPage .homePage .date {
+  position: relative;
+  padding-left: 30px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.app .eventPage .homePage .date p.time {
+  margin-top: 0px;
+  font-size: 14px;
+  margin-left: f;
+  font-weight: normal;
+}
+.app .eventPage .homePage .date:before {
+  content: '\f133';
+  font-size: 22px;
+  font-family: 'FontAwesome';
+  top: 4px;
+  left: 1px;
+  position: absolute;
 }
 .app .eventPage .image {
   text-align: center;
@@ -1454,6 +1511,7 @@ hr {
 }
 .app .eventPage .actions div {
   border-right: 1px solid white;
+  cursor: pointer;
 }
 .app .eventPage .actions div:last-of-type {
   border: 0;
@@ -1470,6 +1528,12 @@ hr {
   border-top: solid 20px #c23b22;
   border-left: solid 20px transparent;
   border-right: solid 20px transparent;
+}
+.app .eventPage .actions div:hover {
+  color: #cecece;
+}
+.app .eventPage .content .row {
+  background: #fff;
 }
 .dashboard .sidebarContainer {
   background-color: #2F323B;
