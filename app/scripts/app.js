@@ -73,6 +73,22 @@ angular.module('mrtikitApp', [
             templateUrl: "views/eventUtilities.html",
             controller: 'EventUtilitiesCtrl'
         })
+        .state('app.ticketTypeCreate', {
+            url: "events/:eventId/ticketTypes/create",
+            templateUrl: "views/ticketTypeCreate.html",
+            controller: 'TicketTypeCreateCtrl'
+        })
+        .state('app.ticketTypeEdit', {
+            url: "events/:eventId/ticketTypes/:ticketTypeId/edit",
+            templateUrl: "views/ticketTypeEdit.html",
+            controller: 'TicketTypeEditCtrl'
+        })
+        .state('app.ticketTypeManage', {
+            url: "events/:eventId/ticketTypes/manage",
+            templateUrl: "views/ticketTypeManage.html",
+            controller: 'TicketTypeManageCtrl'
+        })
+
     $urlRouterProvider.otherwise('/');
 }).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event) {
     if (!$cookieStore.get("user") || !$cookieStore.get("loginKey")) {
@@ -81,7 +97,7 @@ angular.module('mrtikitApp', [
         $rootScope.user = $cookieStore.get("user");
         $rootScope.user.loginKey = $cookieStore.get("loginKey");
         $rootScope.user.loginType = $cookieStore.get("loginType");
-        $location.path("/");
+        //$location.path("/");
     }
 
     $rootScope.logout = function () {
