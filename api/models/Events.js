@@ -69,9 +69,8 @@ module.exports = {
       type: 'boolean',
       defaultsTo: false,
       boolean: true
-    }
+    },
 
-    trans
   },
 
   beforeValidate(values, next) {
@@ -87,6 +86,7 @@ module.exports = {
       values['checkIn'] = false;
       next();
   }
+}
   
 };
 
