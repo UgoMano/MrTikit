@@ -11,7 +11,7 @@ module.exports = {
      * Expose the lodash installed in Sails core as a global variable
      * @type {Boolean}
      */
-    _: true,
+    _: false,
 
     /**
      * Expose the async installed in Sails core as a global variable
