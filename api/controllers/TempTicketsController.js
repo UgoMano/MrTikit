@@ -7,7 +7,7 @@
 
 module.exports = {
 
-    getTempTicketsByType: function (req, res) {
+/*    getTempTicketsByType: function (req, res) {
         TempTicketsService.getTempTicketsByType(req.ticketTypeId, req.eventId)
             .then(function (data) {
                 return res.json({
@@ -32,7 +32,7 @@ module.exports = {
     				data: data,
     			});
     		});
-    },
+    },*/
 	
 };
 

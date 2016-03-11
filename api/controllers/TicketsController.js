@@ -8,7 +8,7 @@
 module.exports = {
     
     getUserTickets: function (req, res) {
-    	TicketsService.getTicketsByUserId(req.userId)
+    	TicketsService.getTicketsByUserId(req.body.userId)
     		.then(function (data) {
     			return res.json({
     			data: data,
@@ -16,6 +16,25 @@ module.exports = {
     	});
     },
 
+    scanTicket: function (req, res) {
+        TicketsService.scanTicket(req.body.ticketUuid)
+            .then(function (data) {
+                return res.json({
+                    data: data,
+                });
+            });
+    },
+
+    generateTicketUuid: function (req, res) {
+        TicketsService.generateTicketUuid(req.body.ticketId, req.body.userId)
+            .then(function (data) {
+                return res.json({
+                    data: data,
+                });
+            });
+    },
+
+/*
     getTicketsByType: function (req, res) {
         TicketsService.getTicketsByType(req.ticketTypeId, req.eventId)
             .then(function (data) {
@@ -33,6 +52,6 @@ module.exports = {
                 });
             });
     },
-
+*/
 };
 

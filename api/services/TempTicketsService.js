@@ -14,8 +14,8 @@ module.exports = {
 		return TempTickets.count({
 			ticketType: ticketTypeId,
 			event: eventId
-			}).exec(function countCB(err, numFound) {
-				if(err) throw new Error('TempTickets could not be queried for count');
+			}).then(function (numFound) {
+				//if(!numFound) throw new Error('TempTickets could not be queried for count');
 				return numFound;
 			});
 	},

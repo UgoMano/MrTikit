@@ -30,8 +30,8 @@ module.exports = {
 
     getNumTicketsByType: function(ticketTypeId, eventId) {
         return Tickets.count({event: eventId, ticketType: ticketTypeId})
-            .exec(function countCB(err, found) {
-                if (err) throw new Error('Tickets not found');
+            .then(function (found) {
+                //if(!found) throw new Error('TempTickets could not be queried for count');
                 return found;
             });
     },

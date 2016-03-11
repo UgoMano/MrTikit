@@ -19,13 +19,13 @@ module.exports = {
     },
 
     ticket: {
-      model: 'Ticket',
+      model: 'Tickets',
     },
 
-    transactionType: {
+/*    transactionType: {
     	model: 'TransactionTypes',
-    	required: true,
-    },
+    	// required: true,
+    },*/
 
     confirmationNumber: {
     	type: 'string',
@@ -36,8 +36,15 @@ module.exports = {
   beforeValidate(values, next) {
   	var eventId = values['event'];
     var userId = values['user'];
-    var ticketId = value['ticket'];
-    var transactionTypeId = value['transactionType'];
+    var ticketId = values['ticket'];
+    //var transactionTypeId = value['transactionType'];
+
+    if(ticketId) {
+      Tickets.findOne(ticketId, function (err, ticket) {
+        if(err || !ticket) return next(sails.config.additionals.TICKET_NOT_FOUND);
+        return next();
+      });
+    }
 
     Events.findOne(eventId, function (err, event) {
     	if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
@@ -49,15 +56,10 @@ module.exports = {
     	return next();
     });
 
-    TicketTypes.findOne(ticketId, function(err, ticket) {
-    	if(err || !ticket) return next(sails.config.additionals.TICKET_NOT_FOUND);
-    	return next();
-    });
-
-    TransactionTypes.findOne(transactionTypeId, function(err, transactionType) {
+/*    TransactionTypes.findOne(transactionTypeId, function(err, transactionType) {
     	if(err || !transactionType) return next(sails.config.additionals.TRANSACTION_TYPE_NOT_FOUND);
     	return next();
-    });
+    });*/
   },
 
 };

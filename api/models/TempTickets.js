@@ -29,8 +29,9 @@ module.exports = {
 
   beforeValidate(values, next) {
    var eventId = values['event'];
-   var userId = values['owner'];
-   var ticketTypeId = value['ticketType']
+   var userId = values['user'];
+   var ticketTypeId = values['ticketType'];
+
    Events.findOne(eventId, function (err, event) {
      if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
      return next();

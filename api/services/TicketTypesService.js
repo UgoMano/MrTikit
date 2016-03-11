@@ -12,23 +12,23 @@ module.exports = {
                 if(!maxTickets) throw new Error('Max Tickets for Type Is Null');
 
                 return TicketsService.getNumTicketsByType(ticketTypeId, eventId)
-                    .then(function (numSold) {
-                        if(!numSold) throw new Error('Num Tickets Sold could not be excuted');
+                .then(function (numTickets) {
+                    return TempTicketsService.getNumTempTicketsByType(ticketTypeId, eventId)
+                    .then(function (numTempTickets) {
+                        var totalNumTickets = numTickets + numTempTickets;
+                        
+                        if (maxTickets < totalNumTickets) {
+                            throw new Error('Total tickets in the system exceeds max tickets allowed');
+                        }
+                        else {
+                            var numTicketsAvail = maxTickets - totalNumTickets;
+                            return numTicketsAvail;
+                        }
 
-                        return TempTicketsService.getNumTempTicketsByType(ticketTypeId, eventId)
-                            .then(function (numTempTickets) {
-                                if(!numTempTickets) throw new Error('Num Temp Tickets could not be excuted');
+                    })
+                })
 
-                                var totalNumTickets = numSold + numTempTickets;
-                                if(maxTickets < totalNumTickets) {
-                                    throw new Error('total tickets in system exceeds max tickets allowed');
-                                }
-                                else {
-                                    return ( maxTickets - totalNumTickets );
-                                } 
-                            });
-                        });
-                });
+            });
     },
 
     getTicketTypesByEvent: function(eventId) {
