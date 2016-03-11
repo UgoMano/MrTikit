@@ -14,13 +14,13 @@
 <div class='navContainer'>
     <h1>Administration</h1>
     <ul>
-        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/myEvents')">
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/myEvents')">
             <md-button class='active'>
                 <i class="fa fa-calendar-o"></i>
                 My Events
             </md-button>
         </li>
-        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/create')">
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/create')">
             <md-button>
                 <i class="fa fa-calendar-plus-o"></i>
                 Create Event
@@ -29,31 +29,31 @@
     </ul>
     <h1 ng-show="curEventId">Event</h1>
     <ul ng-show="curEventId">
-        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/'+curEventId+'/overview')">
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/overview')">
             <md-button>
                 <i class="fa fa-list-alt"></i>
                 Overview
             </md-button>
         </li>
-        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/'+curEventId+'/manage')">
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/edit')">
             <md-button>
                 <i class="fa fa-list"></i>
-                Manage
+                Edit Event
             </md-button>
         </li>
-        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/'+curEventId+'/attendees')">
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/attendees')">
             <md-button>
                 <i class="fa fa-users"></i>
                 Attendees
             </md-button>
         </li>
-        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/'+curEventId+'/reports')">
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/reports')">
             <md-button>
                 <i class="fa fa-area-chart"></i>
                 Reports
             </md-button>
         </li>
-        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/events/'+curEventId+'/utilities')">
+        <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/utilities')">
             <md-button>
                 <i class="fa fa-cogs"></i>
                 Utilities

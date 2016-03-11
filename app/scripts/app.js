@@ -39,8 +39,14 @@ angular.module('mrtikitApp', [
             controller: 'HomeCtrl'
         })
     
+        .state('app.events', {
+            url: "events",
+            templateUrl: "views/events.html",
+            controller: 'EventsCtrl'
+        })
+    
         .state('app.event', {
-            url: "event",
+            url: "events/:id",
             templateUrl: "views/event.html",
             controller: 'EventCtrl'
         })

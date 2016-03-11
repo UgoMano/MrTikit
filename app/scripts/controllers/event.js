@@ -7,6 +7,6 @@
  * # EventCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventCtrl', function () {
-     //console.log('home')
+angular.module('mrtikitApp').controller('EventCtrl', function ($stateParams) {
+     console.log("Event" + $stateParams.id);
 });

@@ -30,7 +30,7 @@ angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $Us
         rv.then(function (event) {
             $mdToast.showSimple('Create Event: Successful');
             $scope.event = event;
-            $scope.go('/events/' + $scope.event.id + '/overview');
+            $scope.go('/dashboard/events/' + $scope.event.id + '/overview');
 
         }, function (error) {
             if (error.error) {
