@@ -185,6 +185,11 @@ angular.module('mrtikitApp', [
         //$location.path("/");
     }*/
 
+    $rootScope.go = function (path) {
+        //console.log("go: ", path);
+        $location.path(path);
+    }
+    
     $rootScope.logout = function () {
         $cookieStore.remove('loginKey');
         $cookieStore.remove('user');

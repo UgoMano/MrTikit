@@ -1526,6 +1526,9 @@ hr {
 .app .eventPage .actions div:hover {
   color: #cecece;
 }
+.app .eventPage .actions div:focus {
+  outline-width: 0;
+}
 .app .eventPage .content .row {
   background: #fff;
 }

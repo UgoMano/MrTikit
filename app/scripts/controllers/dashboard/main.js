@@ -27,11 +27,6 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
         }
     };
 
-    $rootScope.go = function (path) {
-        //console.log("go: ", path);
-        $location.path(path);
-    }
-
     $rootScope.setEvent = function (eventId) {
         $rootScope.curEventId = eventId;
     }
