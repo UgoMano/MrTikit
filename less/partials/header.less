@@ -4,31 +4,32 @@
     height: 50px;
     box-sizing: content-box;
     line-height: 50px;
-    
+    position: fixed;
+    width: 100%;
+    z-index: 1;
     .logo {
         font-size: 24px;
         font-family: @MT_FONT_LOGO;
         color: white;
         font-weight: 700;
     }
-    
     .nav {
         text-align: right;
         font-size: 16px;
         font-family: @MT_FONT_HEADER;
         color: white;
         font-weight: 700;
-        
         a {
             text-decoration: none!important;
             color: white;
-            
             &:hover {
                 color: @MT_LGRAY;
             }
         }
     }
 }
+
 .content {
     background-color: @MT_LGRAY;
+    margin-top: 55px;
 }

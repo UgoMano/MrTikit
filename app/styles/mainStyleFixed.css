@@ -1346,12 +1346,19 @@ hr {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   color: white;
 }
+.app {
+  overflow: scroll;
+  height: 100%;
+}
 .app .header {
   background: #c23b22;
   border-top: 5px solid #8565c4;
   height: 50px;
   box-sizing: content-box;
   line-height: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 .app .header .logo {
   font-size: 24px;
@@ -1375,6 +1382,7 @@ hr {
 }
 .app .content {
   background-color: #e9eaed;
+  margin-top: 55px;
 }
 .app .footer {
   font-size: 20px;
@@ -1528,6 +1536,9 @@ hr {
 }
 .app .eventPage .actions div:focus {
   outline-width: 0;
+}
+.app .eventPage .content {
+  margin-top: 0;
 }
 .app .eventPage .content .row {
   background: #fff;
