@@ -15,12 +15,12 @@
     <h1>Administration</h1>
     <ul>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/myEvents')">
-            <md-button class='active'>
+            <md-button ng-class="{'active' : isCurrent('dashboard.myEvents')}">
                 <i class="fa fa-calendar-o"></i> My Events
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/create')">
-            <md-button>
+            <md-button ng-class="{'active' : isCurrent('dashboard.eventCreate')}">
                 <i class="fa fa-calendar-plus-o"></i> Create Event
             </md-button>
         </li>
@@ -28,27 +28,27 @@
     <h1 ng-show="curEventId">Event</h1>
     <ul ng-show="curEventId">
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/overview')">
-            <md-button>
+            <md-button ng-class="{'active' : isCurrent('dashboard.eventOverview')}">
                 <i class="fa fa-list-alt"></i> Overview
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/edit')">
-            <md-button>
+            <md-button ng-class="{'active' : isCurrent('dashboard.eventEdit')}">
                 <i class="fa fa-list"></i> Edit Event
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/attendees')">
-            <md-button>
+            <md-button ng-class="{'active' : isCurrent('dashboard.eventAttendees')}">
                 <i class="fa fa-users"></i> Attendees
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/reports')">
-            <md-button>
+            <md-button ng-class="{'active' : isCurrent('dashboard.eventReports')}">
                 <i class="fa fa-area-chart"></i> Reports
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/utilities')">
-            <md-button>
+            <md-button ng-class="{'active' : isCurrent('dashboard.eventUtilities')}">
                 <i class="fa fa-cogs"></i> Utilities
             </md-button>
         </li>
