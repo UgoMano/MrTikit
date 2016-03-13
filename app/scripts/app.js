@@ -18,6 +18,7 @@ angular.module('mrtikitApp', [
     //'ngTouch',
     'ui.router',
     'ngMaterial',
+    'uiGmapgoogle-maps',
   ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
     .state('login', {
