@@ -1532,30 +1532,36 @@ hr {
 .app .eventPage .content .row {
   background: #fff;
 }
+.dashboard {
+  height: 100%;
+}
 .dashboard .sidebarContainer {
   background-color: #2F323B;
   font-family: 'Lato', sans-serif;
   transition: all 0.5s ease-in-out;
+  height: 100%;
 }
 .dashboard .sidebarContainer .sidebar {
   background: none;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .dashboard .sidebarContainer .sidebar ul {
   padding: 0;
   margin-top: 5px;
+  margin-before: 0;
 }
 .dashboard .sidebarContainer .sidebar button {
   width: 100%;
-  padding: 0;
+  min-width: 50px;
+  padding-left: 10%;
   position: relative;
   margin: 0;
   text-align: left;
-  padding-left: 15px;
-  height: 50px;
+  height: 40px;
   text-transform: none;
   font-weight: bold;
   color: white;
+  border-radius: 0;
 }
 .dashboard .sidebarContainer .sidebar button i {
   -webkit-font-smoothing: antialiased;
@@ -1566,9 +1572,8 @@ hr {
   background-color: #c23b22;
 }
 .dashboard .sidebarContainer .navContainer {
-  margin-left: 15px;
-  margin-right: 15px;
   transition: all 0.5s ease-in-out;
+  padding-bottom: 51px;
 }
 .dashboard .sidebarContainer .userContainer {
   margin-top: 15px;
@@ -1640,50 +1645,58 @@ hr {
   transition: all 0.5s ease-in-out;
 }
 .dashboard .sidebarContainer.collapsed button {
-  padding-left: 42%;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
   transition: all 0.5s ease-in-out;
 }
 .dashboard .sidebarContainer.collapsed button span {
   display: none;
+  width: 0;
+}
+.dashboard .sidebarContainer.collapsed button i {
+  margin-right: 0;
 }
 .dashboard .sidebarContainer.collapsed .navContainer {
-  margin-left: -5px;
-  margin-right: -5px;
+  text-align: center;
   transition: all 0.5s ease-in-out;
 }
-.dashboard .sidebarContainer.collapsed .sidebar ul.curEvent {
-  margin-left: 5%;
+.dashboard .sidebarContainer.collapsed .sidebar .curEvent {
+  transition: all 0.5s ease-in-out;
+  padding-left: 0;
+  padding-right: 0;
 }
-.dashboard .sidebarContainer.collapsed .sidebar ul.curEvent li {
-  font-size: 0px;
-  position: fixed;
-  left: 0px;
+.dashboard .sidebarContainer.collapsed .sidebar .curEvent span {
+  display: none;
 }
-.dashboard .sidebarContainer.collapsed .sidebar ul.curEvent button {
+.dashboard .sidebarContainer.collapsed .sidebar .curEvent button {
+  padding-left: 0;
   width: 100%;
-  padding-left: 42%;
+  min-width: 50px;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
 }
-.dashboard .sidebarContainer .sidebar ul.curEvent {
+.dashboard .sidebarContainer .sidebar .curEvent {
   position: fixed;
-  bottom: 51px;
+  background-color: #2F323B;
+  bottom: 0;
   height: 51px;
+  line-height: 51px;
   margin-bottom: 0px;
   width: 100%;
-  margin-left: -14px;
   color: white;
   border-top: 1px solid #cecece;
   padding-left: 15px;
   box-sizing: border-box;
   padding-right: 15px;
 }
-.dashboard .sidebarContainer .sidebar ul.curEvent li {
-  width: 100%;
-  line-height: 51px;
-}
-.dashboard .sidebarContainer .sidebar ul.curEvent button {
+.dashboard .sidebarContainer .sidebar .curEvent button {
   padding-left: 10px;
-  width: 60px;
+  width: 100px;
   float: right;
+  height: 100%;
 }
 .dashboard .header {
   line-height: 50px;
@@ -1781,12 +1794,10 @@ hr {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.dashboard .eventOverviewContainer .attendeesCard {
-  overflow-y: hidden;
-  height: 100%;
-}
 .dashboard .eventOverviewContainer .attendeesCard md-list {
   padding: 0 0;
+  height: 200px;
+  overflow-y: scroll;
 }
 .dashboard .eventOverviewContainer .attendeesCard .attendee {
   border-bottom: 1px solid #848484;
@@ -1797,6 +1808,22 @@ hr {
   border-bottom: 0px;
 }
 .dashboard .eventOverviewContainer .attendeesCard .attendee .attendeeName {
+  width: 100px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard md-list {
+  padding: 0 0;
+  height: 200px;
+  overflow-y: scroll;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType {
+  border-bottom: 1px solid #848484;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType:last-child {
+  border-bottom: 0px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType .ticketTypeName {
   width: 100px;
 }
 .dashboard .eventCreateCard {
@@ -1835,6 +1862,62 @@ hr {
 .dashboard .eventEditCard md-input-container .eventTime {
   width: 200px;
 }
+.dashboard .ticketTypeCreate md-input-container {
+  display: block;
+  width: 250px;
+}
+.dashboard .ticketTypeEdit md-input-container {
+  display: block;
+  width: 250px;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader {
+  background-color: #c23b22;
+  color: #fff;
+  line-height: 50px;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 30px;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader div {
+  display: inline-block;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader .add {
+  float: right;
+  display: inline-block;
+  font-size: 30px;
+}
+.dashboard .ticketTypeManage .ticketType {
+  border-bottom: 1px solid;
+  padding: 20px 10px;
+}
+.dashboard .ticketTypeManage .ticketType:last-child {
+  border-bottom: 0;
+}
+.dashboard .ticketTypeManage .ticketType .name,
+.dashboard .ticketTypeManage .ticketType .price,
+.dashboard .ticketTypeManage .ticketType .maxTickets {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+}
+.dashboard .ticketTypeManage .ticketType .name:first-child,
+.dashboard .ticketTypeManage .ticketType .price:first-child,
+.dashboard .ticketTypeManage .ticketType .maxTickets:first-child {
+  text-align: left;
+}
+.dashboard .ticketTypeManage .ticketType .edit {
+  float: right;
+}
+.dashboard .mainContent {
+  background-color: #e9eaed;
+  overflow-y: scroll;
+  height: 100%;
+}
 body {
   background-color: #e9eaed;
 }
@@ -1844,4 +1927,7 @@ md-toolbar {
 }
 .mainContent {
   background-color: #e9eaed;
+}
+html {
+  overflow: hidden;
 }

@@ -18,7 +18,7 @@ angular.module('mrtikitApp', [
     //'ngTouch',
     'ui.router',
     'ngMaterial',
-  ]).config(function ($stateProvider, $urlRouterProvider) {
+  ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
     .state('login', {
         url: "/login",
@@ -174,6 +174,7 @@ angular.module('mrtikitApp', [
             $location.path("/error");
         }
     });
+    $locationProvider.html5Mode(true);
 }).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event) {
     /*
     if (!$cookieStore.get("user") || !$cookieStore.get("loginKey")) {

@@ -2,24 +2,27 @@
     background-color: #2F323B;
     font-family: 'Lato', sans-serif;
     transition: all .5s ease-in-out;
+    height: 100%;
     .sidebar {
         background: none;
-        overflow: hidden;
+        overflow-x: hidden;
         ul {
             padding: 0;
             margin-top: 5px;
+            margin-before: 0;
         }
         button {
             width: 100%;
-            padding: 0;
+            min-width: 50px;
+            padding-left: 10%;
             position: relative;
             margin: 0;
             text-align: left;
-            padding-left: 15px;
-            height: 50px;
+            height: 40px;
             text-transform: none;
             font-weight: bold;
             color: white;
+            border-radius: 0;
             i {
                 -webkit-font-smoothing: antialiased;
                 text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
@@ -31,9 +34,8 @@
         }
     }
     .navContainer {
-        margin-left: 15px;
-        margin-right: 15px;
         transition: all .5s ease-in-out;
+        padding-bottom: 51px;
     }
     .userContainer {
         margin-top: 15px;
@@ -78,7 +80,6 @@
     button {
         transition: all .5s ease-in-out;
     }
-
     &.collapsed {
         max-width: 5%;
         transition: all .5s ease-in-out;
@@ -89,7 +90,6 @@
         .image {
             width: 46px;
             height: 46px;
-            //margin-bottom: 80px;
             transition: all .5s ease-in-out;
             img {
                 width: 50px;
@@ -106,50 +106,58 @@
             }
         }
         button {
-            padding-left: 42%;
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
             transition: all .5s ease-in-out;
             span {
                 display: none;
+                width: 0;
+            }
+            i {
+                margin-right: 0;
             }
         }
         .navContainer {
-            margin-left: -5px;
-            margin-right: -5px;
+            text-align: center;
             transition: all .5s ease-in-out;
         }
-        .sidebar ul.curEvent {
-            margin-left: 5%;
-            li {
-                font-size: 0px;
-                position: fixed;
-                left: 0px;
+        .sidebar .curEvent {
+            transition: all .5s ease-in-out;
+            padding-left: 0;
+            padding-right: 0;
+            span {
+                display: none;
             }
             button {
+                padding-left: 0;
                 width: 100%;
-                padding-left: 42%;
+                min-width: 50px;
+                text-align: center;
+                transition: all .5s ease-in-out;
             }
         }
     }
-    .sidebar ul.curEvent {
+    .sidebar .curEvent {
         position: fixed;
-        bottom: 51px;
+        background-color: #2F323B;
+        bottom: 0;
         height: 51px;
+        line-height: 51px;
         margin-bottom: 0px;
         width: 100%;
-        margin-left: -14px;
         color: white;
         border-top: 1px solid #cecece;
         padding-left: 15px;
         box-sizing: border-box;
         padding-right: 15px;
-        li {
-            width: 100%;
-            line-height: 51px;
-        }
         button {
             padding-left: 10px;
-            width: 60px;
+            width: 100px;
             float: right;
+            height: 100%;
         }
     }
 }

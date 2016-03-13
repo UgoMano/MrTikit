@@ -28,20 +28,30 @@
     @import 'dashboard/eventOverview';
     @import 'dashboard/eventCreate';
     @import 'dashboard/eventEdit';
+    @import 'dashboard/ticketTypeCreate';
+    @import 'dashboard/ticketTypeEdit';
+    @import 'dashboard/ticketTypeManage';
+    height: 100%;
+    .mainContent {
+        background-color: @MT_LGRAY;
+        overflow-y: scroll;
+        height: 100%;
+    }
 }
 
 body {
     background-color: @MT_LGRAY;
 }
 
-.dashboardContainer {}
-
 md-toolbar {
     min-height: 50px;
     height: 50px;
 }
 
-;
 .mainContent {
     background-color: @MT_LGRAY;
+}
+
+html {
+    overflow: hidden;
 }

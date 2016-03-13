@@ -7,7 +7,7 @@
 -->
 <div class='userContainer'>
     <div class='image'>
-        <img src='{{profilePicture()}}'/>
+        <img src='{{profilePicture()}}' />
     </div>
     <h1>{{userName()}}</h1>
 </div>
@@ -16,14 +16,12 @@
     <ul>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/myEvents')">
             <md-button class='active'>
-                <i class="fa fa-calendar-o"></i>
-                My Events
+                <i class="fa fa-calendar-o"></i> My Events
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/create')">
             <md-button>
-                <i class="fa fa-calendar-plus-o"></i>
-                Create Event
+                <i class="fa fa-calendar-plus-o"></i> Create Event
             </md-button>
         </li>
     </ul>
@@ -31,45 +29,39 @@
     <ul ng-show="curEventId">
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/overview')">
             <md-button>
-                <i class="fa fa-list-alt"></i>
-                Overview
+                <i class="fa fa-list-alt"></i> Overview
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/edit')">
             <md-button>
-                <i class="fa fa-list"></i>
-                Edit Event
+                <i class="fa fa-list"></i> Edit Event
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/attendees')">
             <md-button>
-                <i class="fa fa-users"></i>
-                Attendees
+                <i class="fa fa-users"></i> Attendees
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/reports')">
             <md-button>
-                <i class="fa fa-area-chart"></i>
-                Reports
+                <i class="fa fa-area-chart"></i> Reports
             </md-button>
         </li>
         <li class="sidebarLink" ng-class="{'collapsed' : collapsed}" ng-click="go('/dashboard/events/'+curEventId+'/utilities')">
             <md-button>
-                <i class="fa fa-cogs"></i>
-                Utilities
-            </md-button>
-        </li>
-    </ul>
-    <ul class='curEvent' ng-show="curEventId">
-        <li>
-            Event: {{curEventId}}
-            <md-button>
-                <i class="fa fa-retweet"></i>
-                Switch
+                <i class="fa fa-cogs"></i> Utilities
             </md-button>
         </li>
     </ul>
 </div>
+
+<div class='curEvent' ng-show="curEventId">
+    <span>Event: {{curEventId}}</span>
+    <md-button ng-click="go('/dashboard/myEvents')">
+        <i class="fa fa-retweet"></i> Switch
+    </md-button>
+</div>
+
 <!--
 <div ng-show="curEventId">
     <div class="sidebarSectionTitle">Event</div>
