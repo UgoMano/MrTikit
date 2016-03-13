@@ -380,6 +380,23 @@
   display: block;
   width: 250px;
 }
+.dashboard .ticketTypeManage .ticketTypeHeader {
+  background-color: #9b2f1b;
+  color: #fff;
+  line-height: 50px;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 30px;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader div {
+  display: inline-block;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader .add {
+  float: right;
+  display: inline-block;
+  font-size: 30px;
+}
 .dashboard .ticketTypeManage .ticketType {
   border-bottom: 1px solid;
   padding: 20px 10px;

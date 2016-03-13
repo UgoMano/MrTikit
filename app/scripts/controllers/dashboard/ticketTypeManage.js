@@ -24,7 +24,11 @@ angular.module('mrtikitApp').controller('TicketTypeManageCtrl', function ($scope
             console.log(error);
         }
     })
+    $scope.add = function() {
+        $location.path('dashboard/events/'+$scope.curEventId+'/ticketTypes/create');
+    }
     $scope.editTicketType = function(id) {
         $location.path('dashboard/events/'+$scope.curEventId+'/ticketTypes/'+id+'/edit');
     }
+    
 });
