@@ -376,6 +376,10 @@
   display: block;
   width: 250px;
 }
+.dashboard .ticketTypeEdit md-input-container {
+  display: block;
+  width: 250px;
+}
 .dashboard .mainContent {
   background-color: #e3e3e3;
 }

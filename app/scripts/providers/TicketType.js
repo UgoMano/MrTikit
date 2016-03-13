@@ -19,7 +19,7 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!ticketType.eventId || ticketType.eventId == "") {
+        if (!ticketType.event || ticketType.event == "") {
             var error = {
                 error: "Please enter an event"
             }
@@ -37,13 +37,13 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
 
         var req = {
             method: 'POST',
-            url: SERVER_URL + "/v1/events",
+            url: SERVER_URL + "/v1/ticketTypes",
             headers: {
                 'Content-Type': "application/json",
                 'Authorization': "JWT " + tokenKey
             },
             data: {
-                event: ticketType.eventId,
+                event: ticketType.event,
                 name: ticketType.name,
                 maxTickets: ticketType.maxTickets,
                 price: ticketType.price,
@@ -55,7 +55,7 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
                 hidden: ticketType.hidden
             }
         }
-
+        console.log(req.data);
         var promise = $http(req).then(function (data) {
             return data;
         }, function (error) {
@@ -64,20 +64,7 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
-    var update = function (
-            id,
-            tokenKey,
-            event,
-            name,
-            maxTickets,
-            price,
-            section,
-            photoTicket,
-            eventTime,
-            purchaseStart,
-            purchaseEnd,
-            hidden
-    ) {
+    var update = function (tokenKey, ticketType) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -88,9 +75,9 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!id || id == "") {
+        if (!ticketType.id || ticketType.id == "") {
             var error = {
-                error: "Please enter an event id"
+                error: "Please enter an ticketType id"
             }
 
             return $q.reject(error);
@@ -98,22 +85,22 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
 
         var req = {
             method: 'PUT',
-            url: SERVER_URL + "/v1/ticketTypes/" + id,
+            url: SERVER_URL + "/v1/ticketTypes/" + ticketType.id,
             headers: {
                 'Content-Type': "application/json",
                 'Authorization': "JWT " + tokenKey
             },
             data: {
-                event: event,
-                name: name,
-                maxTickets: maxTickets,
-                price: price,
-                section: section,
-                photoTicket: photoTicket,
-                eventTime: eventTime,
-                purchaseStart: purchaseStart,
-                purchaseEnd: purchaseEnd,
-                hidden: hidden
+                event: ticketType.event,
+                name: ticketType.name,
+                maxTickets: ticketType.maxTickets,
+                price: ticketType.price,
+                section: ticketType.section,
+                photoTicket: ticketType.photoTicket,
+                eventTime: new Date(ticketType.eventTime),
+                purchaseStart: ticketType.purchaseStart,
+                purchaseEnd: ticketType.purchaseEnd,
+                hidden: ticketType.hidden
             }
         }
 
@@ -125,7 +112,7 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
-    var get = function (id, tokenKey) {
+    var get = function (tokenKey, id) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -138,7 +125,7 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
 
         if (!id || id == "") {
             var error = {
-                error: "Please enter an event id"
+                error: "Please enter an ticketType id"
             }
 
             return $q.reject(error);
@@ -165,11 +152,11 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         create: function (tokenKey, ticketType) {
             return create(tokenKey, ticketType);
         },
-        update: function (id, tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn) {
-            return update(id, tokenKey, title, owner, paypal_email, startDateTime, endDateTime, checkIn);
+        update: function (tokenKey, ticketType) {
+            return update(tokenKey, ticketType);
         },
-        get: function (id, tokenKey) {
-            return get(id, tokenKey);
+        get: function (tokenKey, id) {
+            return get(tokenKey, id);
         }
     };
 })
