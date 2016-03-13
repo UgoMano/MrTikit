@@ -455,6 +455,9 @@
   overflow-y: scroll;
   height: 100%;
 }
+html {
+  overflow: hidden;
+}
 body {
   background-color: #8565c4;
 }
