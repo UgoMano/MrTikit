@@ -147,6 +147,44 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         });
         return promise;
     }
+    
+    var getByEvent = function (tokenKey, eventId) {
+        var promise = $q.defer();
+        if (!tokenKey || tokenKey == "") {
+            var error = {
+                error: "Not logged in"
+            }
+
+            return $q.reject(error);
+        }
+
+        if (!eventId || eventId == "") {
+            var error = {
+                error: "Please enter an event id"
+            }
+
+            return $q.reject(error);
+        }
+
+        var req = {
+            method: 'POST',
+            url: SERVER_URL + "/v1/ticketTypes/getTicketTypesByEvent",
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            },
+            data: {
+                eventId : eventId
+            }
+        }
+        console.log(req);
+        var promise = $http(req).then(function (data) {
+            return data.data.data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
 
     return {
         create: function (tokenKey, ticketType) {
@@ -157,6 +195,9 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         },
         get: function (tokenKey, id) {
             return get(tokenKey, id);
+        },
+        getByEvent: function(tokenKey, eventId) {
+            return getByEvent(tokenKey, eventId);
         }
     };
 })

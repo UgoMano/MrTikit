@@ -7,7 +7,7 @@
  * # TicketTypeCreateCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('TicketTypeCreateCtrl', function ($scope, $TicketType, $stateParams, $mdToast) {
+angular.module('mrtikitApp').controller('TicketTypeCreateCtrl', function ($scope, $TicketType, $stateParams, $mdToast, $location) {
     $scope.setEvent($stateParams.eventId);
     $scope.ticketType = {};
     $scope.createTicketType = function () {
@@ -15,6 +15,7 @@ angular.module('mrtikitApp').controller('TicketTypeCreateCtrl', function ($scope
         var createTTPromise = $TicketType.create($scope.user.loginKey, $scope.ticketType);
         createTTPromise.then(function (ticketType) {
             $mdToast.showSimple('Create ticket type success');
+            $location.path('/dashboard/events/'+$scope.curEventId+'/ticketTypes/manage');
         }, function (error) {
             if (error.error) {
                 $mdToast.showSimple('Error: ' + error.error);

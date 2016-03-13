@@ -380,6 +380,32 @@
   display: block;
   width: 250px;
 }
+.dashboard .ticketTypeManage .ticketType {
+  border-bottom: 1px solid;
+  padding: 20px 10px;
+}
+.dashboard .ticketTypeManage .ticketType:last-child {
+  border-bottom: 0;
+}
+.dashboard .ticketTypeManage .ticketType .name,
+.dashboard .ticketTypeManage .ticketType .price,
+.dashboard .ticketTypeManage .ticketType .maxTickets {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+}
+.dashboard .ticketTypeManage .ticketType .name:first-child,
+.dashboard .ticketTypeManage .ticketType .price:first-child,
+.dashboard .ticketTypeManage .ticketType .maxTickets:first-child {
+  text-align: left;
+}
+.dashboard .ticketTypeManage .ticketType .edit {
+  float: right;
+}
 .dashboard .mainContent {
   background-color: #e3e3e3;
 }

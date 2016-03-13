@@ -1,9 +1,10 @@
 <div class="ticketTypeManage">
     <md-card>
         <div class="ticketType" ng-repeat="tt in ticketTypes">
-            <div>{{tt.name}}</div>
-            <div>{{tt.maxTickets}}</div>
-            <div>{{tt.price}}</div>
+            <div class="name">{{tt.name}}</div>
+            <div class="maxTickets">{{tt.maxTickets}}</div>
+            <div class="price">$ {{tt.price}}</div>
+            <md-button class="edit" ng-click="editTicketType(tt.id)">Edit Info</md-button>
         </div>
     </md-card>
 </div>
