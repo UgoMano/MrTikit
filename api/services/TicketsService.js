@@ -1,6 +1,7 @@
 // TicketsService.js - in api/services
 
-var uuid = require('node-uuid');
+var crypto = require('crypto');
+var biguint = require('biguint-format');
 
 module.exports = {
 
@@ -36,44 +37,46 @@ module.exports = {
             });
     },
 
-    scanTicket: function(ticketUuid) {
-        return Tickets.update({uuid: ticketUuid}, {lastScanTime: new Date()})
+    scanTicket: function(ticketScanId) {
+        return Tickets.findOne({scanId: ticketScanId})
             .then(function (ticket) {
-                if(!ticket) throw new Error("Error with updating");
+                if(!ticket) return sails.config.additionals.TICKET_NOT_FOUND;
+
+                var lastScanTime = new Date();
 
                 var newTotal = ticket.totalScans + 1;
                 var newFirstScan = ticket.firstScanTime;
                 if(newTotal == 1)
-                    newFirstScan = new Date();
-
-                return Tickets.update({uuid: ticketUuid}, {totalScans: newTotal, firstScanTime: newFirstScan})
-                    .then(function (ticket) {
-                        if(!ticket) throw new Error("Second Update Error");
-                        return ticket;
-                    });
-
+                    newFirstScan = lastScanTime;
+                ticket.lastScanTime = lastScanTime;
+                ticket.totalScans = newTotal;
+                ticket.firstScanTime = newFirstScan;
+                ticket.save();
+                return ticket
             });
     },
 
-    generateTicketUuid: function(ticketId, userId) {
-        return Tickets.findOne({ id: ticketId, user: userId })
+    generateNewScanId: function(ticketId) {
+        return Tickets.findOne({ id: ticketId })
             .then(function (ticket) {
                 if(!ticket) throw new Error('Ticket not found');
-                var newUuid = null;
+
+                var newScanId = null;
                 var ticketExist = true;
+                var eventId = ticket.event.id;
 
                 while(ticketExist) {
-                    newUuid = uuid.v4();
-                    ticketExist = Tickets.find({ uuid: newUuid })
-                        .then(function(ticket) {
-                            if(!ticket)
-                                return false;
-                            else
-                                return true;
-                        });
+                    var hexEventId = eventId.toString(16);
+                    var randomNum = crypto.randomBytes(8);
+                    newScanId = biguint(randomNum, 'hex', { prefix: hexEventId });
+                    ticketExist = Tickets.find({ scanId: newScanId, event: eventId }, function(err, ticket) {
+                        return ticket;
+                    });
+                    if(!ticket)
+                        ticketExist = false;
                 }
 
-                ticket.uuid = newUuid;
+                ticket.scanId = newScanId;
                 ticket.save();
                 return ticket;
             });

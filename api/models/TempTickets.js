@@ -28,24 +28,20 @@ module.exports = {
   },
 
   beforeValidate(values, next) {
-   var eventId = values['event'];
-   var userId = values['user'];
-   var ticketTypeId = values['ticketType'];
+    var eventId = values['event'];
+    var userId = values['user'];
+    var ticketTypeId = values['ticketType'];
 
-   Events.findOne(eventId, function (err, event) {
-     if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
-     return next();
-    });
-
-  User.findOne(userId, function (err, user) {
-      if (err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
-      return next();
-    });
-
-  TicketTypes.findOne(ticketTypeId, function (err, ticketType) {
-      if (err || !ticketType) return next(sails.config.additionals.TICKET_TICKET_TYPE_NOT_FOUND);
-      return next();
-    });
+    Events.findOne({id: eventId}, function(err, event) {
+      if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
+      User.findOne({id: userId}, function(err, user) {
+        if (err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
+        TicketTypes.findOne({id: ticketTypeId}, function(err, ticketType) {
+          if (err || !ticketType) return next(sails.config.additionals.TICKET_TYPE_NOT_FOUND);
+          next();
+        });
+      });
+   });
   }
 };
 

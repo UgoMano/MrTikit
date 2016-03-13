@@ -33,6 +33,15 @@ module.exports = {
 				});
 			});
 	},
+
+	getAllAttendees: function (req, res) {
+		EventsService.getAllAttendees(req.body.eventId)
+			.then(function (data) {
+				res.json({
+					data: data,
+				});
+			});
+	},
   
 };
 

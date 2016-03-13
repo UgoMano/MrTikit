@@ -40,21 +40,18 @@ module.exports = {
     //var transactionTypeId = value['transactionType'];
 
     if(ticketId) {
-      Tickets.findOne(ticketId, function (err, ticket) {
+      Tickets.findOne({id: ticketId}, function (err, ticket) {
         if(err || !ticket) return next(sails.config.additionals.TICKET_NOT_FOUND);
-        return next();
+        Events.findOne({id: eventId}, function (err, event) {
+          if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
+          User.findOne({id: userId}, function (err, user) {
+            if(err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
+            return next();
+          });
+        });
       });
     }
 
-    Events.findOne(eventId, function (err, event) {
-    	if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
-    	return next();
-    });
-
-    User.findOne(userId, function (err, user) {
-    	if(err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
-    	return next();
-    });
 
 /*    TransactionTypes.findOne(transactionTypeId, function(err, transactionType) {
     	if(err || !transactionType) return next(sails.config.additionals.TRANSACTION_TYPE_NOT_FOUND);

@@ -14,19 +14,18 @@ module.exports = {
                 return TicketsService.getNumTicketsByType(ticketTypeId, eventId)
                 .then(function (numTickets) {
                     return TempTicketsService.getNumTempTicketsByType(ticketTypeId, eventId)
-                    .then(function (numTempTickets) {
-                        var totalNumTickets = numTickets + numTempTickets;
+                        .then(function (numTempTickets) {
+                            var totalNumTickets = numTickets + numTempTickets;
                         
-                        if (maxTickets < totalNumTickets) {
-                            throw new Error('Total tickets in the system exceeds max tickets allowed');
-                        }
-                        else {
-                            var numTicketsAvail = maxTickets - totalNumTickets;
-                            return numTicketsAvail;
-                        }
-
-                    })
-                })
+                            if (maxTickets < totalNumTickets) {
+                                throw new Error('Total tickets in the system exceeds max tickets allowed');
+                            }
+                            else {
+                                var numTicketsAvail = maxTickets - totalNumTickets;
+                                return numTicketsAvail;
+                            }
+                    });
+                });
 
             });
     },

@@ -35,7 +35,7 @@ module.exports = {
       status: 401
     },
     EVENT_NOT_FOUND: {
-      code: 'E_EVENT_NOT',
+      code: 'E_EVENT_NOT_FOUND',
       message: 'Event with specified id is not found',
       status: 401
     },
@@ -45,7 +45,7 @@ module.exports = {
       status: 403
     },
     TRANSACTION_TYPE_NOT_FOUND: {
-      code: 'E_EVENT_NOT',
+      code: 'E_EVENT_NOT_FOUND',
       message: 'Transaction type with specified id is not found',
       status: 401
     },

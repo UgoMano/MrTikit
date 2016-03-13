@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "main": "app.js",
   "dependencies": {
+    "biguint-format": "^1.0.0",
     "bluebird": "^3.3.1",
+    "crypto": "0.0.3",
     "hoek": "^3.0.4",
     "lodash": "^4.5.0",
     "node-uuid": "^1.4.7",

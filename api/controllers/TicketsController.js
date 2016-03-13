@@ -17,7 +17,7 @@ module.exports = {
     },
 
     scanTicket: function (req, res) {
-        TicketsService.scanTicket(req.body.ticketUuid)
+        TicketsService.scanTicket(req.body.ticketScanId)
             .then(function (data) {
                 return res.json({
                     data: data,
@@ -25,33 +25,13 @@ module.exports = {
             });
     },
 
-    generateTicketUuid: function (req, res) {
-        TicketsService.generateTicketUuid(req.body.ticketId, req.body.userId)
+    generateNewScanId: function (req, res) {
+        TicketsService.generateNewScanId(req.body.ticketId)
             .then(function (data) {
                 return res.json({
                     data: data,
                 });
             });
     },
-
-/*
-    getTicketsByType: function (req, res) {
-        TicketsService.getTicketsByType(req.ticketTypeId, req.eventId)
-            .then(function (data) {
-                return res.json({
-                    data: data,
-                });
-            });
-    },
-
-    getNumTicketsByType: function (req, res) {
-        TicketsService.getNumTicketsByType(req.ticketTypeId, req.eventId)
-            .then(function (data) {
-                return res.json({
-                    data: data,
-                });
-            });
-    },
-*/
 };
 
