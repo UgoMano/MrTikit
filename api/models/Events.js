@@ -32,7 +32,7 @@ module.exports = {
     },
 
     description: {
-      type: 'string',
+      type: 'text',
     },
 
     location: {
