@@ -1447,6 +1447,9 @@ hr {
   left: 1px;
   position: absolute;
 }
+.app .eventPage .aboutPage {
+  padding: 30px;
+}
 .app .eventPage .locationPage .map {
   padding-top: 30px;
 }
