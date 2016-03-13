@@ -12,7 +12,7 @@ angular.module('mrtikitApp').controller('TicketTypeManageCtrl', function ($scope
     $scope.ticketTypes = []; //[{id:1, event: 42,name: 'gen admin' , maxTicket: 34 },{id:2, event: 42,name: 'vip' , maxTicket: 12 }];
     var getTTPromise = $TicketType.getByEvent($scope.user.loginKey, $scope.curEventId);
     getTTPromise.then(function (ticketTypes) {
-        $mdToast.showSimple('get ticket types success');
+        //$mdToast.showSimple('get ticket types success');
         $scope.ticketTypes = ticketTypes;
     }, function (error) {
         if (error.error) {

@@ -318,12 +318,10 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.dashboard .eventOverviewContainer .attendeesCard {
-  overflow-y: hidden;
-  height: 100%;
-}
 .dashboard .eventOverviewContainer .attendeesCard md-list {
   padding: 0 0;
+  height: 200px;
+  overflow-y: scroll;
 }
 .dashboard .eventOverviewContainer .attendeesCard .attendee {
   border-bottom: 1px solid #848484;
@@ -334,6 +332,22 @@
   border-bottom: 0px;
 }
 .dashboard .eventOverviewContainer .attendeesCard .attendee .attendeeName {
+  width: 100px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard md-list {
+  padding: 0 0;
+  height: 200px;
+  overflow-y: scroll;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType {
+  border-bottom: 1px solid #848484;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType:last-child {
+  border-bottom: 0px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType .ticketTypeName {
   width: 100px;
 }
 .dashboard .eventCreateCard {
@@ -381,7 +395,7 @@
   width: 250px;
 }
 .dashboard .ticketTypeManage .ticketTypeHeader {
-  background-color: #9b2f1b;
+  background-color: #c23b22;
   color: #fff;
   line-height: 50px;
   height: 50px;

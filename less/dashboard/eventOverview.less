@@ -20,10 +20,10 @@
         }
     }
     .attendeesCard {
-        overflow-y: hidden;
-        height: 100%;
         md-list {
             padding: 0 0;
+            height: 200px;
+            overflow-y: scroll;
         }
         .attendee {
             border-bottom: 1px solid @MT_GRAY;
@@ -33,6 +33,24 @@
                 border-bottom: 0px;
             }
             .attendeeName {
+                width: 100px;
+            }
+        }
+    }
+    .ticketTypesCard {
+        md-list {
+            padding: 0 0;
+            height: 200px;
+            overflow-y: scroll;
+        }
+        .ticketType {
+            border-bottom: 1px solid @MT_GRAY;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            &:last-child {
+                border-bottom: 0px;
+            }
+            .ticketTypeName {
                 width: 100px;
             }
         }
