@@ -1407,6 +1407,7 @@ hr {
   font-size: 12px;
 }
 .app .eventPage .homePage .location {
+  margin-bottom: 15px;
   position: relative;
   padding-left: 30px;
   font-size: 16px;
@@ -1483,6 +1484,9 @@ hr {
   font-size: 14px;
   font-weight: normal;
 }
+.app .eventPage .locationPage .info {
+  padding-bottom: 30px;
+}
 .app .eventPage .image {
   text-align: center;
   width: 100%;
@@ -1503,6 +1507,7 @@ hr {
 }
 .app .eventPage .image img {
   background-position: center;
+  width: 100%;
 }
 .app .eventPage .image .info {
   position: absolute;
