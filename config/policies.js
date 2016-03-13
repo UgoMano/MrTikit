@@ -17,6 +17,11 @@ module.exports = {
 
     AuthController: {
       '*': true
+    },
+
+    EventsController: {
+    	find: true,
+    	findOne: true
     }
   }
 };
