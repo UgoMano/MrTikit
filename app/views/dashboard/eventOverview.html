@@ -1,7 +1,11 @@
 <div class="eventOverviewContainer" layout="column">
     <div layout="row" flex>
         <md-card class="eventOverview" flex>
-            <md-toolbar>Event Overview</md-toolbar>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <span flex></span>Event Overview<span flex></span>
+                </div>
+            </md-toolbar>
             <img class="eventImage" ng-src="http://placehold.it/1068x200" />
             <div class="eventInfo">
                 <div>Eventid: {{event.id}}</div>
@@ -14,11 +18,27 @@
         </md-card>
     </div>
     <div layout="row" flex>
-        <md-card flex layout="column">
-            <md-toolbar>Ticket Types</md-toolbar>
+        <md-card flex layout="column" class="ticketTypesCard">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <div class="ticketTypeheader">Ticket Types</div>
+                    <span flex></span>
+                    <md-button class="md-secondary" ng-click="go('dashboard/events/'+curEventId+'/ticketTypes/manage')">Manage</md-button>
+                </div>
+            </md-toolbar>
+            <md-card-content flex>
+                <md-list>
+                    <md-list-item class="ticketType" ng-repeat="tt in ticketTypes">
+                        <div class="ticketTypeName">{{tt.name}}</div>
+                        <div class="ticketTypePrice md-secondary">$ {{tt.price}}</div>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
         </md-card>
         <md-card flex layout="column" class="attendeesCard">
-            <md-toolbar>Attendees</md-toolbar>
+            <md-toolbar>
+                <div class="md-toolbar-tools">Attendees</div>
+            </md-toolbar>
             <md-card-content flex>
                 <md-list>
                     <md-list-item class="attendee" ng-repeat="u in attendees">

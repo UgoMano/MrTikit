@@ -8,33 +8,28 @@
 @MT_FONT_HEADER: 'Raleway';
 @MT_FONT_FANCY: 'Cookie';
 @MT_FONT_TEXT: 'Helvetica Neue';
-
 @import 'login';
 @import 'error';
 @import 'home';
 @import 'events';
 @import 'event';
-@import 'dashboard/partials/sidebar';
-@import 'dashboard/partials/header';
-@import 'dashboard/error';
-@import 'dashboard/myEvents';
-@import 'dashboard/eventOverview';
-@import 'dashboard/eventCreate';
-@import 'dashboard/eventEdit';
+.dashboard {
+    @import 'dashboard/partials/sidebar';
+    @import 'dashboard/partials/header';
+    @import 'dashboard/error';
+    @import 'dashboard/myEvents';
+    @import 'dashboard/eventOverview';
+    @import 'dashboard/eventCreate';
+    @import 'dashboard/eventEdit';
+    @import 'dashboard/ticketTypeCreate';
+    @import 'dashboard/ticketTypeEdit';
+    @import 'dashboard/ticketTypeManage';
+    
+    .mainContent {
+        background-color: @MT_LGRAY;
+    }
+}
 
 body {
     background-color: @MT_PURPLE;
-}
-
-
-.dashboardContainer {}
-
-md-toolbar {
-    min-height: 50px;
-    height: 50px;
-}
-
-;
-.mainContent {
-    background-color: @MT_LGRAY;
 }

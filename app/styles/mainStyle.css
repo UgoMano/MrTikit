@@ -69,20 +69,20 @@
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   color: white;
 }
-.sidebarContainer {
+.dashboard .sidebarContainer {
   background-color: #2F323B;
   font-family: 'Lato', sans-serif;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .sidebar {
+.dashboard .sidebarContainer .sidebar {
   background: none;
   overflow: hidden;
 }
-.sidebarContainer .sidebar ul {
+.dashboard .sidebarContainer .sidebar ul {
   padding: 0;
   margin-top: 5px;
 }
-.sidebarContainer .sidebar button {
+.dashboard .sidebarContainer .sidebar button {
   width: 100%;
   padding: 0;
   position: relative;
@@ -94,26 +94,26 @@
   font-weight: bold;
   color: white;
 }
-.sidebarContainer .sidebar button i {
+.dashboard .sidebarContainer .sidebar button i {
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
   margin-right: 10px;
 }
-.sidebarContainer .sidebar button.active {
+.dashboard .sidebarContainer .sidebar button.active {
   background-color: #c23b22;
 }
-.sidebarContainer .navContainer {
+.dashboard .sidebarContainer .navContainer {
   margin-left: 15px;
   margin-right: 15px;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .userContainer {
+.dashboard .sidebarContainer .userContainer {
   margin-top: 15px;
   margin-bottom: 30px;
   height: 130px;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .userContainer .image {
+.dashboard .sidebarContainer .userContainer .image {
   border: 1px solid #89a;
   width: 96px;
   height: 97px;
@@ -122,7 +122,7 @@
   margin-right: auto;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .userContainer img {
+.dashboard .sidebarContainer .userContainer img {
   display: block;
   margin: 0 auto;
   width: 100px;
@@ -131,76 +131,76 @@
   margin-top: -2px;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .userContainer h1 {
+.dashboard .sidebarContainer .userContainer h1 {
   font-size: 18px;
   text-align: center;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer h1 {
+.dashboard .sidebarContainer h1 {
   font-size: 15px;
   margin-bottom: 0px;
   color: white;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer .sidebarLink {
+.dashboard .sidebarContainer .sidebarLink {
   cursor: pointer;
   padding-left: 0px;
   padding-top: 10px;
 }
-.sidebarContainer button {
+.dashboard .sidebarContainer button {
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed {
+.dashboard .sidebarContainer.collapsed {
   max-width: 5%;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed h1 {
+.dashboard .sidebarContainer.collapsed h1 {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed .image {
+.dashboard .sidebarContainer.collapsed .image {
   width: 46px;
   height: 46px;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed .image img {
+.dashboard .sidebarContainer.collapsed .image img {
   width: 50px;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed .userContainer {
+.dashboard .sidebarContainer.collapsed .userContainer {
   margin-bottom: 20px;
   height: 50px;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed .userContainer h1 {
+.dashboard .sidebarContainer.collapsed .userContainer h1 {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed button {
+.dashboard .sidebarContainer.collapsed button {
   padding-left: 42%;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed button span {
+.dashboard .sidebarContainer.collapsed button span {
   display: none;
 }
-.sidebarContainer.collapsed .navContainer {
+.dashboard .sidebarContainer.collapsed .navContainer {
   margin-left: -5px;
   margin-right: -5px;
   transition: all 0.5s ease-in-out;
 }
-.sidebarContainer.collapsed .sidebar ul.curEvent {
+.dashboard .sidebarContainer.collapsed .sidebar ul.curEvent {
   margin-left: 5%;
 }
-.sidebarContainer.collapsed .sidebar ul.curEvent li {
+.dashboard .sidebarContainer.collapsed .sidebar ul.curEvent li {
   font-size: 0px;
   position: fixed;
   left: 0px;
 }
-.sidebarContainer.collapsed .sidebar ul.curEvent button {
+.dashboard .sidebarContainer.collapsed .sidebar ul.curEvent button {
   width: 100%;
   padding-left: 42%;
 }
-.sidebarContainer .sidebar ul.curEvent {
+.dashboard .sidebarContainer .sidebar ul.curEvent {
   position: fixed;
   bottom: 51px;
   height: 51px;
@@ -213,27 +213,27 @@
   box-sizing: border-box;
   padding-right: 15px;
 }
-.sidebarContainer .sidebar ul.curEvent li {
+.dashboard .sidebarContainer .sidebar ul.curEvent li {
   width: 100%;
   line-height: 51px;
 }
-.sidebarContainer .sidebar ul.curEvent button {
+.dashboard .sidebarContainer .sidebar ul.curEvent button {
   padding-left: 10px;
   width: 60px;
   float: right;
 }
-.header {
+.dashboard .header {
   line-height: 50px;
   background-color: #22242B;
   color: #cccccc;
 }
-.header .logoContainer {
+.dashboard .header .logoContainer {
   line-height: 50px;
   height: 50px;
   margin-left: -50px;
   margin-right: 50px;
 }
-.header .logoContainer .title {
+.dashboard .header .logoContainer .title {
   font-family: 'Courgette';
   display: inline;
   line-height: 50px;
@@ -241,48 +241,48 @@
   position: absolute;
   font-size: 30px;
 }
-.header .headerItem {
+.dashboard .header .headerItem {
   cursor: pointer;
   display: inline;
   margin-right: 20px;
   font-size: 15px;
   text-align: right;
 }
-.header .headerItem .headerItemText {
+.dashboard .header .headerItem .headerItemText {
   display: inline;
   margin-right: 10px;
 }
-.header .headerItem .fa {
+.dashboard .header .headerItem .fa {
   font-size: 20px;
   line-height: 20px;
 }
-.header .headerItem:focus {
+.dashboard .header .headerItem:focus {
   border: 0;
   outline: 0;
 }
-.header .headerItem:first-of-type {
+.dashboard .header .headerItem:first-of-type {
   text-align: left;
 }
-.header .headerItem:last-of-type {
+.dashboard .header .headerItem:last-of-type {
   margin-left: -90px;
 }
-.header .menubutton {
+.dashboard .header .menubutton {
   padding-left: 15px;
 }
-.header .logo {
+.dashboard .header .logo {
   height: 50px;
   margin-right: 5px;
 }
-.myEventsContainer .myEvent {
+.dashboard .myEventsContainer .myEvent {
   padding-bottom: 20px;
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
 }
-.myEventsContainer .myEvent md-content {
+.dashboard .myEventsContainer .myEvent md-content {
   line-height: inherit;
 }
-.myEventsContainer .myEvent .eventName {
+.dashboard .myEventsContainer .myEvent .eventName {
   display: inline;
   width: 100px;
   height: 48px;
@@ -290,95 +290,156 @@
   font-weight: bold;
   color: #848484;
 }
-.myEventsContainer .myEvent .md-button {
+.dashboard .myEventsContainer .myEvent .md-button {
   background-color: #c23b22;
   color: #fff;
   float: right;
 }
-.myEventsContainer .myEvent .md-button:hover {
+.dashboard .myEventsContainer .myEvent .md-button:hover {
   background-color: #9b2f1b;
 }
-.eventOverviewContainer {
+.dashboard .eventOverviewContainer {
   color: #848484;
 }
-.eventOverviewContainer md-toolbar {
+.dashboard .eventOverviewContainer md-toolbar {
   background-color: #c23b22;
 }
-.eventOverviewContainer .eventOverview md-toolbar {
+.dashboard .eventOverviewContainer .eventOverview md-toolbar {
   text-align: center;
   font-size: 36px;
 }
-.eventOverviewContainer .eventOverview .eventImage {
+.dashboard .eventOverviewContainer .eventOverview .eventImage {
   width: 100%;
   height: 200px;
 }
-.eventOverviewContainer .eventOverview .eventInfo {
+.dashboard .eventOverviewContainer .eventOverview .eventInfo {
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.eventOverviewContainer .attendeesCard {
-  overflow-y: hidden;
-  height: 100%;
-}
-.eventOverviewContainer .attendeesCard md-list {
+.dashboard .eventOverviewContainer .attendeesCard md-list {
   padding: 0 0;
+  height: 200px;
+  overflow-y: scroll;
 }
-.eventOverviewContainer .attendeesCard .attendee {
+.dashboard .eventOverviewContainer .attendeesCard .attendee {
   border-bottom: 1px solid #848484;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.eventOverviewContainer .attendeesCard .attendee:last-child {
+.dashboard .eventOverviewContainer .attendeesCard .attendee:last-child {
   border-bottom: 0px;
 }
-.eventOverviewContainer .attendeesCard .attendee .attendeeName {
+.dashboard .eventOverviewContainer .attendeesCard .attendee .attendeeName {
   width: 100px;
 }
-.eventCreateCard {
+.dashboard .eventOverviewContainer .ticketTypesCard md-list {
+  padding: 0 0;
+  height: 200px;
+  overflow-y: scroll;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType {
+  border-bottom: 1px solid #848484;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType:last-child {
+  border-bottom: 0px;
+}
+.dashboard .eventOverviewContainer .ticketTypesCard .ticketType .ticketTypeName {
+  width: 100px;
+}
+.dashboard .eventCreateCard {
   color: #848484;
 }
-.eventCreateCard label {
+.dashboard .eventCreateCard label {
   color: #848484;
 }
-.eventCreateCard md-input-container {
+.dashboard .eventCreateCard md-input-container {
   display: block;
 }
-.eventCreateCard md-input-container .eventTitle {
+.dashboard .eventCreateCard md-input-container .eventTitle {
   width: 200px;
 }
-.eventCreateCard md-input-container .eventLocation {
+.dashboard .eventCreateCard md-input-container .eventLocation {
   width: 200px;
 }
-.eventCreateCard md-input-container .eventTime {
+.dashboard .eventCreateCard md-input-container .eventTime {
   width: 200px;
 }
-.eventEditCard {
+.dashboard .eventEditCard {
   color: #848484;
 }
-.eventEditCard label {
+.dashboard .eventEditCard label {
   color: #848484;
 }
-.eventEditCard md-input-container {
+.dashboard .eventEditCard md-input-container {
   display: block;
 }
-.eventEditCard md-input-container .eventTitle {
+.dashboard .eventEditCard md-input-container .eventTitle {
   width: 200px;
 }
-.eventEditCard md-input-container .eventLocation {
+.dashboard .eventEditCard md-input-container .eventLocation {
   width: 200px;
 }
-.eventEditCard md-input-container .eventTime {
+.dashboard .eventEditCard md-input-container .eventTime {
   width: 200px;
+}
+.dashboard .ticketTypeCreate md-input-container {
+  display: block;
+  width: 250px;
+}
+.dashboard .ticketTypeEdit md-input-container {
+  display: block;
+  width: 250px;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader {
+  background-color: #c23b22;
+  color: #fff;
+  line-height: 50px;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 30px;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader div {
+  display: inline-block;
+}
+.dashboard .ticketTypeManage .ticketTypeHeader .add {
+  float: right;
+  display: inline-block;
+  font-size: 30px;
+}
+.dashboard .ticketTypeManage .ticketType {
+  border-bottom: 1px solid;
+  padding: 20px 10px;
+}
+.dashboard .ticketTypeManage .ticketType:last-child {
+  border-bottom: 0;
+}
+.dashboard .ticketTypeManage .ticketType .name,
+.dashboard .ticketTypeManage .ticketType .price,
+.dashboard .ticketTypeManage .ticketType .maxTickets {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+}
+.dashboard .ticketTypeManage .ticketType .name:first-child,
+.dashboard .ticketTypeManage .ticketType .price:first-child,
+.dashboard .ticketTypeManage .ticketType .maxTickets:first-child {
+  text-align: left;
+}
+.dashboard .ticketTypeManage .ticketType .edit {
+  float: right;
+}
+.dashboard .mainContent {
+  background-color: #e3e3e3;
 }
 body {
   background-color: #8565c4;
-}
-md-toolbar {
-  min-height: 50px;
-  height: 50px;
-}
-.mainContent {
-  background-color: #e3e3e3;
 }

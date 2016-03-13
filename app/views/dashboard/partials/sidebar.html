@@ -63,7 +63,7 @@
     <ul class='curEvent' ng-show="curEventId">
         <li>
             Event: {{curEventId}}
-            <md-button>
+            <md-button ng-click="go('/dashboard/myEvents')">
                 <i class="fa fa-retweet"></i>
                 Switch
             </md-button>
