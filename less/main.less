@@ -1,18 +1,25 @@
 @MT_RED: #c23b22;
 @MT_DRED: #9b2f1b;
 @MT_GRAY: #848484;
-@MT_LGRAY: #e3e3e3;
+@MT_LGRAY: #e9eaed;
 @MT_WHITE: #fff;
+@MT_WHITE_HOVER: #cecece;
 @MT_PURPLE: #8565c4;
 @MT_FONT_LOGO: 'Courgette';
 @MT_FONT_HEADER: 'Raleway';
 @MT_FONT_FANCY: 'Cookie';
 @MT_FONT_TEXT: 'Helvetica Neue';
+@import 'bootstrap';
 @import 'login';
-@import 'error';
-@import 'home';
-@import 'events';
-@import 'event';
+.app {
+    @import 'partials/header';
+    @import 'partials/footer';
+    @import 'error';
+    @import 'home';
+    @import 'events';
+    @import 'event';
+}
+
 .dashboard {
     @import 'dashboard/partials/sidebar';
     @import 'dashboard/partials/header';
@@ -31,9 +38,20 @@
         height: 100%;
     }
 }
+
+body {
+    background-color: @MT_LGRAY;
+}
+
+md-toolbar {
+    min-height: 50px;
+    height: 50px;
+}
+
+.mainContent {
+    background-color: @MT_LGRAY;
+}
+
 html {
     overflow: hidden;
-}
-body {
-    background-color: @MT_PURPLE;
 }

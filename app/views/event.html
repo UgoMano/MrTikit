@@ -1,1 +1,36 @@
-<h1>Event</h1>
+<div class='container eventPage'>
+    <div class='row'>
+        <div class='col-md-12 image'>
+            <div class='info'>
+                <div class='date'>
+                    <div class='month'>
+                        Mar
+                    </div>
+                    <div class='day'>
+                        12
+                    </div>
+                </div>
+                <div class='title'>
+                    Birthday Party / Kegs & Eggs / Erin Express
+                </div>
+            </div>
+            <img src='https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpl1/t31.0-8/12771852_10153468456613997_5678007364971732471_o.jpg' />
+        </div>
+    </div>
+    <div class='row actions'>
+        <div class='col-md-3' ng-class="{'active' : active.home}" ng-click="go('/events/'+event.id)">
+            Home
+        </div>
+        <div class='col-md-3' ng-class="{'active' : active.about}" ng-click="go('/events/'+event.id+'/about')">
+            About
+        </div>
+        <div class='col-md-3' ng-class="{'active' : active.location}" ng-click="go('/events/'+event.id+'/location')">
+            Location
+        </div>
+        <div class='col-md-3' ng-class="{'active' : active.tickets}" ng-click="go('/events/'+event.id+'/tickets')">
+            Tickets
+        </div>
+    </div>
+    <div class='content' ui-view>
+    </div>
+</div>
