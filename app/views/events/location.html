@@ -1,5 +1,26 @@
-<div class='row locationPage'>
-    <div class='col-md-12'>
-        <h1>Location</h1>
+<div class='locationPage'>
+    <div class='row map'>
+        <div class='col-md-6 col-md-offset-3'>
+            <ui-gmap-google-map center='map.center' zoom='map.zoom' options='{scrollwheel: false}'>
+                <ui-gmap-marker coords="{'latitude': map.marker.latitude, 'longitude': map.marker.longitude}" idkey="1">
+                    <ui-gmap-window options="windowOptions" closeClick="closeClick()" show='true'>
+                        <div>
+                            <h1>University Crossings</h1>
+                            <h2>3175 John F Kennedy Blvd, Philadelphia, PA 19104</h2>
+                            <a href='https://www.google.com/maps/dir//University+Crossings,+3175+John+F+Kennedy+Blvd,+Philadelphia,+PA+19104/@39.9559957,-75.1880744,18.74z/data=!4m12!1m3!3m2!1s0x0000000000000000:0x4308ad03547d73ac!2sUniversity+Crossings!4m7!1m0!1m5!1m1!1s0x89c6c64e6aa5f319:0x4308ad03547d73ac!2m2!1d-75.1880228!2d39.9561033'>Get Directions</a>
+                        </div>
+                    </ui-gmap-window>
+                </ui-gmap-marker>
+            </ui-gmap-google-map>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <div class='location'>
+                University Crossings
+                <p>3175 John F Kennedy Blvd, Philadelphia, PA 19104</p>
+                <a href='https://www.google.com/maps/dir//University+Crossings,+3175+John+F+Kennedy+Blvd,+Philadelphia,+PA+19104/@39.9559957,-75.1880744,18.74z/data=!4m12!1m3!3m2!1s0x0000000000000000:0x4308ad03547d73ac!2sUniversity+Crossings!4m7!1m0!1m5!1m1!1s0x89c6c64e6aa5f319:0x4308ad03547d73ac!2m2!1d-75.1880228!2d39.9561033'>Get Directions</a>
+            </div>
+        </div>
     </div>
 </div>
