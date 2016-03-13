@@ -24,12 +24,16 @@
     @import 'dashboard/ticketTypeCreate';
     @import 'dashboard/ticketTypeEdit';
     @import 'dashboard/ticketTypeManage';
-    
+    height: 100%;
     .mainContent {
         background-color: @MT_LGRAY;
+        overflow-y: scroll;
+        height: 100%;
     }
 }
-
+html {
+    overflow: hidden;
+}
 body {
     background-color: @MT_PURPLE;
 }
