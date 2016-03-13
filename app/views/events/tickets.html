@@ -1,5 +1,32 @@
 <div class='row ticketsPage'>
-    <div class='col-md-12'>
-        <h1>Tickets</h1>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='ticketHeader'>
+                <h3>Ticket</h3>
+                <h3 class='qty'>Qty</h3>
+            </div>
+            <md-list>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Early Bird</h3>
+                        <p>10$ - Save 10$ before June 1st 2016</p>
+                        <input class='md-secondary' ng-model="ticket1Qty" type="number" step="1">
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>General Admission</h3>
+                        <p>20$ - Access to the event</p>
+                        <input class='md-secondary' ng-model="ticket2Qty" type="number" step="1">
+                    </div>
+                </md-list-item>
+            </md-list>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-3 col-md-offset-9 checkout'>
+            <md-button class="md-raised">Checkout</md-button>
+        </div>
     </div>
 </div>

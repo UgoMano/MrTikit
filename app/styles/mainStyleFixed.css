@@ -1490,6 +1490,32 @@ hr {
 .app .eventPage .locationPage .info {
   padding-bottom: 30px;
 }
+.app .eventPage .ticketsPage {
+  padding: 30px;
+}
+.app .eventPage .ticketsPage .ticketHeader {
+  background-color: #848484;
+  width: 100%;
+  height: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.app .eventPage .ticketsPage .ticketHeader h3 {
+  font-size: 16px;
+  color: white;
+  display: inline-block;
+  line-height: 50px;
+  margin: 0;
+}
+.app .eventPage .ticketsPage .ticketHeader .qty {
+  float: right;
+}
+.app .eventPage .ticketsPage md-list input {
+  width: 50px;
+}
+.app .eventPage .ticketsPage .checkout {
+  text-align: right;
+}
 .app .eventPage .image {
   text-align: center;
   width: 100%;
