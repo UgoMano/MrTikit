@@ -8,7 +8,6 @@
  * Controller of the mrtikitApp
  */
 angular.module('mrtikitApp').controller('EventCtrl', function ($scope, $rootScope, $stateParams, $state, $location, $Event, $TicketType) {
-    console.log("Event" + $stateParams.id);
     $scope.event = {};
     $scope.event.id = $stateParams.id;
 
