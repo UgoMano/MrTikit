@@ -22,12 +22,45 @@ module.exports = {
     },
 
     getTicketsByUserId: function(userId) {
-        return Tickets.find( {user: userId })
-            .then(function (tickets) {
-                if (!tickets) throw new Error('Tickets not found');
-                return tickets;
+        return Tickets.find({user: userId}).populateAll()
+            .then(function (allTickets) {
+                ticketInfo = [];
+
+                _.each(allTickets, function(ticket) {
+                    newObject = {
+                        id: ticket.id,
+                        scanId: ticket.scanId,
+                        checkIn: ticket.checkIn,
+                        firstScanTime: ticket.firstScanTime,
+                        lastScanTime: ticket.lastScanTime,
+                        totalScans: ticket.totalScans,
+                        ticketType: {
+                            name: ticket.ticketType.name,
+                            price: ticket.ticketType.price,
+                        },
+                        event: {
+                            title: ticket.event.title,
+                            startDateTime: ticket.event.startDateTime,
+                            endDateTime: ticket.event.endDateTime,
+                        },
+                    };
+
+                    ticketInfo.push(newObject);
+
+                })
+                return ticketInfo;
+                //console.log(allTickets);
             });
     },
+
+/*    getTicketsByUserId: function(userId) {
+        return Tickets.find({user: userId}).populateAll()
+            .then(function (allTickets) {
+                return allTickets;
+              if (!tickets) throw new Error('Tickets not found');
+                return tickets;
+            });
+    },*/
 
     getNumTicketsByType: function(ticketTypeId, eventId) {
         return Tickets.count({event: eventId, ticketType: ticketTypeId})
@@ -38,7 +71,7 @@ module.exports = {
     },
 
     scanTicket: function(ticketScanId, eventId) {
-        return Tickets.findOne({scanId: ticketScanId, event: eventId})
+        return Tickets.findOne({scanId: ticketScanId, event: eventId}).populateAll()
             .then(function (ticket) {
                 if(!ticket) return sails.config.additionals.TICKET_NOT_FOUND;
 
@@ -51,7 +84,22 @@ module.exports = {
                 ticket.lastScanTime = lastScanTime;
                 ticket.totalScans = newTotal;
                 ticket.firstScanTime = newFirstScan;
-                return ticket.save();
+                ticket.save();
+                ticketObjectToReturn = {
+                    id: ticket.id,
+                    scanId: ticket.scanId,
+                    checkIn: ticket.checkIn,
+                    firstScanTime: ticket.firstScanTime,
+                    lastScanTime: ticket.lastScanTime,
+                    totalScans: ticket.totalScans,
+                    user: {
+                        firstName: ticket.user.firstName,
+                        lastName: ticket.user.lastName,
+                        email: ticket.user.email,
+                    },
+                };
+
+                return ticketObjectToReturn;
                 //return ticket
             });
     },
