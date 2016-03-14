@@ -1,0 +1,25 @@
+.myTicketsView {
+    .barcodeContainer{
+        display: none;
+    }
+}
+
+@media print {
+    .myTicketsView {
+        height: 100%;
+        qr-code {
+            position: absolute;
+            right: 20px;
+        }
+        .barcodeContainer {
+            display: block;
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            width: 100%;
+            .barcode {
+                display: inline-block;
+            }
+        }
+    }
+}

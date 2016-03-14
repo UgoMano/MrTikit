@@ -1390,6 +1390,11 @@ hr {
   background-color: #e9eaed;
   margin-top: 55px;
 }
+@media print {
+  .app .header {
+    display: none;
+  }
+}
 .app .footer {
   font-size: 20px;
   color: #848484;
@@ -1398,6 +1403,11 @@ hr {
   height: 100px;
   line-height: 100px;
   background-color: #e9eaed;
+}
+@media print {
+  .app .footer {
+    display: none;
+  }
 }
 .app .eventPage .homePage {
   padding: 15px;
@@ -1548,6 +1558,43 @@ hr {
 }
 .app .eventPage .content .row {
   background: #fff;
+}
+.app .myTickets .ticket md-content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.app .myTickets .ticket md-content .event,
+.app .myTickets .ticket md-content .price {
+  display: inline;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 100px;
+}
+.app .myTickets .ticket md-content button {
+  display: inline;
+  float: right;
+}
+.app .myTicketsView .barcodeContainer {
+  display: none;
+}
+@media print {
+  .app .myTicketsView {
+    height: 100%;
+  }
+  .app .myTicketsView qr-code {
+    position: absolute;
+    right: 20px;
+  }
+  .app .myTicketsView .barcodeContainer {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .app .myTicketsView .barcodeContainer .barcode {
+    display: inline-block;
+  }
 }
 .dashboard {
   height: 100%;

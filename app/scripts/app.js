@@ -18,6 +18,7 @@ angular.module('mrtikitApp', [
     //'ngTouch',
     'ui.router',
     'ngMaterial',
+    'monospaced.qrcode',
   ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
     .state('login', {
@@ -80,6 +81,16 @@ angular.module('mrtikitApp', [
         url: "/tickets",
         templateUrl: "views/events/tickets.html",
         controller: 'EventTicketsCtrl'
+    })
+    .state('app.myTickets' , {
+        url: "myTickets",
+        templateUrl: "views/myTickets.html",
+        controller: 'MyTicketsCtrl'
+    })
+    .state('app.myTicketsView' , {
+        url: "myTickets/:ticketId/view",
+        templateUrl: "views/myTicketsView.html",
+        controller: 'MyTicketsViewCtrl'
     })
     
     .state('dashboard', {

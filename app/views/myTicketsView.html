@@ -1,0 +1,17 @@
+<div class="myTicketsView container">
+    <div class="row">
+
+        <md-content>
+            <div>{{event.title}}</div>
+            <div>{{event.startDateTime}}</div>
+            <div>{{event.endDateTime}}</div>
+            <div>{{event.location}}</div>
+
+            <qrcode data="{{ticket.scanId}}"></qrcode>
+
+            <div class="barcodeContainer">
+                <img id="barcode" class="barcode" />
+            </div>
+        </md-content>
+    </div>
+</div>
