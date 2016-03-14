@@ -1767,6 +1767,7 @@ hr {
   font-size: 15px;
   margin-bottom: 0px;
   color: white;
+  padding-left: 15px;
   transition: all 0.5s ease-in-out;
 }
 .dashboard .sidebarContainer .sidebarLink {
