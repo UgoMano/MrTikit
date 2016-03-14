@@ -20,8 +20,12 @@ module.exports = {
     },
 
     EventsController: {
-    	find: true,
-    	findOne: true
+      find: true,
+      findOne: true
+    },
+    
+    TicketTypesController: {
+      getTicketTypesByEvent: true
     }
   }
 };
