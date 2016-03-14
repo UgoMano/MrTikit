@@ -10,7 +10,7 @@
                     <div class="md-list-item-text">
                         <h3>{{type.name}}</h3>
                         <p>{{type.price}}$<!-- - Save 10$ before June 1st 2016</p>--></p>
-                        <input class='md-secondary' ng-model="qty[$index]" type="number" step="1">
+                        <input class='md-secondary' ng-model="qty[$index]" type="number" step="1" ng-disabled='validTicket($index)'>
                     </div>
                     <md-divider ng-if='!$last'></md-divider>
                 </md-list-item>
@@ -24,7 +24,7 @@
     </div>
     <div class='row'>
         <div class='col-md-3 col-md-offset-9 checkout' ng-show='ticketTypes.length > 0'>
-            <md-button class="md-raised">Checkout</md-button>
+            <md-button class="md-raised" ng-click='purchaseTicket()'>Checkout</md-button>
         </div>
     </div>
 </div>
