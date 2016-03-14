@@ -2008,15 +2008,20 @@ hr {
   color: white;
 }
 .boxOffice .header {
-  position: fixed;
+  height: 70px;
+  line-height: 70px;
+  position: absolute;
   top: 0;
   width: 100%;
 }
+.boxOffice .header h1 {
+  margin: 0;
+}
 .boxOffice .footer {
-  position: fixed;
+  height: 50px;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 50px;
 }
 .boxOffice .footer button {
   margin-left: -5px;
@@ -2025,23 +2030,38 @@ hr {
   width: 100%;
   text-align: right;
 }
+.boxOffice .homePage {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 .boxOffice .homePage .action {
+  height: 100%;
   text-align: center;
 }
 .boxOffice .homePage .action button {
   width: 75%;
-  height: 250px;
-  background-color: #848484;
-  color: white;
+  height: 100%;
+  background-color: #e9eaed;
+  color: black;
 }
-.boxOffice .homePage .action button:hover {
-  background-color: #bbb;
+.boxOffice .homePage .row {
+  height: 50%;
+}
+.boxOffice .scanPage {
+  background: #e9eaed;
+  border-radius: 10px;
+  height: 100%;
 }
 .boxOffice .content {
-  padding-top: 80px;
+  height: 100%;
+  padding-top: 70px;
+  padding-bottom: 50px;
 }
 .boxOffice .row {
-  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 body {
   background-color: #e9eaed;
