@@ -37,8 +37,8 @@ module.exports = {
             });
     },
 
-    scanTicket: function(ticketScanId) {
-        return Tickets.findOne({scanId: ticketScanId})
+    scanTicket: function(ticketScanId, eventId) {
+        return Tickets.findOne({scanId: ticketScanId, event: eventId})
             .then(function (ticket) {
                 if(!ticket) return sails.config.additionals.TICKET_NOT_FOUND;
 
@@ -51,8 +51,8 @@ module.exports = {
                 ticket.lastScanTime = lastScanTime;
                 ticket.totalScans = newTotal;
                 ticket.firstScanTime = newFirstScan;
-                ticket.save();
-                return ticket
+                return ticket.save();
+                //return ticket
             });
     },
 
@@ -80,6 +80,5 @@ module.exports = {
                 ticket.save();
                 return ticket;
             });
-    },
-    
+    },    
 };

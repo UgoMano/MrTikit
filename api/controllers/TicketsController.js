@@ -17,7 +17,7 @@ module.exports = {
     },
 
     scanTicket: function (req, res) {
-        TicketsService.scanTicket(req.body.ticketScanId)
+        TicketsService.scanTicket(req.body.ticketScanId, req.body.eventId)
             .then(function (data) {
                 return res.json({
                     data: data,
