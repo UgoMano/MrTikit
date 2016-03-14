@@ -180,6 +180,12 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         },
         get: function (tokenKey, event) {
             return get(tokenKey, event);
+        },
+        publicGetAll: function () {
+            return getAll("tokenKey");
+        },
+        publicGet: function (event) {
+            return get(event, "tokenKey");
         }
     };
 })
