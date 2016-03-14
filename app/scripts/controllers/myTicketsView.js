@@ -17,11 +17,10 @@ angular.module('mrtikitApp').controller('MyTicketsViewCtrl', function ($scope, $
         $scope.ticketsPromise.then(function (ticket) {
             $scope.ticket = ticket;
             console.log($scope.ticket);
-//            JsBarcode("#barcode", $scope.ticket.scanId, {
-//                width: 5,
-//                height: 200,
-//                displayValue: true
-//            });
+            JsBarcode("#barcode", $scope.ticket.scanId, {
+                width: 10,
+                height: 400
+            });
             $scope.eventPromise = $Event.get($scope.ticket.event, $scope.user.loginKey);
             $scope.eventPromise.then(function (event) {
                 $scope.event = event;

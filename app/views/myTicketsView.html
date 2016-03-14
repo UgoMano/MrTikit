@@ -2,10 +2,10 @@
     <div class="row">
 
         <md-content>
-            <div>{{event.title}}</div>
-            <div>{{event.startDateTime}}</div>
-            <div>{{event.endDateTime}}</div>
-            <div>{{event.location}}</div>
+            <h1>{{event.title}}</h1>
+            <div class="start">Start: {{event.startDateTime | date : 'EEEE dd/MM/yyyy hh:mm a'}}</div>
+            <div class="end">End: {{event.endDateTime | date : 'EEEE dd/MM/yyyy hh:mm a'}}</div>
+            <div class="location">Location: {{event.location}}</div>
 
             <qrcode data="{{ticket.scanId}}"></qrcode>
 
