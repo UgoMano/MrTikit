@@ -2055,6 +2055,36 @@ hr {
   border-radius: 10px;
   height: 100%;
 }
+.boxOffice .scanPage .check {
+  color: #77dd77;
+  font-size: 100px;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+.boxOffice .scanPage .check i:nth-of-type(2) {
+  color: white;
+}
+.boxOffice .scanPage .check.enabled {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+.boxOffice .scanPage .cross {
+  color: #ff6961;
+  font-size: 100px;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  margin-top: -220px;
+}
+.boxOffice .scanPage .cross i:nth-of-type(2) {
+  color: white;
+}
+.boxOffice .scanPage .cross.enabled {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+.boxOffice .scanPage .status {
+  text-align: center;
+}
 .boxOffice .content {
   height: 100%;
   padding-top: 70px;
