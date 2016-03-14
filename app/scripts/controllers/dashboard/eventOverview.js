@@ -23,7 +23,7 @@ angular.module('mrtikitApp').controller('EventOverviewCtrl', function ($scope, $
         $mdToast.showSimple('Event Load: Error');
     })
     $scope.attendees = $backend.getAttendees($scope.curEventId);
-    var getTTPromise = $TicketType.getByEvent($scope.user.loginKey, $scope.curEventId);
+    var getTTPromise = $TicketType.getByEvent($scope.curEventId);
     getTTPromise.then(function (ticketTypes) {
         $mdToast.showSimple('get ticket types success');
         $scope.ticketTypes = ticketTypes;

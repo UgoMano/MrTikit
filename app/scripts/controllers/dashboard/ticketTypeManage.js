@@ -10,7 +10,7 @@
 angular.module('mrtikitApp').controller('TicketTypeManageCtrl', function ($scope, $TicketType, $stateParams, $mdToast, $location) {
     $scope.setEvent($stateParams.eventId);
     $scope.ticketTypes = []; //[{id:1, event: 42,name: 'gen admin' , maxTicket: 34 },{id:2, event: 42,name: 'vip' , maxTicket: 12 }];
-    var getTTPromise = $TicketType.getByEvent($scope.user.loginKey, $scope.curEventId);
+    var getTTPromise = $TicketType.getByEvent($scope.curEventId);
     getTTPromise.then(function (ticketTypes) {
         //$mdToast.showSimple('get ticket types success');
         $scope.ticketTypes = ticketTypes;

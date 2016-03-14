@@ -7,7 +7,6 @@
  * # EventHomeCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventHomeCtrl', function ($stateParams) {
-     //console.log($stateParams);
-    //"EventAbout" + 
+angular.module('mrtikitApp').controller('EventHomeCtrl', function ($stateParams, $scope) {
+  
 });

@@ -1,16 +1,17 @@
 <div class='row homePage'>
     <div class='col-md-12'>
-        <h1>Birthday Party / Kegs & Eggs / Erin Express</h1>
+        <h1>{{event.title}}</h1>
         <h5>By: Mr Tikit Team</h5>
         <div class='location'>
-            The house<p>428 N 32nd Street, Philadelphia, PA 19104</p>
+            University Crossings
+            <p>{{event.location}}</p>
         </div>
         <div class='date'>
-            Saturday, March 12 2016
-            <p class='time'>6:00 am - 12:00am</p>
+             {{event.startDateTime | date:'EEEE, MMMM d yyyy'}}<span ng-if='!isSameDay(event.startDateTime, event.endDateTime)'> - {{event.endDateTime | date:'EEEE, MMMM d yyyy'}}</span>
+            <p class='time'>{{event.startDateTime | date:'h:mm a'}} - {{event.endDateTime | date:'h:mm a'}}</p>
         </div>
         <div class='feed'>
-            Feed
+            <div class="fb-comments" data-href="https://www.facebook.com/events/1687771854795332/" data-width="100%" data-numposts="5"></div>
         </div>
     </div>
 </div>

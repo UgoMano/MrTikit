@@ -168,6 +168,120 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
+    var holdTicket = function (tokenKey, event, user, ticketType) {
+        var promise = $q.defer();
+
+        if (!tokenKey || tokenKey == "") {
+            var error = {
+                error: "Not logged in"
+            }
+
+            return $q.reject(error);
+        }
+
+        if (!event || event == "") {
+            var error = {
+                error: "Please enter an event id"
+            }
+
+            return $q.reject(error);
+        }
+
+        if (!user || user == "") {
+            var error = {
+                error: "Please enter a user"
+            }
+
+            return $q.reject(error);
+        }
+        
+        if (!ticketType || ticketType == "") {
+            var error = {
+                error: "Please enter a ticketType"
+            }
+
+            return $q.reject(error);
+        }
+
+        var req = {
+            method: 'POST',
+            url: SERVER_URL + "/v1/events/holdTicket",
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            },
+            data: {
+                eventId: event,
+                userId: user,
+                ticketTypeId: ticketType
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data.data.data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
+    var purchaseTicket = function (tokenKey, tempTicketId, transactionTypeId, confirmationNumber) {
+        var promise = $q.defer();
+
+        if (!tokenKey || tokenKey == "") {
+            var error = {
+                error: "Not logged in"
+            }
+
+            return $q.reject(error);
+        }
+
+        if (!tempTicketId || tempTicketId == "") {
+            var error = {
+                error: "Please enter a tempTicketId"
+            }
+
+            return $q.reject(error);
+        }
+
+        if (!transactionTypeId || transactionTypeId == "") {
+            var error = {
+                error: "Please enter a transactionTypeId"
+            }
+
+            return $q.reject(error);
+        }
+        
+        if (!confirmationNumber || confirmationNumber == "") {
+            var error = {
+                error: "Please enter a confirmationNumber"
+            }
+
+            return $q.reject(error);
+        }
+
+        var req = {
+            method: 'POST',
+            url: SERVER_URL + "/v1/events/purchaseTicket",
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            },
+            data: {
+                tempTicketId: tempTicketId,
+                transactionTypeId: transactionTypeId,
+                confirmationNumber: confirmationNumber
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data.data.data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+    
     return {
         create: function (tokenKey, event) {
             return create(tokenKey, event);
@@ -180,6 +294,18 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         },
         get: function (tokenKey, event) {
             return get(tokenKey, event);
+        },
+        publicGetAll: function () {
+            return getAll("tokenKey");
+        },
+        publicGet: function (event) {
+            return get(event, "tokenKey");
+        },
+        holdTicket: function (tokenKey, event, user, ticketType) {
+            return holdTicket(tokenKey, event, user, ticketType);
+        },
+        purchaseTicket: function (tokenKey, tempTicketId) {
+            return purchaseTicket(tokenKey, tempTicketId, "transactionTypeId", "confirmationNumber");
         }
     };
 })

@@ -7,7 +7,7 @@
  * # EventCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventCtrl', function ($scope, $rootScope, $stateParams, $state, $location) {
+angular.module('mrtikitApp').controller('EventCtrl', function ($scope, $rootScope, $stateParams, $state, $location, $Event, $TicketType) {
     console.log("Event" + $stateParams.id);
     $scope.event = {};
     $scope.event.id = $stateParams.id;
@@ -35,5 +35,39 @@ angular.module('mrtikitApp').controller('EventCtrl', function ($scope, $rootScop
         $scope.getPage(toState.name);
     });
     //End Active Pages
+
+    //Get event
+    $Event.publicGet($stateParams.id).then(function (data) {
+            $scope.event = data;
+            console.log(data);
+        },
+        function (error) {
+            if (error.status == 404) {
+                $scope.go("/error");
+            }
+        }
+    );
+    //End get event
+
+    $scope.isSameDay = function (startDate, endDate) {
+        var start = new Date(startDate);
+        var end = new Date(endDate);
+
+        return start.toLocaleDateString() == end.toLocaleDateString();
+    }
+
+    //Ticket Types
+    $TicketType.getByEvent($stateParams.id).then(function (data) {
+            $scope.ticketTypes = data;
+            console.log(data);
+            $scope.qty = [];
+            for (var i = 0; i < $scope.ticketTypes.length; i++) {
+                $scope.qty[i] = 0;
+            }
+        },
+        function (error) {
+            console.log(error);
+        }
+    );
 
 });
