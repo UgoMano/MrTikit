@@ -1,14 +1,14 @@
 <div class='row homePage'>
     <div class='col-md-12'>
-        <h1>Mr Tikit Launch Party</h1>
+        <h1>{{event.title}}</h1>
         <h5>By: Mr Tikit Team</h5>
         <div class='location'>
             University Crossings
-            <p>3175 John F Kennedy Blvd, Philadelphia, PA 19104</p>
+            <p>{{event.location}}</p>
         </div>
         <div class='date'>
-            Saturday, June 11 2016
-            <p class='time'>9:00 pm - 12:00am</p>
+             {{event.startDateTime | date:'EEEE, MMMM d yyyy'}}<span ng-if='!isSameDay(event.startDateTime, event.endDateTime)'> - {{event.endDateTime | date:'EEEE, MMMM d yyyy'}}</span>
+            <p class='time'>{{event.startDateTime | date:'h:mm a'}} - {{event.endDateTime | date:'h:mm a'}}</p>
         </div>
         <div class='feed'>
             <div class="fb-comments" data-href="https://www.facebook.com/events/1687771854795332/" data-width="100%" data-numposts="5"></div>

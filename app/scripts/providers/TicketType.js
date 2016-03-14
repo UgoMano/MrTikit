@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc service
- * @name $TicketTypes
+ * @name $TicketType
  * @description
  */
 angular.module('mrtikitApp').
@@ -55,7 +55,7 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
                 hidden: ticketType.hidden
             }
         }
-        console.log(req.data);
+
         var promise = $http(req).then(function (data) {
             return data;
         }, function (error) {
@@ -148,15 +148,8 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         return promise;
     }
     
-    var getByEvent = function (tokenKey, eventId) {
+    var getByEvent = function (eventId) {
         var promise = $q.defer();
-        if (!tokenKey || tokenKey == "") {
-            var error = {
-                error: "Not logged in"
-            }
-
-            return $q.reject(error);
-        }
 
         if (!eventId || eventId == "") {
             var error = {
@@ -171,13 +164,12 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
             url: SERVER_URL + "/v1/ticketTypes/getTicketTypesByEvent",
             headers: {
                 'Content-Type': "application/json",
-                'Authorization': "JWT " + tokenKey
             },
             data: {
                 eventId : eventId
             }
         }
-        console.log(req);
+
         var promise = $http(req).then(function (data) {
             return data.data.data;
         }, function (error) {
@@ -196,8 +188,8 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         get: function (tokenKey, id) {
             return get(tokenKey, id);
         },
-        getByEvent: function(tokenKey, eventId) {
-            return getByEvent(tokenKey, eventId);
+        getByEvent: function(eventId) {
+            return getByEvent(eventId);
         }
     };
 })
