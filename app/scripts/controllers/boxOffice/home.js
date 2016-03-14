@@ -7,6 +7,6 @@
  * # BoxOfficeHomeCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('BoxOfficeHomeCtrl', function () {
-     //console.log('home')
+angular.module('mrtikitApp').controller('BoxOfficeHomeCtrl', function ($scope) {
+    //console.log('home')
 });

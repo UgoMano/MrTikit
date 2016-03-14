@@ -7,6 +7,8 @@
  * # BoxOfficeMainCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('BoxOfficeMainCtrl', function ($stateParams) {
+angular.module('mrtikitApp').controller('BoxOfficeMainCtrl', function ($stateParams, $scope) {
     console.log("Event" + $stateParams.id);
+    $scope.event = {};
+    $scope.event.id = $stateParams.id;
 });
