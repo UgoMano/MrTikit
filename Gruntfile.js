@@ -6,10 +6,12 @@ var LIVERELOAD_PORT = 35729;
 // a script into the static served html.
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
 // All the middleware necessary to serve static files.
+var pushState = require('grunt-connect-pushstate/lib/utils').pushState;
 var livereloadMiddleware = function (connect, options) {
   return [
     // Inject a livereloading script into static files.
     lrSnippet,
+    pushState(),
     // Serve static files.
     connect.static(options.base),
     // Make empty directories browsable.

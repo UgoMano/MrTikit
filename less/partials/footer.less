@@ -1,17 +1,13 @@
 .footer {
-    background-color: @MT_LGRAY;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    position: relative;
+    font-size: 20px;
+    color: @MT_GRAY;
+    font-family: @MT_FONT_TEXT;
     text-align: center;
+    height: 100px;
+    line-height: 100px;
+    background-color: @MT_LGRAY;
 }
 
-.footerText {
-    display: inline;
-    color: @MT_GRAY;
-    margin-left: 25px;
-    margin-right: 25px;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: @MT_FONT_TEXT;
+@media print {
+    .footer{display: none;}
 }
