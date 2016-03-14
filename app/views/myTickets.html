@@ -2,7 +2,7 @@
     <div class="row">
         <md-card class="ticket" ng-repeat="ticket in tickets">
             <md-content>
-                <div class="event">{{ticket.event}}</div>
+                <div class="event">{{ticket.event.title}}</div>
                 <div class="price">{{ticket.price}}</div>
                 <md-button ng-click="go('myTickets/' + ticket.id +'/view')">View</md-button>
             </md-content>

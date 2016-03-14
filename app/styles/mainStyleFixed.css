@@ -1588,6 +1588,7 @@ hr {
   }
   .app .myTicketsView .barcodeContainer .barcode {
     display: inline-block;
+    width: 200px;
   }
 }
 .dashboard {

@@ -7,17 +7,27 @@
  * # MyTicketsCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('MyTicketsCtrl', function ($scope, $Ticket, $mdToast, $location) {
+angular.module('mrtikitApp').controller('MyTicketsCtrl', function ($scope, $Ticket, $Event, $mdToast, $location) {
     if (!$scope.user || !$scope.user.loginKey) {
         $location.path('/login');
     } else {
         $scope.tickets = [];
-        $scope.ticketsPromise = $Ticket.getByUser($scope.user.loginKey,$scope.user.id);
+        $scope.ticketsPromise = $Ticket.getByUser($scope.user.loginKey, $scope.user.id);
         $scope.ticketsPromise.then(function (tickets) {
-            $scope.tickets = tickets;
-        }, function (error) {
-            $mdToast.showSimple('error');
-            console.log(error);
-        });
+                $scope.tickets = tickets;
+                $Event.get($scope.tickets[0].event, $scope.user.loginKey).then(function (event) {
+                    for (var i in $scope.tickets) {
+                        $scope.tickets[i].event = event;
+                    }
+                }, function (error) {
+                    $mdToast.showSimple('error');
+                    console.log(error);
+                });
+
+            },
+            function (error) {
+                $mdToast.showSimple('error');
+                console.log(error);
+            });
     }
 });
