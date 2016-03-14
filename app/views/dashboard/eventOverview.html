@@ -10,7 +10,7 @@
             <div class="eventInfo">
                 <div>Eventid: {{event.id}}</div>
                 <div>Name: {{event.title}}</div>
-                <div>Description: {{event.description}}</div>
+                <div>Description: <span ng-bind-html='event.description'></span></div>
                 <div>Location: {{event.location}}</div>
                 <div>Start Time: {{event.startDateTime}}</div>
                 <div>End Time : {{event.endDateTime}}</div>
@@ -43,7 +43,7 @@
                 <md-list>
                     <md-list-item class="attendee" ng-repeat="u in attendees">
                         <div class="attendeeName">{{u.name}}</div>
-                        <div class="numTickets md-secondary">{{$index}}</div>
+                        <div class="numTickets md-secondary">{{$index + 1}}</div>
                     </md-list-item>
                 </md-list>
             </md-card-content>
