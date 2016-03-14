@@ -28,6 +28,43 @@ angular.module('mrtikitApp', [
         controller: 'LoginCtrl'
     })
 
+    .state('boxOffice', {
+        url: "/boxOffice/:id",
+        abstract: true, //This allows it to be a parent with nested urls
+        templateUrl: "views/boxOffice/main.html",
+        controller: 'BoxOfficeMainCtrl'
+    })
+
+    .state('boxOffice.home', {
+        url: "",
+        templateUrl: "views/boxOffice/home.html",
+        controller: 'BoxOfficeHomeCtrl'
+    })
+    
+    .state('boxOffice.purchase', {
+        url: "/purchase",
+        templateUrl: "views/boxOffice/purchase.html",
+        controller: 'BoxOfficePurchaseCtrl'
+    })
+    
+    .state('boxOffice.refund', {
+        url: "/refund",
+        templateUrl: "views/boxOffice/refund.html",
+        controller: 'BoxOfficeRefundCtrl'
+    })
+    
+    .state('boxOffice.scan', {
+        url: "/scan",
+        templateUrl: "views/boxOffice/scan.html",
+        controller: 'BoxOfficeScanCtrl'
+    })
+    
+    .state('boxOffice.willcall', {
+        url: "/willcall",
+        templateUrl: "views/boxOffice/willcall.html",
+        controller: 'BoxOfficeWillCallCtrl'
+    })
+    
     .state('app', {
         url: "/",
         abstract: true, //This allows it to be a parent with nested urls
