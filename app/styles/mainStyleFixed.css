@@ -1384,6 +1384,11 @@ hr {
   background-color: #e9eaed;
   margin-top: 55px;
 }
+@media print {
+  .app .header {
+    display: none;
+  }
+}
 .app .footer {
   font-size: 20px;
   color: #848484;
@@ -1392,6 +1397,11 @@ hr {
   height: 100px;
   line-height: 100px;
   background-color: #e9eaed;
+}
+@media print {
+  .app .footer {
+    display: none;
+  }
 }
 .app .eventPage .homePage {
   padding: 15px;
@@ -1614,6 +1624,66 @@ hr {
 }
 .app .eventPage .content .row {
   background: #fff;
+}
+.app .myTickets .ticket md-content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.app .myTickets .ticket md-content .event,
+.app .myTickets .ticket md-content .price {
+  display: inline;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 100px;
+}
+.app .myTickets .ticket md-content button {
+  display: inline;
+  float: right;
+}
+.app .myTicketsView .barcodeContainer {
+  display: none;
+}
+.app .myTicketsView h1 {
+  margin-left: 20px;
+}
+.app .myTicketsView .start,
+.app .myTicketsView .end,
+.app .myTicketsView .location {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.app .myTicketsView .location {
+  margin-bottom: 20px;
+}
+.app .myTicketsView .qrcode {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 40%;
+  width: 20%;
+}
+@media print {
+  .app .myTicketsView md-content {
+    height: 900px;
+  }
+  .app .myTicketsView md-content qrcode {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+  }
+  .app .myTicketsView md-content .barcodeContainer {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .app .myTicketsView md-content .barcodeContainer .barcode {
+    display: inline-block;
+    width: 500px;
+    padding: 100px;
+  }
 }
 .dashboard {
   height: 100%;
