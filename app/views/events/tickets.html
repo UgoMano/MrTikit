@@ -14,11 +14,16 @@
                     </div>
                     <md-divider ng-if='!$last'></md-divider>
                 </md-list-item>
+                <md-list-item ng-show='ticketTypes.length <= 0'>
+                    <div class="md-list-item-text">
+                        <h3>No Tickets Avalible</h3>
+                    </div>
+                </md-list-item>
             </md-list>
         </div>
     </div>
     <div class='row'>
-        <div class='col-md-3 col-md-offset-9 checkout'>
+        <div class='col-md-3 col-md-offset-9 checkout' ng-show='ticketTypes.length > 0'>
             <md-button class="md-raised">Checkout</md-button>
         </div>
     </div>
