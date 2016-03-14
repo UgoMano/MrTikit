@@ -7,7 +7,7 @@
  * # MyTicketsViewCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('MyTicketsViewCtrl', function ($scope, $Ticket, $Event, $mdToast, $location, $stateParams) {
+angular.module('mrtikitApp').controller('MyTicketsViewCtrl', function ($scope, $Ticket, $Event, $mdToast, $location, $stateParams, $window, $timeout) {
     if (!$scope.user || !$scope.user.loginKey) {
         $location.path('/login');
     } else {
@@ -33,5 +33,10 @@ angular.module('mrtikitApp').controller('MyTicketsViewCtrl', function ($scope, $
             console.log(error);
         });
 
+    }
+
+    $scope.printTicket = function () {
+        //You need the timeout 0 for print
+        $timeout($window.print, 0);
     }
 });
