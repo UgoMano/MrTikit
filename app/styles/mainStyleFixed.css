@@ -1640,6 +1640,11 @@ hr {
   display: inline;
   float: right;
 }
+.app .myTicketsView button {
+  margin-left: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 .app .myTicketsView .barcodeContainer {
   display: none;
 }
@@ -1663,6 +1668,9 @@ hr {
   width: 20%;
 }
 @media print {
+  .app button {
+    display: none;
+  }
   .app .myTicketsView md-content {
     height: 900px;
   }

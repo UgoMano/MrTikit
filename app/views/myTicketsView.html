@@ -1,6 +1,8 @@
 <div class="myTicketsView container">
     <div class="row">
-
+        <md-button class="md-raised" ng-click="go('/myTickets')">
+             <i class="fa fa-chevron-left"></i> Back
+        </md-button>
         <md-content>
             <h1>{{event.title}}</h1>
             <div class="start">Start: {{event.startDateTime | date : 'EEEE dd/MM/yyyy hh:mm a'}}</div>
