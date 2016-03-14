@@ -7,7 +7,7 @@
  * # EventTicketsCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventTicketsCtrl', function ($stateParams, $scope, $mdToast, $Event) {
+angular.module('mrtikitApp').controller('EventTicketsCtrl', function ($stateParams, $scope, $mdToast, $Event, $location) {
     $scope.$watchCollection('qty', function () {
         if ($scope.qty) {
             for (var i = 0; i < $scope.qty.length; i++) {
