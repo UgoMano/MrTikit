@@ -1,18 +1,31 @@
 .eventEditCard {
     color: @MT_GRAY;
     label {
-        color: @MT_GRAY; 
+        color: @MT_GRAY;
     }
-    md-input-container{
+    h1,h3 {
+        color: @MT_GRAY;
+    }
+    h3 {
+        margin-left: 10px;
+    }
+    md-input-container {
         display: block;
+        margin-left: 61px;
         .eventTitle {
             width: 200px;
         }
-         .eventLocation {
+        .eventLocation {
             width: 200px;
         }
         .eventTime {
-            width: 200px;
+            width: 121px;
+        }
+    }
+    .endDateTimeContainer,
+    .startDateTimeContainer {
+        md-input-container {
+            margin-left: 61px;
         }
     }
 }

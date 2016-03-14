@@ -2004,8 +2004,16 @@ hr {
 .dashboard .eventCreateCard label {
   color: #848484;
 }
+.dashboard .eventCreateCard h1,
+.dashboard .eventCreateCard h3 {
+  color: #848484;
+}
+.dashboard .eventCreateCard h3 {
+  margin-left: 10px;
+}
 .dashboard .eventCreateCard md-input-container {
   display: block;
+  margin-left: 61px;
 }
 .dashboard .eventCreateCard md-input-container .eventTitle {
   width: 200px;
@@ -2014,7 +2022,11 @@ hr {
   width: 200px;
 }
 .dashboard .eventCreateCard md-input-container .eventTime {
-  width: 200px;
+  width: 121px;
+}
+.dashboard .eventCreateCard .endDateTimeContainer md-input-container,
+.dashboard .eventCreateCard .startDateTimeContainer md-input-container {
+  margin-left: 61px;
 }
 .dashboard .eventEditCard {
   color: #848484;
@@ -2022,8 +2034,16 @@ hr {
 .dashboard .eventEditCard label {
   color: #848484;
 }
+.dashboard .eventEditCard h1,
+.dashboard .eventEditCard h3 {
+  color: #848484;
+}
+.dashboard .eventEditCard h3 {
+  margin-left: 10px;
+}
 .dashboard .eventEditCard md-input-container {
   display: block;
+  margin-left: 61px;
 }
 .dashboard .eventEditCard md-input-container .eventTitle {
   width: 200px;
@@ -2032,7 +2052,11 @@ hr {
   width: 200px;
 }
 .dashboard .eventEditCard md-input-container .eventTime {
-  width: 200px;
+  width: 121px;
+}
+.dashboard .eventEditCard .endDateTimeContainer md-input-container,
+.dashboard .eventEditCard .startDateTimeContainer md-input-container {
+  margin-left: 61px;
 }
 .dashboard .ticketTypeCreate md-input-container {
   display: block;

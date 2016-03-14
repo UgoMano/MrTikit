@@ -1,6 +1,7 @@
 <md-card class="eventCreateCard">
     <md-content layout-padding>
         <form>
+            <h1>Create Event</h1>
             <md-input-container>
                 <label>Event Title</label>
                 <input class="eventTitle" ng-model="event.title"></input>
@@ -9,22 +10,18 @@
                 <label>Event Location</label>
                 <input class="eventLocation" ng-model="event.location" type="text"></input>
             </md-input-container>
-            <div style="border:1px solid;margin-bottom:10px;border-radius:10px;">
-                <div >start {{event.startDateTime.toString()}}</div>
+            <div class="startDateTimeContainer">
+                <h3>Start</h3>
                 <md-datepicker md-placeholder="Date" ng-model="event.startDate"></md-datepicker>
-
                 <md-input-container>
-                    <label>Time</label>
-                    <input class="eventTime" ng-model="event.startTime" type="time"></input>
+                    <input class="eventTime" ng-model="event.startTime" placeholder="Time" type="time"></input>
                 </md-input-container>
             </div>
-            <div style="border:1px solid;margin-bottom:10px;border-radius:10px;">
-                <div>end {{event.endDateTime.toString()}}</div>
+            <div class="endDateTimeContainer">
+                <h3>End</h3>
                 <md-datepicker md-placeholder="Date" ng-model="event.endDate"></md-datepicker>
-
                 <md-input-container>
-                    <label>Time</label>
-                    <input class="eventTime" ng-model="event.endTime" type="time"></input>
+                    <input class="eventTime" ng-model="event.endTime" placeholder="Time" type="time"></input>
                 </md-input-container>
             </div>
             <md-button ng-click="createEvent()">Create Event</md-button>
