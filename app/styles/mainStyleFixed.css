@@ -1640,6 +1640,15 @@ hr {
   display: inline;
   float: right;
 }
+.app .myTicketsView button {
+  margin-left: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.app .myTicketsView .printTicket {
+  float: right;
+  margin-right: 0px;
+}
 .app .myTicketsView .barcodeContainer {
   display: none;
 }
@@ -1663,12 +1672,15 @@ hr {
   width: 20%;
 }
 @media print {
+  .app button {
+    display: none;
+  }
   .app .myTicketsView md-content {
     height: 900px;
   }
   .app .myTicketsView md-content qrcode {
     position: fixed;
-    right: 0;
+    right: -150px;
     top: 0;
     width: 400px;
   }
@@ -1761,6 +1773,7 @@ hr {
   font-size: 15px;
   margin-bottom: 0px;
   color: white;
+  padding-left: 15px;
   transition: all 0.5s ease-in-out;
 }
 .dashboard .sidebarContainer .sidebarLink {
