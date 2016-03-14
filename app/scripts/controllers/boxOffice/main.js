@@ -7,7 +7,7 @@
  * # BoxOfficeMainCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('BoxOfficeMainCtrl', function ($rootScope, $stateParams, $scope, $state, $location, $cookieStore) {
+angular.module('mrtikitApp').controller('BoxOfficeMainCtrl', function ($rootScope, $stateParams, $scope, $state, $location, $cookieStore, Fullscreen) {
     $scope.event = {};
     $scope.event.id = $stateParams.id;
 
@@ -33,5 +33,22 @@ angular.module('mrtikitApp').controller('BoxOfficeMainCtrl', function ($rootScop
         $rootScope.user = $cookieStore.get("user");
         $rootScope.user.loginKey = $cookieStore.get("loginKey");
         $rootScope.user.loginType = $cookieStore.get("loginType");
+    }
+
+    $scope.fullscreenBtn = "fa-expand";
+    $scope.goFullscreen = function () {
+
+        if (Fullscreen.isEnabled()) {
+            Fullscreen.cancel();
+            $scope.fullscreenBtn = "fa-expand";
+        }
+        else {
+            Fullscreen.all();
+            $scope.fullscreenBtn = "fa-compress";
+        }
+
+        // Set Fullscreen to a specific element (bad practice)
+        // Fullscreen.enable( document.getElementById('img') )
+
     }
 });
