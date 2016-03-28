@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
+class MyTicketsController: UIViewController {
     @IBOutlet weak var menuButton:UIBarButtonItem!
 
     override func viewDidLoad() {
