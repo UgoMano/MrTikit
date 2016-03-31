@@ -5,6 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Reveal View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -28,51 +36,64 @@
             </objects>
             <point key="canvasLocation" x="233" y="51"/>
         </scene>
-        <!--My Events-->
-        <scene sceneID="MMi-W1-KaJ">
-            <objects>
-                <viewController id="IXz-HG-hIe" customClass="MyEventsController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1V6-Hn-ruu"/>
-                        <viewControllerLayoutGuide type="bottom" id="GLp-rp-ryS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HE4-02-mb0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Events" id="YdA-HD-78b">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="rhH-Mc-GbH"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="menuButton" destination="rhH-Mc-GbH" id="QVi-fG-i4C"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7TD-bi-rsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2577" y="75"/>
-        </scene>
         <!--My Tickets-->
-        <scene sceneID="Isz-hi-YON">
+        <scene sceneID="rGF-gO-HE4">
             <objects>
-                <viewController id="xC7-NZ-yYY" customClass="MyTicketsController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jSd-qm-Pan"/>
-                        <viewControllerLayoutGuide type="bottom" id="TqL-Kk-Pu3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Wg-ng-lfC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController id="tM6-0c-54H" customClass="MyTicketsController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hhu-0y-B1d">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Tickets" id="cFz-rV-rdg">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="Ycg-vi-I8f"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="eWW-1A-ayT" customClass="MyTicketsCellController" customModule="MrTikit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="600" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eWW-1A-ayT" id="zwC-m4-5Nb">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FQt-E6-Gtz">
+                                            <rect key="frame" x="10" y="8" width="580" height="130"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="130" id="4IY-Vn-cEj"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5D-ly-hgq">
+                                            <rect key="frame" x="10" y="145" width="580" height="50"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FQt-E6-Gtz" firstAttribute="leading" secondItem="O5D-ly-hgq" secondAttribute="leading" id="5YI-wO-Edy"/>
+                                        <constraint firstItem="FQt-E6-Gtz" firstAttribute="leading" secondItem="zwC-m4-5Nb" secondAttribute="leadingMargin" constant="2" id="8AP-YY-Syd"/>
+                                        <constraint firstItem="O5D-ly-hgq" firstAttribute="top" secondItem="FQt-E6-Gtz" secondAttribute="bottom" constant="7" id="Skn-8Q-r1Q"/>
+                                        <constraint firstItem="FQt-E6-Gtz" firstAttribute="top" secondItem="zwC-m4-5Nb" secondAttribute="topMargin" id="YgE-iO-ros"/>
+                                        <constraint firstItem="FQt-E6-Gtz" firstAttribute="trailing" secondItem="O5D-ly-hgq" secondAttribute="trailing" id="n5Z-tb-ocg"/>
+                                        <constraint firstItem="FQt-E6-Gtz" firstAttribute="centerX" secondItem="zwC-m4-5Nb" secondAttribute="centerX" id="u2v-yc-7yW"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postImageView" destination="FQt-E6-Gtz" id="Kll-O9-0F0"/>
+                                    <outlet property="postTitleLabel" destination="O5D-ly-hgq" id="etA-H1-lNy"/>
+                                    <segue destination="FjU-k4-NDf" kind="show" identifier="myTicket" id="rpX-Dc-LN6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tM6-0c-54H" id="6uN-rc-tGQ"/>
+                            <outlet property="delegate" destination="tM6-0c-54H" id="oin-5a-YPI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Tickets" id="z5R-b9-BK9">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="sgZ-me-eFi"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="menuButton" destination="Ycg-vi-I8f" id="3PC-Bf-rVO"/>
+                        <outlet property="menuButton" destination="sgZ-me-eFi" id="cOd-yl-4hJ"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qoM-X7-qGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkc-I6-J2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2577" y="-686"/>
         </scene>
@@ -97,7 +118,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MrTikit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-8I-3Bb">
                                                     <rect key="frame" x="19" y="23" width="119" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -113,8 +134,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Tickets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-5S-TMf">
-                                                    <rect key="frame" x="61" y="11" width="82" height="31"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
+                                                    <rect key="frame" x="66" y="11" width="98" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -136,8 +157,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efz-Bb-kny">
-                                                    <rect key="frame" x="61" y="6" width="81" height="31"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
+                                                    <rect key="frame" x="66" y="6" width="119" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -159,8 +180,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help &amp; Support" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it0-69-JpN">
-                                                    <rect key="frame" x="61" y="6" width="122" height="31"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
+                                                    <rect key="frame" x="66" y="6" width="122" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -182,6 +203,7 @@
                             <outlet property="delegate" destination="c8U-hf-vWv" id="9uP-Be-CBa"/>
                         </connections>
                     </tableView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHO-uu-C6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" id="gGL-Yg-g6J">
@@ -196,13 +218,19 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dXH-rC-dKS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WmJ-Ml-X7j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="WmJ-Ml-X7j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.76078431372549016" green="0.23137254901960785" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="xC7-NZ-yYY" kind="relationship" relationship="rootViewController" id="y2F-sL-E1F"/>
+                        <segue destination="tM6-0c-54H" kind="relationship" relationship="rootViewController" id="AVf-kA-f5P"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkz-3n-E2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,13 +242,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YST-2z-g0L" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RVM-IA-W1p">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="RVM-IA-W1p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.76078431372549016" green="0.23137254901960785" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="IXz-HG-hIe" kind="relationship" relationship="rootViewController" id="emK-gG-wXw"/>
+                        <segue destination="49p-Xd-brJ" kind="relationship" relationship="rootViewController" id="MxT-s1-39M"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zi-DC-yja" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,7 +266,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VBi-dM-ohh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pBu-io-TV5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -256,9 +286,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0J7-Hk-VFu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nxz-TN-o7k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="nxz-TN-o7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.76078431372549016" green="0.23137254901960785" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -425,12 +460,164 @@
             </objects>
             <point key="canvasLocation" x="225" y="953"/>
         </scene>
+        <!--My Ticket-->
+        <scene sceneID="CWR-NL-i1f">
+            <objects>
+                <viewController id="3H1-fu-71d" customClass="MyTicketController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WBc-BM-tRq"/>
+                        <viewControllerLayoutGuide type="bottom" id="jxU-4j-OO8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y2M-pI-7ON">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Ticket" id="K28-G6-LYM">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="5QZ-2n-w6p" userLabel="Back Button">
+                            <connections>
+                                <action selector="goBack:" destination="3H1-fu-71d" id="RF3-dC-WS2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rue-cs-e5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4175" y="-686"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wXL-Q9-Jzy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FjU-k4-NDf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Dwl-Ju-1AQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3H1-fu-71d" kind="relationship" relationship="rootViewController" id="uZ8-8D-kdL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1f-YG-Yh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3363" y="-686"/>
+        </scene>
+        <!--Scan Ticket-->
+        <scene sceneID="an6-sw-kWR">
+            <objects>
+                <viewController id="9o2-eL-ShR" customClass="ScanTicketController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XRw-BS-bFQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ziq-Cc-Iag"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lZZ-1y-DCx">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scan Ticket" id="i4J-bk-2fw">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="sta-QH-iXR" userLabel="Back Button">
+                            <connections>
+                                <action selector="goBack:" destination="9o2-eL-ShR" id="t7v-oA-Fce"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xm-oP-Orr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4175" y="75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8xh-B9-HZZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hXF-qL-0m2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="UYD-vc-f6P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9o2-eL-ShR" kind="relationship" relationship="rootViewController" id="wyj-Yh-di1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rGJ-XT-F4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3363" y="75"/>
+        </scene>
+        <!--My Events-->
+        <scene sceneID="WeY-Dn-Raq">
+            <objects>
+                <tableViewController id="49p-Xd-brJ" customClass="MyTicketsController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="22" sectionFooterHeight="22" id="8rs-aS-YH3">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="i9L-S0-HaF" customClass="MyTicketsCellController" customModule="MrTikit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="600" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i9L-S0-HaF" id="5WY-ON-c07">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GF0-Ux-Ljv">
+                                            <rect key="frame" x="10" y="8" width="580" height="130"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="130" id="GDf-GK-poa"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAN-Kg-ypb">
+                                            <rect key="frame" x="10" y="145" width="580" height="50"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GF0-Ux-Ljv" firstAttribute="leading" secondItem="5WY-ON-c07" secondAttribute="leadingMargin" constant="2" id="FlI-DA-iim"/>
+                                        <constraint firstItem="GF0-Ux-Ljv" firstAttribute="leading" secondItem="rAN-Kg-ypb" secondAttribute="leading" id="IV1-yj-pcy"/>
+                                        <constraint firstItem="GF0-Ux-Ljv" firstAttribute="top" secondItem="5WY-ON-c07" secondAttribute="topMargin" id="JLf-FO-fCg"/>
+                                        <constraint firstItem="rAN-Kg-ypb" firstAttribute="top" secondItem="GF0-Ux-Ljv" secondAttribute="bottom" constant="7" id="KrU-hT-v7k"/>
+                                        <constraint firstItem="GF0-Ux-Ljv" firstAttribute="trailing" secondItem="rAN-Kg-ypb" secondAttribute="trailing" id="MxN-0m-jS5"/>
+                                        <constraint firstItem="GF0-Ux-Ljv" firstAttribute="centerX" secondItem="5WY-ON-c07" secondAttribute="centerX" id="bs1-7a-6dn"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postImageView" destination="GF0-Ux-Ljv" id="k8k-V0-FQd"/>
+                                    <outlet property="postTitleLabel" destination="rAN-Kg-ypb" id="yyF-Pw-z3T"/>
+                                    <segue destination="hXF-qL-0m2" kind="show" identifier="scanTicket" id="DU9-Xa-9LT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="49p-Xd-brJ" id="Ttf-gs-y4I"/>
+                            <outlet property="delegate" destination="49p-Xd-brJ" id="1xH-v2-eD6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Events" id="q3x-yg-I3h">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="dtB-BY-NjX"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="dtB-BY-NjX" id="TOK-eB-qk8"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rRu-VJ-3cu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="75"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="back" width="16" height="16"/>
         <image name="calendar" width="1024" height="1024"/>
         <image name="comments" width="1024" height="1024"/>
         <image name="help" width="32" height="32"/>
-        <image name="menu" width="22" height="22"/>
+        <image name="menu" width="16" height="16"/>
         <image name="myEvents" width="32" height="32"/>
         <image name="myTickets" width="32" height="32"/>
         <image name="tag" width="1024" height="1024"/>
@@ -438,4 +625,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="i5u-Ts-4Aw"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

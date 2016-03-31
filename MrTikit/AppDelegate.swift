@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  SidebarMenu
+//  MrTikit
 //
-//  Created by Simon Ng on 2/2/15.
-//  Copyright (c) 2015 AppCoda. All rights reserved.
+//  Created by Stephen Calabro on 3/28/16.
+//  Copyright © 2016 MrTikit. All rights reserved.
 //
 
 import UIKit
@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont(name: "Lato-Bold", size: 16)!]
+
         return true
     }
 

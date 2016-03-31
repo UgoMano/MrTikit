@@ -11,6 +11,19 @@
 		20B262361CA9E30D003D9ECA /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B262351CA9E30D003D9ECA /* TicketViewController.swift */; };
 		20B262381CA9E31D003D9ECA /* ScanTicketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B262371CA9E31D003D9ECA /* ScanTicketController.swift */; };
 		20B2623A1CA9E48F003D9ECA /* HelpSupportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B262391CA9E48F003D9ECA /* HelpSupportController.swift */; };
+		20B2625C1CA9F0EE003D9ECA /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262521CA9F0EE003D9ECA /* Lato-Black.ttf */; };
+		20B2625D1CA9F0EE003D9ECA /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262531CA9F0EE003D9ECA /* Lato-BlackItalic.ttf */; };
+		20B2625E1CA9F0EE003D9ECA /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262541CA9F0EE003D9ECA /* Lato-Bold.ttf */; };
+		20B2625F1CA9F0EE003D9ECA /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262551CA9F0EE003D9ECA /* Lato-BoldItalic.ttf */; };
+		20B262601CA9F0EE003D9ECA /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262561CA9F0EE003D9ECA /* Lato-Hairline.ttf */; };
+		20B262611CA9F0EE003D9ECA /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262571CA9F0EE003D9ECA /* Lato-HairlineItalic.ttf */; };
+		20B262621CA9F0EE003D9ECA /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262581CA9F0EE003D9ECA /* Lato-Italic.ttf */; };
+		20B262631CA9F0EE003D9ECA /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262591CA9F0EE003D9ECA /* Lato-Light.ttf */; };
+		20B262641CA9F0EE003D9ECA /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B2625A1CA9F0EE003D9ECA /* Lato-LightItalic.ttf */; };
+		20B262651CA9F0EE003D9ECA /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B2625B1CA9F0EE003D9ECA /* Lato-Regular.ttf */; };
+		20E686C21CAC928D0025995D /* MyTicketsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E686C11CAC928D0025995D /* MyTicketsCellController.swift */; };
+		20E686C41CAC96E30025995D /* MyTicketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E686C31CAC96E30025995D /* MyTicketController.swift */; };
+		20E686C61CACA0070025995D /* MyEventsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E686C51CACA0070025995D /* MyEventsCellController.swift */; };
 		20F41F711CA9D03A0062E7CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F41F701CA9D03A0062E7CA /* User.swift */; };
 		BAF3B5156A85165047E2794C /* Pods_MrTikit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDDAE49A422BBC0318A7767 /* Pods_MrTikit.framework */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
@@ -41,6 +54,19 @@
 		20B262351CA9E30D003D9ECA /* TicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		20B262371CA9E31D003D9ECA /* ScanTicketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTicketController.swift; sourceTree = "<group>"; };
 		20B262391CA9E48F003D9ECA /* HelpSupportController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpSupportController.swift; sourceTree = "<group>"; };
+		20B262521CA9F0EE003D9ECA /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "../../../../Downloads/Lato 2/Lato-Black.ttf"; sourceTree = "<group>"; };
+		20B262531CA9F0EE003D9ECA /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "../../../../Downloads/Lato 2/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		20B262541CA9F0EE003D9ECA /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../Downloads/Lato 2/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		20B262551CA9F0EE003D9ECA /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BoldItalic.ttf"; path = "../../../../Downloads/Lato 2/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		20B262561CA9F0EE003D9ECA /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Hairline.ttf"; path = "../../../../Downloads/Lato 2/Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		20B262571CA9F0EE003D9ECA /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-HairlineItalic.ttf"; path = "../../../../Downloads/Lato 2/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		20B262581CA9F0EE003D9ECA /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "../../../../Downloads/Lato 2/Lato-Italic.ttf"; sourceTree = "<group>"; };
+		20B262591CA9F0EE003D9ECA /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../Downloads/Lato 2/Lato-Light.ttf"; sourceTree = "<group>"; };
+		20B2625A1CA9F0EE003D9ECA /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-LightItalic.ttf"; path = "../../../../Downloads/Lato 2/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		20B2625B1CA9F0EE003D9ECA /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../Downloads/Lato 2/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		20E686C11CAC928D0025995D /* MyTicketsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTicketsCellController.swift; sourceTree = "<group>"; };
+		20E686C31CAC96E30025995D /* MyTicketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTicketController.swift; sourceTree = "<group>"; };
+		20E686C51CACA0070025995D /* MyEventsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsCellController.swift; sourceTree = "<group>"; };
 		20F41F701CA9D03A0062E7CA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ADDDAE49A422BBC0318A7767 /* Pods_MrTikit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MrTikit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C0F051E0AC7F91BAAA5C0B /* Pods-MrTikit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MrTikit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MrTikit/Pods-MrTikit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +114,23 @@
 				20A9A8691CA900EF00DA81B4 /* MrTikit-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		20B262511CA9F09E003D9ECA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				20B262521CA9F0EE003D9ECA /* Lato-Black.ttf */,
+				20B262531CA9F0EE003D9ECA /* Lato-BlackItalic.ttf */,
+				20B262541CA9F0EE003D9ECA /* Lato-Bold.ttf */,
+				20B262551CA9F0EE003D9ECA /* Lato-BoldItalic.ttf */,
+				20B262561CA9F0EE003D9ECA /* Lato-Hairline.ttf */,
+				20B262571CA9F0EE003D9ECA /* Lato-HairlineItalic.ttf */,
+				20B262581CA9F0EE003D9ECA /* Lato-Italic.ttf */,
+				20B262591CA9F0EE003D9ECA /* Lato-Light.ttf */,
+				20B2625A1CA9F0EE003D9ECA /* Lato-LightItalic.ttf */,
+				20B2625B1CA9F0EE003D9ECA /* Lato-Regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		20F41F6F1CA9D0220062E7CA /* Providers */ = {
@@ -148,10 +191,13 @@
 				F47029F51A7F27DB00E30A3C /* AppDelegate.swift */,
 				F4702A171A7F351C00E30A3C /* MenuController.swift */,
 				F491E7521A7F7DF20026528E /* MyTicketsController.swift */,
+				20E686C11CAC928D0025995D /* MyTicketsCellController.swift */,
 				20B262351CA9E30D003D9ECA /* TicketViewController.swift */,
 				20B262371CA9E31D003D9ECA /* ScanTicketController.swift */,
 				F491E7541A7F7E010026528E /* MyEventsController.swift */,
+				20E686C51CACA0070025995D /* MyEventsCellController.swift */,
 				20B262391CA9E48F003D9ECA /* HelpSupportController.swift */,
+				20E686C31CAC96E30025995D /* MyTicketController.swift */,
 			);
 			path = MrTikit;
 			sourceTree = "<group>";
@@ -159,6 +205,7 @@
 		F47029F31A7F27DB00E30A3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				20B262511CA9F09E003D9ECA /* Fonts */,
 				F47029F41A7F27DB00E30A3C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -270,8 +317,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20B262621CA9F0EE003D9ECA /* Lato-Italic.ttf in Resources */,
+				20B2625C1CA9F0EE003D9ECA /* Lato-Black.ttf in Resources */,
+				20B2625E1CA9F0EE003D9ECA /* Lato-Bold.ttf in Resources */,
+				20B262631CA9F0EE003D9ECA /* Lato-Light.ttf in Resources */,
 				F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */,
+				20B2625D1CA9F0EE003D9ECA /* Lato-BlackItalic.ttf in Resources */,
 				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
+				20B262641CA9F0EE003D9ECA /* Lato-LightItalic.ttf in Resources */,
+				20B262611CA9F0EE003D9ECA /* Lato-HairlineItalic.ttf in Resources */,
+				20B2625F1CA9F0EE003D9ECA /* Lato-BoldItalic.ttf in Resources */,
+				20B262651CA9F0EE003D9ECA /* Lato-Regular.ttf in Resources */,
+				20B262601CA9F0EE003D9ECA /* Lato-Hairline.ttf in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,13 +396,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A9A86C1CA900EF00DA81B4 /* SWRevealViewController.m in Sources */,
+				20E686C41CAC96E30025995D /* MyTicketController.swift in Sources */,
 				20B2623A1CA9E48F003D9ECA /* HelpSupportController.swift in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				20F41F711CA9D03A0062E7CA /* User.swift in Sources */,
+				20E686C21CAC928D0025995D /* MyTicketsCellController.swift in Sources */,
 				F491E7531A7F7DF20026528E /* MyTicketsController.swift in Sources */,
 				F491E7551A7F7E010026528E /* MyEventsController.swift in Sources */,
 				20B262381CA9E31D003D9ECA /* ScanTicketController.swift in Sources */,
+				20E686C61CACA0070025995D /* MyEventsCellController.swift in Sources */,
 				20B262361CA9E30D003D9ECA /* TicketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

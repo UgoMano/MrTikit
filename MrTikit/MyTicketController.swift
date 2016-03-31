@@ -1,20 +1,21 @@
 //
-//  ScanTicketController.swift
+//  MyTicketController.swift
 //  MrTikit
 //
-//  Created by Stephen Calabro on 3/28/16.
+//  Created by Stephen Calabro on 3/30/16.
 //  Copyright © 2016 MrTikit. All rights reserved.
 //
 
 import UIKit
 
-class ScanTicketController: UIViewController {
+class MyTicketController: UIViewController {
     var toPass:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSLog(toPass)
+        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,4 +39,3 @@ class ScanTicketController: UIViewController {
      */
     
 }
-
