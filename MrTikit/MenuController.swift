@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MenuController: UITableViewController {
-
+    var loginKey:String!
+    var user:JSON!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

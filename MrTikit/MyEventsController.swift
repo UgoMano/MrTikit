@@ -11,30 +11,17 @@ import UIKit
 class MyEventsController: UITableViewController {
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
-    var loginKey: String?
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var user: String!
+    var loginKey: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        user = defaults.stringForKey("user")
+        loginKey = defaults.stringForKey("loginKey")
         
-        User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
-            if (!success) {
-                // Error - show the user
-                let errorTitle = "Could not login to server." //to sever
-                if let error = error {
-                    NSLog(error)
-                }
-                else {
-                    NSLog(errorTitle)
-                }
-            }
-            else {
-                //self.contact = result
-                //NSLog(result.description)
-                self.loginKey = result["data"]["token"].string!
-            }
-        }
-        
-        Event.api.findAll(loginKey!) { (success, result, error) -> Void in
+        Event.api.findAll(loginKey) { (success, result, error) -> Void in
             if (!success) {
                 // Error - show the user
                 let errorTitle = "Could not get events server."

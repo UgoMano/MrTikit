@@ -17,12 +17,12 @@ class Event: Api {
         return
     }
     
-    func findAll(token: String, completion: (success: Bool, result: JSON, error: String?) -> Void) {
+    func findAll(token: String, completion: (success: Bool, result: JSON, error: String?) -> Void) {        
         let headers = [
             "Content-Type": "application/json",
             "Authorization": "JWT " + token
         ]
-        let req = Alamofire.request(.POST, "http://54.69.160.45:8000/v1/events", headers: headers, parameters: [:], encoding: .JSON).validate()
+        let req = Alamofire.request(.GET, "http://54.69.160.45:8000/v1/events", headers: headers, encoding: .JSON).validate()
         
         req.responseJSON {
             response in

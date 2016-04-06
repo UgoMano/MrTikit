@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204C977E1CB5C35A00B95122 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C977D1CB5C35A00B95122 /* LoginController.swift */; };
 		20A9A86C1CA900EF00DA81B4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A86B1CA900EF00DA81B4 /* SWRevealViewController.m */; };
 		20B262361CA9E30D003D9ECA /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B262351CA9E30D003D9ECA /* TicketViewController.swift */; };
 		20B262381CA9E31D003D9ECA /* ScanTicketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B262371CA9E31D003D9ECA /* ScanTicketController.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		204C977D1CB5C35A00B95122 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		20A9A8691CA900EF00DA81B4 /* MrTikit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MrTikit-Bridging-Header.h"; sourceTree = "<group>"; };
 		20A9A86A1CA900EF00DA81B4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		20A9A86B1CA900EF00DA81B4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				20E686C51CACA0070025995D /* MyEventsCellController.swift */,
 				20B262391CA9E48F003D9ECA /* HelpSupportController.swift */,
 				20E686C31CAC96E30025995D /* MyTicketController.swift */,
+				204C977D1CB5C35A00B95122 /* LoginController.swift */,
 			);
 			path = MrTikit;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				F491E7551A7F7E010026528E /* MyEventsController.swift in Sources */,
 				20B262381CA9E31D003D9ECA /* ScanTicketController.swift in Sources */,
 				20E686C61CACA0070025995D /* MyEventsCellController.swift in Sources */,
+				204C977E1CB5C35A00B95122 /* LoginController.swift in Sources */,
 				20E686CA1CACA5560025995D /* Event.swift in Sources */,
 				20B262361CA9E30D003D9ECA /* TicketViewController.swift in Sources */,
 			);
