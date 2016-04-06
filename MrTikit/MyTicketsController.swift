@@ -11,14 +11,21 @@ import UIKit
 class MyTicketsController: UITableViewController {
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var user: String!
+    var loginKey: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        user = defaults.stringForKey("user")
+        loginKey = defaults.stringForKey("loginKey")
+        
         /*
-        User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
+        Ticket.api.findAll(loginKey) { (success, result, error) -> Void in
             if (!success) {
                 // Error - show the user
-                let errorTitle = "Could not login from server." //to sever
+                let errorTitle = "Could not get tickets from server."
                 if let error = error {
                     NSLog(error)
                 }
@@ -29,9 +36,51 @@ class MyTicketsController: UITableViewController {
             else {
                 //self.contact = result
                 NSLog(result.description)
+                NSLog("Got tickets")
             }
         }
         */
+
+        /*
+        Ticket.api.find(2, token: loginKey) { (success, result, error) -> Void in
+            if (!success) {
+                 // Error - show the user
+                 let errorTitle = "Could not get ticket from server."
+                 if let error = error {
+                    NSLog(error)
+                 }
+                 else {
+                    NSLog(errorTitle)
+                 }
+             }
+             else {
+                 //self.contact = result
+                 //NSLog(result.description)
+                 //NSLog("Got Ticket")
+             }
+        }
+        */
+        
+        /*
+        Ticket.api.scan("19a0e88f2350e32c8", token: loginKey) { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not get ticket from server."
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                //NSLog(result.description)
+                //NSLog("Got Ticket")
+            }
+        }
+        */
+        
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
