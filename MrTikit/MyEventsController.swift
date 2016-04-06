@@ -11,8 +11,45 @@ import UIKit
 class MyEventsController: UITableViewController {
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
+    var loginKey: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not login to server." //to sever
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                //NSLog(result.description)
+                self.loginKey = result["data"]["token"].string!
+            }
+        }
+        
+        Event.api.findAll(loginKey!) { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not get events server."
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                NSLog(result.description)
+            }
+        }
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -50,13 +87,13 @@ class MyEventsController: UITableViewController {
         
         // Configure the cell...
         if indexPath.row == 0 {
-            cell.eventTitleLabel.text = "WatchKit Introduction: Building a Simple Guess Game"
+            cell.postTitleLabel.text = "WatchKit Introduction: Building a Simple Guess Game"
             
         } else if indexPath.row == 1 {
-            cell.eventTitleLabel.text = "Building a Chat App in Swift Using Multipeer Connectivity Framework"
+            cell.postTitleLabel.text = "Building a Chat App in Swift Using Multipeer Connectivity Framework"
             
         } else {
-            cell.eventTitleLabel.text = "A Beginner’s Guide to Animated Custom Segues in iOS 8"
+            cell.postTitleLabel.text = "A Beginner’s Guide to Animated Custom Segues in iOS 8"
             
         }
         

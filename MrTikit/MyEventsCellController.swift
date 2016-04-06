@@ -9,7 +9,9 @@
 import UIKit
 
 class MyEventsCellController: UITableViewCell {
-    @IBOutlet weak var eventTitleLabel:UILabel!
+    
+    @IBOutlet weak var postImageView:UIImageView!
+    @IBOutlet weak var postTitleLabel:UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +23,5 @@ class MyEventsCellController: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
 }
+    

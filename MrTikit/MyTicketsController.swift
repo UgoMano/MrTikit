@@ -14,10 +14,11 @@ class MyTicketsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
             if (!success) {
                 // Error - show the user
-                let errorTitle = "Could not get Contact from server."
+                let errorTitle = "Could not login from server." //to sever
                 if let error = error {
                     NSLog(error)
                 }
@@ -30,6 +31,7 @@ class MyTicketsController: UITableViewController {
                 NSLog(result.description)
             }
         }
+        */
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()

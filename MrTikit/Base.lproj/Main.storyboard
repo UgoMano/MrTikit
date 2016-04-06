@@ -553,13 +553,13 @@
         <!--My Events-->
         <scene sceneID="WeY-Dn-Raq">
             <objects>
-                <tableViewController id="49p-Xd-brJ" customClass="MyTicketsController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="49p-Xd-brJ" customClass="MyEventsController" customModule="MrTikit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="22" sectionFooterHeight="22" id="8rs-aS-YH3">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="i9L-S0-HaF" customClass="MyTicketsCellController" customModule="MrTikit" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="i9L-S0-HaF" customClass="MyEventsCellController" customModule="MrTikit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i9L-S0-HaF" id="5WY-ON-c07">
@@ -589,8 +589,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="postImageView" destination="GF0-Ux-Ljv" id="k8k-V0-FQd"/>
-                                    <outlet property="postTitleLabel" destination="rAN-Kg-ypb" id="yyF-Pw-z3T"/>
+                                    <outlet property="postImageView" destination="GF0-Ux-Ljv" id="6bl-B6-ogu"/>
+                                    <outlet property="postTitleLabel" destination="rAN-Kg-ypb" id="LN1-Tz-Jh4"/>
                                     <segue destination="hXF-qL-0m2" kind="show" identifier="scanTicket" id="DU9-Xa-9LT"/>
                                 </connections>
                             </tableViewCell>
