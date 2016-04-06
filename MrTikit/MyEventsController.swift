@@ -21,6 +21,7 @@ class MyEventsController: UITableViewController {
         user = defaults.stringForKey("user")
         loginKey = defaults.stringForKey("loginKey")
         
+        /*
         Event.api.findAll(loginKey) { (success, result, error) -> Void in
             if (!success) {
                 // Error - show the user
@@ -36,7 +37,26 @@ class MyEventsController: UITableViewController {
                 //self.contact = result
                 NSLog(result.description)
             }
+        }*/
+        
+        /*
+        Event.api.find(1, token: loginKey) { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not get event server."
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                NSLog(result.description)
+            }
         }
+         */
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
