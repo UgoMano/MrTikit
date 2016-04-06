@@ -13,10 +13,6 @@ class MenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let font = UIFont(name: "Lato-Bold.ttf", size: 34) {
-            NSLog("Font found");
-            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
-        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

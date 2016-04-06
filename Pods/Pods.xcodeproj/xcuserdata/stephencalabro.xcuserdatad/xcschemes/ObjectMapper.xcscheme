@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0C7D7897C5E3D6B1AECE3F79'
-               BlueprintName = 'Pods-MrTikit'
+               BlueprintIdentifier = 'ADB2E946FD1DC3E1CBE69FB2'
+               BlueprintName = 'ObjectMapper'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_MrTikit.framework'>
+               BuildableName = 'ObjectMapper.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -14,6 +14,23 @@ class MyTicketsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not get Contact from server."
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                NSLog(result.description)
+            }
+        }
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
