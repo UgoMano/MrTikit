@@ -46,7 +46,7 @@ angular.module('mrtikitApp').controller('EventTicketsCtrl', function ($statePara
         var ticketTypeId = $scope.ticketTypes[$scope.ticketType].id;
 
         //hold ticket then purchase
-        $Event.holdTicket($scope.user.loginKey, $stateParams.id, $scope.user.id, ticketTypeId).then(function (data) {
+        $Event.holdTicket($scope.user.loginKey, $stateParams.id, ticketTypeId).then(function (data) {
                 var tempTicket = data;
             
                 $Event.purchaseTicket($scope.user.loginKey, tempTicket.id).then(function (data) {

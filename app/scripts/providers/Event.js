@@ -168,7 +168,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
-    var holdTicket = function (tokenKey, event, user, ticketType) {
+    var holdTicket = function (tokenKey, event, ticketType) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -182,14 +182,6 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         if (!event || event == "") {
             var error = {
                 error: "Please enter an event id"
-            }
-
-            return $q.reject(error);
-        }
-
-        if (!user || user == "") {
-            var error = {
-                error: "Please enter a user"
             }
 
             return $q.reject(error);
@@ -212,7 +204,6 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             },
             data: {
                 eventId: event,
-                userId: user,
                 ticketTypeId: ticketType
             }
         }
@@ -301,8 +292,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         publicGet: function (event) {
             return get(event, "tokenKey");
         },
-        holdTicket: function (tokenKey, event, user, ticketType) {
-            return holdTicket(tokenKey, event, user, ticketType);
+        holdTicket: function (tokenKey, event, ticketType) {
+            return holdTicket(tokenKey, event, ticketType);
         },
         purchaseTicket: function (tokenKey, tempTicketId) {
             return purchaseTicket(tokenKey, tempTicketId, "transactionTypeId", "confirmationNumber");
