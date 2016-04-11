@@ -6,7 +6,7 @@ module.exports = {
 		return TicketTypes.find({ event: eventId })
 			.then(function(ticketTypes) {
                 var promises= [];
-				if(!ticketTypes) throw new Error('Ticket Types for event could not be found');
+				if(!ticketTypes) return sails.config.additionals.TICKET_TYPE_NOT_FOUND;
                 var totalNumAvailTickets;
                 _.each(ticketTypes, function(ticketType) {
 
@@ -26,7 +26,7 @@ module.exports = {
 	holdTicket: function(eventId, userId, ticketTypeId) {
 		return TicketTypesService.getNumAvailTickets(ticketTypeId, eventId)
             .then(function (numTickets) {
-                if (numTickets == 0) throw new Error('No tickets of that type available');
+                if (numTickets == 0) return sails.config.additionals.TICKET_TYPE_NOT_AVAILABLE;
 
                 return TempTickets.create({
                     event: eventId,
@@ -40,7 +40,7 @@ module.exports = {
 	purchaseTicket: function(tempTicketId, transactionTypeId, confirmationNumber) {
 		return TempTickets.findOne({ id: tempTicketId })
             .then(function (tempTicket) {
-                if(!tempTicket) throw new Error('TempTicket could not be found');
+                if(!tempTicket) return sails.config.additionals.TEMP_TICKET_NOT_FOUND;
                 
                 var userId = tempTicket.user;
                 var eventId = tempTicket.event;
@@ -59,8 +59,8 @@ module.exports = {
                     });
                 Transactions.update({id: transaction.id}, {ticket: ticket.id});
                 TempTickets.destroy({ id: tempTicketId }).exec(function(err) {
-                    if(err) throw new Error('TempTicket could not be deleted');
-                    });
+                    if(err) return sails.config.additionals.TEMP_TICKET_DELETE_ERROR;
+                });
                 return ticket;                    
             });
 	},

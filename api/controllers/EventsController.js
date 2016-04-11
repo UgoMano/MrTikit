@@ -13,16 +13,16 @@ module.exports = {
 				res.json({
 					data: data,
 				});
-			});
+			}).catch(res.negotiate);
 	},
 
 	holdTicket: function (req, res) {
-		EventsService.holdTicket(req.body.eventId, req.body.userId, req.body.ticketTypeId)
+		EventsService.holdTicket(req.body.eventId, req.user.id, req.body.ticketTypeId)
 			.then(function (data) {
 				res.json({
 					data: data,
 				});
-			});
+			}).catch(res.negotiate);
 	},
 
 	purchaseTicket: function (req, res) {
@@ -31,7 +31,7 @@ module.exports = {
 				res.json({
 					data: data,
 				});
-			});
+			}).catch(res.negotiate);
 	},
 
 	getAllAttendees: function (req, res) {
@@ -40,7 +40,7 @@ module.exports = {
 				res.json({
 					data: data,
 				});
-			});
+			}).catch(res.negotiate);
 	},
   
 };

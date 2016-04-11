@@ -8,7 +8,7 @@ module.exports = {
     getTicketsByEvent: function(eventId) {
         return Tickets.find({event: eventId})
             .then(function (tickets) {
-                if(!tickets) throw new Error('Tickets not found');
+                if(!tickets) return sails.config.additionals.TICKETS_NOT_FOUND;
                 return tickets;
             });
     },
@@ -16,29 +16,63 @@ module.exports = {
     getTicketsByType: function(ticketTypeId, eventId) {
         return Tickets.find({event: eventId, ticketType: ticketTypeId})
             .then(function (tickets) {
-                if (!tickets) throw new Error('Tickets not found');
+                if (!tickets) return sails.config.additionals.TICKETS_NOT_FOUND;
                 return tickets;
             });
     },
 
     getTicketsByUserId: function(userId) {
-        return Tickets.find( {user: userId })
-            .then(function (tickets) {
-                if (!tickets) throw new Error('Tickets not found');
-                return tickets;
+        return Tickets.find({user: userId}).populateAll()
+            .then(function (allTickets) {
+                if(!allTickets) return sails.config.additionals.TICKETS_NOT_FOUND;
+                ticketInfo = [];
+
+                _.each(allTickets, function(ticket) {
+                    newObject = {
+                        id: ticket.id,
+                        scanId: ticket.scanId,
+                        checkIn: ticket.checkIn,
+                        firstScanTime: ticket.firstScanTime,
+                        lastScanTime: ticket.lastScanTime,
+                        totalScans: ticket.totalScans,
+                        ticketType: {
+                            name: ticket.ticketType.name,
+                            price: ticket.ticketType.price,
+                        },
+                        event: {
+                            title: ticket.event.title,
+                            startDateTime: ticket.event.startDateTime,
+                            endDateTime: ticket.event.endDateTime,
+                        },
+                    };
+
+                    ticketInfo.push(newObject);
+
+                })
+                return ticketInfo;
+                //console.log(allTickets);
             });
     },
+
+/*    getTicketsByUserId: function(userId) {
+        return Tickets.find({user: userId}).populateAll()
+            .then(function (allTickets) {
+                return allTickets;
+              if (!tickets) throw new Error('Tickets not found');
+                return tickets;
+            });
+    },*/
 
     getNumTicketsByType: function(ticketTypeId, eventId) {
         return Tickets.count({event: eventId, ticketType: ticketTypeId})
             .then(function (found) {
-                //if(!found) throw new Error('TempTickets could not be queried for count');
+                if(!found) return sails.config.additionals.TEMP_TICKET_COUNT_NOT_FOUND;
                 return found;
             });
     },
 
-    scanTicket: function(ticketScanId) {
-        return Tickets.findOne({scanId: ticketScanId})
+    scanTicket: function(ticketScanId, eventId) {
+        return Tickets.findOne({scanId: ticketScanId, event: eventId}).populateAll()
             .then(function (ticket) {
                 if(!ticket) return sails.config.additionals.TICKET_NOT_FOUND;
 
@@ -52,14 +86,29 @@ module.exports = {
                 ticket.totalScans = newTotal;
                 ticket.firstScanTime = newFirstScan;
                 ticket.save();
-                return ticket
+                ticketObjectToReturn = {
+                    id: ticket.id,
+                    scanId: ticket.scanId,
+                    checkIn: ticket.checkIn,
+                    firstScanTime: ticket.firstScanTime,
+                    lastScanTime: ticket.lastScanTime,
+                    totalScans: ticket.totalScans,
+                    user: {
+                        firstName: ticket.user.firstName,
+                        lastName: ticket.user.lastName,
+                        email: ticket.user.email,
+                    },
+                };
+
+                return ticketObjectToReturn;
+                //return ticket
             });
     },
 
     generateNewScanId: function(ticketId) {
         return Tickets.findOne({ id: ticketId })
             .then(function (ticket) {
-                if(!ticket) throw new Error('Ticket not found');
+                if(!ticket) return sails.config.additionals.TICKET_NOT_FOUND;
 
                 var newScanId = null;
                 var ticketExist = true;
@@ -80,6 +129,5 @@ module.exports = {
                 ticket.save();
                 return ticket;
             });
-    },
-    
+    },    
 };

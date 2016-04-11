@@ -12,7 +12,7 @@ module.exports = {
 	  	  return res.json({
 	  	    data: data
 	  	  });
-	  	});
+	  	}).catch(Res.negotiate);
   	},
 
   	getTicketTypesByEvent: function (req, res) {
@@ -20,7 +20,7 @@ module.exports = {
   			return res.json({
   				data: data
   			});
-  		});
+  		}).catch(res.negotiate);
   	},
 	
 };

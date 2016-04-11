@@ -6,23 +6,14 @@
  */
 
 module.exports = {
-    
-    getUserTickets: function (req, res) {
-    	TicketsService.getTicketsByUserId(req.body.userId)
-    		.then(function (data) {
-    			return res.json({
-    			data: data,
-    		});
-    	});
-    },
 
     scanTicket: function (req, res) {
-        TicketsService.scanTicket(req.body.ticketScanId)
+        TicketsService.scanTicket(req.body.ticketScanId, req.body.eventId)
             .then(function (data) {
                 return res.json({
                     data: data,
                 });
-            });
+            }).catch(res.negotiate);
     },
 
     generateNewScanId: function (req, res) {
@@ -31,7 +22,16 @@ module.exports = {
                 return res.json({
                     data: data,
                 });
-            });
+            }).catch(Res.negotiate);
+    },
+
+    getUserTickets: function (req, res) {
+        TicketsService.getTicketsByUserId(req.user.id)
+            .then(function(data) {
+                return res.json({
+                    data: data,
+                });
+            }).catch(res.negotiate);
     },
 };
 

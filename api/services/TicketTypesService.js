@@ -6,10 +6,10 @@ module.exports = {
     getNumAvailTickets: function(ticketTypeId, eventId) {
         return TicketTypes.findOne({ id: ticketTypeId })
             .then(function(ticketType) {
-                if(!ticketType) throw new Error('Ticket Type could not be found');
+                if(!ticketType) return sails.config.additionals.TICKET_TYPE_NOT_FOUND;
 
                 var maxTickets = ticketType.maxTickets;
-                if(!maxTickets) throw new Error('Max Tickets for Type Is Null');
+                if(!maxTickets) return sails.config.additions.MAX_TICKETS_OF_TYPE_NOT_FOUND;
 
                 return TicketsService.getNumTicketsByType(ticketTypeId, eventId)
                 .then(function (numTickets) {
@@ -18,7 +18,7 @@ module.exports = {
                             var totalNumTickets = numTickets + numTempTickets;
                         
                             if (maxTickets < totalNumTickets) {
-                                throw new Error('Total tickets in the system exceeds max tickets allowed');
+                                return sails.config.additionals.TICKETS_EXCEED_MAX_ALLOWED;
                             }
                             else {
                                 var numTicketsAvail = maxTickets - totalNumTickets;
@@ -33,7 +33,7 @@ module.exports = {
     getTicketTypesByEvent: function(eventId) {
         return TicketTypes.find({ event: eventId })
             .then(function(ticketTypes) {
-                if(!ticketTypes) throw new Error('TicketTypes for event could not be found');
+                if(!ticketTypes) return sails.config.additionals.TICKET_TYPE_NOT_FOUND;
 
                 return ticketTypes;
             });

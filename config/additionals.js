@@ -26,12 +26,12 @@ module.exports = {
     },
     TICKET_NOT_FOUND: {
       code: 'E_TICKET_NOT_FOUND',
-      message: 'Ticket with specified id is not found',
+      message: 'Ticke not found',
       status: 401
     },
     TICKET_TYPE_NOT_FOUND: {
       code: 'E_TICKET_TYPE_NOT_FOUND',
-      message: 'Ticket type with specified id is not found',
+      message: 'Ticket type not found',
       status: 401
     },
     EVENT_NOT_FOUND: {
@@ -47,6 +47,46 @@ module.exports = {
     TRANSACTION_TYPE_NOT_FOUND: {
       code: 'E_EVENT_NOT_FOUND',
       message: 'Transaction type with specified id is not found',
+      status: 401
+    },
+    TICKET_COUNT_NOT_FOUND: {
+      code: 'E_TICKET_COUNT_NOT_FOUND',
+      message: 'Ticket count for specified event not found',
+      status: 401
+    },
+    TICKET_TYPE_NOT_AVAILABLE: {
+      code: 'E_TICKET_TYPE_NOT_AVAILABLE',
+      message: 'No tickets of specified type avaialable',
+      status: 401
+    },
+    TEMP_TICKET_NOT_FOUND: {
+      code: 'E_TEMP_TICKET_NOT_AVAILABLE',
+      message: 'Temp ticket with specified id is not found',
+      status: 401
+    },
+    TEMP_TICKET_DELETE_ERROR: {
+      code: 'E_TEMP_TICKET_DELETE_ERROR',
+      message: 'Temp ticket could not be deleted',
+      status: 401
+    },
+    TEMP_TICKET_COUNT_NOT_FOUND: {
+      code: 'E_TEMP_TICKET_COUNT_NOT_FOUND',
+      message: 'Temp ticket could not be queried for count',
+      status: 401
+    },
+    TICKETS_NOT_FOUND: {
+      code: 'E_TICKETS_NOT_FOUND',
+      message: 'Temp ticket could not be found',
+      status: 401
+    },
+    MAX_TICKETS_OF_TYPE_NOT_FOUND: {
+      code: 'E_MAX_TICKETS_OF_TYPE_NOT_FOUND',
+      message: 'Max Tickets for Type Is Null',
+      status: 401
+    },
+    TICKETS_EXCEED_MAX_ALLOWED: {
+      code: 'E_TICKETS_EXCEED_MAX_ALLOWED',
+      message: 'Total tickets in the system exceeds max tickets allowed',
       status: 401
     },
   }
