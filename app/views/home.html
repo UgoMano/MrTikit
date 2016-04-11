@@ -1,6 +1,5 @@
-
 <div class="landingpage">
-    <div class="landingImage">
+    <div class="landingImage" ui-scrollpoint="+20" ui-scrollpoint-action="headerScroll">
         <div class="landingOverlay">
             <div class="container">
                 <div class="row">
@@ -23,22 +22,24 @@
             </div>
         </div>
     </div>
-    <div class="section2 container">
-        <div class="row">
-            <div class="col-lg-4 calloutContainer center">
-                <div class="callout"><i class="fa fa-4x fa-check calloutIcon"></i></div>
-                <div class="calloutHeader">Simple</div>
-                <div class="calloutText">Mr Tikit provides an easy-to-use user interface.</div>
-            </div>
-            <div class="col-lg-4 calloutContainer center">
-                <div class="callout"><i class="fa fa-4x fa-server calloutIcon"></i></div>
-                <div class="calloutHeader">Reliable</div>
-                <div class="calloutText">Users of Mr Tikit can be assured of a high quality system.</div>
-            </div>
-            <div class="col-lg-4 calloutContainer center">
-                <div class="callout"><i class="fa fa-4x fa-usd calloutIcon"></i></div>
-                <div class="calloutHeader">Affordable</div>
-                <div class="calloutText">With little or no financial commitment, anyone is able to create and manage events.</div>
+    <div class="section2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 calloutContainer center">
+                    <div class="callout"><i class="fa fa-4x fa-check calloutIcon"></i></div>
+                    <div class="calloutHeader">Simple</div>
+                    <div class="calloutText">Mr Tikit provides an easy-to-use user interface.</div>
+                </div>
+                <div class="col-lg-4 calloutContainer center">
+                    <div class="callout"><i class="fa fa-4x fa-server calloutIcon"></i></div>
+                    <div class="calloutHeader">Reliable</div>
+                    <div class="calloutText">Users of Mr Tikit can be assured of a high quality system.</div>
+                </div>
+                <div class="col-lg-4 calloutContainer center">
+                    <div class="callout"><i class="fa fa-4x fa-usd calloutIcon"></i></div>
+                    <div class="calloutHeader">Affordable</div>
+                    <div class="calloutText">With little or no financial commitment, anyone is able to create and manage events.</div>
+                </div>
             </div>
         </div>
     </div>
@@ -83,14 +84,10 @@
             <div class="row">
                 <div class="subscribeText col-lg-12">Subscribe For Updates</div>
                 <div class="col-lg-4 col-lg-offset-4 subscribeInputContainer form-group">
-                    <div class="input-group">
-                        <input class="subscribeInput form-control" ng-model="email" placeholder='Your Email' />
-                        <span class="input-group-btn">
+                    <input class="subscribeInput form-control" ng-model="email" placeholder='Your Email' />
                     <button class="btn subscribeButton" ng-click="subscribe(email)">
-                        <span class="fui-check"></span>
-                        </button>
-                        </span>
-                    </div>
+                        <i class="subscribeIcon fa fa-check"></i>
+                    </button>
                 </div>
             </div>
         </div>

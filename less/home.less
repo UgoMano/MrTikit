@@ -2,14 +2,15 @@
     .landingImage {
         background: url(../images/landing.png) center no-repeat;
         background-size: 100% 100%;
-        height: 100vh;//40em;
+        height: 100vh; //40em;
         width: 100%;
         position: relative;
+        margin-top: -55px;
         .landingOverlay {
             height: 100%;
             width: 100%;
             padding-top: 40vh;
-            background-color: rgba(0,0,0,.5);
+            background-color: rgba(0, 0, 0, .5);
         }
     }
     .landingText {
@@ -44,6 +45,9 @@
     }
     .center {
         text-align: center;
+    }
+    .section2 {
+        background-color: @MT_WHITE;
     }
     .calloutContainer {
         display: block;
@@ -99,7 +103,7 @@
     }
     .tour {
         background-color: @MT_WHITE;
-        height: 35em;
+        height: 40em;
     }
     .tourHeader {
         color: @MT_RED;
@@ -174,15 +178,28 @@
     .subscribeInputContainer {
         padding-left: 2em;
         padding-right: 2em;
+        line-height: 40px;
+        text-align: center;
     }
     .subscribeInput {
         border: 0;
+        height: 40px;
+        padding-left: 20px;
+        font-size: 20px;
+        border-radius: 5px 0 0 5px;
     }
-    .input-group-btn .subscribeButton {
+    .subscribeButton {
         background-color: @MT_RED;
         border: 0;
-    }
-    .subscribeIcon {
-        color: @MT_WHITE;
+        height: 40px;
+        line-height: 40px;
+        margin-left: -4px;
+        border-radius: 0 4px 4px 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        .subscribeIcon {
+            color: @MT_WHITE;
+            font-size: 20px;
+        }
     }
 }

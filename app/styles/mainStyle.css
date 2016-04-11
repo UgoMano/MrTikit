@@ -1386,6 +1386,16 @@ hr {
 .app .header .nav a:hover {
   color: #e9eaed;
 }
+.app .header.transparent {
+  position: absolute;
+  top: 0;
+  height: 2em;
+  width: 100%;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0);
+  margin-bottom: 0;
+  border-top: 5px solid #8565c4;
+}
 .app .content {
   background-color: #e9eaed;
   margin-top: 55px;
@@ -1415,6 +1425,7 @@ hr {
   height: 100vh;
   width: 100%;
   position: relative;
+  margin-top: -55px;
 }
 .app .landingpage .landingImage .landingOverlay {
   height: 100%;
@@ -1454,6 +1465,9 @@ hr {
 }
 .app .landingpage .center {
   text-align: center;
+}
+.app .landingpage .section2 {
+  background-color: #fff;
 }
 .app .landingpage .calloutContainer {
   display: block;
@@ -1509,7 +1523,7 @@ hr {
 }
 .app .landingpage .tour {
   background-color: #fff;
-  height: 35em;
+  height: 40em;
 }
 .app .landingpage .tourHeader {
   color: #c23b22;
@@ -1584,16 +1598,29 @@ hr {
 .app .landingpage .subscribeInputContainer {
   padding-left: 2em;
   padding-right: 2em;
+  line-height: 40px;
+  text-align: center;
 }
 .app .landingpage .subscribeInput {
   border: 0;
+  height: 40px;
+  padding-left: 20px;
+  font-size: 20px;
+  border-radius: 5px 0 0 5px;
 }
-.app .landingpage .input-group-btn .subscribeButton {
+.app .landingpage .subscribeButton {
   background-color: #c23b22;
   border: 0;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -4px;
+  border-radius: 0 4px 4px 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.app .landingpage .subscribeIcon {
+.app .landingpage .subscribeButton .subscribeIcon {
   color: #fff;
+  font-size: 20px;
 }
 .app .eventPage .homePage {
   padding: 15px;

@@ -20,6 +20,7 @@ angular.module('mrtikitApp', [
     'ngMaterial',
     'monospaced.qrcode',
     'uiGmapgoogle-maps',
+    'ui.scrollpoint',
   ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
     .state('login', {
