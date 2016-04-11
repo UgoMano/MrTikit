@@ -18,7 +18,7 @@ ADD id_rsa /root/.ssh/git_rsa
 RUN chmod 600 /root/.ssh/git_rsa
 ADD git_wrap.sh /root/.ssh/git_wrap.sh
 ADD git.init /tmp/git.sh
-RUN /tmp/git.sh api-dev
+RUN /tmp/git.sh api-master
 RUN rm /tmp/git.sh
 RUN mkdir -p /etc/init.d/
 ADD api/startup.sh /etc/my_init.d/startup.sh
