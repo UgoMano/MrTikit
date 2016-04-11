@@ -23,8 +23,7 @@
     "bootstrap": "^3.3.6",
     "JsBarcode": "jsbarcode#~2.2.0",
     "angular-qrcode": "monospaced/angular-qrcode#~6.1.3",
-    "angular-google-maps": "^2.3.2",
-    "angular-ui-scrollpoint": "~2.1.1"
+    "angular-google-maps": "^2.3.2"
   },
   "resolutions": {
     "angular": ">= 1.0.5"

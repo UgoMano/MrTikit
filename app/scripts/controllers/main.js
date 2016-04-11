@@ -13,14 +13,6 @@ angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $cookieSto
         $rootScope.user.loginKey = $cookieStore.get("loginKey");
         $rootScope.user.loginType = $cookieStore.get("loginType");
     }
-    $scope.transparentHeader = false;
-    $scope.headerScroll = function (distance, element, edge) {
-        // distance >= 0 means scrollpoint is hit & applied
-        // distance < 0 means scrollpoint is hit & unapplied
-        // undefined edge means initialized unhit / unapplied (-distance is distance from edge)
-        console.log(edge + ' hit @ ' + distance);
-    }
-
     $scope.loginOrDashboard = function () {
         if ($rootScope.user) {
             $scope.goTo = "/dashboard/myEvents";
