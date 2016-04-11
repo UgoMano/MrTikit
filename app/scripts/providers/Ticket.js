@@ -72,7 +72,7 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
         return promise;
     }
     
-    var getByUser = function (tokenKey, userId) {
+    var getByUser = function (tokenKey) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -89,9 +89,6 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
             headers: {
                 'Content-Type': "application/json",
                 'Authorization': "JWT " + tokenKey
-            },
-            data : {
-                userId: userId
             }
         }
 
@@ -152,8 +149,8 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
         scanTicket: function (tokenKey, ticketScanId) {
             return scanTicket(tokenKey, ticketScanId);
         },
-        getByUser(tokenKey, userId) {
-            return getByUser (tokenKey, userId);
+        getByUser(tokenKey) {
+            return getByUser (tokenKey);
         }
     };
 })
