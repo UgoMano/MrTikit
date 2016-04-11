@@ -8,7 +8,7 @@ module.exports = {
     getTicketsByEvent: function(eventId) {
         return Tickets.find({event: eventId})
             .then(function (tickets) {
-                if(!tickets) throw new Error('Tickets not found');
+                if(!tickets) return sails.config.additionals.TICKETS_NOT_FOUND;
                 return tickets;
             });
     },
@@ -16,7 +16,7 @@ module.exports = {
     getTicketsByType: function(ticketTypeId, eventId) {
         return Tickets.find({event: eventId, ticketType: ticketTypeId})
             .then(function (tickets) {
-                if (!tickets) throw new Error('Tickets not found');
+                if (!tickets) return sails.config.additionals.TICKETS_NOT_FOUND;
                 return tickets;
             });
     },
@@ -24,6 +24,7 @@ module.exports = {
     getTicketsByUserId: function(userId) {
         return Tickets.find({user: userId}).populateAll()
             .then(function (allTickets) {
+                if(!allTickets) return sails.config.additionals.TICKETS_NOT_FOUND;
                 ticketInfo = [];
 
                 _.each(allTickets, function(ticket) {
@@ -65,7 +66,7 @@ module.exports = {
     getNumTicketsByType: function(ticketTypeId, eventId) {
         return Tickets.count({event: eventId, ticketType: ticketTypeId})
             .then(function (found) {
-                //if(!found) throw new Error('TempTickets could not be queried for count');
+                if(!found) return sails.config.additionals.TEMP_TICKET_COUNT_NOT_FOUND;
                 return found;
             });
     },
@@ -107,7 +108,7 @@ module.exports = {
     generateNewScanId: function(ticketId) {
         return Tickets.findOne({ id: ticketId })
             .then(function (ticket) {
-                if(!ticket) throw new Error('Ticket not found');
+                if(!ticket) return sails.config.additionals.TICKET_NOT_FOUND;
 
                 var newScanId = null;
                 var ticketExist = true;

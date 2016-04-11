@@ -61,6 +61,10 @@ module.exports = {
     hidden: {
       type: 'boolean',
       defaultsTo: false
+    },
+
+    description: {
+      type: 'string',
     }
   },
 

@@ -13,7 +13,7 @@ module.exports = {
                 return res.json({
                     data: data,
                 });
-            });
+            }).catch(res.negotiate);
     },
 
     generateNewScanId: function (req, res) {
@@ -22,16 +22,16 @@ module.exports = {
                 return res.json({
                     data: data,
                 });
-            });
+            }).catch(Res.negotiate);
     },
 
     getUserTickets: function (req, res) {
-        TicketsService.getTicketsByUserId(req.body.userId)
+        TicketsService.getTicketsByUserId(req.user.id)
             .then(function(data) {
                 return res.json({
                     data: data,
                 });
-            });
+            }).catch(res.negotiate);
     },
 };
 
