@@ -1621,6 +1621,39 @@ hr {
   color: #fff;
   font-size: 20px;
 }
+.app .eventsPage .event {
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.app .eventsPage .event .attribute {
+  display: inline;
+  margin-right: 10px;
+}
+.app .eventsPage .event .title {
+  width: 200px;
+}
+.app .eventsPage .event .location {
+  width: 100px;
+}
+.app .eventsPage .event .date {
+  width: 100px;
+}
+.app .eventsPage .event .viewButton {
+  background-color: #c23b22;
+  color: #fff;
+  border: 0;
+  margin-top: 5px;
+  height: 40px;
+  width: 50px;
+  line-height: 40px;
+  border-radius: 5px;
+  float: right;
+}
 .app .eventPage .homePage {
   padding: 15px;
 }
