@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BE251A4B00EC9C3E51A8C3F3'
-               BlueprintName = 'Pods-MrTikit'
+               BlueprintIdentifier = '4EE91D614E61FE6299442F2C'
+               BlueprintName = 'FlatUIKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_MrTikit.framework'>
+               BuildableName = 'FlatUIKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -6,4 +6,5 @@ target 'MrTikit' do
     pod 'Alamofire', '~> 3.0'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'ObjectMapper', '~> 1.2'
+    pod 'FlatUIKit'
 end

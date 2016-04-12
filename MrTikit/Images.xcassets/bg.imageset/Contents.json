@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "japanvillage.jpg"
+      "filename" : "iOSBackground.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
