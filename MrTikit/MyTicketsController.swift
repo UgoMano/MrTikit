@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MyTicketsController: UITableViewController {
     @IBOutlet weak var menuButton:UIBarButtonItem!
+    @IBOutlet var appsTableView : UITableView!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     var user: String!
     var loginKey: String!
+    
+    var myTickets:JSON = []
+    
+    var selected:JSON = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +27,7 @@ class MyTicketsController: UITableViewController {
         user = defaults.stringForKey("user")
         loginKey = defaults.stringForKey("loginKey")
         
-        /*
+        
         Ticket.api.findAll(loginKey) { (success, result, error) -> Void in
             if (!success) {
                 // Error - show the user
@@ -34,12 +40,10 @@ class MyTicketsController: UITableViewController {
                 }
             }
             else {
-                //self.contact = result
-                NSLog(result.description)
-                NSLog("Got tickets")
+                self.myTickets = result["data"]
+                self.appsTableView.reloadData()
             }
         }
-        */
 
         /*
         Ticket.api.find(2, token: loginKey) { (success, result, error) -> Void in
@@ -109,15 +113,20 @@ class MyTicketsController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 3
+        return myTickets.array!.count
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selected = myTickets[indexPath.row]
+        
+        performSegueWithIdentifier("myTicket", sender: nil)
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MyTicketsCellController
         
         // Configure the cell...
-        if indexPath.row == 0 {
+        /*if indexPath.row == 0 {
             cell.postImageView.image = UIImage(named: "watchkit-intro")
             cell.postTitleLabel.text = "WatchKit Introduction: Building a Simple Guess Game"
             
@@ -129,7 +138,11 @@ class MyTicketsController: UITableViewController {
             cell.postImageView.image = UIImage(named: "webkit-featured")
             cell.postTitleLabel.text = "A Beginner’s Guide to Animated Custom Segues in iOS 8"
             
-        }
+        }*/
+        let cur:JSON = myTickets[indexPath.row]
+        
+        cell.postImageView.image = UIImage(named: "webkit-featured")
+        cell.postTitleLabel.text = cur["event"]["title"].string!
         
         return cell
     }
@@ -139,7 +152,7 @@ class MyTicketsController: UITableViewController {
             let navVC = segue.destinationViewController as! UINavigationController
             let myticket = navVC.viewControllers.first as! MyTicketController
             
-            myticket.toPass = "test data passing"
+            myticket.myTicket = selected
         }
     }
     

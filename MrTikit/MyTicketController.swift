@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MyTicketController: UIViewController {
-    var toPass:String!
+    var myTicket:JSON!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSLog(toPass)
+        NSLog(myTicket.description)
         // Do any additional setup after loading the view.
     }
     
