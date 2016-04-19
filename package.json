@@ -33,7 +33,7 @@
     "sails-disk": "^0.10.9",
     "sails-hook-cron": "^2.2.0",
     "sails-memory": "^0.10.5",
-    "sails-mysql-transactions": "^0.7.1",
+    "sails-mysql-transactions": "^0.8.0",
     "sails-service-cipher": "^3.2.1",
     "sails-service-hash": "^3.2.1",
     "sails-service-mailer": "^3.2.1",

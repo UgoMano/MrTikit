@@ -89,6 +89,21 @@ module.exports = {
       message: 'Total tickets in the system exceeds max tickets allowed',
       status: 401
     },
+    TEMP_TICKET_NOT_CREATED: {
+      code: 'E_TEMP_TICKET_NOT_CREATED',
+      message: 'TempTicket could not be created',
+      status: 401
+    },
+    TICKET_NOT_CREATED: {
+      code: 'E_TICKET_NOT_CREATED',
+      message: 'Ticket could not be created',
+      status: 401
+    },
+    TRANSACTION_NOT_CREATED: {
+      code: 'E_TRANSACTION_NOT_CREATED',
+      message: 'Transaction could not be executed',
+      status: 401
+    },
   }
 };
 

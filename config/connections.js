@@ -74,7 +74,10 @@ module.exports = {
       password: 'mrtikit12', //BLHpBEFD4yVRt6QX
       database: 'mrtikit',
       charset: 'utf8',
-      collation: 'utf8_swedish_ci'
+      collation: 'utf8_swedish_ci',
+      transactionConnectionLimit: 10,
+      rollbackTransactionOnError: true,
+      queryCaseSensitive: false,
     },
 
     /**
