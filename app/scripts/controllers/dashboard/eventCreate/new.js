@@ -7,8 +7,8 @@
  * # EventCreateCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $User, $Event, $mdToast) {
-    console.log('eventCreate')
+angular.module('mrtikitApp').controller('EventCreateNewCtrl', function ($scope, $User, $Event, $mdToast) {
+    $scope.setStep(1);
     $scope.event = {};
     $scope.createEvent = function () {
         $scope.event.owner = $scope.user.id;
@@ -30,7 +30,7 @@ angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $Us
         rv.then(function (event) {
             $mdToast.showSimple('Create Event: Successful');
             $scope.event = event;
-            $scope.go('/dashboard/events/' + $scope.event.id + '/overview');
+            $scope.go('/dashboard/events/create' + $scope.event.id + '/ticketTypes');
 
         }, function (error) {
             if (error.error) {

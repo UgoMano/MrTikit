@@ -157,9 +157,32 @@ angular.module('mrtikitApp', [
     })
     
     .state('dashboard.eventCreate', {
+        abstract: true,
         url: "/events/create",
-        templateUrl: "views/dashboard/eventCreate.html",
+        templateUrl: "views/dashboard/eventCreate/main.html",
         controller: 'EventCreateCtrl'
+    })
+    
+    .state('dashboard.eventCreate.select', {
+        url: "",
+        templateUrl: "views/dashboard/eventCreate/select.html",
+        controller: 'EventCreateSelectCtrl'
+    })
+    .state('dashboard.eventCreate.new', {
+        url: "/new",
+        templateUrl: "views/dashboard/eventCreate/new.html",
+        controller: 'EventCreateNewCtrl'
+    })
+    .state('dashboard.eventCreate.edit', {
+        url: "/:eventId/edit",
+        templateUrl: "views/dashboard/eventCreate/new.html",
+        controller: 'EventCreateEditCtrl'
+    })
+    
+    .state('dashboard.eventCreate.ticketTypes', {
+        url: "/:eventId/ticketTypes",
+        templateUrl: "views/dashboard/eventCreate/ticketTypes.html",
+        controller: 'EventCreateTicketTypesCtrl'
     })
     
     .state('dashboard.eventOverview', {
