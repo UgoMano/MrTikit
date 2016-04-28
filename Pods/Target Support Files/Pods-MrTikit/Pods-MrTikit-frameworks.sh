@@ -85,12 +85,22 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MrTikit/Alamofire.framework"
+  install_framework "Pods-MrTikit/Bolts.framework"
+  install_framework "Pods-MrTikit/FBSDKCoreKit.framework"
+  install_framework "Pods-MrTikit/FBSDKLoginKit.framework"
+  install_framework "Pods-MrTikit/FBSDKMessengerShareKit.framework"
+  install_framework "Pods-MrTikit/FBSDKShareKit.framework"
   install_framework "Pods-MrTikit/FlatUIKit.framework"
   install_framework "Pods-MrTikit/ObjectMapper.framework"
   install_framework "Pods-MrTikit/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MrTikit/Alamofire.framework"
+  install_framework "Pods-MrTikit/Bolts.framework"
+  install_framework "Pods-MrTikit/FBSDKCoreKit.framework"
+  install_framework "Pods-MrTikit/FBSDKLoginKit.framework"
+  install_framework "Pods-MrTikit/FBSDKMessengerShareKit.framework"
+  install_framework "Pods-MrTikit/FBSDKShareKit.framework"
   install_framework "Pods-MrTikit/FlatUIKit.framework"
   install_framework "Pods-MrTikit/ObjectMapper.framework"
   install_framework "Pods-MrTikit/SwiftyJSON.framework"

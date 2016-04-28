@@ -7,4 +7,8 @@ target 'MrTikit' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'ObjectMapper', '~> 1.2'
     pod 'FlatUIKit'
+    pod "FBSDKCoreKit";
+    pod "FBSDKLoginKit";
+    pod "FBSDKShareKit";
+    pod "FBSDKMessengerShareKit";
 end

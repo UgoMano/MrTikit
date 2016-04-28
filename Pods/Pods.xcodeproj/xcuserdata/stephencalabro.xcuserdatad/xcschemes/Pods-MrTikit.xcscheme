@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BE251A4B00EC9C3E51A8C3F3'
+               BlueprintIdentifier = 'FEFE81FF3852AF92701072A1'
                BlueprintName = 'Pods-MrTikit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_MrTikit.framework'>

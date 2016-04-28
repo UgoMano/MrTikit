@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ScanTicketController: UIViewController {
-    var toPass:String!
+    var myEvent:JSON!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSLog(toPass)
     }
     
     override func didReceiveMemoryWarning() {

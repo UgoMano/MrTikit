@@ -119,7 +119,6 @@
 			children = (
 				20A9A86A1CA900EF00DA81B4 /* SWRevealViewController.h */,
 				20A9A86B1CA900EF00DA81B4 /* SWRevealViewController.m */,
-				20A9A8691CA900EF00DA81B4 /* MrTikit-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";
@@ -219,6 +218,7 @@
 			children = (
 				20B262511CA9F09E003D9ECA /* Fonts */,
 				F47029F41A7F27DB00E30A3C /* Info.plist */,
+				20A9A8691CA900EF00DA81B4 /* MrTikit-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

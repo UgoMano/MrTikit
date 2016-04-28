@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MyEventsController: UITableViewController {
     @IBOutlet weak var menuButton:UIBarButtonItem!
+    @IBOutlet var appsTableView : UITableView!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     var user: String!
     var loginKey: String!
+    
+    var myEvents:JSON = []
+    var selected:JSON = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +26,10 @@ class MyEventsController: UITableViewController {
         user = defaults.stringForKey("user")
         loginKey = defaults.stringForKey("loginKey")
         
-        /*
         Event.api.findAll(loginKey) { (success, result, error) -> Void in
             if (!success) {
                 // Error - show the user
-                let errorTitle = "Could not get events server."
+                let errorTitle = "Could not get tickets from server."
                 if let error = error {
                     NSLog(error)
                 }
@@ -34,41 +38,16 @@ class MyEventsController: UITableViewController {
                 }
             }
             else {
-                //self.contact = result
-                NSLog(result.description)
-            }
-        }*/
-        
-        /*
-        Event.api.find(1, token: loginKey) { (success, result, error) -> Void in
-            if (!success) {
-                // Error - show the user
-                let errorTitle = "Could not get event server."
-                if let error = error {
-                    NSLog(error)
-                }
-                else {
-                    NSLog(errorTitle)
-                }
-            }
-            else {
-                //self.contact = result
-                NSLog(result.description)
+                self.myEvents = result["data"]
+                self.appsTableView.reloadData()
             }
         }
-         */
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,24 +64,21 @@ class MyEventsController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 3
+        return myEvents.array!.count
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selected = myEvents[indexPath.row]
+        
+        performSegueWithIdentifier("scanTicket", sender: nil)
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MyEventsCellController
         
-        // Configure the cell...
-        if indexPath.row == 0 {
-            cell.postTitleLabel.text = "WatchKit Introduction: Building a Simple Guess Game"
-            
-        } else if indexPath.row == 1 {
-            cell.postTitleLabel.text = "Building a Chat App in Swift Using Multipeer Connectivity Framework"
-            
-        } else {
-            cell.postTitleLabel.text = "A Beginner’s Guide to Animated Custom Segues in iOS 8"
-            
-        }
+        let cur:JSON = myEvents[indexPath.row]
+        //cell.postImageView.image = UIImage(named: "webkit-featured")
+        cell.postTitleLabel.text = cur["title"].description
         
         return cell
     }
@@ -112,7 +88,7 @@ class MyEventsController: UITableViewController {
             let navVC = segue.destinationViewController as! UINavigationController
             let scanTicket = navVC.viewControllers.first as! ScanTicketController
             
-            scanTicket.toPass = "test data passing2"
+            scanTicket.myEvent = selected
         }
     }
     
