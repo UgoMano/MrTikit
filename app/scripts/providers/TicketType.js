@@ -57,7 +57,7 @@ factory('$TicketType', function ($http, $location, $timeout, $q) {
         }
 
         var promise = $http(req).then(function (data) {
-            return data;
+            return data.data.data;
         }, function (error) {
             return $q.reject(error);
         });
