@@ -107,6 +107,19 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
         console.log(response.authResponse.accessToken);
 
         if(response.status === 'connected') {
+            $User.getFacebookEvents($rootScope.user.facebookId, response.authResponse.accessToken).then(function (data) {
+                console.log(data);
+            },
+            function (error) {
+                if (error.error) {
+                    $mdToast.showSimple(error.error);
+                } else if (error.status == 401) {
+                    //$mdToast.showSimple(error.data.message);
+                    console.log(error);
+                } else {
+                    console.log(error);
+                }
+            });
             /*
             Facebook.api("/" + $rootScope.user.facebookId + "/events?type=created&access_token="+response.authResponse.accessToken+"&since="+Math.floor(Date.now() / 1000), function (response) {
                 if (response && !response.error) {

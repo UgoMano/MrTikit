@@ -149,7 +149,7 @@ factory('$Ticket', function ($http, $location, $timeout, $q) {
         scanTicket: function (tokenKey, ticketScanId) {
             return scanTicket(tokenKey, ticketScanId);
         },
-        getByUser(tokenKey) {
+        getByUser: function (tokenKey) {
             return getByUser (tokenKey);
         }
     };
