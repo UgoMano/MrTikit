@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User) {
+angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User, Facebook) {
     //console.log('main')
     $rootScope.curEventId;
 
@@ -44,7 +44,7 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
     }
 
     if ($rootScope.user.loginType == "facebook") {
-        FB.getLoginStatus(function (response) {
+        Facebook.getLoginStatus(function (response) {
             if (response.status === 'connected') {
                 //console.log(response);
             } else {
@@ -102,7 +102,44 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
     $scope.isCurrent = function(state) {
         return $state.current.name === state;
     }
-    
+
+    Facebook.getLoginStatus(function(response) {
+        console.log(response.authResponse.accessToken);
+
+        if(response.status === 'connected') {
+            /*
+            Facebook.api("/" + $rootScope.user.facebookId + "/events?type=created&access_token="+response.authResponse.accessToken+"&since="+Math.floor(Date.now() / 1000), function (response) {
+                if (response && !response.error) {
+                    
+                }
+                console.log(response);
+            });
+            */
+            /*
+            Facebook.api("/1687771854795332/feed?access_token="+response.authResponse.accessToken, function (response) {
+                if (response && !response.error) {
+                    
+                }
+                console.log(response);
+            });
+            */
+            /*
+            Facebook.api('/1687771854795332/feed', 'post', {message: "Heloo thereee"}, function (response) {
+                if (!response || response.error) {
+                    console.log(response.error);
+                } else {
+                    //DO SOME STUFF
+                }
+                console.log(response);
+            });*/
+            /*
+            Facebook.api("/1687771854795332?fields=cover", function (response) {
+                if (response && !response.error) {
+                }
+                console.log(response);
+            });*/
+        }
+    });
 });
 
 /*
