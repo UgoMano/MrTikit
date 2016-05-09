@@ -24,6 +24,7 @@ angular.module('mrtikitApp').controller('EventCreatePublishCtrl', function ($sco
         updatePromise.then(function (event) {
             $mdToast.showSimple('Event Publish: Success');
             $scope.event=event;
+            $scope.go('/dashboard/myEvents');
         }, function (error) {
             $scope.onError(error, 'Event Update Error: ')
         });
