@@ -94,7 +94,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
-                checkIn: event.checkIn
+                checkIn: event.checkIn,
+                published: event.published
             }
         }
 

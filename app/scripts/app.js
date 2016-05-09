@@ -185,6 +185,12 @@ angular.module('mrtikitApp', [
         controller: 'EventCreateTicketTypesCtrl'
     })
     
+    .state('dashboard.eventCreate.publish', {
+        url: "/:eventId/publish",
+        templateUrl: "views/dashboard/eventCreate/publish.html",
+        controller: 'EventCreatePublishCtrl'
+    })
+    
     .state('dashboard.eventOverview', {
         url: "/events/:eventId/overview",
         templateUrl: "views/dashboard/eventOverview.html",

@@ -1,0 +1,64 @@
+.eventCreate {
+    @import 'dashboard/eventCreate/new';
+    @import 'dashboard/eventCreate/select';
+    @import 'dashboard/eventCreate/publish';
+    md-toolbar {
+        height: 100px;
+        line-height: 100px;
+        background-color: @MT_RED;
+        display: inline-block;
+        text-align: center;
+        .next {
+            display: inline-block;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .prev {
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .timeline {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: inline-block;
+            .step {
+                border: @MT_GRAY 2px solid;
+                width: 40px;
+                height: 40px;
+                line-height: 36px;
+                font-size: 30px;
+                text-align: center;
+                border-radius: 20px;
+                color: @MT_GRAY;
+                font-weight: bold;
+                display: inline-block;
+                background-color: white;
+                &.done {
+                    background-color: #4AC948;
+                }
+                &.current {
+                    background-color: #FFE303;
+                }
+            }
+            .line {
+                height: 5px;
+                width: 100px;
+                display: inline-block;
+                margin-bottom: 8px;
+                margin-left: -4px;
+                margin-right: -5px;
+                background-color: white;
+                border-bottom: @MT_GRAY 1px solid;
+                border-top: @MT_GRAY 1px solid;
+                &.done {
+                    background-color: #4AC948;
+                }
+                &.current {
+                    background-color: #FFE303;
+                }
+            }
+        }
+    }
+}

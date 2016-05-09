@@ -2243,35 +2243,126 @@ hr {
 .dashboard .eventOverviewContainer .ticketTypesCard .ticketType .ticketTypeName {
   width: 100px;
 }
-.dashboard .eventCreateCard {
+.dashboard .eventCreate .eventCreateCard {
   color: #848484;
 }
-.dashboard .eventCreateCard label {
+.dashboard .eventCreate .eventCreateCard label {
   color: #848484;
 }
-.dashboard .eventCreateCard h1,
-.dashboard .eventCreateCard h3 {
+.dashboard .eventCreate .eventCreateCard h1,
+.dashboard .eventCreate .eventCreateCard h3 {
   color: #848484;
 }
-.dashboard .eventCreateCard h3 {
+.dashboard .eventCreate .eventCreateCard h3 {
   margin-left: 10px;
 }
-.dashboard .eventCreateCard md-input-container {
+.dashboard .eventCreate .eventCreateCard md-input-container {
   display: block;
   margin-left: 61px;
 }
-.dashboard .eventCreateCard md-input-container .eventTitle {
+.dashboard .eventCreate .eventCreateCard md-input-container .eventTitle {
   width: 200px;
 }
-.dashboard .eventCreateCard md-input-container .eventLocation {
+.dashboard .eventCreate .eventCreateCard md-input-container .eventLocation {
   width: 200px;
 }
-.dashboard .eventCreateCard md-input-container .eventTime {
+.dashboard .eventCreate .eventCreateCard md-input-container .eventTime {
   width: 121px;
 }
-.dashboard .eventCreateCard .endDateTimeContainer md-input-container,
-.dashboard .eventCreateCard .startDateTimeContainer md-input-container {
+.dashboard .eventCreate .eventCreateCard .endDateTimeContainer md-input-container,
+.dashboard .eventCreate .eventCreateCard .startDateTimeContainer md-input-container {
   margin-left: 61px;
+}
+.dashboard .eventCreate .select {
+  color: #848484;
+  padding-left: 10px;
+}
+.dashboard .eventCreate .select .scratch {
+  background-color: #c23b22;
+  color: #fff;
+}
+.dashboard .eventCreate .select .noEvent {
+  padding-left: 10px;
+}
+.dashboard .eventCreate .select .event md-content {
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  line-height: 50px;
+}
+.dashboard .eventCreate .select .event md-content .title {
+  display: inline;
+  color: #848484;
+  font-weight: bold;
+}
+.dashboard .eventCreate .select .event md-content .edit {
+  float: right;
+  background-color: #c23b22;
+  color: #fff;
+}
+.dashboard .eventCreate .publish .publishButton {
+  background-color: #c23b22;
+  color: #fff;
+}
+.dashboard .eventCreate md-toolbar {
+  height: 100px;
+  line-height: 100px;
+  background-color: #c23b22;
+  display: inline-block;
+  text-align: center;
+}
+.dashboard .eventCreate md-toolbar .next {
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.dashboard .eventCreate md-toolbar .prev {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.dashboard .eventCreate md-toolbar .timeline {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+}
+.dashboard .eventCreate md-toolbar .timeline .step {
+  border: #848484 2px solid;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 20px;
+  color: #848484;
+  font-weight: bold;
+  display: inline-block;
+  background-color: white;
+}
+.dashboard .eventCreate md-toolbar .timeline .step.done {
+  background-color: #4AC948;
+}
+.dashboard .eventCreate md-toolbar .timeline .step.current {
+  background-color: #FFE303;
+}
+.dashboard .eventCreate md-toolbar .timeline .line {
+  height: 5px;
+  width: 100px;
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-left: -4px;
+  margin-right: -5px;
+  background-color: white;
+  border-bottom: #848484 1px solid;
+  border-top: #848484 1px solid;
+}
+.dashboard .eventCreate md-toolbar .timeline .line.done {
+  background-color: #4AC948;
+}
+.dashboard .eventCreate md-toolbar .timeline .line.current {
+  background-color: #FFE303;
 }
 .dashboard .eventEditCard {
   color: #848484;
