@@ -7,7 +7,7 @@
  * # LoginCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScope, $User, $mdToast, $cookieStore, $location) {
+angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScope, $User, $mdToast, $cookieStore, $location, Facebook) {
     $scope.login = function () {
         if ($scope.email && $scope.password) {
             $User.login($scope.email, $scope.password).then(function (data) {
@@ -33,8 +33,8 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
     }
 
     $scope.fbLogin = function() {      
-        FB.login(function(response) {
-            // handle the response
+        Facebook.login(function(response) {
+            // Do something with response.
             if(response.status == "connected") {
                 $User.facebookLogin(response.authResponse.accessToken).then(function (data) {
                     $cookieStore.put('loginKey', data.data.data.token);
@@ -58,6 +58,10 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
                 });
                 
             }
-        }, {scope: 'public_profile,email'});
+        }, {scope: ['user_events', 'user_posts', 'publish_actions']});
+        /*FB.login(function(response) {
+            // handle the response
+            
+        }, {scope: 'public_profile,email'});*/
     }
 });

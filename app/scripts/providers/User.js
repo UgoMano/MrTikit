@@ -200,6 +200,38 @@ factory('$User', function ($http, $location, $timeout, $q) {
         });
         return promise;
     }
+
+    var getFacebookEvents = function(fbId, fbToken) {
+        var promise = $q.defer();
+
+        if(!fbId || fbId == "") {
+            var error = {
+                error: "No Facbook User ID"
+            }
+            
+            return $q.reject(error);
+        }
+
+        if(!fbToken || fbToken == "") {
+            var error = {
+                error: "No Facbook token"
+            }
+            
+            return $q.reject(error);
+        }
+        
+        var req = {
+            method: 'GET',
+            url: "https://graph.facebook.com/" + fbId + "/events?type=created&access_token="+fbToken+"&since="+Math.floor(Date.now() / 1000),
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
     
     return {
         ping: function(tokenKey) {
@@ -216,6 +248,9 @@ factory('$User', function ($http, $location, $timeout, $q) {
         },
         update: function(id, tokenKey, firstName, lastName, username, email, password) {
             return update(id, tokenKey, firstName, lastName, username, email, password);  
+        },
+        getFacebookEvents: function(fbId, fbToken) {
+            return getFacebookEvents(fbId, fbToken);
         }
     };
 })
