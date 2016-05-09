@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User, Facebook) {
+angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User, Facebook, $Event) {
     //console.log('main')
     $rootScope.curEventId;
 
@@ -120,6 +120,22 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
                     console.log(error);
                 }
             });
+            
+            $Event.getFacebookFeed("1687771854795332", response.authResponse.accessToken).then(function (data) {
+                console.log(data);
+            },
+            function (error) {
+                if (error.error) {
+                    $mdToast.showSimple(error.error);
+                } else if (error.status == 401) {
+                    //$mdToast.showSimple(error.data.message);
+                    console.log(error);
+                } else {
+                    console.log(error);
+                }
+            });
+            
+            //1687771854795332
             /*
             Facebook.api("/" + $rootScope.user.facebookId + "/events?type=created&access_token="+response.authResponse.accessToken+"&since="+Math.floor(Date.now() / 1000), function (response) {
                 if (response && !response.error) {
