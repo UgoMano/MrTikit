@@ -141,6 +141,33 @@ module.exports = {
 				});
 			}).catch(res.negotiate);
 	},
+
+	getPublishedEvents: function (req, res) {
+		EventService.getPublishedEvents()
+			.then(function (data) {
+				res.json({
+					data: data,
+				});
+			}).catch(res.negotiate);
+	},
+
+	getPublishedEvent: function (req, res) {
+		EventService.getPublishedEvent(req.body.eventId)
+			.then(function (data) { 
+				res.json({
+					data: data,
+				});
+			}).catch(res.negotiate);
+	},
+
+	getUserOwnedEvents: function (req, res) {
+		EventsService.getUserOwnedEvents(req.user.id)
+			.then(function(data) {
+				res.json({
+					data: data,
+				});
+			}).catch(res.negotiate);
+	},
   
 };
 

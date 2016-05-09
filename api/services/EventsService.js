@@ -45,5 +45,26 @@ module.exports = {
                 });
             });
     },
+
+    getPublishedEvents: function() { 
+        return Events.find({published: true})
+            .then(function (publishedEvents) {
+                return publishedEvents;
+            })
+    },
+
+    getPublishedEvent: function(eventId) {
+        return Events.findOne({id: eventId, published: true})
+            .then(function (event) {
+                return event;
+            });
+    },
+
+    getUserOwnedEvents: function(userId) {
+        return Events.find({ownder: userId})
+            .then(function (events) {
+                return events;
+            });
+    },
     
 };

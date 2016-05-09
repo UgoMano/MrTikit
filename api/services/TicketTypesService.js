@@ -30,8 +30,17 @@ module.exports = {
             });
     },
 
-    getTicketTypesByEvent: function(eventId) {
+    getAllTicketTypesByEvent: function(eventId) {
         return TicketTypes.find({ event: eventId })
+            .then(function(ticketTypes) {
+                if(!ticketTypes) return sails.config.additionals.TICKET_TYPE_NOT_FOUND;
+
+                return ticketTypes;
+            });
+    },
+
+    getTicketTypesByEvent: function(eventId) {
+        return TicketTypes.find({ event: eventId, hidden: false })
             .then(function(ticketTypes) {
                 if(!ticketTypes) return sails.config.additionals.TICKET_TYPE_NOT_FOUND;
 

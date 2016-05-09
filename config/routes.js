@@ -7,5 +7,14 @@
  */
 
 module.exports = {
-  routes: {}
+  routes: {
+  	'GET /consumer/getEvents/': 'EventsController.getPublishedEvents',
+  	'POST /consumer/getEvent/': 'EventsController.getPublishedEvent',
+  	'POST /consumer/getTicketTypesByEvent/': 'TicketTypesController.getTicketTypesByEvent',
+  	'POST /consumer/holdTicket/': 'EventsController.holdTicket',
+  	'POST /consumer/purchaseTicket/': 'EventsController.purchaseTicket',
+
+  	'POST /management/getEvents': 'EventsController.getUserOwnedEvents',
+  	'POST /management/ticketTypes': 'TicketTypesController.getTicketTypesByEvent',
+  }
 };
