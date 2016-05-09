@@ -8,13 +8,13 @@
 
 module.exports = {
   routes: {
-  	'GET /consumer/getEvents/': 'EventsController.getPublishedEvents',
-  	'POST /consumer/getEvent/': 'EventsController.getPublishedEvent',
-  	'POST /consumer/getTicketTypesByEvent/': 'TicketTypesController.getTicketTypesByEvent',
-  	'POST /consumer/holdTicket/': 'EventsController.holdTicket',
-  	'POST /consumer/purchaseTicket/': 'EventsController.purchaseTicket',
+  	'GET /v1/consumer/getEvents/': 'EventsController.getPublishedEvents',
+  	'POST /v1/consumer/getEvent/': 'EventsController.getPublishedEvent',
+  	'POST /v1/consumer/getTicketTypesByEvent/': 'TicketTypesController.getTicketTypesByEvent',
+  	'POST /v1/consumer/holdTicket/': 'EventsController.holdTicket',
+  	'POST /v1/consumer/purchaseTicket/': 'EventsController.purchaseTicket',
 
-  	'POST /management/getEvents': 'EventsController.getUserOwnedEvents',
-  	'POST /management/ticketTypes': 'TicketTypesController.getTicketTypesByEvent',
+  	'POST /v1/management/getEvents': 'EventsController.getUserOwnedEvents',
+  	'POST /v1/management/ticketTypes': 'TicketTypesController.getTicketTypesByEvent',
   }
 };
