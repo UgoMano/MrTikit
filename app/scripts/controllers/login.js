@@ -36,6 +36,7 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
         Facebook.login(function(response) {
             // Do something with response.
             if(response.status == "connected") {
+                console.log(response.authResponse.accessToken);
                 $User.facebookLogin(response.authResponse.accessToken).then(function (data) {
                     $cookieStore.put('loginKey', data.data.data.token);
                     $cookieStore.put('user', data.data.data.user);
