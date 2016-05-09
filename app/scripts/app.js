@@ -20,7 +20,8 @@ angular.module('mrtikitApp', [
     'ngMaterial',
     'monospaced.qrcode',
     'uiGmapgoogle-maps',
-  ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    'facebook'
+  ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider, FacebookProvider) {
     $stateProvider
     .state('login', {
         url: "/login",
@@ -224,7 +225,9 @@ angular.module('mrtikitApp', [
         }
     });
     $locationProvider.html5Mode(true);
-}).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event) {
+
+    FacebookProvider.init('541547949359653');
+}).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event, Facebook) {
     /*
     if (!$cookieStore.get("user") || !$cookieStore.get("loginKey")) {
         $location.path("/login");
@@ -241,6 +244,9 @@ angular.module('mrtikitApp', [
     }
     
     $rootScope.logout = function () {
+        Facebook.logout(function(response) {
+          // user is now logged out
+        });
         $cookieStore.remove('loginKey');
         $cookieStore.remove('user');
         $location.path("/login");

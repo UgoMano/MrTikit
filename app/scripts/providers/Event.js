@@ -273,6 +273,106 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
     
+    
+    var getFacebookFeed = function(eventId, fbToken) {
+        var promise = $q.defer();
+
+        if(!eventId || eventId == "") {
+            var error = {
+                error: "No Facbook Event ID"
+            }
+            
+            return $q.reject(error);
+        }
+
+        if(!fbToken || fbToken == "") {
+            var error = {
+                error: "No Facbook token"
+            }
+            
+            return $q.reject(error);
+        }
+        
+        var req = {
+            method: 'GET',
+            url: "https://graph.facebook.com/" + eventId + "/feed?access_token="+fbToken,
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
+    var postFacebookFeed = function(eventId, fbToken, message) {
+        var promise = $q.defer();
+
+        if(!eventId || eventId == "") {
+            var error = {
+                error: "No Facbook Event ID"
+            }
+            
+            return $q.reject(error);
+        }
+
+        if(!fbToken || fbToken == "") {
+            var error = {
+                error: "No Facbook token"
+            }
+            
+            return $q.reject(error);
+        }
+
+        if(!message || message == "") {
+            var error = {
+                error: "No message"
+            }
+            
+            return $q.reject(error);
+        }
+        
+        var req = {
+            method: 'POST',
+            url: "https://graph.facebook.com/" + eventId + "/feed?access_token="+fbToken,
+            data: {
+                message: message
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
+    var getFacebookCoverPhoto = function(eventId, fbToken) {
+        var promise = $q.defer();
+
+        if(!eventId || eventId == "") {
+            var error = {
+                error: "No Facbook Event ID"
+            }
+            
+            return $q.reject(error);
+        }
+        
+        var req = {
+            method: 'GET',
+            url: "https://graph.facebook.com/" + eventId + "?fields=cover&access_token="+fbToken,
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+    
     return {
         create: function (tokenKey, event) {
             return create(tokenKey, event);
@@ -297,6 +397,15 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         },
         purchaseTicket: function (tokenKey, tempTicketId) {
             return purchaseTicket(tokenKey, tempTicketId, "transactionTypeId", "confirmationNumber");
-        }
+        },
+        getFacebookFeed: function(eventId, fbToken) {
+            return getFacebookFeed(eventId, fbToken);
+        },
+        postFacebookFeed: function(eventId, fbToken, message) {
+            return postFacebookFeed(eventId, fbToken, message);
+        },
+        getFacebookCoverPhoto: function(eventId, fbToken) {
+            return getFacebookCoverPhoto(eventId, fbToken);
+        },
     };
 })
