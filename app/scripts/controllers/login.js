@@ -59,7 +59,7 @@ angular.module('mrtikitApp').controller('LoginCtrl', function ($scope, $rootScop
                 });
                 
             }
-        }, {scope: ['user_events', 'user_posts', 'publish_actions']});
+        }, {scope: ['user_events', 'user_posts', 'publish_actions', 'email']});
         /*FB.login(function(response) {
             // handle the response
             
