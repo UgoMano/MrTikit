@@ -22,6 +22,14 @@ module.exports = {
   			});
   		}).catch(res.negotiate);
   	},
+
+    getAllTicketTypesByEvent: function (req, res) {
+      TicketTypesService.getAllTicketTypesByEvent(req.body.eventId).then(function(data) {
+        return res.json({
+          data: data
+        });
+      }).catch(res.negotiate);
+    },
 	
 };
 

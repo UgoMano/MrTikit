@@ -14,7 +14,7 @@ module.exports = {
   	'POST /v1/consumer/holdTicket/': 'EventsController.holdTicket',
   	'POST /v1/consumer/purchaseTicket/': 'EventsController.purchaseTicket',
 
-  	'POST /v1/management/getEvents': 'EventsController.getUserOwnedEvents',
-  	'POST /v1/management/ticketTypes': 'TicketTypesController.getTicketTypesByEvent',
+  	'POST /v1/management/getEvents/': 'EventsController.getUserOwnedEvents',
+  	'POST /v1/management/ticketTypes/': 'TicketTypesController.getTicketTypesByEvent',
   }
 };

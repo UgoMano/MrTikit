@@ -49,14 +49,39 @@ module.exports = {
     getPublishedEvents: function() { 
         return Events.find({published: true})
             .then(function (publishedEvents) {
-                return publishedEvents;
+                var allPublishedEventObjects = [];
+                _.each(publishedEvents, function(event) {
+                    var eventObject = {
+                        id: event.id,
+                        title: event.title,
+                        description: event.description,
+                        location: event.location,
+                        startDateTime: event.startDateTime,
+                        endDateTime: event.endDateTime,
+                        category: event.category,
+                        owner: event.owner
+                    };
+
+                    allPublishedEventObjects.push(event);
+                });
+                return allPublishedEventObjects;
             })
     },
 
     getPublishedEvent: function(eventId) {
         return Events.findOne({id: eventId, published: true})
             .then(function (event) {
-                return event;
+                var eventObject = {
+                    id: event.id,
+                    title: event.title,
+                    description: event.description,
+                    location: event.location,
+                    startDateTime: event.startDateTime,
+                    endDateTime: event.endDateTime,
+                    category: event.category,
+                    owner: event.owner
+                };
+                return eventObject;
             });
     },
 
