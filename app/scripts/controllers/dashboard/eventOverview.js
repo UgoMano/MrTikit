@@ -7,7 +7,7 @@
  * # EventOverviewCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventOverviewCtrl', function ($scope, $stateParams, $backend, $Event, $TicketType, $mdToast) {
+angular.module('mrtikitApp').controller('EventOverviewCtrl', function ($scope, $stateParams, $Event, $TicketType, $mdToast) {
     console.log('eventOverview');
     $scope.setEvent($stateParams.eventId);
     console.log('eventId: ', $scope.curEventId);
@@ -22,7 +22,7 @@ angular.module('mrtikitApp').controller('EventOverviewCtrl', function ($scope, $
         console.log(error);
         $mdToast.showSimple('Event Load: Error');
     })
-    $scope.attendees = $backend.getAttendees($scope.curEventId);
+    $scope.attendees = [];
     var getTTPromise = $TicketType.getByEvent($scope.curEventId);
     getTTPromise.then(function (ticketTypes) {
         $mdToast.showSimple('get ticket types success');

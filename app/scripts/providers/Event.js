@@ -49,7 +49,9 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
-                checkIn: event.checkIn
+                checkIn: event.checkIn,
+                facebookId: event.facebookId,
+                description: event.description
             }
         }
 
@@ -94,7 +96,9 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
-                checkIn: event.checkIn
+                checkIn: event.checkIn,
+                published: event.published,
+                description: event.description
             }
         }
 
@@ -131,8 +135,70 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         });
         return promise;
     }
+    
+    var publicGetAll = function (tokenKey) {
+
+        if (!tokenKey || tokenKey == "") {
+            var error = {
+                error: "Not logged in"
+            }
+
+            return $q.reject(error);
+        }
+
+        var req = {
+            method: 'GET',
+            url: SERVER_URL + "/v1/consumer/getEvents/",
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            }
+        }
+        var promise = $http(req).then(function (data) {
+            return data.data.data
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
 
     var get = function (id, tokenKey) {
+        var promise = $q.defer();
+
+        if (!tokenKey || tokenKey == "") {
+            var error = {
+                error: "Not logged in"
+            }
+
+            return $q.reject(error);
+        }
+
+        if (!id || id == "") {
+            var error = {
+                error: "Please enter an event id"
+            }
+
+            return $q.reject(error);
+        }
+
+        var req = {
+            method: 'GET',
+            url: SERVER_URL + "/v1/events/" + id,
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data.data.data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+    
+    var publicGet = function (id, tokenKey) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -387,10 +453,10 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             return get(tokenKey, event);
         },
         publicGetAll: function () {
-            return getAll("tokenKey");
+            return publicGetAll("tokenKey");
         },
         publicGet: function (event) {
-            return get(event, "tokenKey");
+            return publicGet(event, "tokenKey");
         },
         holdTicket: function (tokenKey, event, ticketType) {
             return holdTicket(tokenKey, event, ticketType);
