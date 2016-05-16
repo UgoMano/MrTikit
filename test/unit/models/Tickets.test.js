@@ -1,8 +1,8 @@
 "use strict";const assert = require('chai').assert;
-var sDT = new DateTime().now();
-var dT = new DateTime().now();
+var sDT = new Date(2016, 4, 30, 16, 5);
+var dT = new Date(2017, 4, 30, 16, 5);
 
-dt.setDate(dt.getDate + 1);
+dT.setDate(dT.getDate + 1);
 const newtickets = {
  event: "1",
  user: "1",

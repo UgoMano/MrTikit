@@ -1,15 +1,17 @@
-"use strict";const assert = require('chai').assert;
-var sDT = new DateTime().now();
-var dT = new DateTime().now();
-dt.setDate(dt.getDate + 1);const newEvent = {
+"use strict";
+const assert = require('chai').assert;
+var sDT = new Date(2016, 4, 30, 16, 5);
+var dT = new Date(2017, 4, 30, 16, 5);
+<!-- dt.setDate(dt.getDate + 1); -->
+const newEvent = {
  title: "test event",
  facebookId: "id",
  owner: '1',
  category: "wine wednesday",
  description: "Phat",
  location: "steve's moms bedroom",
- startDateTime: sDT.toISOString(),
- endDateTime: dt.toISOString(),
+ startDate: sDT.toISOString(),
+ endDate: dT.toISOString(),
  checkIn: false,
  paypalEmail: "e",
  published: true,
