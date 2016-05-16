@@ -1,8 +1,10 @@
 "use strict";const assert = require('chai').assert;
 var sDT = new DateTime().now();
 var dT = new DateTime().now();
+var edT = new DateTime().now();
 
 dt.setDate(dt.getDate + 1);
+dt.setDate(edt.getDate + 5);
 const newTicketTypes = {
  event: "1",
  name: "vip",
@@ -10,8 +12,8 @@ const newTicketTypes = {
  price: "0.1",
  section: "back",
  photoTicket: "true",
- eventTime: sDT.toISOString(),
- purchaseStart: dt.toISOString(),
+ eventTime: eDT.toISOString(),
+ purchaseStart: sDT.toISOString(),
  purchaseEnd: dt.toISOString(),
  hidden: false,
  description: "memes; the world tour",
