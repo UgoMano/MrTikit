@@ -49,7 +49,9 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
-                checkIn: event.checkIn
+                checkIn: event.checkIn,
+                facebookId: event.facebookId,
+                description: event.description
             }
         }
 
@@ -95,7 +97,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
                 checkIn: event.checkIn,
-                published: event.published
+                published: event.published,
+                description: event.description
             }
         }
 

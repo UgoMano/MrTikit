@@ -12,12 +12,12 @@
     </md-card>
 
     <h3>Facebook events</h3>
-    <div class='noEvent' ng-show="fbevents.length == 0">No events found</div>
-    <md-card class='event' ng-repeat="fe in fbevents">
+    <div class='noEvent' ng-show="(fbevents|fbfilter : events).length == 0">No events found</div>
+    <md-card class='event' ng-repeat="fe in fbevents|fbfilter : events">
         <md-content>
             <div class='title'>{{fe.name}}</div>
-            <md-button class='edit' ng-click="go('/dashboard/events/create/'+e.id+'/edit')">
-                Edit
+            <md-button class='edit' ng-click="createfb(fe)">
+                Create
             </md-button>
         </md-content>
     </md-card>

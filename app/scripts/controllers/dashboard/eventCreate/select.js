@@ -7,14 +7,11 @@
  * # EventCreateSelectCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scope, $User, $Event, $mdToast, $filter,Facebook) {
+angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scope, $User, $Event, $mdToast, $filter, Facebook) {
     $scope.setStep(0);
     $scope.events = [];
     $scope.unpublished = [];
     $scope.fbevents = [];
-    $scope.fbpublised = [];
-    $scope.fbunpublished = [];
-    $scope.fbonly = [];
     $scope.eventsPromise = $Event.getAll($scope.user.loginKey);
     $scope.eventsPromise.then(function (events) {
         //$mdToast.showSimple('success');
@@ -33,8 +30,8 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
         if (response.status === 'connected') {
             $User.getFacebookEvents($scope.user.facebookId, response.authResponse.accessToken).then(function (data) {
                     console.log(data);
-                    $scope.fbevents=data.data.data;
-                    console.log(JSON.stringify($scope.fbevents,null,' '));
+                    $scope.fbevents = data.data.data;
+                    console.log(JSON.stringify($scope.fbevents, null, ' '));
                 },
                 function (error) {
                     if (error.error) {
@@ -48,4 +45,51 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
                 });
         }
     });
+    $scope.createfb = function (e) {
+        var newe = {
+            owner: $scope.user.id,
+            facebookId: e.id,
+            location: e.place.name,
+            startDateTime: e.start_time,
+            endDateTime: e.end_time,
+            description: e.description,
+            title: e.name
+        };
+        var rv = $Event.create($scope.user.loginKey, newe);
+        rv.then(function (event) {
+            $mdToast.showSimple('Create Event: Successful');
+            $scope.go('/dashboard/events/create/' + event.id + '/edit');
+        }, function (error) {
+            if (error.error) {
+                $mdToast.showSimple('Create Event Error: ' + error.error);
+            } else if (error.data && error.data.message) {
+                $mdToast.showSimple('Create Event Error: ' + error.data.message);
+            } else {
+                $mdToast.showSimple('Create Event Error: Unknown');
+                console.log(error);
+            }
+        });
+    };
+});
+
+angular.module('mrtikitApp').filter('fbfilter', function () {
+    return function (input, events) {
+        var out = [];
+        console.log(events);
+        angular.forEach(input, function (event) {
+            var found = false;
+            var i=0;
+            for (i=0;i<events.length;i++) {
+                console.log(event.id,events[i].facebookId);
+                if (event.id == events[i].facebookId) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) {
+                out.push(event);
+            }
+        });
+        return out;
+    }
 });
