@@ -15,7 +15,7 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
     $scope.eventsPromise = $Event.getAll($scope.user.loginKey);
     $scope.eventsPromise.then(function (events) {
         //$mdToast.showSimple('success');
-        console.log(events);
+        //console.log(events);
         $scope.events = events;
         $scope.unpublished = $filter('filter')(events, {
             published: false
@@ -25,11 +25,10 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
         console.log(error);
     });
     Facebook.getLoginStatus(function (response) {
-        console.log(response.authResponse.accessToken);
+        //console.log(response.authResponse.accessToken);
 
         if (response.status === 'connected') {
             $User.getFacebookEvents($scope.user.facebookId, response.authResponse.accessToken).then(function (data) {
-                    console.log(data);
                     $scope.fbevents = data.data.data;
                     console.log(JSON.stringify($scope.fbevents, null, ' '));
                 },
@@ -75,12 +74,10 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
 angular.module('mrtikitApp').filter('fbfilter', function () {
     return function (input, events) {
         var out = [];
-        console.log(events);
         angular.forEach(input, function (event) {
             var found = false;
             var i=0;
             for (i=0;i<events.length;i++) {
-                console.log(event.id,events[i].facebookId);
                 if (event.id == events[i].facebookId) {
                     found = true;
                     break;
