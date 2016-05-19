@@ -99,9 +99,29 @@ module.exports = {
       message: 'Ticket could not be created',
       status: 401
     },
+    SAILS_MYSQL_TRANSACTION_NOT_CREATED: {
+      code: 'E_SAILS_MYSQL_TRANSACTION_NOT_CREATED',
+      message: 'MySQL transaction could not be executed',
+      status: 401
+    },
     TRANSACTION_NOT_CREATED: {
       code: 'E_TRANSACTION_NOT_CREATED',
       message: 'Transaction could not be executed',
+      status: 401
+    },
+    TRANSACTION_NOT_FOUND: {
+      code: 'E_TRANSACTION_NOT_FOUND',
+      message: 'Transaction for user could not be found.',
+      status: 401
+    },
+    TRANSACTION_NOT_UPDATED: {
+      code: 'E_TRANSACTION_NOT_UPDATED',
+      message: 'Transaction could not be updated.',
+      status: 401
+    },
+    QTY_TICKETS_NOT_AVAIL: {
+      code: 'E_QTY_TICKETS_NOT_AVAIL',
+      message: 'Number of tickets specified for purchase not available.',
       status: 401
     },
   }
