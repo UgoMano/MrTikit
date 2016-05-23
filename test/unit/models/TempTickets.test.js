@@ -10,7 +10,7 @@ const newTempTickets = {
 };
 
 describe('models:TempTickets', () => {
- it('Should create new ticket type', done => {
+ it('Should create new temporary ticket', done => {
    TempTickets
      .create(newTempTickets)
      .then( tempTicket => {
@@ -22,13 +22,13 @@ describe('models:TempTickets', () => {
      .catch(done);
  });
 
- it('Should remove ticket type', done => {
+ it('Should remove temporary ticket', done => {
    TempTickets
      .destroy({event: newTempTickets.event, name: newTempTickets.name})
      .then(TempTickets => {
-       assert.equal(TempTickets[0].event, newEvent.event);
-       assert.equal(TempTickets[0].user, newEvent.user);
-       assert.equal(TempTickets[0].ticketType, newTempTickets.ticketType);
+       assert.equal(TempTickets[0].event, null);
+       assert.equal(TempTickets[0].user, null);
+       assert.equal(TempTickets[0].ticketType, null);
        done();
      })
      .catch(done);
