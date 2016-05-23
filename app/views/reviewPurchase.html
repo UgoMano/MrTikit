@@ -9,7 +9,7 @@
         <md-card ng-repeat="ticket in tickets">
             <md-card-content>
                 <div class="info">{{ticket.id}}</div>
-                <md-button class="view">view</md-button>
+                <md-button class="view" ng-click="view(ticket.id)">view</md-button>
             </md-card-content>
         </md-card>
     </div>
