@@ -1948,6 +1948,23 @@ hr {
     padding: 100px;
   }
 }
+.app .reviewPurchase {
+  min-height: 500px;
+}
+.app .reviewPurchase .loading {
+  text-align: center;
+  padding-top: 150px;
+}
+.app .reviewPurchase .tickets {
+  height: 50px;
+  line-height: 50px;
+}
+.app .reviewPurchase .tickets .info {
+  display: inline;
+}
+.app .reviewPurchase .tickets .view {
+  float: right;
+}
 .dashboard {
   height: 100%;
 }
