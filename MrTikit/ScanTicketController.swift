@@ -11,15 +11,32 @@ import SwiftyJSON
 import AVFoundation
 
 class ScanTicketController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    @IBOutlet var qrView : UIView!
+    @IBOutlet var scannBtn : UIButton!
+    @IBOutlet var ticketName: UILabel!
+    @IBOutlet var ticketSection: UILabel!
+    @IBOutlet var successImage: UIImageView!
+    @IBOutlet var failImage: UIImageView!
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var myEvent: JSON!
+    var myEvent: String!
+    var loginKey: String!
     
+    var isScanning:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.blackColor()
+        self.ticketName.text = ""
+        self.ticketSection.text = ""
+        scannBtn.hidden = true
+        
+        successImage.image = successImage.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        failImage.image = failImage.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+    }
+    
+    override func viewDidLayoutSubviews() {
         captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -50,12 +67,12 @@ class ScanTicketController: UIViewController, AVCaptureMetadataOutputObjectsDele
             return
         }
         
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
-        previewLayer.frame = view.layer.bounds;
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        view.layer.addSublayer(previewLayer);
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = qrView.layer.bounds
+        previewLayer.videoGravity = AVLayerVideoGravityResize;
+        qrView.layer.addSublayer(previewLayer);
         
-        captureSession.startRunning();
+        captureSession.startRunning()
     }
     
     func failed() {
@@ -82,20 +99,50 @@ class ScanTicketController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-        captureSession.stopRunning()
         
-        if let metadataObject = metadataObjects.first {
-            let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject;
-            
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            foundCode(readableObject.stringValue);
+        if(self.isScanning == true) {
+            if let metadataObject = metadataObjects.first {
+                let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject;
+                
+                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                foundCode(readableObject.stringValue);
+                
+                scannBtn.hidden = false
+                self.isScanning = false
+            }
         }
-        
-        dismissViewControllerAnimated(true, completion: nil)
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     func foundCode(code: String) {
-        print(code)
+        //print(code)
+        //print(myEvent)
+        
+        Ticket.api.scan(code, eventId: myEvent, token: loginKey) { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not get ticket from server."
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                NSLog(result.description)
+                //self.ticketName
+                //NSLog("Got Ticket")
+                self.failImage.hidden = true
+                self.successImage.hidden = false
+                
+                self.ticketName.text = result["data"]["user"]["firstName"].string!.uppercaseFirst + " " + result["data"]["user"]["lastName"].string!.uppercaseFirst
+
+                self.ticketSection.text = "General Admission"
+                
+            }
+        }
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -104,5 +151,34 @@ class ScanTicketController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return .Portrait
+    }
+    
+    @IBAction func goBack(sender : AnyObject) {
+        //navigationController!.popViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func toggleScan(sender : AnyObject) {
+        if(self.isScanning == false) {
+            //Stop
+            scannBtn.hidden = true
+            self.isScanning = true
+        } else {
+            //Start
+            scannBtn.hidden = false
+            self.isScanning = false
+        }
+    }
+}
+
+extension String {
+    var first: String {
+        return String(characters.prefix(1))
+    }
+    var last: String {
+        return String(characters.suffix(1))
+    }
+    var uppercaseFirst: String {
+        return first.uppercaseString + String(characters.dropFirst())
     }
 }

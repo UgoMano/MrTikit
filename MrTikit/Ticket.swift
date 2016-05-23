@@ -89,14 +89,15 @@ class Ticket: Api {
         return
     }
     
-    func scan(scanId: String, token: String, completion: (success: Bool, result: JSON, error: String?) -> Void) {
+    func scan(scanId: String, eventId: String, token: String, completion: (success: Bool, result: JSON, error: String?) -> Void) {
         let headers = [
             "Content-Type": "application/json",
             "Authorization": "JWT " + token
         ]
         
         let parameters = [
-            "ticketScanId": scanId
+            "ticketScanId": scanId,
+            "eventId": eventId
         ]
         
         let req = Alamofire.request(.POST, "http://54.69.160.45:8000/v1/tickets/scanTicket", headers: headers, parameters: parameters, encoding: .JSON).validate()

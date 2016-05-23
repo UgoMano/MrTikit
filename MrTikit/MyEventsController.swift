@@ -87,8 +87,8 @@ class MyEventsController: UITableViewController {
         if (segue.identifier == "scanTicket") {
             let navVC = segue.destinationViewController as! UINavigationController
             let scanTicket = navVC.viewControllers.first as! ScanTicketController
-            
-            scanTicket.myEvent = selected
+            scanTicket.myEvent = String(selected["id"].int!)
+            scanTicket.loginKey = loginKey
         }
     }
     

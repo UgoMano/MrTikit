@@ -21,6 +21,12 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
         
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
+            let loginView : FBSDKLoginButton = FBSDKLoginButton()
+            self.view.addSubview(loginView)
+            loginView.center = self.view.center
+            loginView.readPermissions = ["public_profile", "email", "user_friends"]
+            loginView.delegate = self
+            
             // User is already logged in, do work such as go to next view controller.
             NSLog(FBSDKAccessToken.currentAccessToken().tokenString)
             User.api.facebookLogin(FBSDKAccessToken.currentAccessToken().tokenString) { (success, result, error) -> Void in
@@ -58,7 +64,7 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
             loginView.delegate = self
         }
         
-        /*
+        
         User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
             if (!success) {
                 // Error - show the user
@@ -83,7 +89,7 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 self.performSegueWithIdentifier("home", sender: self)
             }
-        }*/
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,10 +98,9 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     // Facebook Delegate Methods
-    
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print("User Logged In")
-        NSLog(FBSDKAccessToken.currentAccessToken().tokenString)
+        //NSLog(FBSDKAccessToken.currentAccessToken().tokenString)
         
         if ((error) != nil)
         {
@@ -105,11 +110,34 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
             // Handle cancellations
         }
         else {
-            // If you ask for multiple permissions at once, you
-            // should check if specific permissions missing
-            if result.grantedPermissions.contains("email")
-            {
-                // Do work
+            NSLog("Got User")
+            
+            // User is already logged in, do work such as go to next view controller.
+            NSLog(FBSDKAccessToken.currentAccessToken().tokenString)
+            User.api.facebookLogin(FBSDKAccessToken.currentAccessToken().tokenString) { (success, result, error) -> Void in
+                if (!success) {
+                    // Error - show the user
+                    let errorTitle = "Could not login to server." //to sever
+                    if let error = error {
+                        NSLog(error)
+                    }
+                    else {
+                        NSLog(errorTitle)
+                    }
+                }
+                else {
+                    //self.contact = result
+                    //NSLog(result.description)
+                    
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    
+                    defaults.setValue(result.stringValue, forKey: "user")
+                    defaults.setValue(result["data"]["token"].string!, forKey: "loginKey")
+                    
+                    defaults.synchronize()
+                    
+                    self.performSegueWithIdentifier("home", sender: self)
+                }
             }
         }
     }
@@ -138,16 +166,6 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
             }
         })
     }
-    
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!){
-        if (segue.identifier == "home") {
-            let reveal = segue.destinationViewController as! SWRevealViewController
-            let menu = reveal.rearViewController as! MenuController
-            
-            menu.loginKey = ""
-            menu.user = nil
-        }
-    }*/
     
     //Actions
     @IBAction func login(sender: UIButton) {
