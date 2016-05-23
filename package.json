@@ -29,6 +29,7 @@
     "passport-yandex-token": "^2.1.0",
     "pluralize": "^1.2.1",
     "rc": "1.1.6",
+    "request": "^2.72.0",
     "sails": "0.11.4",
     "sails-disk": "^0.10.9",
     "sails-hook-cron": "^2.2.0",

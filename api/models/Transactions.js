@@ -8,55 +8,38 @@
 module.exports = {
 
   attributes: {
-  	event: {
-      model: 'Events',
-      required: true,
-    },
 
     user: {
       model: 'User',
-      required: true,
     },
 
-    ticket: {
-      model: 'Tickets',
+    event: {
+      model: 'Events',
     },
 
-/*    transactionType: {
-    	model: 'TransactionTypes',
-    	// required: true,
-    },*/
-
-    confirmationNumber: {
-    	type: 'string',
+    tempTickets: {
+      type: 'array',
+      defaultsTo: []
     },
 
-  },
+    payKey: {
+      type: 'string',
+    },
 
-  beforeValidate(values, next) {
-  	var eventId = values['event'];
-    var userId = values['user'];
-    var ticketId = values['ticket'];
-    //var transactionTypeId = value['transactionType'];
+    completed: {
+      type: 'boolean',
+      defaultsTo: false,
+    },
 
-    if(ticketId) {
-      Tickets.findOne({id: ticketId}, function (err, ticket) {
-        if(err || !ticket) return next(sails.config.additionals.TICKET_NOT_FOUND);
-        Events.findOne({id: eventId}, function (err, event) {
-          if (err || !event) return next(sails.config.additionals.EVENT_NOT_FOUND);
-          User.findOne({id: userId}, function (err, user) {
-            if(err || !user) return next(sails.config.additionals.USER_NOT_FOUND);
-            return next();
-          });
-        });
-      });
+    tickets: {
+      type: 'array',
+      defaultsTo: []
+    },
+
+    remoteUrl: {
+      type: 'string',
     }
 
-
-/*    TransactionTypes.findOne(transactionTypeId, function(err, transactionType) {
-    	if(err || !transactionType) return next(sails.config.additionals.TRANSACTION_TYPE_NOT_FOUND);
-    	return next();
-    });*/
   },
 
 };
