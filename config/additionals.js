@@ -89,6 +89,56 @@ module.exports = {
       message: 'Total tickets in the system exceeds max tickets allowed',
       status: 401
     },
+    TEMP_TICKET_NOT_CREATED: {
+      code: 'E_TEMP_TICKET_NOT_CREATED',
+      message: 'TempTicket could not be created',
+      status: 401
+    },
+    TICKET_NOT_CREATED: {
+      code: 'E_TICKET_NOT_CREATED',
+      message: 'Ticket could not be created',
+      status: 401
+    },
+    SAILS_MYSQL_TRANSACTION_NOT_CREATED: {
+      code: 'E_SAILS_MYSQL_TRANSACTION_NOT_CREATED',
+      message: 'MySQL transaction could not be executed',
+      status: 401
+    },
+    TRANSACTION_NOT_CREATED: {
+      code: 'E_TRANSACTION_NOT_CREATED',
+      message: 'Transaction could not be created',
+      status: 401
+    },
+    TRANSACTION_NOT_FOUND: {
+      code: 'E_TRANSACTION_NOT_FOUND',
+      message: 'Transaction for user could not be found.',
+      status: 401
+    },
+    TRANSACTION_NOT_UPDATED: {
+      code: 'E_TRANSACTION_NOT_UPDATED',
+      message: 'Transaction could not be updated.',
+      status: 401
+    },
+    QTY_TICKETS_NOT_AVAIL: {
+      code: 'E_QTY_TICKETS_NOT_AVAIL',
+      message: 'Number of tickets specified for purchase not available.',
+      status: 401
+    },
+    PAYPAL_SERVER_ERROR: {
+      code: 'E_PAYPAL_SERVER_ERROR',
+      message: 'Error communicating with the paypal server',
+      status: 401
+    }, 
+    PAYPAL_PAYMENT_NOT_COMPLETED: {
+      code: 'E_PAYPAL_PAYMENT_NOT_COMPLETED',
+      message: 'The payapl transaction has not been completed.',
+      status: 401
+    }, 
+    PAYPAL_PAYMENT_NOT_CREATED: {
+      code: 'E_PAYPAL_PAYMENT_NOT_CREATED',
+      message: 'The payapl transaction has not been created.',
+      status: 401
+    }, 
   }
 };
 

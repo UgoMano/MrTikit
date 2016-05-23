@@ -43,6 +43,7 @@ module.exports = {
                             title: ticket.event.title,
                             startDateTime: ticket.event.startDateTime,
                             endDateTime: ticket.event.endDateTime,
+                            // add location
                         },
                     };
 

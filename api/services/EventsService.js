@@ -1,5 +1,8 @@
 // EventsService.js - in api/services
 
+
+var Transaction = require('sails-mysql-transactions').Transaction;
+
 module.exports = {
 
 	getNumAvailTickets: function(eventId) {
@@ -23,48 +26,6 @@ module.exports = {
 			});
 	},
 
-	holdTicket: function(eventId, userId, ticketTypeId) {
-		return TicketTypesService.getNumAvailTickets(ticketTypeId, eventId)
-            .then(function (numTickets) {
-                if (numTickets == 0) return sails.config.additionals.TICKET_TYPE_NOT_AVAILABLE;
-
-                return TempTickets.create({
-                    event: eventId,
-                    user: userId,
-                    ticketType: ticketTypeId,
-                });
-
-            });
-	},
-
-	purchaseTicket: function(tempTicketId, transactionTypeId, confirmationNumber) {
-		return TempTickets.findOne({ id: tempTicketId })
-            .then(function (tempTicket) {
-                if(!tempTicket) return sails.config.additionals.TEMP_TICKET_NOT_FOUND;
-                
-                var userId = tempTicket.user;
-                var eventId = tempTicket.event;
-                var ticketTypeId =tempTicket.ticketType;
-                var transaction = Transactions.create({
-                	event: eventId,
-                	user: userId,
-                	confirmationNumber: confirmationNumber,
-                });
-
-                var ticket = Tickets.create({
-                    event: eventId,
-                    user: userId,
-                    ticketType: ticketTypeId,
-                    //transactionType: transactionTypeId,
-                    });
-                Transactions.update({id: transaction.id}, {ticket: ticket.id});
-                TempTickets.destroy({ id: tempTicketId }).exec(function(err) {
-                    if(err) return sails.config.additionals.TEMP_TICKET_DELETE_ERROR;
-                });
-                return ticket;                    
-            });
-	},
-
     getAllAttendees: function(eventId) {
         return TicketsService.getTicketsByEvent(eventId)
             .then(function(tickets) {
@@ -82,6 +43,52 @@ module.exports = {
                     });
                     return allNames;
                 });
+            });
+    },
+
+    getPublishedEvents: function() { 
+        return Events.find({published: true})
+            .then(function (publishedEvents) {
+                var allPublishedEventObjects = [];
+                _.each(publishedEvents, function(event) {
+                    var eventObject = {
+                        id: event.id,
+                        title: event.title,
+                        description: event.description,
+                        location: event.location,
+                        startDateTime: event.startDateTime,
+                        endDateTime: event.endDateTime,
+                        category: event.category,
+                        owner: event.owner
+                    };
+
+                    allPublishedEventObjects.push(event);
+                });
+                return allPublishedEventObjects;
+            })
+    },
+
+    getPublishedEvent: function(eventId) {
+        return Events.findOne({id: eventId, published: true})
+            .then(function (event) {
+                var eventObject = {
+                    id: event.id,
+                    title: event.title,
+                    description: event.description,
+                    location: event.location,
+                    startDateTime: event.startDateTime,
+                    endDateTime: event.endDateTime,
+                    category: event.category,
+                    owner: event.owner
+                };
+                return eventObject;
+            });
+    },
+
+    getUserOwnedEvents: function(userId) {
+        return Events.find({ownder: userId})
+            .then(function (events) {
+                return events;
             });
     },
     
