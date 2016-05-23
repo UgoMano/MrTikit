@@ -2280,8 +2280,14 @@ hr {
 .dashboard .eventCreate .eventCreateCard md-input-container .eventLocation {
   width: 200px;
 }
+.dashboard .eventCreate .eventCreateCard md-input-container .eventDescription {
+  width: 400px;
+}
 .dashboard .eventCreate .eventCreateCard md-input-container .eventTime {
   width: 121px;
+}
+.dashboard .eventCreate .eventCreateCard md-input-container .paypal {
+  width: 200px;
 }
 .dashboard .eventCreate .eventCreateCard .endDateTimeContainer md-input-container,
 .dashboard .eventCreate .eventCreateCard .startDateTimeContainer md-input-container {

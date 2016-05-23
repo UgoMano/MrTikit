@@ -7,15 +7,20 @@
  * # ReviewPurchaseCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('ReviewPurchaseCtrl', function ($scope,$timeout,$window) {
+angular.module('mrtikitApp').controller('ReviewPurchaseCtrl', function ($scope, $timeout, $window, $location, $Event) {
     $scope.loadComplete = false;
     $scope.tickets = [];
-    $timeout(function() {
+    $scope.trans = $location.search().trans;
+    var finalizePurchase = $Event.purchaseTicket($scope.user.loginKey, $scope.trans);
+    finalizePurchase.then(function (data) {
+        console.log(data);
+        $scope.tickets = data;
         $scope.loadComplete = true;
-        $scope.tickets = [{id:1,},{id:2}];
-    
-    },500);
-    $scope.view = function(id) {
-        $window.open("/myTickets/"+id+"/view", '_blank');
+        $location.search('trans',null);
+    }, function (error) {
+        console.log(error);
+    });
+    $scope.view = function (id) {
+        $window.open("/myTickets/" + id + "/view", '_blank');
     }
 });
