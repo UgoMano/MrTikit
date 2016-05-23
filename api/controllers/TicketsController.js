@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-
     scanTicket: function (req, res) {
         TicketsService.scanTicket(req.body.ticketScanId, req.body.eventId)
             .then(function (data) {
@@ -27,11 +26,10 @@ module.exports = {
 
     getUserTickets: function (req, res) {
         TicketsService.getTicketsByUserId(req.user.id)
-            .then(function(data) {
+            .then(function (data) {
                 return res.json({
                     data: data,
                 });
             }).catch(res.negotiate);
-    },
+    }
 };
-
