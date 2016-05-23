@@ -5,7 +5,7 @@
  * @description :: Server-side logic for managing Events
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+var request = require('request');
 var SailsMysqlTransaction = require('sails-mysql-transactions').Transaction;
 
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
                 return next(sails.config.additionals.SAILS_MYSQL_TRANSACTION_NOT_CREATED);
             }
 
-            TicketTypes.transact(mysqltransaction).findOne({id: ticketTypeId}).exec(function (err, ticketType) {
+            TicketTypes.transact(mysqltransaction).findOne({id: ticketTypeId}).populate('event').exec(function (err, ticketType) {
                 if (err || !ticketType) {
                     mysqltransaction.rollback();
                     return next(sails.config.additionals.TICKET_TYPE_NOT_FOUND);
@@ -97,15 +97,50 @@ module.exports = {
                                         return next(sails.config.additionals.TRANSACTION_NOT_CREATED);
                                     }
 
-                                    mysqltransaction.commit();
-                                    return res.ok({
-                                        data: transactionObject,
-                                    });
-                                });                                                          
+                                    //Update amount
+                                    var eventPaypalEmail = ticketType.event.paypalEmail;
+                                    var transactionAmount = ticketType.price * ticketQty;
+
+                                    var pp = PayPalService.createPayment(transactionAmount, 1, eventPaypalEmail, transactionObject.id);
+
+                                    request.post(pp, function (err, httpResponse, body) {
+                                        if (err) {
+                                            res.badRequest("Error: " + err);
+                                            mysqltransaction.rollback();
+                                            return next(sails.config.additionals.PAYPAL_SERVER_ERROR);
+                                        }
+                                        var paypalPaymentData = {
+                                            payKey: body.payKey,
+                                            remoteUrl: "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=",
+                                        }
+
+                                        if(body.error) {
+                                            mysqltransaction.rollback();
+                                            return next(sails.config.additionals.TEMP_TICKET_NOT_CREATED, body);
+                                            //res.badRequest(paypalPaymentData);
+                                        } else {
+                                            //res.ok(data);
+                                            Transactions.transact(mysqltransaction).update({ id: transactionObject.id },
+                                            {
+                                                payKey: paypalPaymentData.payKey,
+                                                remoteUrl: paypalPaymentData.remoteUrl,
+                                            }).exec(function (err, updatedTransaction) {
+                                                if( err || !updatedTransaction ) {
+                                                    mysqltransaction.rollback();
+                                                    return next(sails.config.additionals.TRANSACTION_NOT_UPDATED);
+                                                }
+
+                                                mysqltransaction.commit();
+                                                return res.ok({
+                                                    data: updatedTransaction,
+                                                });
+                                            });
+                                        }
+                                    });     
+                                });                                                                                     
                             });
                         }
                     });
-
                 });
             });
         });
@@ -150,70 +185,79 @@ module.exports = {
                         ticketObjects.push(ticketObjectForCreate);
                     });
 
-                    Tickets.transact(mysqltransaction).create(ticketObjects).exec(function (err, tickets) {
-                        if ( err || !tickets) {
+                    var pp = PayPalService.getPaymentDetails(transactionObject.payKey);
+
+                    request.post(pp, function (err, httpResponse, body) {
+                        if (err) {
+                            //res.badRequest("Error: " + err);
                             mysqltransaction.rollback();
-                            return next(sails.config.additionals.TICKET_NOT_CREATED);
+                            return next(sails.config.additionals.PAYPAL_SERVER_ERROR);
                         }
 
-                        Transactions.transact(mysqltransaction).update({ id: transactionId, user: userId },
-                        {
-                            tempTickets: [],
-                            tickets: tickets,
-                            completed: true,
-                        }).exec(function (err, updatedTransaction) {
-                            if( err || !updatedTransaction ) {
-                                mysqltransaction.rollback();
-                                return next(sails.config.additionals.TRANSACTION_NOT_UPDATED);
+                        //We'll need to parse this response and just return if its good or not.
+                        if(body.error) {
+                            //res.badRequest(body);
+                            //console.log(body);
+                            mysqltransaction.rollback();
+                            return next(sails.config.additionals.PAYPAL_PAYMENT_NOT_CREATED);
+                        } else {
+                            var paypalPaymentResponse = {
+                                status: body.status,
                             }
 
-                            var tempTicketsToDelete = [];
-                            _.each(tempTicketIds, function(tempTicketId) {
-                                tempTicketsToDelete.push(tempTicketId);
-                            });
+                            if(paypalPaymentResponse.status === "COMPLETED") {
+                                Tickets.transact(mysqltransaction).create(ticketObjects).exec(function (err, tickets) {
+                                    if ( err || !tickets) {
+                                        mysqltransaction.rollback();
+                                        return next(sails.config.additionals.TICKET_NOT_CREATED);
+                                    }
 
-                            TempTickets.destroy({ id: tempTicketsToDelete }).exec(function (err) {
-                                if (err) {
-                                    mysqltransaction.rollback();
-                                    return next(sails.config.additionals.TEMP_TICKET_DELETE_ERROR);
-                                }
+                                    Transactions.transact(mysqltransaction).update({ id: transactionId, user: userId },
+                                    {
+                                        tempTickets: [],
+                                        tickets: tickets,
+                                        completed: true,
+                                    }).exec(function (err, updatedTransaction) {
+                                        if( err || !updatedTransaction ) {
+                                            mysqltransaction.rollback();
+                                            return next(sails.config.additionals.TRANSACTION_NOT_UPDATED);
+                                        }
 
-                                mysqltransaction.commit();
-                                res.json({
-                                    data: updatedTransaction,
+                                        var tempTicketsToDelete = [];
+                                        _.each(tempTicketIds, function(tempTicketId) {
+                                            tempTicketsToDelete.push(tempTicketId);
+                                        });
+
+                                        TempTickets.destroy({ id: tempTicketsToDelete }).exec(function (err) {
+                                            if (err) {
+                                                mysqltransaction.rollback();
+                                                return next(sails.config.additionals.TEMP_TICKET_DELETE_ERROR);
+                                            }
+
+                                            mysqltransaction.commit();
+                                            res.json({
+                                                data: updatedTransaction,
+                                            });
+                                        });
+                                    });
                                 });
-                            });
-                        });
-
-/*
-                        TempTickets.transact(mysqltransaction).destroy(tempTickets).exec(function (err) {
-                            if (err) {
+                            } else {
                                 mysqltransaction.rollback();
-                                return next(sails.config.additionals.TEMP_TICKET_DELETE_ERROR);
+                                return next(sails.config.additionals.PAYPAL_PAYMENT_NOT_COMPLETED);
+
                             }
 
-                            Transactions.transact(mysqltransaction).update({ id: transactionId, user: userId }, 
-                            { 
-                                tempTickets: [],
-                                tickets: tickets,
-                                completed: true,
-                            }).exec(function (err, updatedTransaction) {
-                                if( err || !updatedTransaction ) {
-                                    mysqltransaction.rollback();
-                                    return next(sails.config.additionals.TRANSACTION_NOT_UPDATED);
-                                }
 
-                                mysqltransaction.commit();
-                                res.json({
-                                    data: updatedTransaction
-                                });
-                            });
-                        });*/
+                            //res.ok(data);
+                        }
                     });
                 });
             });                 
         });
     },
+
+
+
 
 	getAllAttendees: function (req, res) {
 		EventsService.getAllAttendees(req.body.eventId)

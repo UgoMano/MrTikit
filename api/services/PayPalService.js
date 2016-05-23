@@ -1,8 +1,12 @@
 // EventsService.js - in api/services
 var Transaction = require('sails-mysql-transactions').Transaction;
-
+var mrtikitPercentage = .05;
 module.exports = {
-    createPayment: function (amount, event) {
+    createPayment: function (amount, event, eventPaypalEmail, transactionId) {
+        //Calculate percent for mrtikit
+        var mrtikitFee = mrtikitPercentage * amount;
+
+        //get event manager email for primary reciever
         var options = {
             method: 'POST',
             url: 'https://svcs.sandbox.paypal.com/AdaptivePayments/Pay',
@@ -27,12 +31,12 @@ module.exports = {
                 memo: 'Example',
                 receiverList: {
                     receiver: [{
-                            amount: 20,
-                            email: 'eventManager@mrtikit.com',
+                            amount: amount,
+                            email: eventPaypalEmail,
                             primary: true
                         },
                         {
-                            amount: 1,
+                            amount: mrtikitFee,
                             email: 'mrtikit@mrtikit.com',
                             primary: false
                         }]
@@ -40,8 +44,8 @@ module.exports = {
                 requestEnvelope: {
                     errorLanguage: 'en_US'
                 },
-                returnUrl: 'http://mrtikit.com/Success',
-                cancelUrl: 'http://mrtikit.com/Fail'
+                returnUrl: 'http://mrtikit.com/reviewPurchase?trans=' + transactionId,
+                cancelUrl: 'http://mrtikit.com/reviewPurchase'
             },
             json: true
         };

@@ -36,6 +36,10 @@ module.exports = {
       defaultsTo: []
     },
 
+    remoteUrl: {
+      type: 'string',
+    }
+
   },
 
 };

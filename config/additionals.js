@@ -106,7 +106,7 @@ module.exports = {
     },
     TRANSACTION_NOT_CREATED: {
       code: 'E_TRANSACTION_NOT_CREATED',
-      message: 'Transaction could not be executed',
+      message: 'Transaction could not be created',
       status: 401
     },
     TRANSACTION_NOT_FOUND: {
@@ -124,6 +124,21 @@ module.exports = {
       message: 'Number of tickets specified for purchase not available.',
       status: 401
     },
+    PAYPAL_SERVER_ERROR: {
+      code: 'E_PAYPAL_SERVER_ERROR',
+      message: 'Error communicating with the paypal server',
+      status: 401
+    }, 
+    PAYPAL_PAYMENT_NOT_COMPLETED: {
+      code: 'E_PAYPAL_PAYMENT_NOT_COMPLETED',
+      message: 'The payapl transaction has not been completed.',
+      status: 401
+    }, 
+    PAYPAL_PAYMENT_NOT_CREATED: {
+      code: 'E_PAYPAL_PAYMENT_NOT_CREATED',
+      message: 'The payapl transaction has not been created.',
+      status: 401
+    }, 
   }
 };
 
