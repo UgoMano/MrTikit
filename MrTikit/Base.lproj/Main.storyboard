@@ -100,7 +100,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="NiY-7B-i28"/>
                                 </constraints>
-                                <color key="textColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -145,6 +145,12 @@
                                     <rect key="frame" x="100" y="291" width="120" height="26"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bB5-Tq-ewa">
+                                <rect key="frame" x="184" y="47" width="232" height="178"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bB5-Tq-ewa" secondAttribute="height" multiplier="116:89" id="oKh-Nk-gJM"/>
+                                </constraints>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RgT-Pc-c2Z">
                                 <rect key="frame" x="35" y="254" width="530" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -152,19 +158,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="vqZ-QG-baU"/>
                                 </constraints>
-                                <color key="textColor" red="0.76078431369999999" green="0.23137254900000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="47" y="127" width="226" height="30"/>
                                 </variation>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bB5-Tq-ewa">
-                                <rect key="frame" x="184" y="47" width="232" height="178"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bB5-Tq-ewa" secondAttribute="height" multiplier="116:89" id="oKh-Nk-gJM"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
@@ -198,6 +198,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="s5b-C1-Nsi" id="5LQ-1T-0da"/>
                         <outlet property="loginButton" destination="Old-wT-UOJ" id="LVH-FQ-fb1"/>

@@ -65,7 +65,7 @@ class FancyLoginController: UIViewController {
     func loginButton(enabled: Bool) -> () {
         func enable(){
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                self.loginButton.backgroundColor = UIColor.colorWithHex("#33CC00", alpha: 1)
+                self.loginButton.backgroundColor = UIColor.colorWithHex("#C23B22", alpha: 1)
                 }, completion: nil)
             loginButton.enabled = true
         }
