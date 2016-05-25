@@ -22,6 +22,7 @@
 		20B262631CA9F0EE003D9ECA /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B262591CA9F0EE003D9ECA /* Lato-Light.ttf */; };
 		20B262641CA9F0EE003D9ECA /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B2625A1CA9F0EE003D9ECA /* Lato-LightItalic.ttf */; };
 		20B262651CA9F0EE003D9ECA /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B2625B1CA9F0EE003D9ECA /* Lato-Regular.ttf */; };
+		20BEC1C01CF359CD008F680B /* FanyLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEC1BF1CF359CD008F680B /* FanyLoginController.swift */; };
 		20E686C21CAC928D0025995D /* MyTicketsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E686C11CAC928D0025995D /* MyTicketsCellController.swift */; };
 		20E686C41CAC96E30025995D /* MyTicketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E686C31CAC96E30025995D /* MyTicketController.swift */; };
 		20E686C61CACA0070025995D /* MyEventsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E686C51CACA0070025995D /* MyEventsCellController.swift */; };
@@ -69,6 +70,7 @@
 		20B262591CA9F0EE003D9ECA /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../Downloads/Lato 2/Lato-Light.ttf"; sourceTree = "<group>"; };
 		20B2625A1CA9F0EE003D9ECA /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-LightItalic.ttf"; path = "../../../../Downloads/Lato 2/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		20B2625B1CA9F0EE003D9ECA /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../Downloads/Lato 2/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		20BEC1BF1CF359CD008F680B /* FanyLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanyLoginController.swift; sourceTree = "<group>"; };
 		20E686C11CAC928D0025995D /* MyTicketsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTicketsCellController.swift; sourceTree = "<group>"; };
 		20E686C31CAC96E30025995D /* MyTicketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTicketController.swift; sourceTree = "<group>"; };
 		20E686C51CACA0070025995D /* MyEventsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsCellController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				20B262391CA9E48F003D9ECA /* HelpSupportController.swift */,
 				20E686C31CAC96E30025995D /* MyTicketController.swift */,
 				204C977D1CB5C35A00B95122 /* LoginController.swift */,
+				20BEC1BF1CF359CD008F680B /* FanyLoginController.swift */,
 			);
 			path = MrTikit;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				20E686C81CACA54B0025995D /* Ticket.swift in Sources */,
 				20E686C21CAC928D0025995D /* MyTicketsCellController.swift in Sources */,
 				F491E7531A7F7DF20026528E /* MyTicketsController.swift in Sources */,
+				20BEC1C01CF359CD008F680B /* FanyLoginController.swift in Sources */,
 				F491E7551A7F7E010026528E /* MyEventsController.swift in Sources */,
 				20B262381CA9E31D003D9ECA /* ScanTicketController.swift in Sources */,
 				20E686C61CACA0070025995D /* MyEventsCellController.swift in Sources */,

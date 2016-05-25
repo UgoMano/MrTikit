@@ -48,7 +48,7 @@ class Event: Api {
             "Content-Type": "application/json",
             "Authorization": "JWT " + token
         ]
-        let req = Alamofire.request(.GET, "http://54.69.160.45:8000/v1/events", headers: headers, encoding: .JSON).validate()
+        let req = Alamofire.request(.GET, "http://54.69.160.45:8000/v1/management/getEvents", headers: headers, encoding: .JSON).validate()
         
         req.responseJSON {
             response in
