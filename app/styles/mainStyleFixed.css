@@ -1945,6 +1945,23 @@ hr {
     padding: 100px;
   }
 }
+.app .reviewPurchase {
+  min-height: 500px;
+}
+.app .reviewPurchase .loading {
+  text-align: center;
+  padding-top: 150px;
+}
+.app .reviewPurchase .tickets {
+  height: 50px;
+  line-height: 50px;
+}
+.app .reviewPurchase .tickets .info {
+  display: inline;
+}
+.app .reviewPurchase .tickets .view {
+  float: right;
+}
 .dashboard {
   height: 100%;
 }
@@ -2263,8 +2280,14 @@ hr {
 .dashboard .eventCreate .eventCreateCard md-input-container .eventLocation {
   width: 200px;
 }
+.dashboard .eventCreate .eventCreateCard md-input-container .eventDescription {
+  width: 400px;
+}
 .dashboard .eventCreate .eventCreateCard md-input-container .eventTime {
   width: 121px;
+}
+.dashboard .eventCreate .eventCreateCard md-input-container .paypal {
+  width: 200px;
 }
 .dashboard .eventCreate .eventCreateCard .endDateTimeContainer md-input-container,
 .dashboard .eventCreate .eventCreateCard .startDateTimeContainer md-input-container {

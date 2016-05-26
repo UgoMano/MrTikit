@@ -131,6 +131,11 @@ angular.module('mrtikitApp', [
         templateUrl: "views/myTicketsView.html",
         controller: 'MyTicketsViewCtrl'
     })
+    .state('app.reviewPurchase' , {
+        url: "reviewPurchase",
+        templateUrl: "views/reviewPurchase.html",
+        controller: 'ReviewPurchaseCtrl'
+    })
     
     .state('dashboard', {
         url: "/dashboard",
