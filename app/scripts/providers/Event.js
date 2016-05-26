@@ -243,7 +243,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
-    var holdTicket = function (tokenKey, event, ticketType) {
+    var holdTicket = function (tokenKey, event, ticketType, qty) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -269,6 +269,14 @@ factory('$Event', function ($http, $location, $timeout, $q) {
 
             return $q.reject(error);
         }
+        
+        if (!qty || qty == "") {
+            var error = {
+                error: "Please enter a qty"
+            }
+
+            return $q.reject(error);
+        }
 
         var req = {
             method: 'POST',
@@ -279,7 +287,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             },
             data: {
                 eventId: event,
-                ticketTypeId: ticketType
+                ticketTypeId: ticketType,
+                qty: qty
             }
         }
 
@@ -318,7 +327,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 'Authorization': "JWT " + tokenKey
             },
             data: {
-                transcationId: transactionId
+                transactionId: transactionId
                 
             }
         }
@@ -450,8 +459,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         publicGet: function (event) {
             return publicGet(event, "tokenKey");
         },
-        holdTicket: function (tokenKey, event, ticketType) {
-            return holdTicket(tokenKey, event, ticketType);
+        holdTicket: function (tokenKey, event, ticketType, qty) {
+            return holdTicket(tokenKey, event, ticketType, qty);
         },
         purchaseTicket: function (tokenKey, transactionId) {
             return purchaseTicket(tokenKey, transactionId);
