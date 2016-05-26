@@ -32,7 +32,7 @@
 
 
     <!-- Facebook API -->
-    <script src='//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=541547949359653'></script>
+    <!--<script src='//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=541547949359653'></script>-->
 
     <div style="height:100%" ui-view></div>
 
@@ -62,11 +62,11 @@
     <script src="lib/angular-qrcode/angular-qrcode.js"></script>
     <script src="lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
     <script src="lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    <script src="lib/angular-facebook/lib/angular-facebook.js"></script>
     <!-- End Bower Components -->
 
     <!-- scripts-->
     <script src="scripts/app.js"></script>
-    <script src="scripts/providers/backendProvider.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/error.js"></script>
@@ -85,7 +85,12 @@
     <script src="scripts/controllers/dashboard/about.js"></script>
     <script src="scripts/controllers/dashboard/home.js"></script>
     <script src="scripts/controllers/dashboard/myEvents.js"></script>
-    <script src="scripts/controllers/dashboard/eventCreate.js"></script>
+    <script src="scripts/controllers/dashboard/eventCreate/main.js"></script>
+    <script src="scripts/controllers/dashboard/eventCreate/new.js"></script>
+    <script src="scripts/controllers/dashboard/eventCreate/edit.js"></script>
+    <script src="scripts/controllers/dashboard/eventCreate/select.js"></script>
+    <script src="scripts/controllers/dashboard/eventCreate/ticketTypes.js"></script>
+    <script src="scripts/controllers/dashboard/eventCreate/publish.js"></script>
     <script src="scripts/controllers/dashboard/eventOverview.js"></script>
     <script src="scripts/controllers/dashboard/eventEdit.js"></script>
     <script src="scripts/controllers/dashboard/eventAttendees.js"></script>

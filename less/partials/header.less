@@ -27,6 +27,16 @@
             }
         }
     }
+    &.transparent {
+        position: absolute;
+        top: 0;
+        height: 2em;
+        width: 100%;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0);
+        margin-bottom: 0;
+        border-top: 5px solid @MT_PURPLE;
+    }
 }
 
 .content {
@@ -35,5 +45,7 @@
 }
 
 @media print {
-    .header {display: none;}
+    .header {
+        display: none;
+    }
 }

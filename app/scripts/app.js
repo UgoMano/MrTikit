@@ -20,7 +20,8 @@ angular.module('mrtikitApp', [
     'ngMaterial',
     'monospaced.qrcode',
     'uiGmapgoogle-maps',
-  ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    'facebook'
+  ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider, FacebookProvider) {
     $stateProvider
     .state('login', {
         url: "/login",
@@ -157,9 +158,38 @@ angular.module('mrtikitApp', [
     })
     
     .state('dashboard.eventCreate', {
+        abstract: true,
         url: "/events/create",
-        templateUrl: "views/dashboard/eventCreate.html",
+        templateUrl: "views/dashboard/eventCreate/main.html",
         controller: 'EventCreateCtrl'
+    })
+    
+    .state('dashboard.eventCreate.select', {
+        url: "",
+        templateUrl: "views/dashboard/eventCreate/select.html",
+        controller: 'EventCreateSelectCtrl'
+    })
+    .state('dashboard.eventCreate.new', {
+        url: "/new",
+        templateUrl: "views/dashboard/eventCreate/new.html",
+        controller: 'EventCreateNewCtrl'
+    })
+    .state('dashboard.eventCreate.edit', {
+        url: "/:eventId/edit",
+        templateUrl: "views/dashboard/eventCreate/new.html",
+        controller: 'EventCreateEditCtrl'
+    })
+    
+    .state('dashboard.eventCreate.ticketTypes', {
+        url: "/:eventId/ticketTypes",
+        templateUrl: "views/dashboard/eventCreate/ticketTypes.html",
+        controller: 'EventCreateTicketTypesCtrl'
+    })
+    
+    .state('dashboard.eventCreate.publish', {
+        url: "/:eventId/publish",
+        templateUrl: "views/dashboard/eventCreate/publish.html",
+        controller: 'EventCreatePublishCtrl'
     })
     
     .state('dashboard.eventOverview', {
@@ -224,7 +254,9 @@ angular.module('mrtikitApp', [
         }
     });
     $locationProvider.html5Mode(true);
-}).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event) {
+
+    FacebookProvider.init('541547949359653');
+}).run(function ($rootScope, $state, $http, $location, $window, $timeout, $cookieStore, $User, $Event, Facebook) {
     /*
     if (!$cookieStore.get("user") || !$cookieStore.get("loginKey")) {
         $location.path("/login");
@@ -241,6 +273,9 @@ angular.module('mrtikitApp', [
     }
     
     $rootScope.logout = function () {
+        Facebook.logout(function(response) {
+          // user is now logged out
+        });
         $cookieStore.remove('loginKey');
         $cookieStore.remove('user');
         $location.path("/login");

@@ -12,7 +12,7 @@ angular.module('mrtikitApp').controller('MyTicketsCtrl', function ($scope, $Tick
         $location.path('/login');
     } else {
         $scope.tickets = [];
-        $scope.ticketsPromise = $Ticket.getByUser($scope.user.loginKey, $scope.user.id);
+        $scope.ticketsPromise = $Ticket.getByUser($scope.user.loginKey);
         $scope.ticketsPromise.then(function (tickets) {
                 $scope.tickets = tickets;
                 $Event.get($scope.tickets[0].event, $scope.user.loginKey).then(function (event) {

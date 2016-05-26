@@ -1380,6 +1380,16 @@ hr {
 .app .header .nav a:hover {
   color: #e9eaed;
 }
+.app .header.transparent {
+  position: absolute;
+  top: 0;
+  height: 2em;
+  width: 100%;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0);
+  margin-bottom: 0;
+  border-top: 5px solid #8565c4;
+}
 .app .content {
   background-color: #e9eaed;
   margin-top: 55px;
@@ -1402,6 +1412,244 @@ hr {
   .app .footer {
     display: none;
   }
+}
+.app .landingpage .landingImage {
+  background: url(../images/landing.png) center no-repeat;
+  background-size: 100% 100%;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.app .landingpage .landingImage .landingOverlay {
+  height: 100%;
+  width: 100%;
+  padding-top: 40vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.app .landingpage .landingText {
+  color: #ffffff;
+  font: 60px / 26px 'Cookie';
+  text-align: center;
+  height: 1em;
+}
+.app .landingpage .appstore {
+  background: url(../images/appstore.png) center no-repeat;
+  height: 49px;
+  cursor: pointer;
+}
+.app .landingpage .googleplay {
+  background: url(../images/googleplay.png) center no-repeat;
+  height: 49px;
+  cursor: pointer;
+}
+.app .landingpage .landingButtonContainer {
+  bottom: 0;
+  position: absolute;
+}
+.app .landingpage .landingButton {
+  cursor: pointer;
+  text-align: center;
+  font-size: 16pt;
+  background-color: #c23b22;
+  color: #fff;
+  padding-top: .3em;
+  padding-bottom: .3em;
+  border-radius: .4em .4em 0 0;
+}
+.app .landingpage .center {
+  text-align: center;
+}
+.app .landingpage .section2 {
+  background-color: #fff;
+}
+.app .landingpage .calloutContainer {
+  display: block;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+.app .landingpage .callout {
+  height: 7.5em;
+  width: 100%;
+  padding-top: 1.9em;
+  background: url(../images/callout.png) no-repeat center;
+  font-size: 14px;
+}
+.app .landingpage .calloutIcon {
+  color: #fff;
+}
+.app .landingpage .calloutHeader {
+  font-family: 'Raleway';
+  font-weight: bold;
+  font-size: 22px;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+.app .landingpage .calloutText {
+  font-size: 16px;
+  color: #848484;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.app .landingpage .manage {
+  background: url(../images/manage.png) no-repeat center;
+  height: 26em;
+  background-size: 100% 100%;
+  background-color: #e9eaed;
+}
+.app .landingpage .manageContainer {
+  padding-left: 8em;
+  padding-right: 8em;
+  padding-top: 4.5em;
+}
+.app .landingpage .manageTitle {
+  font-family: 'Raleway';
+  font-size: 22px;
+  font-weight: bold;
+  color: #c23b22;
+  margin-bottom: 1em;
+  padding-right: 1.5em;
+}
+.app .landingpage .manageText {
+  font-family: 'Helvetica Neue';
+  color: #848484;
+  font-size: 16px;
+}
+.app .landingpage .tour {
+  background-color: #fff;
+  height: 40em;
+}
+.app .landingpage .tourHeader {
+  color: #c23b22;
+  font-family: 'Raleway';
+  font-size: 30px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  height: 3em;
+}
+.app .landingpage .tourTitle {
+  color: #c23b22;
+  font-family: 'Raleway';
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 2.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  height: 1.5em;
+}
+.app .landingpage .tourText {
+  color: #848484;
+  margin-left: 3.5em;
+  padding-right: 2em;
+  height: 10em;
+  font-size: 16px;
+}
+.app .landingpage .tourImage {
+  width: 73em;
+  margin-top: -3em;
+  margin-left: -4em;
+}
+.app .landingpage .tourButton {
+  cursor: pointer;
+  margin-top: 1em;
+  margin-left: 3em;
+  color: #fff;
+  background-color: #c23b22;
+  width: 10em;
+  padding: .5em;
+  text-align: center;
+  border-radius: .4em;
+}
+.app .landingpage .tourCount {
+  color: #848484;
+  margin-left: 3em;
+  margin-top: 1em;
+}
+.app .landingpage .tourControlContainer {
+  color: #848484;
+  margin-left: 3em;
+  margin-top: .5em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.app .landingpage .tourControl {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: .4em;
+}
+.app .landingpage .subscribe {
+  background: url(../images/subscribe.png) no-repeat center;
+  background-size: 100% 100%;
+  padding-top: 11em;
+  padding-bottom: 11em;
+}
+.app .landingpage .subscribeText {
+  color: #fff;
+  font-family: 'Raleway';
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 1em;
+}
+.app .landingpage .subscribeInputContainer {
+  padding-left: 2em;
+  padding-right: 2em;
+  line-height: 40px;
+  text-align: center;
+}
+.app .landingpage .subscribeInput {
+  border: 0;
+  height: 40px;
+  padding-left: 20px;
+  font-size: 20px;
+  border-radius: 5px 0 0 5px;
+}
+.app .landingpage .subscribeButton {
+  background-color: #c23b22;
+  border: 0;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -4px;
+  border-radius: 0 4px 4px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.app .landingpage .subscribeButton .subscribeIcon {
+  color: #fff;
+  font-size: 20px;
+}
+.app .eventsPage .event {
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.app .eventsPage .event .attribute {
+  display: inline;
+  margin-right: 10px;
+}
+.app .eventsPage .event .title {
+  width: 200px;
+}
+.app .eventsPage .event .location {
+  width: 100px;
+}
+.app .eventsPage .event .date {
+  width: 100px;
+}
+.app .eventsPage .event .viewButton {
+  background-color: #c23b22;
+  color: #fff;
+  border: 0;
+  margin-top: 5px;
+  height: 40px;
+  width: 50px;
+  line-height: 40px;
+  border-radius: 5px;
+  float: right;
 }
 .app .eventPage .homePage {
   padding: 15px;
@@ -1992,35 +2240,126 @@ hr {
 .dashboard .eventOverviewContainer .ticketTypesCard .ticketType .ticketTypeName {
   width: 100px;
 }
-.dashboard .eventCreateCard {
+.dashboard .eventCreate .eventCreateCard {
   color: #848484;
 }
-.dashboard .eventCreateCard label {
+.dashboard .eventCreate .eventCreateCard label {
   color: #848484;
 }
-.dashboard .eventCreateCard h1,
-.dashboard .eventCreateCard h3 {
+.dashboard .eventCreate .eventCreateCard h1,
+.dashboard .eventCreate .eventCreateCard h3 {
   color: #848484;
 }
-.dashboard .eventCreateCard h3 {
+.dashboard .eventCreate .eventCreateCard h3 {
   margin-left: 10px;
 }
-.dashboard .eventCreateCard md-input-container {
+.dashboard .eventCreate .eventCreateCard md-input-container {
   display: block;
   margin-left: 61px;
 }
-.dashboard .eventCreateCard md-input-container .eventTitle {
+.dashboard .eventCreate .eventCreateCard md-input-container .eventTitle {
   width: 200px;
 }
-.dashboard .eventCreateCard md-input-container .eventLocation {
+.dashboard .eventCreate .eventCreateCard md-input-container .eventLocation {
   width: 200px;
 }
-.dashboard .eventCreateCard md-input-container .eventTime {
+.dashboard .eventCreate .eventCreateCard md-input-container .eventTime {
   width: 121px;
 }
-.dashboard .eventCreateCard .endDateTimeContainer md-input-container,
-.dashboard .eventCreateCard .startDateTimeContainer md-input-container {
+.dashboard .eventCreate .eventCreateCard .endDateTimeContainer md-input-container,
+.dashboard .eventCreate .eventCreateCard .startDateTimeContainer md-input-container {
   margin-left: 61px;
+}
+.dashboard .eventCreate .select {
+  color: #848484;
+  padding-left: 10px;
+}
+.dashboard .eventCreate .select .scratch {
+  background-color: #c23b22;
+  color: #fff;
+}
+.dashboard .eventCreate .select .noEvent {
+  padding-left: 10px;
+}
+.dashboard .eventCreate .select .event md-content {
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  line-height: 50px;
+}
+.dashboard .eventCreate .select .event md-content .title {
+  display: inline;
+  color: #848484;
+  font-weight: bold;
+}
+.dashboard .eventCreate .select .event md-content .edit {
+  float: right;
+  background-color: #c23b22;
+  color: #fff;
+}
+.dashboard .eventCreate .publish .publishButton {
+  background-color: #c23b22;
+  color: #fff;
+}
+.dashboard .eventCreate md-toolbar {
+  height: 100px;
+  line-height: 100px;
+  background-color: #c23b22;
+  display: inline-block;
+  text-align: center;
+}
+.dashboard .eventCreate md-toolbar .next {
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.dashboard .eventCreate md-toolbar .prev {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.dashboard .eventCreate md-toolbar .timeline {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+}
+.dashboard .eventCreate md-toolbar .timeline .step {
+  border: #848484 2px solid;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 20px;
+  color: #848484;
+  font-weight: bold;
+  display: inline-block;
+  background-color: white;
+}
+.dashboard .eventCreate md-toolbar .timeline .step.done {
+  background-color: #4AC948;
+}
+.dashboard .eventCreate md-toolbar .timeline .step.current {
+  background-color: #FFE303;
+}
+.dashboard .eventCreate md-toolbar .timeline .line {
+  height: 5px;
+  width: 100px;
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-left: -4px;
+  margin-right: -5px;
+  background-color: white;
+  border-bottom: #848484 1px solid;
+  border-top: #848484 1px solid;
+}
+.dashboard .eventCreate md-toolbar .timeline .line.done {
+  background-color: #4AC948;
+}
+.dashboard .eventCreate md-toolbar .timeline .line.current {
+  background-color: #FFE303;
 }
 .dashboard .eventEditCard {
   color: #848484;

@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the mrtikitApp
  */
-angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User) {
+angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User, Facebook, $Event, $mdToast) {
     //console.log('main')
     $rootScope.curEventId;
 
@@ -44,7 +44,7 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
     }
 
     if ($rootScope.user.loginType == "facebook") {
-        FB.getLoginStatus(function (response) {
+        Facebook.getLoginStatus(function (response) {
             if (response.status === 'connected') {
                 //console.log(response);
             } else {
@@ -102,7 +102,77 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
     $scope.isCurrent = function(state) {
         return $state.current.name === state;
     }
-    
+
+    //----------------------------------------------------------------------
+    //Below is the example of Facebook Provider
+    //It must happen inside of the getLoginStatus so that you can use ``response.authResponse.accessToken`` to get the token
+    //----------------------------------------------------------------------
+    Facebook.getLoginStatus(function(response) {
+        console.log(response.authResponse.accessToken);
+
+        if(response.status === 'connected') {
+            $User.getFacebookEvents($rootScope.user.facebookId, response.authResponse.accessToken).then(function (data) {
+                console.log(data);
+            },
+            function (error) {
+                if (error.error) {
+                    $mdToast.showSimple(error.error);
+                } else if (error.status == 401) {
+                    //$mdToast.showSimple(error.data.message);
+                    console.log(error);
+                } else {
+                    console.log(error);
+                }
+            });
+            
+            $Event.getFacebookFeed("1687771854795332", response.authResponse.accessToken).then(function (data) {
+                console.log(data);
+            },
+            function (error) {
+                if (error.error) {
+                    $mdToast.showSimple(error.error);
+                } else if (error.status == 401) {
+                    //$mdToast.showSimple(error.data.message);
+                    console.log(error);
+                } else {
+                    console.log(error);
+                }
+            });
+
+            /*
+            $Event.postFacebookFeed("1687771854795332", response.authResponse.accessToken, "Test provider").then(function (data) {
+                console.log(data);
+            },
+            function (error) {
+                if (error.error) {
+                    $mdToast.showSimple(error.error);
+                } else if (error.status == 401) {
+                    //$mdToast.showSimple(error.data.message);
+                    console.log(error);
+                } else {
+                    console.log(error);
+                }
+            });
+            */
+
+            $Event.getFacebookCoverPhoto("1687771854795332", response.authResponse.accessToken).then(function (data) {
+                console.log(data);
+            },
+            function (error) {
+                if (error.error) {
+                    $mdToast.showSimple(error.error);
+                } else if (error.status == 401) {
+                    //$mdToast.showSimple(error.data.message);
+                    console.log(error);
+                } else {
+                    console.log(error);
+                }
+            });
+            
+        }
+    });
+    //----------------------------------------------------------------------
+
 });
 
 /*

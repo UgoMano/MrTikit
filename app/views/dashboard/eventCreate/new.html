@@ -1,10 +1,13 @@
 <md-card class="eventCreateCard">
     <md-content layout-padding>
         <form>
-            <h1>Create Event</h1>
             <md-input-container>
                 <label>Event Title</label>
                 <input class="eventTitle" ng-model="event.title"></input>
+            </md-input-container>
+            <md-input-container>
+                <label>Event Description</label>
+                <textArea ng-model="event.description"></textArea>
             </md-input-container>
             <md-input-container>
                 <label>Event Location</label>
@@ -24,7 +27,8 @@
                     <input class="eventTime" ng-model="event.endTime" placeholder="Time" type="time"></input>
                 </md-input-container>
             </div>
-            <md-button ng-click="createEvent()">Create Event</md-button>
+            <md-button ng-if="!event.id" ng-click="createEvent()">Create Event</md-button>
+            <md-button ng-if="event.id" ng-click="updateEvent()">Save</md-button>
         </form>
     </md-content>
 </md-card>

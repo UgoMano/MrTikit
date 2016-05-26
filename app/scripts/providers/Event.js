@@ -49,7 +49,9 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
-                checkIn: event.checkIn
+                checkIn: event.checkIn,
+                facebookId: event.facebookId,
+                description: event.description
             }
         }
 
@@ -94,7 +96,9 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
-                checkIn: event.checkIn
+                checkIn: event.checkIn,
+                published: event.published,
+                description: event.description
             }
         }
 
@@ -119,6 +123,32 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         var req = {
             method: 'GET',
             url: SERVER_URL + "/v1/events",
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            }
+        }
+        var promise = $http(req).then(function (data) {
+            return data.data.data
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+    
+    var publicGetAll = function (tokenKey) {
+
+        if (!tokenKey || tokenKey == "") {
+            var error = {
+                error: "Not logged in"
+            }
+
+            return $q.reject(error);
+        }
+
+        var req = {
+            method: 'GET',
+            url: SERVER_URL + "/v1/consumer/getEvents/",
             headers: {
                 'Content-Type': "application/json",
                 'Authorization': "JWT " + tokenKey
@@ -167,8 +197,44 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         });
         return promise;
     }
+    
+    var publicGet = function (id, tokenKey) {
+        var promise = $q.defer();
 
-    var holdTicket = function (tokenKey, event, user, ticketType) {
+        if (!tokenKey || tokenKey == "") {
+            var error = {
+                error: "Not logged in"
+            }
+
+            return $q.reject(error);
+        }
+
+        if (!id || id == "") {
+            var error = {
+                error: "Please enter an event id"
+            }
+
+            return $q.reject(error);
+        }
+
+        var req = {
+            method: 'GET',
+            url: SERVER_URL + "/v1/events/" + id,
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': "JWT " + tokenKey
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data.data.data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
+    var holdTicket = function (tokenKey, event, ticketType) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -182,14 +248,6 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         if (!event || event == "") {
             var error = {
                 error: "Please enter an event id"
-            }
-
-            return $q.reject(error);
-        }
-
-        if (!user || user == "") {
-            var error = {
-                error: "Please enter a user"
             }
 
             return $q.reject(error);
@@ -212,7 +270,6 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             },
             data: {
                 eventId: event,
-                userId: user,
                 ticketTypeId: ticketType
             }
         }
@@ -282,6 +339,106 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
     
+    
+    var getFacebookFeed = function(eventId, fbToken) {
+        var promise = $q.defer();
+
+        if(!eventId || eventId == "") {
+            var error = {
+                error: "No Facbook Event ID"
+            }
+            
+            return $q.reject(error);
+        }
+
+        if(!fbToken || fbToken == "") {
+            var error = {
+                error: "No Facbook token"
+            }
+            
+            return $q.reject(error);
+        }
+        
+        var req = {
+            method: 'GET',
+            url: "https://graph.facebook.com/" + eventId + "/feed?access_token="+fbToken,
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
+    var postFacebookFeed = function(eventId, fbToken, message) {
+        var promise = $q.defer();
+
+        if(!eventId || eventId == "") {
+            var error = {
+                error: "No Facbook Event ID"
+            }
+            
+            return $q.reject(error);
+        }
+
+        if(!fbToken || fbToken == "") {
+            var error = {
+                error: "No Facbook token"
+            }
+            
+            return $q.reject(error);
+        }
+
+        if(!message || message == "") {
+            var error = {
+                error: "No message"
+            }
+            
+            return $q.reject(error);
+        }
+        
+        var req = {
+            method: 'POST',
+            url: "https://graph.facebook.com/" + eventId + "/feed?access_token="+fbToken,
+            data: {
+                message: message
+            }
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+
+    var getFacebookCoverPhoto = function(eventId, fbToken) {
+        var promise = $q.defer();
+
+        if(!eventId || eventId == "") {
+            var error = {
+                error: "No Facbook Event ID"
+            }
+            
+            return $q.reject(error);
+        }
+        
+        var req = {
+            method: 'GET',
+            url: "https://graph.facebook.com/" + eventId + "?fields=cover&access_token="+fbToken,
+        }
+
+        var promise = $http(req).then(function (data) {
+            return data;
+        }, function (error) {
+            return $q.reject(error);
+        });
+        return promise;
+    }
+    
     return {
         create: function (tokenKey, event) {
             return create(tokenKey, event);
@@ -296,16 +453,25 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             return get(tokenKey, event);
         },
         publicGetAll: function () {
-            return getAll("tokenKey");
+            return publicGetAll("tokenKey");
         },
         publicGet: function (event) {
-            return get(event, "tokenKey");
+            return publicGet(event, "tokenKey");
         },
-        holdTicket: function (tokenKey, event, user, ticketType) {
-            return holdTicket(tokenKey, event, user, ticketType);
+        holdTicket: function (tokenKey, event, ticketType) {
+            return holdTicket(tokenKey, event, ticketType);
         },
         purchaseTicket: function (tokenKey, tempTicketId) {
             return purchaseTicket(tokenKey, tempTicketId, "transactionTypeId", "confirmationNumber");
-        }
+        },
+        getFacebookFeed: function(eventId, fbToken) {
+            return getFacebookFeed(eventId, fbToken);
+        },
+        postFacebookFeed: function(eventId, fbToken, message) {
+            return postFacebookFeed(eventId, fbToken, message);
+        },
+        getFacebookCoverPhoto: function(eventId, fbToken) {
+            return getFacebookCoverPhoto(eventId, fbToken);
+        },
     };
 })
