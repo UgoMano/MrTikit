@@ -85,8 +85,18 @@ class FancyLoginController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     defaults.synchronize()
                     
-                    NSLog("Here2")
-                    self.performSegueWithIdentifier("home", sender: self)
+                    let progressHUD = ProgressHUD(text: "Logging In")
+                    self.view.addSubview(progressHUD)
+                    
+                    progressHUD.show()
+                    
+                    self.usernameField.text = ""
+                    self.passwordField.text = ""
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                        progressHUD.hide()
+                        self.performSegueWithIdentifier("home", sender: self)
+                    })
                 }
             }
         }
@@ -96,35 +106,19 @@ class FancyLoginController: UIViewController, FBSDKLoginButtonDelegate {
             facebookButton.delegate = self
         }
         
-        /*
-        User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
-            if (!success) {
-                // Error - show the user
-                let errorTitle = "Could not login to server." //to sever
-                if let error = error {
-                    NSLog(error)
-                }
-                else {
-                    NSLog(errorTitle)
-                }
-            }
-            else {
-                //self.contact = result
-                //NSLog(result.description)
-                
-                let defaults = NSUserDefaults.standardUserDefaults()
-                
-                defaults.setValue(result.stringValue, forKey: "user")
-                defaults.setValue(result["data"]["token"].string!, forKey: "loginKey")
-                
-                defaults.synchronize()
-                
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if(defaults.valueForKey("user") != nil || defaults.valueForKey("loginKey") != nil) {
+            let progressHUD = ProgressHUD(text: "Logging In")
+            self.view.addSubview(progressHUD)
+            
+            progressHUD.show()
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                progressHUD.hide()
                 self.performSegueWithIdentifier("home", sender: self)
-            }
-        }*/
-        
-        //End - Facebook
-        
+            })
+        }
     }
     
     
@@ -253,10 +247,18 @@ class FancyLoginController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 defaults.synchronize()
                 
+                let progressHUD = ProgressHUD(text: "Logging In")
+                self.view.addSubview(progressHUD)
+                
+                progressHUD.show()
+                
                 self.usernameField.text = ""
                 self.passwordField.text = ""
                 
-                self.performSegueWithIdentifier("home", sender: self)
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                    progressHUD.hide()
+                    self.performSegueWithIdentifier("home", sender: self)
+                })
             }
         }
     }
@@ -284,7 +286,13 @@ class FancyLoginController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 defaults.synchronize()
                 
+                let progressHUD = ProgressHUD(text: "Logging In")
+                self.view.addSubview(progressHUD)
+                
+                progressHUD.show()
+                
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                    progressHUD.hide()
                     self.performSegueWithIdentifier("home", sender: self)
                 })
             }
