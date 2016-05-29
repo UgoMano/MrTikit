@@ -40,6 +40,10 @@ module.exports = {
       type: 'string',
     },
 
+    photo: {
+      type: 'string',
+    },
+
     startDateTime: {
       type: 'datetime',
       defaultsTo: '',
