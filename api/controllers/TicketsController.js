@@ -6,10 +6,11 @@
  */
 
 module.exports = {
-    scanTicket: function (req, res) {
-        if (!req.body.ticketScanId || !req.body.eventId) 
-        {
+    scanTicket: function (req, res, next) {
+        if (!req.body.ticketScanId) {
             return next(sails.config.additionals.TICKET_NOT_FOUND);
+        } else if (!req.body.eventId) {
+            return next(sails.config.additionals.EVENT_NOT_FOUND);        
         } else {
 
             TicketsService.scanTicket(req.body.ticketScanId, req.body.eventId)
@@ -22,7 +23,7 @@ module.exports = {
         }
     },
 
-    generateNewScanId: function (req, res) {
+    generateNewScanId: function (req, res, next) {
         if (!req.body.ticketId) {
             return next(sails.config.additionals.TICKET_NOT_FOUND);
         } else {
@@ -37,7 +38,7 @@ module.exports = {
         }
     },
 
-    getUserTickets: function (req, res) {
+    getUserTickets: function (req, res, next) {
         if (!req.user.id) {
             return next(sails.config.additionals.TICKET_NOT_FOUND);
         } else {

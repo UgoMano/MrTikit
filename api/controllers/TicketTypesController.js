@@ -7,7 +7,7 @@
 
 module.exports = {
 	
-	getNumAvailTickets: function (req, res) {
+	getNumAvailTickets: function (req, res, next) {
     if (!req.body.ticketTypeId) {
       return next(sails.config.additionals.TICKET_TYPE_NOT_FOUND);
     } else if (!req.body.eventId) {
@@ -19,11 +19,11 @@ module.exports = {
           data: data
         });
       }).catch(Res.negotiate);
-    }
 
+    }
   },
 
-  getTicketTypesByEvent: function (req, res) {
+  getTicketTypesByEvent: function (req, res, next) {
     if (req.body.eventId) {
       return next(sails.config.additionals.EVENT_NOT_FOUND);
     } else {
@@ -36,7 +36,7 @@ module.exports = {
 
     }
   },
-  getAllTicketTypesByEvent: function (req, res) {
+  getAllTicketTypesByEvent: function (req, res, next) {
     if (req.body.eventId) {
       return next(sails.config.additionals.EVENT_NOT_FOUND);
     } else {

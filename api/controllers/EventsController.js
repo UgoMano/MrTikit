@@ -10,7 +10,7 @@ var SailsMysqlTransaction = require('sails-mysql-transactions').Transaction;
 
 module.exports = {
 
-	getNumAvailTickets: function (req, res) {
+	getNumAvailTickets: function (req, res, next) {
         if (!req.body.eventId) {
             return next(sails.config.additionals.EVENT_NOT_FOUND);
         } else {
@@ -279,7 +279,7 @@ module.exports = {
         }
     },
 
-	getAllAttendees: function (req, res) {
+	getAllAttendees: function (req, res, next) {
         if (!req.body.eventId) {
             return next(sails.config.additionals.EVENT_NOT_FOUND);
         } else {
@@ -294,7 +294,7 @@ module.exports = {
         }
 	},
 
-	getPublishedEvents: function (req, res) {
+	getPublishedEvents: function (req, res, next) {
 		EventService.getPublishedEvents()
 			.then(function (data) {
 				res.json({
@@ -303,7 +303,7 @@ module.exports = {
 			}).catch(res.negotiate);
 	},
 
-	getPublishedEvent: function (req, res) {
+	getPublishedEvent: function (req, res, next) {
         if (!req.body.eventId) {
             return next(sails.config.additionals.EVENT_NOT_FOUND);
         } else {
@@ -318,7 +318,7 @@ module.exports = {
         }
 	},
 
-	getUserOwnedEvents: function (req, res) {
+	getUserOwnedEvents: function (req, res, next) {
         if (!req.body.eventId) {
             return next(sails.config.additionals.EVENT_NOT_FOUND);
         } else {
