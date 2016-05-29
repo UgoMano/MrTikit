@@ -86,7 +86,7 @@ module.exports = {
     },
 
     getUserOwnedEvents: function(userId) {
-        return Events.find({ownder: userId})
+        return Events.find({owner: userId})
             .then(function (events) {
                 return events;
             });
