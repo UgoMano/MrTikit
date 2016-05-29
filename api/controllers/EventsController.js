@@ -26,7 +26,7 @@ module.exports = {
 	holdTicket: function (req, res, next) {
         if(!req.body.eventId) {
             return next(sails.config.additionals.EVENT_NOT_FOUND);
-        } else if (!req.body.user.id) {
+        } else if (!req.user.id) {
             return next(sails.config.additionals.USER_NOT_FOUND);
         } else if (!req.body.ticketTypeId) {
             return next(sails.config.additionals.TICKET_TYPE_NOT_FOUND);
