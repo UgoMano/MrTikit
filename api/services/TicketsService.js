@@ -99,6 +99,10 @@ module.exports = {
                         lastName: ticket.user.lastName,
                         email: ticket.user.email,
                     },
+                    ticketType: {
+                        name: ticket.ticketType.name,
+                        section: ticket.tyicketType.section,
+                    },
                 };
 
                 return ticketObjectToReturn;
