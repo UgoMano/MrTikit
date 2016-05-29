@@ -47,7 +47,7 @@ public class TicketsContent {
 
             int COUNT = 0;
 
-            String jsonString = event.findAll(loginKey);
+            String jsonString = ticket.findAll(loginKey);
             JSONObject myTickets = new JSONObject(jsonString);
             JSONArray res = myTickets.getJSONArray("data");
 
@@ -55,7 +55,8 @@ public class TicketsContent {
 
             for (int i = 0; i <= COUNT; ++i) {
                 JSONObject element = res.getJSONObject(i);
-                String title = element.getString("title");
+                JSONObject element2 = element.getJSONObject("event");
+                String title = element2.getString("title");
                 addItem(createTicketItem(title));
             }
         }

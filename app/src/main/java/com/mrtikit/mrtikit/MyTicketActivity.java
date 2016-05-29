@@ -52,7 +52,7 @@ public class MyTicketActivity extends AppCompatActivity {
 
                 textView.setText(title);
 
-                QRcode = "26db7fb0878228f71";
+                QRcode = scanId;
 
                 try {
                     synchronized (this) {

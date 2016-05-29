@@ -1,6 +1,7 @@
 package com.mrtikit.providers;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -92,7 +93,7 @@ public class Event implements Api
                     try {
                         String line = "";
 
-                        URL url = new URL("http://54.69.160.45:8000/v1/events/");
+                        URL url = new URL("http://54.69.160.45:8000/v1/management/getEvents/");
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                         conn.setRequestMethod("GET");
 
@@ -107,7 +108,13 @@ public class Event implements Api
 
                         conn.disconnect();
 
-                    } catch (IOException e) {
+                    }
+
+                    catch(FileNotFoundException e)
+                    {
+
+                    }
+                    catch (IOException e) {
                         e.printStackTrace();
                     }
                 }

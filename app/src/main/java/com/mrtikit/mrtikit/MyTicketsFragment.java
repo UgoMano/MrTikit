@@ -46,10 +46,8 @@ public class MyTicketsFragment extends Fragment {
     public MyTicketsFragment() {
     }
 
-    static String loginKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9." +
-            "eyJpZCI6MiwiaWF0IjoxNDYzMDkwMjEyLCJleHAiOjE0Nj" +
-            "MxNzY2MTJ9.oehtBGKcza8Eq33OA9cm6gxI8AkmIUP_vQMW" +
-            "zycNKlNQckskXBOxNaHSzeEK_9FRi-tZjDnb30kXQSCaEvu-mQ";
+    static String loginKey = TokenHolder.getToken();
+    static int COUNT = 0;
 
     Ticket ticket = new Ticket();
 
@@ -79,33 +77,6 @@ public class MyTicketsFragment extends Fragment {
                              Bundle savedInstanceState) throws ExceptionInInitializerError {
         View view = inflater.inflate(R.layout.fragment_my_tickets_list, container, false);
 
-        try {
-
-            loginKey = TokenHolder.getToken();
-
-            int COUNT = 0;
-
-            String jsonString = ticket.findAll(loginKey);
-
-            if(!jsonString.isEmpty())
-            {
-                JSONObject myTickets = new JSONObject(jsonString);
-
-                JSONArray res = myTickets.getJSONArray("data");
-
-                COUNT = res.length();
-
-                for (int i = 0; i <= COUNT; ++i) {
-                    JSONObject element = res.getJSONObject(i);
-                    scanId = element.getString("scanId");
-                }
-            }
-        }
-        catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
-
         // Set the adapter
         if (view instanceof RecyclerView) {
             final Context context = view.getContext();
@@ -120,6 +91,29 @@ public class MyTicketsFragment extends Fragment {
                 public void onItemClick(TicketItem item) {
                     Intent intent = new Intent(context, MyTicketActivity.class);
                     intent.putExtra("NAME", item.id);
+
+                    try {
+                        JSONObject json = new JSONObject(ticket.findAll(loginKey));
+
+                        System.out.println("\n");
+
+                        JSONArray res = json.getJSONArray("data");
+                        COUNT = res.length();
+                        for (int i = 0; i < COUNT; ++i) {
+                            JSONObject element = res.getJSONObject(i);
+                            JSONObject element2 = element.getJSONObject("event");
+                            if (element2.getString("title").equalsIgnoreCase(item.id)) {
+                                scanId = element.getString("scanId");
+                                System.out.println(scanId);
+                            }
+                        }
+                    }
+                    catch (JSONException e)
+                    {
+                        e.printStackTrace();
+                    }
+
+
                     intent.putExtra("SCANID", scanId);
                     context.startActivity(intent);
                     System.out.println(item.id);

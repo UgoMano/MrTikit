@@ -93,7 +93,7 @@ public class Ticket implements Api
                     try {
                         String line = "";
 
-                        URL url = new URL("http://54.69.160.45:8000/v1/tickets/");
+                        URL url = new URL("http://54.69.160.45:8000/v1/tickets/getUserTickets");
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                         conn.setRequestMethod("GET");
 
