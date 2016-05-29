@@ -10,6 +10,7 @@ import UIKit
 
 class HelpSupportController: UIViewController {
     @IBOutlet weak var menuButton:UIBarButtonItem!
+    @IBOutlet weak var webView:UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class HelpSupportController: UIViewController {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        let url = NSURL(string: "http://mrtikit.com")
+        let request = NSURLRequest(URL: url!)
+        webView.loadRequest(request)
         
         // Do any additional setup after loading the view.
     }
