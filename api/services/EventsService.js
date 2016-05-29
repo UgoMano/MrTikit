@@ -88,6 +88,10 @@ module.exports = {
     getUserOwnedEvents: function(userId) {
         return Events.find({owner: userId})
             .then(function (events) {
+                if(!events)
+                    return sails.config.additionals.EVENTS_NOT_FOUND;
+
+
                 return events;
             });
     },

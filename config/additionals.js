@@ -138,7 +138,12 @@ module.exports = {
       code: 'E_PAYPAL_PAYMENT_NOT_CREATED',
       message: 'The payapl transaction has not been created.',
       status: 401
-    }, 
+    },
+    QUANTITY_NOT_FOUND: {
+      code: 'E_QUANTITY_NOT_FOUND',
+      message: 'Quantity not specified.',
+      status: 401
+    }
   }
 };
 
