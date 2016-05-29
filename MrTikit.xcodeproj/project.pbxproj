@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20201E591CFB8ED800A26C72 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20201E581CFB8ED800A26C72 /* ProgressHUD.swift */; };
 		204C977E1CB5C35A00B95122 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C977D1CB5C35A00B95122 /* LoginController.swift */; };
 		20A9A86C1CA900EF00DA81B4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A86B1CA900EF00DA81B4 /* SWRevealViewController.m */; };
 		20B262361CA9E30D003D9ECA /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B262351CA9E30D003D9ECA /* TicketViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20201E581CFB8ED800A26C72 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		204C977D1CB5C35A00B95122 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		20A9A8691CA900EF00DA81B4 /* MrTikit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MrTikit-Bridging-Header.h"; sourceTree = "<group>"; };
 		20A9A86A1CA900EF00DA81B4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				20A9A8681CA900E300DA81B4 /* SWRevealViewController */,
 				20F41F6F1CA9D0220062E7CA /* Providers */,
 				F47029F91A7F27DB00E30A3C /* Main.storyboard */,
+				20201E581CFB8ED800A26C72 /* ProgressHUD.swift */,
 				F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */,
 				F47029F51A7F27DB00E30A3C /* AppDelegate.swift */,
 				F4702A171A7F351C00E30A3C /* MenuController.swift */,
@@ -413,6 +416,7 @@
 			files = (
 				20A9A86C1CA900EF00DA81B4 /* SWRevealViewController.m in Sources */,
 				20E686C41CAC96E30025995D /* MyTicketController.swift in Sources */,
+				20201E591CFB8ED800A26C72 /* ProgressHUD.swift in Sources */,
 				20B2623A1CA9E48F003D9ECA /* HelpSupportController.swift in Sources */,
 				20E686CC1CAD8E7B0025995D /* Api.swift in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,

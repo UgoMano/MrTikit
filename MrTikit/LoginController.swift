@@ -18,7 +18,7 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             let loginView : FBSDKLoginButton = FBSDKLoginButton()
@@ -89,7 +89,7 @@ class LoginController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 self.performSegueWithIdentifier("home", sender: self)
             }
-        }
+        }*/
     }
     
     override func didReceiveMemoryWarning() {

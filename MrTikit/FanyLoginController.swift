@@ -12,13 +12,14 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
 
-class FancyLoginController: UIViewController {
+class FancyLoginController: UIViewController, FBSDKLoginButtonDelegate {
     
     //MARK: Outlets for UI Elements.
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var facebookButton: FBSDKLoginButton!
     
     
     //MARK: Global Variables for Changing Image Functionality.
@@ -56,6 +57,73 @@ class FancyLoginController: UIViewController {
         
         NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: #selector(FancyLoginController.changeImage), userInfo: nil, repeats: true)
         self.loginButton(false)
+        
+    
+        //Facebook Below
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            facebookButton.readPermissions = ["public_profile", "email", "user_friends"]
+            facebookButton.delegate = self
+            
+            // User is already logged in, do work such as go to next view controller.
+            User.api.facebookLogin(FBSDKAccessToken.currentAccessToken().tokenString) { (success, result, error) -> Void in
+                if (!success) {
+                    // Error - show the user
+                    let errorTitle = "Could not login to server." //to sever
+                    if let error = error {
+                        NSLog(error)
+                    }
+                    else {
+                        NSLog(errorTitle)
+                    }
+                }
+                else {
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    
+                    defaults.setValue(result.stringValue, forKey: "user")
+                    defaults.setValue(result["data"]["token"].string!, forKey: "loginKey")
+                    
+                    defaults.synchronize()
+                    
+                    NSLog("Here2")
+                    self.performSegueWithIdentifier("home", sender: self)
+                }
+            }
+        }
+        else
+        {
+            facebookButton.readPermissions = ["public_profile", "email", "user_friends"]
+            facebookButton.delegate = self
+        }
+        
+        /*
+        User.api.login("test@test.com", password: "test12") { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not login to server." //to sever
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                //NSLog(result.description)
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                
+                defaults.setValue(result.stringValue, forKey: "user")
+                defaults.setValue(result["data"]["token"].string!, forKey: "loginKey")
+                
+                defaults.synchronize()
+                
+                self.performSegueWithIdentifier("home", sender: self)
+            }
+        }*/
+        
+        //End - Facebook
         
     }
     
@@ -120,6 +188,108 @@ class FancyLoginController: UIViewController {
         
     }
     
+    // Facebook Delegate Methods
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        print("User Logged In")
+        
+        if ((error) != nil)
+        {
+            // Process error
+        }
+        else if result.isCancelled {
+            // Handle cancellations
+        }
+        else {
+            //NSLog("Got User")
+            
+            // User is already logged in, do work such as go to next view controller.
+            facebooklogin(self.facebookButton)
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("User Logged Out")
+    }
+    
+    func returnUserData()
+    {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            }
+            else
+            {
+                print("fetched user: \(result)")
+                //let userName : NSString = result.valueForKey("name") as! NSString
+                //print("User Name is: \(userName)")
+                //let userEmail : NSString = result.valueForKey("email") as! NSString
+                //print("User Email is: \(userEmail)")
+            }
+        })
+    }
+    
+    //Actions
+    @IBAction func login(sender: UIButton) {
+        User.api.login(usernameField!.text!, password: passwordField!.text!) { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not login to server." //to sever
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                let defaults = NSUserDefaults.standardUserDefaults()
+                
+                defaults.setValue(result.stringValue, forKey: "user")
+                defaults.setValue(result["data"]["token"].string!, forKey: "loginKey")
+                
+                defaults.synchronize()
+                
+                self.usernameField.text = ""
+                self.passwordField.text = ""
+                
+                self.performSegueWithIdentifier("home", sender: self)
+            }
+        }
+    }
+    
+    @IBAction func facebooklogin(sender: UIButton) {
+        User.api.facebookLogin(FBSDKAccessToken.currentAccessToken().tokenString) { (success, result, error) -> Void in
+            if (!success) {
+                // Error - show the user
+                let errorTitle = "Could not login to server." //to sever
+                if let error = error {
+                    NSLog(error)
+                }
+                else {
+                    NSLog(errorTitle)
+                }
+            }
+            else {
+                //self.contact = result
+                //NSLog(result.description)
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                
+                defaults.setValue(result.stringValue, forKey: "user")
+                defaults.setValue(result["data"]["token"].string!, forKey: "loginKey")
+                
+                defaults.synchronize()
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                    self.performSegueWithIdentifier("home", sender: self)
+                })
+            }
+        }
+    }
     
 }
 

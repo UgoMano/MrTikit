@@ -8,6 +8,9 @@
 
 import UIKit
 import SwiftyJSON
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
 
 class MenuController: UITableViewController {
     var loginKey:String!
@@ -28,6 +31,18 @@ class MenuController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func logout(sender: UIButton) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.removeObjectForKey("user")
+        defaults.removeObjectForKey("loginKey")
+        
+        defaults.synchronize()
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut() // this is an instance function
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     
     // MARK: - Table view data source
