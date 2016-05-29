@@ -22,7 +22,7 @@
             </div>
             <div class="endDateTimeContainer">
                 <h3>End</h3>
-                <md-datepicker md-placeholder="Date" ng-model="event.endDate"></md-datepicker>
+                <md-datepicker md-placeholder="Date" ng-model="event.endDate" md-min-date='event.startDate'></md-datepicker>
                 <md-input-container>
                     <input class="eventTime" ng-model="event.endTime" placeholder="Time" type="time"></input>
                 </md-input-container>
