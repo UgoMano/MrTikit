@@ -13,7 +13,9 @@ angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $Us
         $scope.step = step;
     }
     $scope.next = function() {
-        console.log($state.current.name);
+        if(!$scope.validate()) {
+            return;
+        }
         if($state.current.name == 'dashboard.eventCreate.edit') {
             $scope.go('/dashboard/events/create/'+$scope.curEventId+'/ticketTypes');
         }
@@ -25,6 +27,9 @@ angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $Us
         if($state.current.name == 'dashboard.eventCreate.edit') {
             $scope.go('/dashboard/events/create');
         }
+        if($state.current.name == 'dashboard.eventCreate.new') {
+            $scope.go('/dashboard/events/create');
+        }
         if($state.current.name == 'dashboard.eventCreate.ticketTypes') {
             $scope.go('/dashboard/events/create/'+$scope.curEventId+'/edit');
         }
@@ -32,5 +37,11 @@ angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $Us
             $scope.go('/dashboard/events/create/'+$scope.curEventId+'/ticketTypes');
         }
         
+    }
+    $scope.validate=function() {
+        return false;
+    }
+    $scope.setValidate = function(f) {
+        $scope.validate = f;
     }
 });

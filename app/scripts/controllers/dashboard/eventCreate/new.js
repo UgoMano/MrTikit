@@ -9,6 +9,7 @@
  */
 angular.module('mrtikitApp').controller('EventCreateNewCtrl', function ($scope, $User, $Event, $mdToast) {
     $scope.setStep(1);
+    $scope.setValidate(function() {return false;});
     $scope.event = {};
     $scope.createEvent = function () {
         

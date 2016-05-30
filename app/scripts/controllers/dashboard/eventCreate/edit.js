@@ -10,6 +10,19 @@
 angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope, $Event, $stateParams, $mdToast) {
     $scope.setEvent($stateParams.eventId);
     $scope.setStep(1);
+    $scope.setValidate(function(){
+        if($scope.event.paypalEmail && $scope.event.paypalEmail) {
+            if (!$scope.eventForm.$dirty) {
+                return true;
+            } else {
+                $mdToast.showSimple("Please save Event Details");
+                return false;
+            }
+        } else {
+            $mdToast.showSimple("Please enter a Paypal Email");
+            return false;
+        }
+    });
     $scope.event = {};
 
     $scope.eventLocation = {};
@@ -105,6 +118,7 @@ angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope,
         rv.then(function (event) {
             $mdToast.showSimple('Event Update: Success');
             $scope.eventLoad(event);
+            $scope.eventForm.$setPristine();
         }, function (error) {
             $scope.onError(error, 'Event Update Error: ')
         });
