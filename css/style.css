@@ -125,3 +125,11 @@ body .prose blockquote {
   margin-left: 10px;
   vertical-align: middle;
 }
+
+
+.mrtikit {
+  background-image: url("mrtikit.png");
+  background-size: 34px;
+  background-position: -2px 3px;
+  background-color: #c23b22;
+}
