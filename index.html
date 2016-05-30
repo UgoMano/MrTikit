@@ -10,7 +10,578 @@
     <link href='css/railscasts.css' rel='stylesheet' />
   </head>
   <body>
-    <!--START--><div id='app'></div><!--STOP-->
+    <!--START--><div id='app'><div class="container unlimiter" data-reactroot="" data-reactid="1" data-react-checksum="-273763866"><div class="fixed-top fixed-right space-left16" data-reactid="2"><div class="fill-light col6 pin-right" data-reactid="3"></div></div><div class="space-top5 scroll-styled overflow-auto pad1 width16 sidebar fixed-left fill-dark dark" data-reactid="4"><div class="pad0x small" data-reactid="5"><div class="small pad0x quiet space-top1" data-reactid="6">Introduction</div><a href="#mrtikit-api" class="line-height15 pad0x pad00y quiet block " data-reactid="7">MrTikit API</a><div class="small pad0x quiet space-top1" data-reactid="8">User</div><div class="small pad0x quiet space-top1" data-reactid="9">Events</div><div class="small pad0x quiet space-top1" data-reactid="10">Ticket Types</div><div class="small pad0x quiet space-top1" data-reactid="11">Tickets</div></div></div><div class="space-left16" data-reactid="12"><div class="" data-reactid="13"><div class="clearfix" data-reactid="14"><div data-title="MrTikit API" class="keyline-top section contain clearfix " data-reactid="15"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="16"><h2 id="mrtikit-api">MrTikit API</h2>
+<p>Welcome to MrTikit! The following is a detailed API documentation.</p>
+</div></div><div data-title="Login" class="keyline-top section contain clearfix " data-reactid="17"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="18"><h3 id="login">Login</h3>
+<p>Login to the System</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="19"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/auth/signin</div>
+    </div>
+<h4 id="example-request">Example request</h4>
+<pre><code class="hljs">$ curl -X POST -H <span class="hljs-string">"Cache-Control: no-cache"</span> -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'email=test@test.com&amp;password=test12'</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/auth/signin"</span></code></pre>
+<h4 id="example-response">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"token"</span>: <span class="hljs-string">"{authToken}"</span>,
+    <span class="hljs-attr">"user"</span>: {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@test.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>
+    }
+  }
+}</code></pre>
+</div></div><div data-title="Facebook Login" class="keyline-top section contain clearfix " data-reactid="20"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="21"><h3 id="facebook-login">Facebook Login</h3>
+<p>Login to the System using a Facebook Token</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="22"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/auth/social</div>
+    </div>
+<h4 id="example-request-1">Example request</h4>
+<pre><code class="hljs">$ curl -X POST -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'access_token={fbAccessToken}&amp;type=facebook'</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/auth/social"</span></code></pre>
+<h4 id="example-response-1">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"token"</span>: <span class="hljs-string">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6MywiaWF0IjoxNDY0NTg3NzE4LCJleHAiOjE0NjQ2NzQxMTh9.Cf7QxbD32Q2VmzOTWSjQykE1WwYSZJ7Xp51ceBVnVSPejLJ8-s46g7Q7dnshzn0438HrGFvnF4otO_J0Z1AdKg"</span>,
+    <span class="hljs-attr">"user"</span>: {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"Steve10207926613950779"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"steve.a.calabro@gmail.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Steve"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Calabro"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">"https://graph.facebook.com/10207926613950779/picture?type=large"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">"10207926613950779"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-26T06:41:32.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-26T06:41:32.000Z"</span>
+    }
+  }
+}</code></pre>
+</div></div><div data-title="Get Users" class="keyline-top section contain clearfix " data-reactid="23"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="24"><h3 id="get-users">Get Users</h3>
+<p>Gets all Users.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="25"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/users</div>
+    </div>
+<h4 id="example-request-2">Example request</h4>
+<pre><code class="hljs">$ curl -X GET -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/users"</span></code></pre>
+<h4 id="example-response-2">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@test.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"Josh10209568378953207"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"josh.bauer3@yahoo.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Josh"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Bauer"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">"https://graph.facebook.com/10209568378953207/picture?type=large"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">"10209568378953207"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T20:23:07.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T20:23:07.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"Steve10207926613950779"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"steve.a.calabro@gmail.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Steve"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Calabro"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">"https://graph.facebook.com/10207926613950779/picture?type=large"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">"10207926613950779"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-26T06:41:32.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-26T06:41:32.000Z"</span>
+    }
+  ],
+  <span class="hljs-attr">"criteria"</span>: {},
+  <span class="hljs-attr">"limit"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"start"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"end"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"page"</span>: <span class="hljs-number">0</span>
+}</code></pre>
+</div></div><div data-title="Get User" class="keyline-top section contain clearfix " data-reactid="26"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="27"><h3 id="get-user">Get User</h3>
+<p>Gets a specific user</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="28"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/users/<span class="strong">{userId}</span></div>
+    </div>
+<h4 id="example-request-3">Example request</h4>
+<pre><code class="hljs">$ curl -X GET -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/users/1"</span></code></pre>
+<h4 id="example-response-3">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@test.com"</span>,
+    <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>
+  }
+}</code></pre>
+</div></div><div data-title="Update User" class="keyline-top section contain clearfix " data-reactid="29"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="30"><h3 id="update-user">Update User</h3>
+<p>Updates a specific user</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="31"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/users/<span class="strong">{userId}</span></div>
+    </div>
+<h4 id="example-request-4">Example request</h4>
+<pre><code class="hljs">$ curl -X PUT -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'password=test12'</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/users/1"</span></code></pre>
+<h4 id="example-response-4">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@test.com"</span>,
+    <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-30T05:57:18.000Z"</span>
+  }
+}</code></pre>
+</div></div><div data-title="Get User Tickets" class="keyline-top section contain clearfix " data-reactid="32"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="33"><h3 id="get-user-tickets">Get User Tickets</h3>
+<p>Gets the logged in user&#x27;s tickets</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="34"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/tickets/getUserTickets</div>
+    </div>
+<h4 id="example-request-5">Example request</h4>
+<pre><code class="hljs">$ curl -X GET -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/tickets/getUserTickets"</span></code></pre>
+<h4 id="example-response-5">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>,
+      <span class="hljs-attr">"scanId"</span>: <span class="hljs-string">"35e955841578853e6"</span>,
+      <span class="hljs-attr">"checkIn"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"firstScanTime"</span>: <span class="hljs-string">"2016-05-29T21:37:12.000Z"</span>,
+      <span class="hljs-attr">"lastScanTime"</span>: <span class="hljs-string">"2016-05-29T21:37:17.000Z"</span>,
+      <span class="hljs-attr">"totalScans"</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-attr">"ticketType"</span>: {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"General Admission"</span>,
+        <span class="hljs-attr">"price"</span>: <span class="hljs-number">10</span>
+      },
+      <span class="hljs-attr">"event"</span>: {
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"MrTikit Launch"</span>,
+        <span class="hljs-attr">"startDateTime"</span>: <span class="hljs-string">"2016-05-30T22:00:00.000Z"</span>,
+        <span class="hljs-attr">"endDateTime"</span>: <span class="hljs-string">"2016-05-31T01:00:00.000Z"</span>
+      }
+    }
+  ]
+}</code></pre>
+</div></div><div data-title="Get User Events" class="keyline-top section contain clearfix " data-reactid="35"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="36"><h3 id="get-user-events">Get User Events</h3>
+<p>Gets the logged in user&#x27;s events</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="37"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/management/getEvents</div>
+    </div>
+<h4 id="example-request-6">Example request</h4>
+<pre><code class="hljs">$ curl -X GET -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/management/getEvents"</span></code></pre>
+<h4 id="example-response-6">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"owner"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"test event"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"category"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"location"</span>: <span class="hljs-string">"test l"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"startDateTime"</span>: <span class="hljs-string">"2016-06-01T16:34:00.000Z"</span>,
+      <span class="hljs-attr">"endDateTime"</span>: <span class="hljs-string">"2016-06-04T16:55:00.000Z"</span>,
+      <span class="hljs-attr">"checkIn"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"paypalEmail"</span>: <span class="hljs-string">"elventManager@mrtikit.com"</span>,
+      <span class="hljs-attr">"published"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:30:20.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:31:26.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"owner"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"MrTikit Launch"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"category"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"location"</span>: <span class="hljs-string">"Location"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">"https://scontent-iad3-1.xx.fbcdn.net/t31.0-8/12823229_10208192269592004_2427574264893653872_o.jpg"</span>,
+      <span class="hljs-attr">"startDateTime"</span>: <span class="hljs-string">"2016-05-30T22:00:00.000Z"</span>,
+      <span class="hljs-attr">"endDateTime"</span>: <span class="hljs-string">"2016-05-31T01:00:00.000Z"</span>,
+      <span class="hljs-attr">"checkIn"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"paypalEmail"</span>: <span class="hljs-string">"eventManager@mrtikit.com"</span>,
+      <span class="hljs-attr">"published"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-29T21:10:15.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-30T05:58:12.000Z"</span>
+    }
+  ]
+}</code></pre>
+</div></div><div data-title="List Events" class="keyline-top section contain clearfix " data-reactid="38"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="39"><h3 id="list-events">List Events</h3>
+<p>Get Event in the System</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="40"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/events</div>
+    </div>
+<h4 id="example-response-7">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"owner"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"test event"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"category"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"test d"</span>,
+      <span class="hljs-attr">"location"</span>: <span class="hljs-string">"test l"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"startDateTime"</span>: <span class="hljs-string">"2016-06-01T16:34:00.000Z"</span>,
+      <span class="hljs-attr">"endDateTime"</span>: <span class="hljs-string">"2016-06-04T16:55:00.000Z"</span>,
+      <span class="hljs-attr">"checkIn"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"paypalEmail"</span>: <span class="hljs-string">"elventManager@mrtikit.com"</span>,
+      <span class="hljs-attr">"published"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:30:20.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:31:26.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"owner"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Test Event"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">"1687771854795332"</span>,
+      <span class="hljs-attr">"category"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nunc est, eleifend aliquam aliquet vitae, imperdiet at ipsum. Sed ante est, aliquet sed sapien vitae, semper facilisis enim. Proin id massa sollicitudin, mollis mi nec, vehicula felis. Pellentesque congue est eget placerat euismod. Praesent auctor convallis turpis, ac rutrum ligula ornare vitae. Fusce feugiat, urna sollicitudin congue hendrerit, velit mauris gravida dui, quis ultrices eros mi in lacus. Ut pulvinar, nisl blandit eleifend ornare, mauris justo suscipit lacus, at efficitur diam nisi malesuada mi. Nulla rutrum nisl tortor. Vivamus vel mollis dolor. Aliquam placerat nulla sit amet sem viverra, a malesuada magna scelerisque. Proin pretium porttitor eleifend. Maecenas justo risus, ornare id urna nec, posuere efficitur ligula. Sed pulvinar tincidunt ante."</span>,
+      <span class="hljs-attr">"location"</span>: <span class="hljs-string">"{\"name\":\"Drexel University\",\"location\":{\"city\":\"Philadelphia\",\"country\":\"United States\",\"latitude\":39.95661269999999,\"longitude\":-75.18994409999999,\"state\":\"PA\",\"street\":\"3141 Chestnut Street\",\"zip\":\"19104\"}}"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"startDateTime"</span>: <span class="hljs-string">"2016-07-07T23:00:00.000Z"</span>,
+      <span class="hljs-attr">"endDateTime"</span>: <span class="hljs-string">"2016-07-08T02:00:00.000Z"</span>,
+      <span class="hljs-attr">"checkIn"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"paypalEmail"</span>: <span class="hljs-string">"eventManager@mrtikit.com"</span>,
+      <span class="hljs-attr">"published"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-30T00:22:08.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-30T03:26:33.000Z"</span>
+    }
+  ],
+  <span class="hljs-attr">"criteria"</span>: {},
+  <span class="hljs-attr">"limit"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"start"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"end"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"page"</span>: <span class="hljs-number">0</span>
+}</code></pre>
+</div></div><div data-title="Create Event" class="keyline-top section contain clearfix " data-reactid="41"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="42"><h3 id="create-event">Create Event</h3>
+<p>Creates an event in the system.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="43"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/events</div>
+    </div>
+<h4 id="example-request-7">Example request</h4>
+<pre><code class="hljs">$ curl -X POST -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'title=Mr Tikit Launch Party&amp;owner=3&amp;='</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/events"</span></code></pre>
+<h4 id="example-response-8">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"CREATED"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The request has been fulfilled and resulted in a new resource being created"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Mr Tikit Launch Party"</span>,
+    <span class="hljs-attr">"owner"</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-attr">"startDateTime"</span>: <span class="hljs-string">"2016-07-07T23:00:00.000Z"</span>,
+    <span class="hljs-attr">"endDateTime"</span>: <span class="hljs-string">"2016-07-08T02:00:00.000Z"</span>,
+    <span class="hljs-attr">"checkIn"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"published"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-30T05:55:32.606Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-30T05:55:32.606Z"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>
+  }
+}</code></pre>
+</div></div><div data-title="Update Event" class="keyline-top section contain clearfix " data-reactid="44"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="45"><h3 id="update-event">Update Event</h3>
+<p>Updates an event in the system.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="46"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/events/<span class="strong">{event_id}</span></div>
+    </div>
+<h4 id="example-request-8">Example request</h4>
+<pre><code class="hljs">$ curl -X PUT -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'description=new desc&amp;owner=1&amp;photo=photo_url.jpg'</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/events/{event_id}"</span></code></pre>
+<h4 id="example-response-9">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"MrTikit Launch"</span>,
+    <span class="hljs-attr">"facebookId"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"category"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"new desc"</span>,
+    <span class="hljs-attr">"location"</span>: <span class="hljs-string">"Location"</span>,
+    <span class="hljs-attr">"photo"</span>: <span class="hljs-string">"photo_url.jpg"</span>,
+    <span class="hljs-attr">"startDateTime"</span>: <span class="hljs-string">"2016-05-30T22:00:00.000Z"</span>,
+    <span class="hljs-attr">"endDateTime"</span>: <span class="hljs-string">"2016-05-31T01:00:00.000Z"</span>,
+    <span class="hljs-attr">"checkIn"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"paypalEmail"</span>: <span class="hljs-string">"eventManager@mrtikit.com"</span>,
+    <span class="hljs-attr">"published"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-29T21:10:15.000Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-30T05:58:12.000Z"</span>,
+    <span class="hljs-attr">"owner"</span>: <span class="hljs-number">1</span>
+  }
+}</code></pre>
+</div></div><div data-title="Create Ticket Types" class="keyline-top section contain clearfix " data-reactid="47"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="48"><h3 id="create-ticket-types">Create Ticket Types</h3>
+<p>Creates Ticket Types in the system.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="49"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/ticketTypes</div>
+    </div>
+<h4 id="example-request-9">Example request</h4>
+<pre><code class="hljs">$ curl -X POST -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'event=1&amp;name=General Adminisson'</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/ticketTypes"</span></code></pre>
+<h4 id="example-response-10">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"CREATED"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The request has been fulfilled and resulted in a new resource being created"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"event"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"General Adminisson"</span>,
+    <span class="hljs-attr">"maxTickets"</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">"price"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"photoTicket"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"hidden"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-30T06:08:48.757Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-30T06:08:48.757Z"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>
+  }
+}</code></pre>
+</div></div><div data-title="Get Ticket Types" class="keyline-top section contain clearfix " data-reactid="50"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="51"><h3 id="get-ticket-types">Get Ticket Types</h3>
+<p>Lists all Ticket Types.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="52"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/ticketTypes</div>
+    </div>
+<h4 id="example-request-10">Example request</h4>
+<pre><code class="hljs">$ curl -X GET -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/ticketTypes"</span></code></pre>
+<h4 id="example-response-11">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"event"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"ga"</span>,
+      <span class="hljs-attr">"maxTickets"</span>: <span class="hljs-number">10</span>,
+      <span class="hljs-attr">"price"</span>: <span class="hljs-number">4</span>,
+      <span class="hljs-attr">"section"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"photoTicket"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"0000-00-00 00:00:00"</span>,
+      <span class="hljs-attr">"purchaseStart"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"purchaseEnd"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"hidden"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:31:09.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:31:09.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"event"</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"maxTickets"</span>: <span class="hljs-number">100</span>,
+      <span class="hljs-attr">"price"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"section"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"photoTicket"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"0000-00-00 00:00:00"</span>,
+      <span class="hljs-attr">"purchaseStart"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"purchaseEnd"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"hidden"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T20:24:13.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T20:24:13.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"event"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"General Admission"</span>,
+      <span class="hljs-attr">"maxTickets"</span>: <span class="hljs-number">100</span>,
+      <span class="hljs-attr">"price"</span>: <span class="hljs-number">10</span>,
+      <span class="hljs-attr">"section"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"photoTicket"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"0000-00-00 00:00:00"</span>,
+      <span class="hljs-attr">"purchaseStart"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"purchaseEnd"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"hidden"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-29T21:10:31.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-29T21:10:31.000Z"</span>
+    }
+  ],
+  <span class="hljs-attr">"criteria"</span>: {},
+  <span class="hljs-attr">"limit"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"start"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"end"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"page"</span>: <span class="hljs-number">0</span>
+}</code></pre>
+</div></div><div data-title="Get Ticket Types By Event" class="keyline-top section contain clearfix " data-reactid="53"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="54"><h3 id="get-ticket-types-by-event">Get Ticket Types By Event</h3>
+<p>Lists all Ticket Types For Event.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="55"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/ticketTypes/getTicketTypesByEvent</div>
+    </div>
+<h4 id="example-request-11">Example request</h4>
+<pre><code class="hljs">$ curl -X POST -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span>-H <span class="hljs-string">"Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"</span> -F <span class="hljs-string">"eventId=3"</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/ticketTypes/getTicketTypesByEvent"</span></code></pre>
+<h4 id="example-response-12">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"event"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"General Admission"</span>,
+      <span class="hljs-attr">"maxTickets"</span>: <span class="hljs-number">100</span>,
+      <span class="hljs-attr">"price"</span>: <span class="hljs-number">10</span>,
+      <span class="hljs-attr">"section"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"photoTicket"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"0000-00-00 00:00:00"</span>,
+      <span class="hljs-attr">"purchaseStart"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"purchaseEnd"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"hidden"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-29T21:10:31.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-29T21:10:31.000Z"</span>
+    }
+  ]
+}</code></pre>
+</div></div><div data-title="Update Ticket Type" class="keyline-top section contain clearfix " data-reactid="56"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="57"><h3 id="update-ticket-type">Update Ticket Type</h3>
+<p>Updates Ticket Type.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="58"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/ticketTypes/<span class="strong">{ticketType_id}</span></div>
+    </div>
+<h4 id="example-request-12">Example request</h4>
+<pre><code class="hljs">$ curl -X PUT -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'price=5.50&amp;event=1'</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/ticketTypes/1"</span><span class="hljs-string">"</span></code></pre>
+<h4 id="example-response-13">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"General Admission"</span>,
+    <span class="hljs-attr">"maxTickets"</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">"price"</span>: <span class="hljs-number">5.5</span>,
+    <span class="hljs-attr">"section"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"photoTicket"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"0000-00-00 00:00:00"</span>,
+    <span class="hljs-attr">"purchaseStart"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"purchaseEnd"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"hidden"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-29T21:10:31.000Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-30T06:16:43.000Z"</span>,
+    <span class="hljs-attr">"event"</span>: <span class="hljs-number">1</span>
+  }
+}</code></pre>
+</div></div><div data-title="Login" class="keyline-top section contain clearfix " data-reactid="59"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="60"><h3 id="login-1">Login</h3>
+<p>Login to the System</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="61"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/auth/signin</div>
+    </div>
+<h4 id="example-request-13">Example request</h4>
+<pre><code class="hljs">$ curl -X POST -H <span class="hljs-string">"Cache-Control: no-cache"</span> -H <span class="hljs-string">"Content-Type: application/x-www-form-urlencoded"</span> <span class="hljs-_">-d</span> <span class="hljs-string">'email=test@test.com&amp;password=test12'</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/auth/signin"</span></code></pre>
+<h4 id="example-response-14">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"token"</span>: <span class="hljs-string">"{authToken}"</span>,
+    <span class="hljs-attr">"user"</span>: {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@test.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>
+    }
+  }
+}</code></pre>
+</div></div><div data-title="List Users" class="keyline-top section contain clearfix " data-reactid="62"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="63"><h3 id="list-users">List Users</h3>
+<p>Lists all Users.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="64"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>http://54.69.160.45:8000/v1/users</div>
+    </div>
+<h4 id="example-request-14">Example request</h4>
+<pre><code class="hljs">$ curl -X GET -H <span class="hljs-string">"Authorization: JWT {authToken}"</span> -H <span class="hljs-string">"Cache-Control: no-cache"</span> <span class="hljs-string">"http://54.69.160.45:8000/v1/users"</span></code></pre>
+<h4 id="example-response-15">Example response</h4>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Operation is successfully executed"</span>,
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@test.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T19:29:28.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"Josh10209568378953207"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"josh.bauer3@yahoo.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Josh"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Bauer"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">"https://graph.facebook.com/10209568378953207/picture?type=large"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">"10209568378953207"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-23T20:23:07.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-23T20:23:07.000Z"</span>
+    },
+    {
+      <span class="hljs-attr">"username"</span>: <span class="hljs-string">"Steve10207926613950779"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"steve.a.calabro@gmail.com"</span>,
+      <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Steve"</span>,
+      <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Calabro"</span>,
+      <span class="hljs-attr">"photo"</span>: <span class="hljs-string">"https://graph.facebook.com/10207926613950779/picture?type=large"</span>,
+      <span class="hljs-attr">"facebookId"</span>: <span class="hljs-string">"10207926613950779"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2016-05-26T06:41:32.000Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2016-05-26T06:41:32.000Z"</span>
+    }
+  ],
+  <span class="hljs-attr">"criteria"</span>: {},
+  <span class="hljs-attr">"limit"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"start"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"end"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"page"</span>: <span class="hljs-number">0</span>
+}</code></pre>
+</div></div></div></div></div><div class="fixed-top space-left16" data-reactid="65"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid="66"><div class="space-right1 small quiet inline" data-reactid="67">Show examples in:</div><div class="rounded-toggle inline short" data-reactid="68"><a class="strong active" data-reactid="69">cURL</a><a class="strong " data-reactid="70">JS</a></div><div class="fr pad0" data-reactid="71"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid="72"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid="73"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark mrtikit pad0 fill-red" data-reactid="74"></a><div class="strong small pad0
+          
+          space-left4 line-height15" data-reactid="75">MrTikit API Documentation</div></div></div></div><!--STOP-->
     <script src='bundle.js'></script>
   </body>
 </html>

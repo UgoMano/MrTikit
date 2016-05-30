@@ -19,4 +19,6 @@ module.exports =
   '# Ticket Types\n' +
   fs.readFileSync('./content/TicketTypes.md', 'utf8') + '\n'+
   '# Tickets\n' +
-  fs.readFileSync('./content/Tickets.md', 'utf8') + '\n';
+  fs.readFileSync('./content/Tickets.md', 'utf8') + '\n'+
+  '# Utility\n' +
+  fs.readFileSync('./content/Util.md', 'utf8') + '\n';
