@@ -52,55 +52,66 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
         if (e.place.location) {
             location = e.place;
             delete location["id"];
+
+            //Duplicate code here
+            var newe = {
+                owner: $scope.user.id,
+                facebookId: e.id,
+                location: JSON.stringify(location),
+                startDateTime: e.start_time,
+                endDateTime: e.end_time,
+                description: e.description,
+                title: e.name
+            };
+            var rv = $Event.create($scope.user.loginKey, newe);
+            rv.then(function (event) {
+                $mdToast.showSimple('Create Event: Successful');
+                $scope.go('/dashboard/events/create/' + event.id + '/edit');
+            }, function (error) {
+                if (error.error) {
+                    $mdToast.showSimple('Create Event Error: ' + error.error);
+                } else if (error.data && error.data.message) {
+                    $mdToast.showSimple('Create Event Error: ' + error.data.message);
+                } else {
+                    $mdToast.showSimple('Create Event Error: Unknown');
+                    console.log(error);
+                }
+            });
         } else {
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({
                 "address": e.place.name
             }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-                    console.log(results[0]);
+                    var calculatedPlace = getLocationObject(results);
 
-                    var calculatedPlace = {
-                        "name": results[0].formatted_address,
-                        "location": {
-                            "city": results[0].address_components[3].long_name,
-                            "country": results[0].address_components[6].long_name,
-                            "latitude": results[0].geometry.location.lat(),
-                            "longitude": results[0].geometry.location.lng(),
-                            "state": results[0].address_components[5].short_name,
-                            "street": results[0].address_components[0].long_name + " " + results[0].address_components[1].long_name,
-                            "zip": results[0].address_components[7].long_name
+                    //duplicate code
+                    var newe = {
+                        owner: $scope.user.id,
+                        facebookId: e.id,
+                        location: JSON.stringify(calculatedPlace),
+                        startDateTime: e.start_time,
+                        endDateTime: e.end_time,
+                        description: e.description,
+                        title: e.name
+                    };
+                    var rv = $Event.create($scope.user.loginKey, newe);
+                    rv.then(function (event) {
+                        $mdToast.showSimple('Create Event: Successful');
+                        $scope.go('/dashboard/events/create/' + event.id + '/edit');
+                    }, function (error) {
+                        if (error.error) {
+                            $mdToast.showSimple('Create Event Error: ' + error.error);
+                        } else if (error.data && error.data.message) {
+                            $mdToast.showSimple('Create Event Error: ' + error.data.message);
+                        } else {
+                            $mdToast.showSimple('Create Event Error: Unknown');
+                            console.log(error);
                         }
-                    }
-
-                    console.log(calculatedPlace);
+                    });
                 }
             });
         }
-        
-        var newe = {
-            owner: $scope.user.id,
-            facebookId: e.id,
-            location: JSON.stringify(location),
-            startDateTime: e.start_time,
-            endDateTime: e.end_time,
-            description: e.description,
-            title: e.name
-        };
-        var rv = $Event.create($scope.user.loginKey, newe);
-        rv.then(function (event) {
-            $mdToast.showSimple('Create Event: Successful');
-            $scope.go('/dashboard/events/create/' + event.id + '/edit');
-        }, function (error) {
-            if (error.error) {
-                $mdToast.showSimple('Create Event Error: ' + error.error);
-            } else if (error.data && error.data.message) {
-                $mdToast.showSimple('Create Event Error: ' + error.data.message);
-            } else {
-                $mdToast.showSimple('Create Event Error: Unknown');
-                console.log(error);
-            }
-        });
     };
 });
 
