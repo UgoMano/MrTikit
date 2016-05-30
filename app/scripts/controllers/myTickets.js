@@ -14,6 +14,11 @@ angular.module('mrtikitApp').controller('MyTicketsCtrl', function ($scope, $Tick
         $scope.tickets = [];
         $scope.ticketsPromise = $Ticket.getByUser($scope.user.loginKey);
         $scope.ticketsPromise.then(function (tickets) {
+                for(var i=0;i<tickets.length;i++) {
+                    try {
+                        tickets[i].location = JSON.parse(tickets[i].location);
+                    } catch(e){}
+                }
                 $scope.tickets = tickets;
             },
             function (error) {

@@ -5,6 +5,7 @@
                 <md-content>
                     <div class="event">{{ticket.event.title}}</div>
                     <div class="price">{{ticket.ticketType.price|currency}}</div>
+                    <div class="location">{{ticket.event.location.name}}</div>
                     <md-button ng-click="go('myTickets/' + ticket.id +'/view')">View</md-button>
                 </md-content>
             </md-card-content>
