@@ -1,0 +1,4 @@
+To create the docker container run:
+    sh web.init
+OR
+    sh api.init
