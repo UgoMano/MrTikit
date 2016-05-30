@@ -12,6 +12,7 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
     $scope.events = [];
     $scope.unpublished = [];
     $scope.fbevents = [];
+
     $scope.eventsPromise = $Event.getAll($scope.user.loginKey);
     $scope.eventsPromise.then(function (events) {
         //$mdToast.showSimple('success');
@@ -24,13 +25,14 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
         $mdToast.showSimple('error');
         console.log(error);
     });
+
     Facebook.getLoginStatus(function (response) {
         //console.log(response.authResponse.accessToken);
 
         if (response.status === 'connected') {
             $User.getFacebookEvents($scope.user.facebookId, response.authResponse.accessToken).then(function (data) {
                     $scope.fbevents = data.data.data;
-                    console.log(JSON.stringify($scope.fbevents, null, ' '));
+                    //console.log(JSON.stringify($scope.fbevents, null, ' '));
                 },
                 function (error) {
                     if (error.error) {
@@ -44,30 +46,72 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
                 });
         }
     });
+
     $scope.createfb = function (e) {
-        var newe = {
-            owner: $scope.user.id,
-            facebookId: e.id,
-            location: e.place.name,
-            startDateTime: e.start_time,
-            endDateTime: e.end_time,
-            description: e.description,
-            title: e.name
-        };
-        var rv = $Event.create($scope.user.loginKey, newe);
-        rv.then(function (event) {
-            $mdToast.showSimple('Create Event: Successful');
-            $scope.go('/dashboard/events/create/' + event.id + '/edit');
-        }, function (error) {
-            if (error.error) {
-                $mdToast.showSimple('Create Event Error: ' + error.error);
-            } else if (error.data && error.data.message) {
-                $mdToast.showSimple('Create Event Error: ' + error.data.message);
-            } else {
-                $mdToast.showSimple('Create Event Error: Unknown');
-                console.log(error);
-            }
-        });
+        var location = {};
+        if (e.place.location) {
+            location = e.place;
+            delete location["id"];
+
+            //Duplicate code here
+            var newe = {
+                owner: $scope.user.id,
+                facebookId: e.id,
+                location: JSON.stringify(location),
+                startDateTime: e.start_time,
+                endDateTime: e.end_time,
+                description: e.description,
+                title: e.name
+            };
+            var rv = $Event.create($scope.user.loginKey, newe);
+            rv.then(function (event) {
+                $mdToast.showSimple('Create Event: Successful');
+                $scope.go('/dashboard/events/create/' + event.id + '/edit');
+            }, function (error) {
+                if (error.error) {
+                    $mdToast.showSimple('Create Event Error: ' + error.error);
+                } else if (error.data && error.data.message) {
+                    $mdToast.showSimple('Create Event Error: ' + error.data.message);
+                } else {
+                    $mdToast.showSimple('Create Event Error: Unknown');
+                    console.log(error);
+                }
+            });
+        } else {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                "address": e.place.name
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+                    var calculatedPlace = getLocationObject(results);
+
+                    //duplicate code
+                    var newe = {
+                        owner: $scope.user.id,
+                        facebookId: e.id,
+                        location: JSON.stringify(calculatedPlace),
+                        startDateTime: e.start_time,
+                        endDateTime: e.end_time,
+                        description: e.description,
+                        title: e.name
+                    };
+                    var rv = $Event.create($scope.user.loginKey, newe);
+                    rv.then(function (event) {
+                        $mdToast.showSimple('Create Event: Successful');
+                        $scope.go('/dashboard/events/create/' + event.id + '/edit');
+                    }, function (error) {
+                        if (error.error) {
+                            $mdToast.showSimple('Create Event Error: ' + error.error);
+                        } else if (error.data && error.data.message) {
+                            $mdToast.showSimple('Create Event Error: ' + error.data.message);
+                        } else {
+                            $mdToast.showSimple('Create Event Error: Unknown');
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+        }
     };
 });
 
@@ -76,14 +120,14 @@ angular.module('mrtikitApp').filter('fbfilter', function () {
         var out = [];
         angular.forEach(input, function (event) {
             var found = false;
-            var i=0;
-            for (i=0;i<events.length;i++) {
+            var i = 0;
+            for (i = 0; i < events.length; i++) {
                 if (event.id == events[i].facebookId) {
                     found = true;
                     break;
                 }
             }
-            if(!found) {
+            if (!found) {
                 out.push(event);
             }
         });

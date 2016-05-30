@@ -11,8 +11,11 @@ angular.module('mrtikitApp').controller('EventEditCtrl', function ($scope, $Even
     $scope.setEvent($stateParams.eventId);
     $scope.event = {};
 
+    $scope.eventLocation = {};
+    
     $scope.eventLoad = function (event) {
         $scope.event = event;
+        
         if ($scope.event.startDateTime)
             $scope.event.startDateTime = new Date(event.startDateTime);
         if ($scope.event.startDateTime && $scope.event.startDateTime instanceof Date && !isNaN($scope.event.startDateTime.valueOf())) {
@@ -23,6 +26,7 @@ angular.module('mrtikitApp').controller('EventEditCtrl', function ($scope, $Even
             $scope.event.startDate = null;
             $scope.event.startTime = null;
         }
+        
         if ($scope.event.endDateTime)
             $scope.event.endDateTime = new Date(event.endDateTime);
         if ($scope.event.endDateTime && $scope.event.endDateTime instanceof Date && !isNaN($scope.event.endDateTime.valueOf())) {
@@ -32,6 +36,11 @@ angular.module('mrtikitApp').controller('EventEditCtrl', function ($scope, $Even
             $scope.event.endDateTime = null;
             $scope.event.endDate = null;
             $scope.event.endTime = null;
+        }
+        
+        if ($scope.event.location) {
+            $scope.eventLocation = JSON.parse($scope.event.location);
+            $scope.event.location = JSON.parse($scope.event.location).name;
         }
     };
 
@@ -55,6 +64,17 @@ angular.module('mrtikitApp').controller('EventEditCtrl', function ($scope, $Even
     });
 
     $scope.updateEvent = function () {
+        if ($scope.event.location.formatted_address) {
+            //Event Changed
+            var results = $scope.event.location;
+            
+            $scope.eventLocation = getLocationObject(results);
+        } else {
+            //Event not changed
+        }
+        
+        $scope.event.location = JSON.stringify($scope.eventLocation);
+        
         if ($scope.event.startDate && $scope.event.startDate instanceof Date && !isNaN($scope.event.startDate.valueOf())) {
             $scope.event.startDateTime = new Date($scope.event.startDate);
             if (!$scope.event.startTime) {

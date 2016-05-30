@@ -8,5 +8,4 @@
  * Controller of the mrtikitApp
  */
 angular.module('mrtikitApp').controller('EventHomeCtrl', function ($stateParams, $scope) {
-  
 });
