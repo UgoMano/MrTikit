@@ -1,5 +1,6 @@
 package com.mrtikit.mrtikit;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
+    TextView textView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +34,12 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
 
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        textView = (TextView) findViewById(R.id.title);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -102,7 +107,12 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_help) {
+            HelpFragment fragment = new HelpFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
 
         }
 

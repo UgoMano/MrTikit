@@ -9,11 +9,11 @@ dependencies {
     //    compile files('libs/httpclient-cache-4.5.2.jar')
     //    compile files('libs/httpclient-win-4.5.2.jar')
     //    compile files('libs/httpcore-4.4.4.jar')
+    compile files('libs/core-3.2.1.jar')
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.android.support:recyclerview-v7:23.2.1'
-    compile files('libs/core-3.2.1.jar')
 }
 
 android {
@@ -47,6 +47,7 @@ android {
         exclude 'META-INF/LICENSE'
     }
 }
+
 
 
 

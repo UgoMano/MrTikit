@@ -201,17 +201,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
            // mAuthTask.onPostExecute(loginSuccess);
 
-//            try {
-//
-//                JSONObject user = new JSONObject(userId);
-//                JSONObject element = user.getJSONObject("data");
-//                token = element.getString("token");
-//            }
-//            catch (JSONException e)
-//            {
-//                e.printStackTrace();
-//            }
-
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
@@ -312,7 +301,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         };
 
         int ADDRESS = 0;
-        int IS_PRIMARY = 1;
     }
 
     /**
@@ -320,8 +308,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        com.mrtikit.providers.User User;
 
         private final String mEmail;
         private final String mPassword;
@@ -335,8 +321,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
 
             try {
-                //Thread.sleep(2000);
-
+                //login method from the provider class is executed
                 userId = com.mrtikit.providers.User.login(mEmail, mPassword);
 
             }
@@ -346,16 +331,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             catch (JSONException e){
                 return false;
             }
-//            catch (InterruptedException e) {
-//                return false;
-//            }
 
             return true;
         }
 
         @Override
         protected void onPostExecute(final Boolean success) {
-            //mAuthTask = null;
+
             super.onPostExecute(success);
             showProgress(false);
 
