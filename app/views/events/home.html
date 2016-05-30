@@ -3,8 +3,8 @@
         <h1>{{event.title}}</h1>
         <h5>By: Mr Tikit Team</h5>
         <div class='location'>
-            University Crossings
-            <p>{{event.location}}</p>
+            {{event.location.name}}
+            <p>{{event.location.location.street}}, {{event.location.location.city}}, {{event.location.location.state}} {{event.location.location.zip}}, {{event.location.location.country}}</p>
         </div>
         <div class='date'>
              {{event.startDateTime | date:'EEEE, MMMM d yyyy'}}<span ng-if='!isSameDay(event.startDateTime, event.endDateTime)'> - {{event.endDateTime | date:'EEEE, MMMM d yyyy'}}</span>

@@ -6,8 +6,8 @@
     </md-input-container>
     <div ng-repeat="e in events | filter:query" class="event">
         <div class="attribute title">{{e.title}}</div>
-        <div class="attribute location">{{e.location}}</div>
-        <div class="attribute date">{{e.startDateTime}}</div>
+        <div class="attribute location">{{e.location.name}}</div>
+        <div class="attribute date">{{e.startDateTime|date:"MMM d, y h:mm a"}}</div>
         <button class="viewButton" ng-click="go('events/'+e.id)">View</button>
     </div>
 </div>

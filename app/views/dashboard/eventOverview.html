@@ -8,12 +8,12 @@
             </md-toolbar>
             <img class="eventImage" ng-src="http://placehold.it/1068x200" />
             <div class="eventInfo">
-                <div>Eventid: {{event.id}}</div>
+                <!--<div>Eventid: {{event.id}}</div>-->
                 <div>Name: {{event.title}}</div>
                 <div>Description: <span ng-bind-html='event.description'></span></div>
-                <div>Location: {{event.location}}</div>
-                <div>Start Time: {{event.startDateTime}}</div>
-                <div>End Time : {{event.endDateTime}}</div>
+                <div>Location: {{event.location.name}}</div>
+                <div>Start Time: {{event.startDateTime|date:"MMM d, y h:mm a"}}</div>
+                <div>End Time : {{event.endDateTime|date:"MMM d, y h:mm a"}}</div>
             </div>
         </md-card>
     </div>
@@ -30,7 +30,7 @@
                 <md-list>
                     <md-list-item class="ticketType" ng-repeat="tt in ticketTypes">
                         <div class="ticketTypeName">{{tt.name}}</div>
-                        <div class="ticketTypePrice md-secondary">$ {{tt.price}}</div>
+                        <div class="ticketTypePrice md-secondary">{{tt.price|currency}}</div>
                     </md-list-item>
                 </md-list>
             </md-card-content>

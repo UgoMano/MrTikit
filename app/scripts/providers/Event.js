@@ -34,6 +34,10 @@ factory('$Event', function ($http, $location, $timeout, $q) {
 
             return $q.reject(error);
         }
+        /*if (!event.paypalEmail || event.paypalEmail=="") {
+            var error = { error: "Please eneter a paypal email"};
+            return $q.reject(error);
+        }*/
 
         var req = {
             method: 'POST',
@@ -45,7 +49,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             data: {
                 title: event.title,
                 owner: event.owner,
-                paypal_email: event.paypal_email,
+                paypalEmail: event.paypalEmail,
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
@@ -81,6 +85,11 @@ factory('$Event', function ($http, $location, $timeout, $q) {
 
             return $q.reject(error);
         }
+        
+        if (!event.paypalEmail || event.paypalEmail=="") {
+            var error = { error: "Please eneter a paypal email"};
+            return $q.reject(error);
+        }
 
         var req = {
             method: 'PUT',
@@ -92,7 +101,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             data: {
                 title: event.title,
                 owner: event.owner,
-                paypal_email: event.paypal_email,
+                paypalEmail: event.paypalEmail,
                 location: event.location,
                 startDateTime: event.startDateTime,
                 endDateTime: event.endDateTime,
@@ -234,7 +243,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
-    var holdTicket = function (tokenKey, event, ticketType) {
+    var holdTicket = function (tokenKey, event, ticketType, qty) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -260,6 +269,14 @@ factory('$Event', function ($http, $location, $timeout, $q) {
 
             return $q.reject(error);
         }
+        
+        if (!qty || qty == "") {
+            var error = {
+                error: "Please enter a qty"
+            }
+
+            return $q.reject(error);
+        }
 
         var req = {
             method: 'POST',
@@ -270,7 +287,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             },
             data: {
                 eventId: event,
-                ticketTypeId: ticketType
+                ticketTypeId: ticketType,
+                qty: qty
             }
         }
 
@@ -282,7 +300,7 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         return promise;
     }
 
-    var purchaseTicket = function (tokenKey, tempTicketId, transactionTypeId, confirmationNumber) {
+    var purchaseTicket = function (tokenKey, transactionId) {
         var promise = $q.defer();
 
         if (!tokenKey || tokenKey == "") {
@@ -293,25 +311,9 @@ factory('$Event', function ($http, $location, $timeout, $q) {
             return $q.reject(error);
         }
 
-        if (!tempTicketId || tempTicketId == "") {
+        if (!transactionId || transactionId == "") {
             var error = {
-                error: "Please enter a tempTicketId"
-            }
-
-            return $q.reject(error);
-        }
-
-        if (!transactionTypeId || transactionTypeId == "") {
-            var error = {
-                error: "Please enter a transactionTypeId"
-            }
-
-            return $q.reject(error);
-        }
-        
-        if (!confirmationNumber || confirmationNumber == "") {
-            var error = {
-                error: "Please enter a confirmationNumber"
+                error: "No transaction Id"
             }
 
             return $q.reject(error);
@@ -325,9 +327,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 'Authorization': "JWT " + tokenKey
             },
             data: {
-                tempTicketId: tempTicketId,
-                transactionTypeId: transactionTypeId,
-                confirmationNumber: confirmationNumber
+                transactionId: transactionId
+                
             }
         }
 
@@ -458,11 +459,11 @@ factory('$Event', function ($http, $location, $timeout, $q) {
         publicGet: function (event) {
             return publicGet(event, "tokenKey");
         },
-        holdTicket: function (tokenKey, event, ticketType) {
-            return holdTicket(tokenKey, event, ticketType);
+        holdTicket: function (tokenKey, event, ticketType, qty) {
+            return holdTicket(tokenKey, event, ticketType, qty);
         },
-        purchaseTicket: function (tokenKey, tempTicketId) {
-            return purchaseTicket(tokenKey, tempTicketId, "transactionTypeId", "confirmationNumber");
+        purchaseTicket: function (tokenKey, transactionId) {
+            return purchaseTicket(tokenKey, transactionId);
         },
         getFacebookFeed: function(eventId, fbToken) {
             return getFacebookFeed(eventId, fbToken);

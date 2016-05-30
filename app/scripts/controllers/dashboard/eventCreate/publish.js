@@ -10,10 +10,10 @@
 angular.module('mrtikitApp').controller('EventCreatePublishCtrl', function ($scope, $User, $Event, $mdToast, $filter,$stateParams) {
     $scope.setEvent($stateParams.eventId);
     $scope.setStep(3);
+    $scope.setValidate(function() {return false;});
     $scope.event = {};
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function (event) {
-        //$mdToast.showSimple('Event Load: Success');
         $scope.event=event;
     }, function (error) {
         $scope.onError(error, 'Event Load Error: ')

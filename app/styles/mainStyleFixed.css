@@ -1626,19 +1626,21 @@ hr {
   margin-bottom: 1px;
   padding-left: 20px;
   padding-right: 20px;
+  overflow: hidden;
 }
 .app .eventsPage .event .attribute {
   display: inline;
   margin-right: 10px;
+  float: left;
 }
 .app .eventsPage .event .title {
-  width: 200px;
+  width: 300px;
 }
 .app .eventsPage .event .location {
-  width: 100px;
+  width: 300px;
 }
 .app .eventsPage .event .date {
-  width: 100px;
+  width: 200px;
 }
 .app .eventsPage .event .viewButton {
   background-color: #c23b22;
@@ -1774,6 +1776,19 @@ hr {
 .app .eventPage .ticketsPage .checkout {
   text-align: right;
 }
+.app .eventPage .ticketsPage .spinnerContainer {
+  position: absolute;
+  top: 50%;
+  background-color: #fff;
+  text-align: center;
+  left: 40%;
+  width: 20%;
+  border-radius: 20px;
+  border: 1px solid #848484;
+  z-index: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .app .eventPage .image {
   text-align: center;
   width: 100%;
@@ -1878,15 +1893,19 @@ hr {
   padding-right: 20px;
 }
 .app .myTickets .ticket md-content .event,
-.app .myTickets .ticket md-content .price {
+.app .myTickets .ticket md-content .price,
+.app .myTickets .ticket md-content .date {
   display: inline;
   height: 50px;
   line-height: 50px;
-  margin-right: 100px;
+  margin-right: 50px;
+  width: 250px;
+  float: left;
 }
 .app .myTickets .ticket md-content button {
   display: inline;
   float: right;
+  line-height: 50px;
 }
 .app .myTicketsView button {
   margin-left: 0px;
@@ -1944,6 +1963,23 @@ hr {
     width: 500px;
     padding: 100px;
   }
+}
+.app .reviewPurchase {
+  min-height: 500px;
+}
+.app .reviewPurchase .loading {
+  text-align: center;
+  padding-top: 150px;
+}
+.app .reviewPurchase .tickets {
+  height: 50px;
+  line-height: 50px;
+}
+.app .reviewPurchase .tickets .info {
+  display: inline;
+}
+.app .reviewPurchase .tickets .view {
+  float: right;
 }
 .dashboard {
   height: 100%;
@@ -2263,8 +2299,14 @@ hr {
 .dashboard .eventCreate .eventCreateCard md-input-container .eventLocation {
   width: 200px;
 }
+.dashboard .eventCreate .eventCreateCard md-input-container .eventDescription {
+  width: 400px;
+}
 .dashboard .eventCreate .eventCreateCard md-input-container .eventTime {
   width: 121px;
+}
+.dashboard .eventCreate .eventCreateCard md-input-container .paypal {
+  width: 200px;
 }
 .dashboard .eventCreate .eventCreateCard .endDateTimeContainer md-input-container,
 .dashboard .eventCreate .eventCreateCard .startDateTimeContainer md-input-container {
@@ -2308,58 +2350,130 @@ hr {
   background-color: #c23b22;
   display: inline-block;
   text-align: center;
+  position: relative;
+  /*
+        .timeline {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: inline-block;
+            .step {
+                border: @MT_GRAY 2px solid;
+                width: 40px;
+                height: 40px;
+                line-height: 36px;
+                font-size: 30px;
+                text-align: center;
+                border-radius: 20px;
+                color: @MT_GRAY;
+                font-weight: bold;
+                display: inline-block;
+                background-color: white;
+                &.done {
+                    background-color: #4AC948;
+                }
+                &.current {
+                    background-color: #FFE303;
+                }
+            }
+            .line {
+                height: 5px;
+                width: 100px;
+                display: inline-block;
+                margin-bottom: 8px;
+                margin-left: -4px;
+                margin-right: -5px;
+                background-color: white;
+                border-bottom: @MT_GRAY 1px solid;
+                border-top: @MT_GRAY 1px solid;
+                &.done {
+                    background-color: #4AC948;
+                }
+                &.current {
+                    background-color: #FFE303;
+                }
+            }
+        }*/
 }
 .dashboard .eventCreate md-toolbar .next {
   display: inline-block;
-  margin-left: 20px;
   cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 0;
 }
 .dashboard .eventCreate md-toolbar .prev {
   display: inline-block;
-  margin-right: 20px;
+  position: absolute;
+  left: 20px;
+  top: 0;
   cursor: pointer;
 }
-.dashboard .eventCreate md-toolbar .timeline {
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  display: inline-block;
+.dashboard .eventCreate md-toolbar .progressbar {
+  margin-top: 25px;
+  counter-reset: step;
 }
-.dashboard .eventCreate md-toolbar .timeline .step {
-  border: #848484 2px solid;
-  width: 40px;
-  height: 40px;
-  line-height: 36px;
-  font-size: 30px;
+.dashboard .eventCreate md-toolbar .progressbar li {
+  list-style-type: none;
+  width: 33.33%;
+  float: left;
+  font-size: 12px;
+  position: relative;
   text-align: center;
-  border-radius: 20px;
-  color: #848484;
+  text-transform: uppercase;
+  color: white;
+  line-height: 15px;
+  text-transform: capitalize;
   font-weight: bold;
-  display: inline-block;
+}
+.dashboard .eventCreate md-toolbar .progressbar li:before {
+  width: 30px;
+  height: 30px;
+  content: counter(step);
+  counter-increment: step;
+  line-height: 30px;
+  border: 2px solid white;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
   background-color: white;
+  z-index: 2;
+  position: relative;
+  color: black;
+  font-weight: normal;
 }
-.dashboard .eventCreate md-toolbar .timeline .step.done {
-  background-color: #4AC948;
-}
-.dashboard .eventCreate md-toolbar .timeline .step.current {
-  background-color: #FFE303;
-}
-.dashboard .eventCreate md-toolbar .timeline .line {
-  height: 5px;
-  width: 100px;
-  display: inline-block;
-  margin-bottom: 8px;
-  margin-left: -4px;
-  margin-right: -5px;
+.dashboard .eventCreate md-toolbar .progressbar li:after {
+  width: 100%;
+  height: 2px;
+  content: '';
+  position: absolute;
   background-color: white;
-  border-bottom: #848484 1px solid;
-  border-top: #848484 1px solid;
+  top: 15px;
+  left: -50%;
+  z-index: 1;
 }
-.dashboard .eventCreate md-toolbar .timeline .line.done {
-  background-color: #4AC948;
+.dashboard .eventCreate md-toolbar .progressbar li:first-child:after {
+  content: none;
 }
-.dashboard .eventCreate md-toolbar .timeline .line.current {
-  background-color: #FFE303;
+.dashboard .eventCreate md-toolbar .progressbar li.complete {
+  color: white;
+  font-weight: normal;
+}
+.dashboard .eventCreate md-toolbar .progressbar li.complete:before {
+  border-color: #2D882D;
+  background-color: #2D882D;
+  color: white;
+}
+.dashboard .eventCreate md-toolbar .progressbar li.complete:after {
+  background-color: #2D882D;
+}
+.dashboard .eventCreate md-toolbar .progressbar li.active:before {
+  border-color: #ffb347;
+  background-color: #ffb347;
+}
+.dashboard .eventCreate md-toolbar .progressbar li.active:after {
+  background-color: #2D882D;
 }
 .dashboard .eventEditCard {
   color: #848484;

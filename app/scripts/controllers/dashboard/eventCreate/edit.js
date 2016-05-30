@@ -10,7 +10,22 @@
 angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope, $Event, $stateParams, $mdToast) {
     $scope.setEvent($stateParams.eventId);
     $scope.setStep(1);
+    $scope.setValidate(function(){
+        if($scope.event.paypalEmail && $scope.event.paypalEmail) {
+            if (!$scope.eventForm.$dirty) {
+                return true;
+            } else {
+                $mdToast.showSimple("Please save Event Details");
+                return false;
+            }
+        } else {
+            $mdToast.showSimple("Please enter a Paypal Email");
+            return false;
+        }
+    });
     $scope.event = {};
+
+    $scope.eventLocation = {};
 
     $scope.eventLoad = function (event) {
         $scope.event = event;
@@ -24,6 +39,7 @@ angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope,
             $scope.event.startDate = null;
             $scope.event.startTime = null;
         }
+
         if ($scope.event.endDateTime)
             $scope.event.endDateTime = new Date(event.endDateTime);
         if ($scope.event.endDateTime && $scope.event.endDateTime instanceof Date && !isNaN($scope.event.endDateTime.valueOf())) {
@@ -33,6 +49,11 @@ angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope,
             $scope.event.endDateTime = null;
             $scope.event.endDate = null;
             $scope.event.endTime = null;
+        }
+
+        if ($scope.event.location) {
+            $scope.eventLocation = JSON.parse($scope.event.location);
+            $scope.event.location = JSON.parse($scope.event.location).name;
         }
     };
 
@@ -49,13 +70,23 @@ angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope,
 
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function (event) {
-        //$mdToast.showSimple('Event Load: Success');
         $scope.eventLoad(event);
     }, function (error) {
         $scope.onError(error, 'Event Load Error: ')
     });
 
     $scope.updateEvent = function () {
+        if ($scope.event.location.formatted_address) {
+            //Event Changed
+            var results = $scope.event.location;
+            
+            $scope.eventLocation = getLocationObject(results);
+        } else {
+            //Event not changed
+        }
+        
+        $scope.event.location = JSON.stringify($scope.eventLocation);
+        
         if ($scope.event.startDate && $scope.event.startDate instanceof Date && !isNaN($scope.event.startDate.valueOf())) {
             $scope.event.startDateTime = new Date($scope.event.startDate);
             if (!$scope.event.startTime) {
@@ -86,6 +117,7 @@ angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope,
         rv.then(function (event) {
             $mdToast.showSimple('Event Update: Success');
             $scope.eventLoad(event);
+            $scope.eventForm.$setPristine();
         }, function (error) {
             $scope.onError(error, 'Event Update Error: ')
         });

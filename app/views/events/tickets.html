@@ -9,7 +9,9 @@
                 <md-list-item class="md-2-line" ng-repeat='type in ticketTypes'>
                     <div class="md-list-item-text">
                         <h3>{{type.name}}</h3>
-                        <p>{{type.price}}$<!-- - Save 10$ before June 1st 2016</p>--></p>
+                        <p>{{type.price|currency}} 
+                            <!-- - Save 10$ before June 1st 2016</p>-->
+                        </p>
                         <input class='md-secondary' ng-model="qty[$index]" type="number" step="1" ng-disabled='validTicket($index)'>
                     </div>
                     <md-divider ng-if='!$last'></md-divider>
@@ -26,5 +28,9 @@
         <div class='col-md-3 col-md-offset-9 checkout' ng-show='ticketTypes.length > 0'>
             <md-button class="md-raised" ng-click='purchaseTicket()'>Checkout</md-button>
         </div>
+    </div>
+    <div ng-show="showspinner" class="spinnerContainer">
+        <div><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div>
+        <div>Processing your request...</div>
     </div>
 </div>

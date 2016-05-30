@@ -38,7 +38,22 @@ angular.module('mrtikitApp').controller('EventCtrl', function ($scope, $rootScop
     //Get event
     $Event.publicGet($stateParams.id).then(function (data) {
             $scope.event = data;
-            console.log(data);
+
+            $scope.event.location = JSON.parse($scope.event.location);
+            
+            $scope.map = {
+                center: {
+                    latitude: $scope.event.location.location.latitude,
+                    longitude: $scope.event.location.location.longitude
+                },
+                zoom: 17,
+                marker: {
+                    latitude: $scope.event.location.location.latitude,
+                    longitude: $scope.event.location.location.longitude
+                }
+            };
+            
+            $scope.event.location.link = "https://www.google.com/maps/dir//" + encodeURIComponent($scope.event.location.location.street) + ",+" + encodeURIComponent($scope.event.location.location.city) + ",+" + encodeURIComponent($scope.event.location.location.state) + "+" + encodeURIComponent($scope.event.location.location.zip) + "/@" + encodeURIComponent($scope.event.location.location.latitude) + "," + encodeURIComponent($scope.event.location.location.longitude) + ",18.74z";
         },
         function (error) {
             if (error.status == 404) {
@@ -58,7 +73,7 @@ angular.module('mrtikitApp').controller('EventCtrl', function ($scope, $rootScop
     //Ticket Types
     $TicketType.getByEvent($stateParams.id).then(function (data) {
             $scope.ticketTypes = data;
-            console.log(data);
+
             $scope.qty = [];
             for (var i = 0; i < $scope.ticketTypes.length; i++) {
                 $scope.qty[i] = 0;
