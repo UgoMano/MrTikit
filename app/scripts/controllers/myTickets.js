@@ -15,15 +15,6 @@ angular.module('mrtikitApp').controller('MyTicketsCtrl', function ($scope, $Tick
         $scope.ticketsPromise = $Ticket.getByUser($scope.user.loginKey);
         $scope.ticketsPromise.then(function (tickets) {
                 $scope.tickets = tickets;
-                $Event.get($scope.tickets[0].event, $scope.user.loginKey).then(function (event) {
-                    for (var i in $scope.tickets) {
-                        $scope.tickets[i].event = event;
-                    }
-                }, function (error) {
-                    $mdToast.showSimple('error');
-                    console.log(error);
-                });
-
             },
             function (error) {
                 $mdToast.showSimple('error');
