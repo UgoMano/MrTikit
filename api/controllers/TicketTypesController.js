@@ -7,29 +7,48 @@
 
 module.exports = {
 	
-	getNumAvailTickets: function (req, res) {
-    	TicketTypesService.getNumAvailTickets(req.body.ticketTypeId, req.body.eventId).then(function(data){
-	  	  return res.json({
-	  	    data: data
-	  	  });
-	  	}).catch(Res.negotiate);
-  	},
+	getNumAvailTickets: function (req, res, next) {
+    if (!req.body.ticketTypeId) {
+      return next(sails.config.additionals.TICKET_TYPE_NOT_FOUND);
+    } else if (!req.body.eventId) {
+      return next(sails.config.additionals.EVENT_NOT_FOUND);
+    } else {
 
-  	getTicketTypesByEvent: function (req, res) {
-  		TicketTypesService.getTicketTypesByEvent(req.body.eventId).then(function(data) {
-  			return res.json({
-  				data: data
-  			});
-  		}).catch(res.negotiate);
-  	},
+      TicketTypesService.getNumAvailTickets(req.body.ticketTypeId, req.body.eventId).then(function(data){
+        return res.json({
+          data: data
+        });
+      }).catch(Res.negotiate);
 
-    getAllTicketTypesByEvent: function (req, res) {
+    }
+  },
+
+  getTicketTypesByEvent: function (req, res, next) {
+    if (req.body.eventId) {
+      return next(sails.config.additionals.EVENT_NOT_FOUND);
+    } else {
+
+      TicketTypesService.getTicketTypesByEvent(req.body.eventId).then(function(data) {
+        return res.json({
+          data: data
+        });
+      }).catch(res.negotiate);
+
+    }
+  },
+  getAllTicketTypesByEvent: function (req, res, next) {
+    if (req.body.eventId) {
+      return next(sails.config.additionals.EVENT_NOT_FOUND);
+    } else {
+
       TicketTypesService.getAllTicketTypesByEvent(req.body.eventId).then(function(data) {
         return res.json({
           data: data
         });
       }).catch(res.negotiate);
-    },
+      
+    }
+  },
 	
 };
 
