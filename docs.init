@@ -1,0 +1,3 @@
+#!/bin/sh
+docker build -t mt-docs-image -f docs/docs.docker .
+docker run --name mt-docs -d -i -t -p 9966:80 --restart=on-failure:10 mt-docs-image /sbin/my_init

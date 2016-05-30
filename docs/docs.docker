@@ -1,0 +1,26 @@
+FROM phusion/baseimage:0.9.18
+
+MAINTAINER Josh Bauer
+
+RUN DEBIAN_FRONTEND='noninteractive' apt-get update; apt-get install -y git nodejs-legacy npm
+RUN npm install -g npm
+RUN rm /usr/bin/node
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN sudo npm cache clean -f
+RUN sudo npm install -g n
+RUN sudo n stable
+
+RUN sudo ln -sf /usr/local/n/versions/node/5.6.0/bin/node /usr/bin/node 
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ADD id_rsa /root/.ssh/git_rsa
+RUN chmod 600 /root/.ssh/git_rsa
+ADD git_wrap.sh /root/.ssh/git_wrap.sh
+ADD git.init /tmp/git.sh
+RUN /tmp/git.sh api-doc
+RUN rm /tmp/git.sh
+RUN mkdir -p /etc/init.d/
+ADD api/startup.sh /etc/my_init.d/startup.sh
+
+EXPOSE 9966
