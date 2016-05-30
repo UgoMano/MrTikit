@@ -38,6 +38,7 @@ angular.module('mrtikitApp').controller('EventCreateCtrl', function ($scope, $Us
         }
         
     }
+    //this is set in the child controllers because it changes for each page
     $scope.validate=function() {
         return false;
     }
