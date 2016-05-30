@@ -17,5 +17,6 @@ module.exports = {
 
   	'GET /v1/management/getEvents': 'EventsController.getUserOwnedEvents',
   	'POST /v1/management/ticketTypes/': 'TicketTypesController.getTicketTypesByEvent',
+  	'POST /v1/management/getEventTickets/': 'TicketController.getEventTickets',
   }
 };

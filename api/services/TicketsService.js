@@ -135,4 +135,12 @@ module.exports = {
                 return ticket;
             });
     },    
+
+    getEventTickets: function(eventId) {
+        return Tickets.find({event: eventId}).populate('TicketType')
+            .then(function(tickets) {
+                if(!tickets) return sails.config.additionals.TICKETS_NOT_FOUND;
+                return tickets;
+            });
+    }  
 };

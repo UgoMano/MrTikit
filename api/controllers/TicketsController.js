@@ -51,5 +51,18 @@ module.exports = {
             }).catch(res.negotiate);
             
         }
+    },
+
+    getEventTickets: function (req, res, next) {
+        if (!req.body.eventId) {
+            return next(sails.config.additionals.EVENT_NOT_FOUND);
+        } else {
+            TicketsService.getEventTickets(req.body.eventId)
+                .then(function (data) {
+                    return res.json({
+                        data: data,
+                    });
+                }).catch(res.negotiate);
+        }
     }
 };
