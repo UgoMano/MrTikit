@@ -1898,7 +1898,8 @@ hr {
   display: inline;
   height: 50px;
   line-height: 50px;
-  margin-right: 100px;
+  margin-right: 50px;
+  width: 250px;
   float: left;
 }
 .app .myTickets .ticket md-content button {
