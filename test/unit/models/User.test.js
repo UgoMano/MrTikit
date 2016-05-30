@@ -14,6 +14,7 @@ describe('models:User', () => {
       .create(newUser)
       .then(user => {
         assert.equal(user.username, newUser.username);
+        assert.notEqual(user.username, -1);
         done();
       })
       .catch(done);
@@ -23,7 +24,7 @@ describe('models:User', () => {
     User
       .destroy({username: newUser.username})
       .then(users => {
-        assert.equal(users[0].username, newUser.username);
+        assert.equal(users[0].username, null);
         done();
       })
       .catch(done);
