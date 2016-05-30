@@ -8,7 +8,6 @@
  * Controller of the mrtikitApp
  */
 angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User, Facebook, $Event, $mdToast,$timeout) {
-    //console.log('main')
     $rootScope.curEventId;
 
     $rootScope.collapsed = $cookieStore.get("collapsed");
@@ -84,7 +83,7 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
                 }
             });
 
-        console.log($rootScope.user);
+        //console.log($rootScope.user);
 
         //If profile picture is empty fill it
         $scope.profilePicture = function () {
