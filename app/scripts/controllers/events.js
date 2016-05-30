@@ -12,6 +12,13 @@ angular.module('mrtikitApp').controller('EventsCtrl', function ($scope, $Event, 
     $scope.eventsPromise.then(function (events) {
         //$mdToast.showSimple('success');
         //console.log(events);
+        for(var i=0;i<events.length;i++) {
+            try{
+                events[i].location = JSON.parse(events[i].location);
+            } catch(e){
+                events[i].location = {name:events[i].location};
+            }
+        }
         $scope.events = events;
     }, function (error) {
         $mdToast.showSimple('error');

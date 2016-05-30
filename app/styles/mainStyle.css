@@ -1629,19 +1629,21 @@ hr {
   margin-bottom: 1px;
   padding-left: 20px;
   padding-right: 20px;
+  overflow: hidden;
 }
 .app .eventsPage .event .attribute {
   display: inline;
   margin-right: 10px;
+  float: left;
 }
 .app .eventsPage .event .title {
-  width: 200px;
+  width: 300px;
 }
 .app .eventsPage .event .location {
-  width: 100px;
+  width: 300px;
 }
 .app .eventsPage .event .date {
-  width: 100px;
+  width: 200px;
 }
 .app .eventsPage .event .viewButton {
   background-color: #c23b22;
@@ -1894,15 +1896,19 @@ hr {
   padding-right: 20px;
 }
 .app .myTickets .ticket md-content .event,
-.app .myTickets .ticket md-content .price {
+.app .myTickets .ticket md-content .price,
+.app .myTickets .ticket md-content .date {
   display: inline;
   height: 50px;
   line-height: 50px;
-  margin-right: 100px;
+  margin-right: 50px;
+  width: 250px;
+  float: left;
 }
 .app .myTickets .ticket md-content button {
   display: inline;
   float: right;
+  line-height: 50px;
 }
 .app .myTicketsView button {
   margin-left: 0px;

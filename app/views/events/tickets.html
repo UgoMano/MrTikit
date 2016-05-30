@@ -9,7 +9,7 @@
                 <md-list-item class="md-2-line" ng-repeat='type in ticketTypes'>
                     <div class="md-list-item-text">
                         <h3>{{type.name}}</h3>
-                        <p>{{type.price}}$
+                        <p>{{type.price|currency}} 
                             <!-- - Save 10$ before June 1st 2016</p>-->
                         </p>
                         <input class='md-secondary' ng-model="qty[$index]" type="number" step="1" ng-disabled='validTicket($index)'>
