@@ -7,7 +7,5 @@ git reset --hard origin/api-doc
 #npm install -g bower
 #bower install --allow-root --force-latest
 npm install
-npm start
-#STEVE ADD API COMMANDS HERE (download libs and startup)
-#sails lift --prod
-#node_modules/sails/bin/sails.js  lift --prod
+npm run build
+service apache2 start
