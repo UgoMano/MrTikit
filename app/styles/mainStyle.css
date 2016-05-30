@@ -1897,7 +1897,7 @@ hr {
 }
 .app .myTickets .ticket md-content .event,
 .app .myTickets .ticket md-content .price,
-.app .myTickets .ticket md-content .location {
+.app .myTickets .ticket md-content .date {
   display: inline;
   height: 50px;
   line-height: 50px;

@@ -20,6 +20,7 @@ angular.module('mrtikitApp').controller('MyTicketsCtrl', function ($scope, $Tick
                     } catch(e){}
                 }
                 $scope.tickets = tickets;
+                console.log(tickets);
             },
             function (error) {
                 $mdToast.showSimple('error');
