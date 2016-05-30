@@ -35,6 +35,8 @@ describe('models:User', () => {
              .then(event => {
                assert.equal(event.title, newEvent.title);
                assert.equal(event.owner, newEvent.owner);
+               assert.notEqual(event.title, -1);
+               assert.notEqual(event.owner, -1);
                done();
              })
              .catch(done);

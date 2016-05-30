@@ -22,6 +22,7 @@ describe('models:Transactions', () => {
      .then(transaction => {
        assert.equal(transaction.title, newTransaction.title);
        assert.equal(transaction.user, newTransaction.user);
+       assert.notEqual(transaction.user, -1);
        done();
      })
      .catch(done);

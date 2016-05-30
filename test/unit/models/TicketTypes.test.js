@@ -27,6 +27,8 @@ describe('models:TicketTypes', () => {
      .then( ticketType => {
        assert.equal(ticketType.event, newTicketTypes.event);
        assert.equal(ticketType.name, newTicketTypes.name);
+       assert.notEqual(ticketType.event, -1);
+       assert.notEqual(ticketType.name, -1);
        done();
      })
      .catch(done);

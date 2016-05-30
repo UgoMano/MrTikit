@@ -21,6 +21,9 @@ describe('models:tickets', () => {
        assert.equal(ticket.event, newTickets.event);
        assert.equal(ticket.user, newTickets.user);
        assert.equal(ticket.ticketType, newTickets.ticketType);
+       assert.notEqual(ticket.ticketType, -1);
+       assert.notEqual(ticket.event, -1);
+       assert.notEqual(ticket.user, -1);
        done();
      })
      .catch(done);

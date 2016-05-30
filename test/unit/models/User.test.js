@@ -14,6 +14,7 @@ describe('models:User', () => {
       .create(newUser)
       .then(user => {
         assert.equal(user.username, newUser.username);
+        assert.notEqual(user.username, -1);
         done();
       })
       .catch(done);

@@ -17,6 +17,11 @@ describe('models:TempTickets', () => {
        assert.equal(tempTicket.event, newTempTickets.event);
        assert.equal(tempTicket.user, newTempTickets.user);
        assert.equal(tempTicket.ticketType, newTempTickets.ticketType);
+       assert.notEqual(tempTicket.event, -1);
+       assert.notEqual(tempTicket.user, -1);
+       assert.notEqual(tempTicket.ticketType, -1);
+
+
        done();
      })
      .catch(done);
