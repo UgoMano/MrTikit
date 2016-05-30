@@ -13,4 +13,10 @@ module.exports =
   '# Introduction\n' +
   fs.readFileSync('./content/introduction.md', 'utf8') + '\n' +
   '# User\n' +
-  fs.readFileSync('./content/User.md', 'utf8') + '\n';
+  fs.readFileSync('./content/User.md', 'utf8') + '\n' +
+  '# Events\n' +
+  fs.readFileSync('./content/Events.md', 'utf8') + '\n'+
+  '# Ticket Types\n' +
+  fs.readFileSync('./content/TicketTypes.md', 'utf8') + '\n'+
+  '# Tickets\n' +
+  fs.readFileSync('./content/Tickets.md', 'utf8') + '\n';

@@ -5,8 +5,8 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Wobble API Documentation',
-  tablet: 'Wobble API Docs',
+  desktop: 'MrTikit API Documentation',
+  tablet: 'MrTikit API Docs',
   mobile: 'API Docs'
 };
 
@@ -19,7 +19,7 @@ module.exports.brandClasses = 'fill-red';
 /**
  * Text for the link back to the linking website.
  */
-module.exports.backLink = 'Back to wobbles.com';
+module.exports.backLink = 'Back to mrtikit.com';
 
 /**
  * Runs after highlighting code samples. You can use this
