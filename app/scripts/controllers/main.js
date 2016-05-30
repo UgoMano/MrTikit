@@ -22,4 +22,7 @@ angular.module('mrtikitApp').controller('MainCtrl', function ($scope, $cookieSto
             return "Login";
         }
     }
+    $rootScope.$on('$locationChangeStart', function () {
+        $rootScope.previousPage = location.pathname;
+    });
 });
