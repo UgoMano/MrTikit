@@ -9,6 +9,7 @@
  */
 angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scope, $User, $Event, $mdToast, $filter, Facebook) {
     $scope.setStep(0);
+    $scope.setValidate(function(){return false;});
     $scope.events = [];
     $scope.unpublished = [];
     $scope.fbevents = [];
