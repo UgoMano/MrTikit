@@ -70,7 +70,6 @@ angular.module('mrtikitApp').controller('EventCreateEditCtrl', function ($scope,
 
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function (event) {
-        //$mdToast.showSimple('Event Load: Success');
         $scope.eventLoad(event);
     }, function (error) {
         $scope.onError(error, 'Event Load Error: ')

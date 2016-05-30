@@ -14,7 +14,6 @@ angular.module('mrtikitApp').controller('EventCreatePublishCtrl', function ($sco
     $scope.event = {};
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function (event) {
-        //$mdToast.showSimple('Event Load: Success');
         $scope.event=event;
     }, function (error) {
         $scope.onError(error, 'Event Load Error: ')

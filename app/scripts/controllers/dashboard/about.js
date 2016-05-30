@@ -8,5 +8,5 @@
  * Controller of the mrtikitApp
  */
 angular.module('mrtikitApp').controller('AboutCtrl', function () {
-    console.log('about')
+    //console.log('about')
 });

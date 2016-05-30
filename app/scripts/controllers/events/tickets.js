@@ -50,7 +50,6 @@ angular.module('mrtikitApp').controller('EventTicketsCtrl', function ($statePara
         $scope.showspinner=true;
         //hold ticket then purchase
         $Event.holdTicket($scope.user.loginKey, $stateParams.id, ticketTypeId, qty).then(function (data) {
-            console.log(data);
             $window.location = data.data[0].remoteUrl + data.data[0].payKey;
             //$scope.showspinner=false;  
             },

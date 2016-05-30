@@ -11,8 +11,6 @@ angular.module('mrtikitApp').controller('MyEventsCtrl', function ($scope, $Event
     if ($scope.user) {
         $scope.eventsPromise = $Event.getAll($scope.user.loginKey);
         $scope.eventsPromise.then(function (events) {
-            //$mdToast.showSimple('success');
-            //console.log(events);
             $scope.events = events;
         }, function (error) {
             $mdToast.showSimple('error');

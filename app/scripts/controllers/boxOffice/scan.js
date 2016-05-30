@@ -12,7 +12,7 @@ angular.module('mrtikitApp').controller('BoxOfficeScanCtrl', function ($scope, $
 
     $scope.scanTicket = function () {
         $Ticket.scanTicket($scope.user.loginKey, $scope.scanId).then(function (data) {
-                console.log(data);
+                //console.log(data);
 
                 $scope.scanId = null;
 

@@ -16,7 +16,6 @@ angular.module('mrtikitApp').controller('MyTicketsViewCtrl', function ($scope, $
         $scope.ticketsPromise = $Ticket.get($stateParams.ticketId, $scope.user.loginKey);
         $scope.ticketsPromise.then(function (ticket) {
             $scope.ticket = ticket;
-            console.log($scope.ticket);
             JsBarcode("#barcode", $scope.ticket.scanId, {
                 width: 10,
                 height: 400

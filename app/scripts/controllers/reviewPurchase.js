@@ -13,7 +13,6 @@ angular.module('mrtikitApp').controller('ReviewPurchaseCtrl', function ($scope, 
     $scope.trans = $location.search().trans;
     var finalizePurchase = $Event.purchaseTicket($scope.user.loginKey, $scope.trans);
     finalizePurchase.then(function (data) {
-        console.log(data);
         $scope.tickets = data[0].tickets;
         $scope.loadComplete = true;
         $location.search('trans',null);
