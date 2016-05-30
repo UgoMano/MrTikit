@@ -33,7 +33,7 @@ module.exports = {
                 return res.json({
                     data: data,
                 });
-            }).catch(Res.negotiate);
+            }).catch(res.negotiate);
 
         }
     },
