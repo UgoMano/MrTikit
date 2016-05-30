@@ -37,6 +37,10 @@ module.exports = {
     },
 
     location: {
+      type: 'text',
+    },
+
+    photo: {
       type: 'string',
     },
 
