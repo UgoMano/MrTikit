@@ -21,6 +21,6 @@ ADD git.init /tmp/git.sh
 RUN /tmp/git.sh api-doc
 RUN rm /tmp/git.sh
 RUN mkdir -p /etc/init.d/
-ADD api/startup.sh /etc/my_init.d/startup.sh
+ADD docs/startup.sh /etc/my_init.d/startup.sh
 
 EXPOSE 9966
