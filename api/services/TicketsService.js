@@ -99,6 +99,10 @@ module.exports = {
                         lastName: ticket.user.lastName,
                         email: ticket.user.email,
                     },
+                    ticketType: {
+                        name: ticket.ticketType.name,
+                        section: ticket.tyicketType.section,
+                    },
                 };
 
                 return ticketObjectToReturn;
@@ -131,4 +135,12 @@ module.exports = {
                 return ticket;
             });
     },    
+
+    getEventTickets: function(eventId) {
+        return Tickets.find({event: eventId}).populate('TicketType')
+            .then(function(tickets) {
+                if(!tickets) return sails.config.additionals.TICKETS_NOT_FOUND;
+                return tickets;
+            });
+    }  
 };

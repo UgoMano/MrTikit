@@ -27,22 +27,16 @@ module.exports = {
 	},
 
     getAllAttendees: function(eventId) {
-        return TicketsService.getTicketsByEvent(eventId)
+        return Tickets.find({event: eventId}).populateAll()
             .then(function(tickets) {
-                var promises= [];
-
+                var allNames = [];
                 _.each(tickets, function(ticket) {
-                    promises.push(User.findOne({id: ticket.user}));
+                        var fullName = ticket.user.firstName + ' ' + ticket.user.lastName;
+                        allNames.push(fullName);
                 });
 
-                return Promise.all(promises).then(function(attendees) {
-                    var allNames = [];
-                    _.each(attendees, function(user) {
-                        var fullName = user.firstName + ' ' + user.lastName;
-                        allNames.push(fullName);
-                    });
-                    return allNames;
-                });
+                return allNames;
+
             });
     },
 
@@ -88,6 +82,10 @@ module.exports = {
     getUserOwnedEvents: function(userId) {
         return Events.find({owner: userId})
             .then(function (events) {
+                if(!events)
+                    return sails.config.additionals.EVENTS_NOT_FOUND;
+
+
                 return events;
             });
     },
