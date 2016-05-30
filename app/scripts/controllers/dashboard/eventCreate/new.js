@@ -11,6 +11,11 @@ angular.module('mrtikitApp').controller('EventCreateNewCtrl', function ($scope, 
     $scope.setStep(1);
     $scope.event = {};
     $scope.createEvent = function () {
+        
+        if(!$scope.event.location || !scope.event.location.formatted_address) {
+            $mdToast.showSimple('Please enter a valid location');
+        }
+        
         $scope.event.owner = $scope.user.id;
         if ($scope.event.startDate && $scope.event.startDate instanceof Date && !isNaN($scope.event.startDate.valueOf())) {
             $scope.event.startDateTime = new Date($scope.event.startDate);

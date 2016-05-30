@@ -20,7 +20,8 @@ angular.module('mrtikitApp', [
     'ngMaterial',
     'monospaced.qrcode',
     'uiGmapgoogle-maps',
-    'facebook'
+    'facebook',
+    'google.places'
   ]).config(function ($stateProvider, $urlRouterProvider, $locationProvider, FacebookProvider) {
     $stateProvider
     .state('login', {
