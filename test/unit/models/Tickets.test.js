@@ -11,8 +11,6 @@ const newTickets = {
  firstScanTime: "",
  lastScanTime: "",
  totalScans: "1"
- 
-
 };
 
 describe('models:tickets', () => {
