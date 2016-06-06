@@ -13,6 +13,7 @@ angular.module('mrtikitApp').controller('EventOverviewCtrl', function ($scope, $
     $scope.ticketTypes = [];
     $scope.eventPromise = $Event.get($scope.curEventId, $scope.user.loginKey);
     $scope.eventPromise.then(function (event) {
+        console.log(event);
         try {
             event.location = JSON.parse(event.location);
         } catch (e) {}

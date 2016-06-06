@@ -55,7 +55,8 @@ factory('$Event', function ($http, $location, $timeout, $q) {
                 endDateTime: event.endDateTime,
                 checkIn: event.checkIn,
                 facebookId: event.facebookId,
-                description: event.description
+                description: event.description,
+                photo: event.photo
             }
         }
 

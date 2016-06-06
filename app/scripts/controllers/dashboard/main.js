@@ -9,6 +9,7 @@
  */
 angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $rootScope, $interval, $location, $state, $mdSidenav, $cookieStore, $mdDialog, $User, Facebook, $Event, $mdToast,$timeout) {
     $rootScope.curEventId;
+    $rootScope.eventName;
 
     $rootScope.collapsed = $cookieStore.get("collapsed");
     if ($rootScope.collapsed == null) {
@@ -26,8 +27,20 @@ angular.module('mrtikitApp').controller('DashboardMainCtrl', function ($scope, $
         }
     };
 
+    //THIS NEEDS TO BE CHANGED
     $rootScope.setEvent = function (eventId) {
-        $rootScope.curEventId = eventId;
+        if($rootScope.curEventId != eventId || !$rootScope.eventName) {
+            $rootScope.curEventId = eventId;
+        
+            $Event.get(eventId, $rootScope.user.loginKey).then(function (data) {
+                //This shouldn't do anything
+                //console.log(data);
+                $rootScope.eventName = data.title;
+            },
+            function (error) {
+               console.log(error);
+            });
+        }
     }
 
     $scope.openUserMenu = function ($mdOpenMenu, ev) {

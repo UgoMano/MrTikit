@@ -59,6 +59,8 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
                 description: e.description,
                 title: e.name
             };
+            newe.photo = "https://scontent-iad3-1.xx.fbcdn.net/hphotos-xlf1/v/t1.0-9/12813916_10208192269592004_2427574264893653872_n.jpg?oh=ee6eefb71469c2a25e76d8797e866504&oe=575A01C5";
+            
             var rv = $Event.create($scope.user.loginKey, newe);
             rv.then(function (event) {
                 $mdToast.showSimple('Create Event: Successful');
@@ -91,6 +93,8 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
                         description: e.description,
                         title: e.name
                     };
+                    newe.photo = "https://scontent-iad3-1.xx.fbcdn.net/hphotos-xlf1/v/t1.0-9/12813916_10208192269592004_2427574264893653872_n.jpg?oh=ee6eefb71469c2a25e76d8797e866504&oe=575A01C5";
+                    
                     var rv = $Event.create($scope.user.loginKey, newe);
                     rv.then(function (event) {
                         $mdToast.showSimple('Create Event: Successful');
