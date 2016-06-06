@@ -23,6 +23,7 @@ angular.module('mrtikitApp').controller('MyTicketsViewCtrl', function ($scope, $
             $scope.eventPromise = $Event.get($scope.ticket.event, $scope.user.loginKey);
             $scope.eventPromise.then(function (event) {
                 $scope.event = event;
+                $scope.event.location = JSON.parse(event.location);
             }, function (error) {
                 console.log(error);
                 $mdToast.showSimple('Event Load: Error');
