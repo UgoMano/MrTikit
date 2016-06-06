@@ -18,7 +18,7 @@ angular.module('mrtikitApp').controller('EventCreateSelectCtrl', function ($scop
     $scope.eventsPromise.then(function (events) {
         $scope.events = events;
         $scope.unpublished = $filter('filter')(events, {
-            published: false
+            published: false,owner:$scope.user.id
         });
     }, function (error) {
         $mdToast.showSimple('error');
