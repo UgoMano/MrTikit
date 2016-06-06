@@ -8,7 +8,9 @@
     <div class="tickets" ng-show="loadComplete">
         <md-card ng-repeat="ticket in tickets">
             <md-card-content>
-                <div class="info">{{ticket.id}}</div>
+                <div class="event">{{ticket.event.title}}</div>
+                <div class="price">{{ticket.ticketType.price|currency}}</div>
+                <div class="date">{{ticket.event.startDateTime|date:"MMM d, y h:mm a"}}</div>
                 <md-button class="view" ng-click="view(ticket.id)">view</md-button>
             </md-card-content>
         </md-card>
