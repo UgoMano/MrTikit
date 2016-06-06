@@ -1,7 +1,12 @@
-<IfModule mod_rewrite.c>
+# Apache .htaccess
+
+# angularjs pushstate (history) support:
+# See http://www.josscrowcroft.com/2012/code/htaccess-for-html5-history-pushstate-url-routing/
+<ifModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)       /index.html/#/$1 
-</IfModule>
+    RewriteCond %{REQUEST_URI} !index
+    RewriteCond %{REQUEST_URI} !.*\.(css¦js|html|png) #Add extra extensions needed.
+    RewriteRule (.*) index.html [L]
+</ifModule>
