@@ -17,7 +17,7 @@ angular.module('mrtikitApp').controller('ReviewPurchaseCtrl', function ($scope, 
         $scope.loadComplete = true;
         $location.search('trans', null);
         
-        $Event.get($scope.tickets[i], $rootScope.user.loginKey).then(function (data) {
+        $Event.get($scope.tickets[0], $rootScope.user.loginKey).then(function (data) {
             //This shouldn't do anything
             //console.log(data);
             $scope.eventTitle = data.title;
