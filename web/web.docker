@@ -15,6 +15,7 @@ RUN rm /tmp/git.sh
 RUN mkdir -p /etc/init.d/
 ADD web/startup.sh /etc/my_init.d/startup.sh
 ADD web/mrtikit.conf /etc/apache2/sites-available/mrtikit.conf
+RUN a2enmod rewrite
 RUN a2dissite 000-default
 RUN a2ensite mrtikit 
 
