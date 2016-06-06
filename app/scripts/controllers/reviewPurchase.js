@@ -15,7 +15,16 @@ angular.module('mrtikitApp').controller('ReviewPurchaseCtrl', function ($scope, 
     finalizePurchase.then(function (data) {
         $scope.tickets = data[0].tickets;
         $scope.loadComplete = true;
-        $location.search('trans',null);
+        $location.search('trans', null);
+        
+        $Event.get($scope.tickets[i], $rootScope.user.loginKey).then(function (data) {
+            //This shouldn't do anything
+            //console.log(data);
+            $scope.eventTitle = data.title;
+        },
+        function (error) {
+            console.log(error);
+        });
     }, function (error) {
         console.log(error);
     });
