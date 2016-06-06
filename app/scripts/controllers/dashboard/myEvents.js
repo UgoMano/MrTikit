@@ -9,6 +9,7 @@
  */
 angular.module('mrtikitApp').controller('MyEventsCtrl', function ($scope, $Event, $mdToast) {
     if ($scope.user) {
+        $scope.query = {published:true,owner:$scope.user.id};
         $scope.eventsPromise = $Event.getAll($scope.user.loginKey);
         $scope.eventsPromise.then(function (events) {
             $scope.events = events;

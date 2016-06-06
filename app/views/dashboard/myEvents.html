@@ -1,5 +1,5 @@
 <div class="myEventsContainer" layout="column">
-    <md-card ng-repeat="e in events | filter:{published:true}" class="myEvent">
+    <md-card ng-repeat="e in events | filter:query" class="myEvent">
         <md-content>
             <div class="eventName">{{e.title}}</div>
             <md-button ng-click="go('/dashboard/events/'+e.id+'/edit')">edit</md-button>
