@@ -5,7 +5,7 @@ package com.mrtikit.mrtikit;
  */
 public class TokenHolder
 {
-    private static final String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiaWF0IjoxNDY0NTU5MDM3LCJleHAiOjE0NjQ2NDU0Mzd9.75oy37d20V8FNEnCkvkIRbWblJOyZl3uoDH4CAGa65Oohq-yn3Ud2VLiOEqriSJwEn7xfKMvr5h3tL6dcAM1_w";
+    private static final String token = "";
 
     public static String getToken()
     {
