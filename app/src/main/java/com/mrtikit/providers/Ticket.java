@@ -93,7 +93,7 @@ public class Ticket implements Api
                     try {
                         String line = "";
 
-                        URL url = new URL("http://54.69.160.45:8000/v1/tickets/getUserTickets");
+                        URL url = new URL("");
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                         conn.setRequestMethod("GET");
 
@@ -146,7 +146,7 @@ public class Ticket implements Api
         json.put("ticketScanId", scanId);
 
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpPost post = new HttpPost("http://54.69.160.45:8000/v1/tickets/scanTicket");
+        HttpPost post = new HttpPost("");
 
         StringEntity entity = new StringEntity(json.toString());
         post.setEntity(entity);
