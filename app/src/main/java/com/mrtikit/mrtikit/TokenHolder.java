@@ -5,7 +5,7 @@ package com.mrtikit.mrtikit;
  */
 public class TokenHolder
 {
-    private static final String token = "";
+    private static final String token = ""; 
 
     public static String getToken()
     {
