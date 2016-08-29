@@ -44,7 +44,7 @@ public class User implements Api {
         json.put("password", password);
         json.put("event", 2);
 
-        URL url = new URL("http://54.69.160.45:8000/v1/auth/signin");
+        URL url = new URL("");
         String message = json.toString();
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
