@@ -40,7 +40,7 @@ public class Ticket implements Api
         StringBuffer result = new StringBuffer();
 
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpGet get = new HttpGet("http://54.69.160.45:8000/v1/tickets/" + id);
+        HttpGet get = new HttpGet("" + id);
 
         try {
             get.setHeader("Content-type", "application/json");
