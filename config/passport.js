@@ -44,7 +44,7 @@ const LOCAL_STRATEGY_CONFIG = {
  * @private
  */
 const JWT_STRATEGY_CONFIG = {
-  secretOrKey: '300a7e5a79cb28537906b60811253abb451abff85f364fbde7832d87929e65dc',
+  secretOrKey: '', // insert secret
   jwtFromRequest: ExtractJwt.versionOneCompatibility({tokenBodyField: 'access_token'}),
   tokenQueryParameterName: 'access_token',
   authScheme: 'Bearer',
@@ -58,8 +58,8 @@ const JWT_STRATEGY_CONFIG = {
  * @private
  */
 const SOCIAL_STRATEGY_CONFIG = {
-  clientID: '541547949359653',
-  clientSecret: '690c6493cdc2d497fdbadf9da628ac8e',
+  clientID: '', // insert clientID
+  clientSecret: '', // insert secret
   consumerKey: '-',
   consumerSecret: '-',
   passReqToCallback: true

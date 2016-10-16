@@ -13,17 +13,17 @@ module.exports = {
             headers: {
                 'cache-control': 'no-cache',
                 'content-type': 'application/json',
-                'x-paypal-security-signature': 'AFcWxV21C7fd0v3bYYYRCpSSRl31A9eS.Hxi5aTLQ3K7gzcNm1f6chQP',
-                'x-paypal-security-password': 'P32UAUYAHDAQK3ZR',
-                'x-paypal-security-userid': 'chainedpayment_api1.test.com',
+                'x-paypal-security-signature': '.Hxi5aTLQ3K7gzcNm1f6chQP', // insert sec sig
+                'x-paypal-security-password': '', // insert sec password
+                'x-paypal-security-userid': '', // insert sec user id
                 'x-paypal-response-data-format': 'JSON',
                 'x-paypal-request-data-format': 'JSON',
-                'x-paypal-application-id': 'APP-80W284485P519543T'
+                'x-paypal-application-id': '' // insert app id 
             },
             body: {
                 actionType: 'PAY',
                 clientDetails: {
-                    applicationId: 'APP-80W284485P519543T',
+                    applicationId: '',  // insert app id 
                     ipAddress: '127.0.0.1'
                 },
                 currencyCode: 'USD',
@@ -59,12 +59,12 @@ module.exports = {
             headers: {
                 'cache-control': 'no-cache',
                 'content-type': 'application/json',
-                'x-paypal-security-signature': 'AFcWxV21C7fd0v3bYYYRCpSSRl31A9eS.Hxi5aTLQ3K7gzcNm1f6chQP',
-                'x-paypal-security-password': 'P32UAUYAHDAQK3ZR',
-                'x-paypal-security-userid': 'chainedpayment_api1.test.com',
+                'x-paypal-security-signature': '.Hxi5aTLQ3K7gzcNm1f6chQP',  // insert sec sig
+                'x-paypal-security-password': '', // insert sec password
+                'x-paypal-security-userid': '', // insert sec user id
                 'x-paypal-response-data-format': 'JSON',
                 'x-paypal-request-data-format': 'JSON',
-                'x-paypal-application-id': 'APP-80W284485P519543T'
+                'x-paypal-application-id': ''  // insert app id 
             },
             body: {
                 payKey: payKey,

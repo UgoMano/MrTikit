@@ -68,10 +68,10 @@ module.exports = {
      */
     mysql: {
       adapter: 'sails-mysql-transactions',
-      host: 'localhost', //54.69.160.45
+      host: 'localhost', 
       port: 3306,
       user: 'mrtikit',
-      password: 'mrtikit12', //BLHpBEFD4yVRt6QX
+      password: 'mrtikit12',
       database: 'mrtikit',
       charset: 'utf8',
       collation: 'utf8_swedish_ci',
@@ -86,10 +86,10 @@ module.exports = {
      */
     mysqlProd: {
       adapter: 'sails-mysql-transactions',
-      host: '54.69.160.45', //54.69.160.45
-      port: 3306,
+      host: '', //insert ip
+      port: '', //insert port number
       user: 'mrtikit',
-      password: 'BLHpBEFD4yVRt6QX', //BLHpBEFD4yVRt6QX
+      password: '', //insert password
       database: 'mrtikit',
       charset: 'utf8',
       collation: 'utf8_swedish_ci'
